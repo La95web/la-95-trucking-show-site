@@ -1,0 +1,15 @@
+{
+  "name": "la-95-trucking-show-site",
+  "type": "module",
+  "version": "0.0.0",
+  "scripts": {
+    "dev": "astro dev --port 5500",
+    "start": "astro dev --port 5500",
+    "build": "astro build",
+    "preview": "astro preview",
+    "astro": "astro"
+  },
+  "dependencies": {
+    "astro": "^4.16.9"
+  }
+}
