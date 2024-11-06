@@ -1,16 +1,53 @@
 ---
-
+import "../style/global.scss";
+import Header from "../components/Header.astro";
+import HomeSlider from "../components/HomeSlider.astro";
+import Radio from "../components/Radio.astro";
+import PrimarySection from "../components/PrimarySection.astro";
+import GuestCard from "../components/GuestCard.astro";
+import Badbunny from "/assets/image/bad.png";
+import Jlo from "/assets/image/jlo.png";
+import Yankee from "/assets/image/daddy.png";
 ---
 
-<html lang="en">
+<html lang="es">
 	<head>
 		<meta charset="utf-8" />
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 		<meta name="viewport" content="width=device-width" />
 		<meta name="generator" content={Astro.generator} />
-		<title>La 95 Trucking Show</title>
+		<title>La 95 trucking show</title>
 	</head>
 	<body>
-		<h1>Proyecto Inicializado el louuis</h1>
+		<Header></Header>
+		<HomeSlider images={['/assets/image/camion.png', '/assets/image/image2.jpg', '/assets/image/image2.jpg', '/assets/image/image2.jpg']} />
+		<Radio></Radio>
+		<PrimarySection 
+		title="EL PODCAST MÁS DURO"
+		paragraph="este es un titulo de ejemplo, este es un titulo de ejemplo, este es un titulo de ejemplo, este es un titulo de ejemplo, este es un titulo de ejemplo, este es un titulo de ejemplo, este es un titulo de ejemplo, este es un titulo de ejemplo, este es un titulo de ejemplo"></PrimarySection>
+		<h1>INVITADOS ESPECIALES</h1>
+        <div class="underline"></div>
+		<GuestCard 
+		name="Bad bunny"
+		image={Badbunny}
+		description="este es un ejemplo de la descripcion"
+		url=""></GuestCard>
+		<GuestCard 
+		name="Jennifer Lopez"
+		image={Jlo}
+		description="este es un ejemplo de la descripcion de jlo"
+		url=""></GuestCard>
+		<GuestCard 
+		name="Daddy yankee"
+		image={Yankee}
+		description="este es un ejemplo de la descripcio yankee"
+		url=""></GuestCard>
+		<PrimarySection
+		title="Conviértete en patrocinador"
+		paragraph="este es un ejemplo de la descripcio, este es un ejemplo de la descripcio, este es un ejemplo de la descripcio, este es un ejemplo de la descripcio, este es un ejemplo de la descripcio"></PrimarySection>
+        <slot/>
+		<script>
+			import "../scripts/menu.js"
+		  </script>
 	</body>
 </html>
