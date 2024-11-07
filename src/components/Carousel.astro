@@ -1,27 +1,30 @@
     <div id="carouselimg">
-      <a href="#"><img src="/assets/image/logo1.png" alt="Slide 1"></a>
-      <a href="#"><img src="/assets/image/logo1.png" alt="Slide 2"></a>
-      <a href="#"><img src="/assets/image/logo1.png" alt="Slide 3"></a>
-      <a href="#"><img src="/assets/image/logo1.png" alt="Slide 4"></a>
-      <a href="#"><img src="/assets/image/logo1.png" alt="Slide 5"></a>
+      <a href="#"><img src="/assets/image/logo2.png" alt="Slide 2"></a>
+      <a href="#"><img src="/assets/image/logo3.png" alt="Slide 3"></a>
+      <a href="#"><img src="/assets/image/logo4.png" alt="Slide 4"></a>
+      <a href="#"><img src="/assets/image/logo5.png" alt="Slide 5"></a>
+      <a href="#"><img src="/assets/image/logo3.png" alt="Slide 3"></a>
     </div>
   
   <style lang="scss">
+    @use '/assets/sass/index' as*;
 
     #carouselimg {
     display: flex;
     overflow: hidden;
-    white-space: nowrap;
   }
 
   div {
-    background-color: yellow;
+    background-color: $accent-b-dark;
+    padding: 20px;
   }
   
   #carouselimg img {
-    width: 150px; 
+    width: 60px; 
     height: auto;
-    margin-right: 10px;
+    margin-right: 40px;
+    justify-content: center;
+    align-items: center;
   }
   </style>
   
