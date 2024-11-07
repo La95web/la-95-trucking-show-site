@@ -2,7 +2,7 @@
     <button id="play-button"></button>
     <button id="pause-button"></button>
     <p id="song-title">La neverita-bad bunny</p>
-    <button id="volume-button">🔊</button>
+    <button id="volume-button"></button>
   </div>
 
   <style lang="scss">
@@ -13,63 +13,45 @@
       background-color: $accent-b-dark;
       aspect-ratio: 402 / 45;
       margin-bottom: 40px;
+      display: flex; 
+      align-items: center; 
+      justify-content: space-around;
     }
   
-    #play-button, #pause-button, #volume-button {
+    button {
       width: 32px;
       height: 32px;
-      margin: 0 5%;
+      background-color: transparent;
+      background-repeat: no-repeat;
+      background-position: center;
+      border: none; 
       cursor: pointer;
-      background-color: $primary;
-      border: none;
-      border-radius: 5px;
-      transition: background-color 0.3s;
-      display: flex;
-      align-items: center;
-      justify-content: center;
+      
     }
   
     #play-button {
-      clip-path: polygon(0% 0%, 100% 50%, 0% 100%); /* Triángulo para el botón de play */
-      background-color: $primary; /* Cambia al color que prefieras para el botón de play */
+      background-image: url("/assets/image/play.svg");
     }
   
     #pause-button {
-      position: relative;
-    //   margin-left: 5px;
+      background-image: url("/assets/image/pause.svg");
+      margin: 0;
     }
   
-    #pause-button::before, #pause-button::after {
-      content: '';
-      position: absolute;
-      width: 10px;
-      height: 100%;
-      background-color: $accent-b-dark;
-    }
-
     #volume-button {
-        background-color: transparent;
-        font-size: 2rem;
-    }
-  
-    #pause-button::before {
-      left: 10px;
-    }
-  
-    #pause-button::after {
-      right: 10px;
-    }
-  
-    #volume-button:hover, #play-button:hover, #pause-button:hover {
-      background-color: $accent-b-light;
+      background-image: url("/assets/image/volume.svg");
     }
   
     #song-title {
       font-size: 1.5rem;
       font-weight: $regular;
-      font-family: $bevas;
+      font-family: $heading;
+      color: $primary;
       margin: 0;
     }
   </style>
+  
+  
+
   
   
