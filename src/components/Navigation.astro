@@ -21,7 +21,10 @@
                 <li><a href="#" rel="noreferrer">noticias & tips</a></li>
                 <li><a href="#" rel="noreferrer">podcasts</a></li>
                 <li><a href="#" rel="noreferrer">tienda</a></li>
-                <li class="vector"><img  src="/assets/image/Vector.svg" alt="vector"><a href="#" rel="noreferrer">en</a></li>
+                <div class="content"> 
+                <li><a href="#" rel="noreferrer">en</a></li>
+                <i class="ph ph-translate"></i>
+              </div>
             </ul>
          </div>
    </nav>
@@ -45,7 +48,7 @@
 }
 
 .tire {
-  background-image: url('/assets/image/Tiremark.svg');
+  background-image: url('/assets/image/Tiremark.webp');
   background-repeat: no-repeat;
   background-position: center center;
   background-size: cover;
@@ -63,28 +66,26 @@
   transition: transform 0.5s ease, opacity 0.9s ease;
 }
 
-.vector {
-  display: flex;
-  flex-direction: row-reverse;
+.content, i {
   justify-content: center;
   align-items: center;
+  text-align: center;
+  font-size: 1.5rem;
+  color: $secondary;
 }
 
-.vector img {
-  justify-content: space-between;
-  width: 30px;
-  height: 20px;
-  margin-left: 5px;
+.content li {
+  display: inline-block;
 }
 
 .navlinks a {
   display: block;
   text-align: center;
-  padding: 25px 0;
+  padding: 20px 0;
   text-decoration: none;
-  font-size: 30px;
+  font-size: 2rem;
   font-weight: $regular;
-  font-family: $bevas;
+  font-family: $heading;
   text-transform: uppercase;
   color: $secondary;
 }
@@ -158,7 +159,7 @@ li .decoration {
 }
 
 .nav-logo img {
-  width: 200px;
+  width: 160px;
   height: auto;
 }
 
