@@ -1,0 +1,109 @@
+---
+import TrafficLight from "../components/TrafficLight.astro";
+import Navigation from "../components/Navigation.astro";
+
+const {title} = Astro.props;
+---
+
+<!doctype html>
+<html lang="es">
+	<head>
+		<meta charset="utf-8" />
+		<link rel="icon" type="image/svg+xml" href="" />
+		<meta name="viewport" content="width=device-width" />
+		<meta name="generator" content={Astro.generator} /> <!--chequear luego antes de ir a produccion -->
+		<title>{title}</title>
+		<script src="https://unpkg.com/@phosphor-icons/web"></script>
+	</head>
+    <body>
+        <TrafficLight />
+        <Navigation />
+        <slot />
+    </body>
+</html>
+
+<style is:global lang="scss">
+    @use '/assets/sass/index' as *; 
+    
+    html {
+      scroll-behavior: smooth;
+    }
+    
+    li, ol, a {
+      list-style: none;
+      text-decoration: none;
+    }
+    
+    body {
+      background-color: $tertiary;
+      font-size: 16px;
+      margin: 0;
+      padding: 0;
+    }
+    
+    * {
+      box-sizing: border-box;
+    }
+    
+    h1 {
+      font-size: 2rem;
+      font-weight: $regular;
+      font-family: $heading;
+      color: $secondary;
+      margin: 0 5%;
+    }
+    
+    .underline {
+      width: 50%;
+      height: 4px;
+      background-color: $accent-b-dark;
+      justify-content: left;
+      margin-top: 0px;
+      border-radius: 2px;
+      margin: 0 5%; 
+    }
+    
+    p {
+      font-size: 1rem;
+      font-family: $text;
+      font-weight: $regular;
+      color: $secondary;
+    }
+    
+    // inicia botoon de accion
+    
+    .light-button {
+      width: 145px; 
+      height: 40px;
+      border-radius: 8px;
+      padding: 20px;
+      margin: 30px 5% 50px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      transition: background-color 0.3s, box-shadow 0.3s;
+    
+    }
+    
+    a {
+      color: $primary;
+      font-size: 1.5rem;
+      font-weight: $regular;
+      font-family: $heading;
+    }
+    
+    .light-button.red-button {
+      background-color: $accent-c-dark;
+      box-shadow: 0 0 20px 10px rgba($accent-c-dark, 35%);
+      
+    }
+    
+    .red-button {
+      background-color: $accent-c-light;
+    }
+    
+    .light.red:hover {
+        background-color: $accent-c-light;
+        box-shadow: 0 0 25px 15px rgba($accent-c-light, 35%);
+      }
+    </style>
