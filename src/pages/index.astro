@@ -1,16 +1,42 @@
 ---
-
+import HomeSlider from "../components/HomeSlider.astro";
+import Radio from "../components/Radio.astro";
+import PrimarySection from "../components/PrimarySection.astro";
+import GuestCard from "../components/GuestCard.astro";
+import Badbunny from "/assets/image/bad.webp";
+import Jlo from "/assets/image/jlo.webp";
+import Yankee from "/assets/image/daddy.webp";
+import SpanishLayout from "../layouts/SpanishLayout.astro";
 ---
 
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>La 95 Trucking Show</title>
-	</head>
-	<body>
-		<h1>Proyecto Inicializado</h1>
-	</body>
-</html>
+
+	<SpanishLayout title="la 95 trucking show">
+		<HomeSlider images={['/assets/image/camion.webp', '/assets/image/image2.webp', '/assets/image/truck3.webp']} />
+		<Radio></Radio>
+		<PrimarySection 
+		title="EL PODCAST MÁS DURO"
+		paragraph="este es un titulo de ejemplo, este es un titulo de ejemplo, este es un titulo de ejemplo, este es un titulo de ejemplo, este es un titulo de ejemplo, este es un titulo de ejemplo, este es un titulo de ejemplo, este es un titulo de ejemplo, este es un titulo de ejemplo"></PrimarySection>
+		<h1>INVITADOS ESPECIALES</h1>
+        <div class="underline"></div>
+		<GuestCard 
+		name="Bad bunny"
+		image={Badbunny}
+		description="este es un ejemplo de la descripcion skfhskj kasjdhksf ksjdfhkshf ksdhfksf"
+		url=""></GuestCard>
+		<GuestCard 
+		name="Jennifer Lopez"
+		image={Jlo}
+		description="este es un ejemplo de la descripcion de jlo alsdja klsjdlasd haskldha sjdfhk skdjfhsk"
+		url=""></GuestCard>
+		<GuestCard 
+		name="Daddy yankee"
+		image={Yankee}
+		description="este es un ejemplo de la descripcio yankee kajsdh kajsdhkadh kajshkks ksjdfh ksjdfh ksdjfh"
+		url=""></GuestCard>
+		<PrimarySection
+		title="Conviértete en patrocinador"
+		paragraph="este es un ejemplo de la descripcio, este es un ejemplo de la descripcio, este es un ejemplo de la descripcio, este es un ejemplo de la descripcio, este es un ejemplo de la descripcio"></PrimarySection>
+	</SpanishLayout>
+		<script>
+			import "../scripts/menu.js"
+		  </script>

@@ -1,0 +1,101 @@
+<button id="traffic-light" type="button" class="traffic-light">
+    <div class="light red">
+      <div class="glow red" />
+    </div>
+    <div class="light yellow">
+      <div class="glow yellow" />
+    </div>
+    <div class="light green">
+      <div class="glow green" />
+    </div>
+  </button>
+
+<style lang="scss">
+      @use '/assets/sass/index' as *;
+    
+    .traffic-light {
+    position: fixed;
+    top: 25px;
+    right: 5%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 3px;
+    width: fit-content;
+    padding: 4px;
+    background-color: $tertiary;
+    border-radius: 12.5px;
+    cursor: pointer;
+    z-index: 99;
+  }
+
+  .light, .glow {
+    border-radius: 50%;
+  }
+
+  .light {
+    width: 17px; 
+    height: 17px;
+    padding: 1px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: background-color 0.3s, box-shadow 0.3s;
+  }
+
+  .light.red {
+    background-color: $accent-c-dark;
+    box-shadow: 0 0 20px 10px rgba($accent-c-dark, 35%); 
+  }
+
+  .light.yellow {
+    background-color: $accent-b-dark;
+    box-shadow: 0 0 20px 10px rgba($accent-b-dark, 35%);
+  }
+
+  .light.green {
+    background-color: $accent-a-dark;
+    box-shadow: 0 0 20px 10px rgba($accent-a-dark, 35%);
+  }
+
+  .glow {
+    width: 14px;
+    height: 14px;
+  }
+
+  .glow.red {
+    background-color: $accent-c-light;
+  }
+
+  .glow.yellow {
+    background-color: $accent-b-light;
+  }
+
+  .glow.green {
+    background-color: $accent-a-light;
+  }
+
+  .traffic-light:hover {
+    .light.red {
+      background-color: $accent-c-light;
+      box-shadow: 0 0 25px 15px rgba($accent-c-light, 35%);
+    }
+
+    .light.yellow {
+      background-color: $accent-b-light;
+      box-shadow: 0 0 25px 15px rgba($accent-b-light, 35%);
+    }
+
+    .light.green {
+      background-color: $accent-a-light;
+      box-shadow: 0 0 25px 15px rgba($accent-a-light, 35%);
+    }
+
+  }
+  @media only screen and (min-width: 1024px) {
+
+  .traffic-light {
+    display: none;
+  }
+}
+</style>
