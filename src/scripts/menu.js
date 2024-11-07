@@ -28,9 +28,9 @@ for (let i = 0; i < imageCount; i++) {
 function moveCarousel() {
   carousel.scrollLeft += scrollSpeed;
 
-  if (carousel.scrollLeft >= carousel.scrollWidth / 2) {
-    carousel.scrollLeft = 0;
+  if (carousel.scrollLeft >= images[0].clientWidth * imageCount){ 
+      carousel.scrollLeft = 0;
   }
 }
-setInterval(moveCarousel, 10);
+setInterval(moveCarousel, 20);
   
