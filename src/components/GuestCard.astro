@@ -12,9 +12,7 @@ const {name, image, description, url} = Astro.props
       <div class="light-gold gold-button">
         <a href={url}>ACCIÓN</a>
       </div>
-      <div class="small-image">
-      <img src="/assets/image/Frame2.svg" alt="Small Image">
-    </div>  
+      <div class="small-image"></div>  
     </div>
   </div>
   
@@ -23,10 +21,9 @@ const {name, image, description, url} = Astro.props
   
     .card {
       position: relative;
-      width: 370px;
-      height: 368px;
-      margin: 0 auto;
-      background-color: $tertiary;
+      width: 90%;
+      margin: 0 5%;
+      background-color: $primary;
       border-radius: 8px;
       overflow: hidden;
       margin-top: 30px;
@@ -60,10 +57,11 @@ const {name, image, description, url} = Astro.props
       margin-top: 6px;
       font-weight: $regular;
       font-family: $heading;
+      padding-left: 20px;
     }
   
     .card-content {
-      padding: 10px;
+      padding: 20px;
     }
   
     .card-description {
@@ -74,19 +72,14 @@ const {name, image, description, url} = Astro.props
 
     .small-image {
       position: absolute;
-      top: 230px;
+      top: 240px;
       left: 242px;
       width: 140px;
-      height: 140px;
+      height: 150px;
       display: flex;
-      justify-content: center;
-      align-items: center;
-    }
-
-    .small-image img {
-      width: 100%; 
-      height: auto;
-      filter: brightness(1.5); 
+      background-image: url('/assets/image/Frame2.svg');
+      background-size: cover;
+      background-position: center;
     }
 
     .light-gold {
