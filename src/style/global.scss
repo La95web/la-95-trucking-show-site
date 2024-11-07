@@ -23,7 +23,7 @@ body {
 h1 {
   font-size: 2rem;
   font-weight: $regular;
-  font-family: $bevas;
+  font-family: $heading;
   color: $secondary;
   margin: 0 5%;
 }
@@ -40,7 +40,7 @@ h1 {
 
 p {
   font-size: 1rem;
-  font-family: $bevas;
+  font-family: $text;
   font-weight: $regular;
   color: $secondary;
 }
@@ -64,7 +64,7 @@ a {
   color: $primary;
   font-size: 1.5rem;
   font-weight: $regular;
-  font-family: $bevas;
+  font-family: $heading;
 }
 
 .light-button.red-button {
