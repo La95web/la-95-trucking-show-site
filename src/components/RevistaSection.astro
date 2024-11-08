@@ -1,0 +1,55 @@
+---
+const {title, paragraph} = Astro.props;
+---
+
+<div class="podcasts-container">
+      <div>
+        <h1>{title}</h1>
+        <div class="underline"></div>
+        <p>{paragraph}</p>
+        <div class="light-button red-button">
+            <a href="">DESCARGAR</a>
+        </div>
+      </div>
+      <!-- <div> -->
+        <div class="imagen"></div>
+        <!-- </div> -->
+</div>
+
+<style lang="scss">
+    @use "/assets/sass/index" as *;
+
+    .podcasts-container {
+      display: flex;
+      flex-direction: column;
+    }
+
+    // .podcasts-container .imagen {
+    //   justify-content: center;
+    //   align-items: center;
+    // }
+  
+    .podcasts-container P {
+        text-align: left;
+        margin: 0 5%;
+        padding-top: 20px;
+    }
+
+    .imagen {
+      justify-content: center;
+      align-items: center;
+      background-image: url('/assets/image/revista.png');
+      background-size: cover;
+      background-repeat: no-repeat;
+      width: 60%;
+      max-width: 400px;
+      height: 300px;
+    }
+
+    @media (min-width: 1024px) {
+      
+   .podcasts-container {
+    flex-direction: row-reverse;
+   }
+ }
+</style>
