@@ -3,20 +3,20 @@ const {title, paragraph} = Astro.props;
 ---
 
 <div class="podcasts-container">
-    <h1>{title}</h1>
-    <div class="underline"></div>
-    <p>{paragraph}</p>
-    <div class="light-button red-button">
-        <a href="">ACCIÓN</a>
-      </div>
+  <h2>{title}</h2>
+  <div class="underline"></div>
+  <p>{paragraph}</p>
+  <div class="light-button red-button">
+    <a href="">ACCIÓN</a>
+  </div>
 </div>
 
 <style lang="scss">
-    @use "/assets/sass/index" as *;
-    
-    .podcasts-container P {
-        text-align: left;
-        margin: 0 5%;
-        padding-top: 20px;
-    }
+  @use "/assets/sass/index" as *;
+  
+  .podcasts-container P {
+    text-align: left;
+    margin: 0 5%;
+    padding-top: 20px;
+  }
 </style>

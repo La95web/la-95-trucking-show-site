@@ -3,55 +3,54 @@
     <button id="pause-button"></button>
     <p id="song-title">La neverita-bad bunny</p>
     <button id="volume-button"></button>
-  </div>
+</div>
 
-  <style lang="scss">
-    @use '/assets/sass/index' as *;
-  
-    .radio-container {
-      @include center-contents;
-      background-color: $accent-b-dark;
-      aspect-ratio: 402 / 45;
-      margin-bottom: 40px;
-      display: flex; 
-      align-items: center; 
-      justify-content: space-around;
-    }
-  
-    button {
-      width: 32px;
-      height: 32px;
-      background-color: transparent;
-      background-repeat: no-repeat;
-      background-position: center;
-      border: none; 
-      cursor: pointer;
-      
-    }
-  
-    #play-button {
-      background-image: url("/assets/image/play.svg");
-    }
-  
-    #pause-button {
-      background-image: url("/assets/image/pause.svg");
-      margin: 0;
-    }
-  
-    #volume-button {
-      background-image: url("/assets/image/volume.svg");
-    }
-  
-    #song-title {
-      font-size: 1.5rem;
-      font-weight: $regular;
-      font-family: $heading;
-      color: $primary;
-      margin: 0;
-    }
-  </style>
-  
-  
+<style lang="scss">
+  @use '/assets/sass/index' as *;
 
-  
-  
+  .radio-container {
+    @include center-contents;
+    background-color: $accent-b-dark;
+    aspect-ratio: 402 / 45;
+    margin-bottom: 40px;
+    display: flex; 
+    align-items: center; 
+    justify-content: space-around;
+  }
+
+  button {
+    width: 32px;
+    height: 32px;
+    background-color: transparent;
+    background-repeat: no-repeat;
+    background-position: center;
+    border: none; 
+    cursor: pointer;
+    
+  }
+
+  #play-button {
+    background-image: url("/assets/image/play.svg");
+  }
+
+  #pause-button {
+    background-image: url("/assets/image/pause.svg");
+    margin: 0;
+  }
+
+  #volume-button {
+    background-image: url("/assets/image/volume.svg");
+  }
+
+  #song-title {
+    font-size: 1.5rem;
+    font-weight: $regular;
+    font-family: $heading;
+    color: $primary;
+    margin: 0;
+  }
+</style>
+
+
+
+
