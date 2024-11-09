@@ -21,7 +21,7 @@ const {name, image, description, url} = Astro.props
 
   .card {
     position: relative;
-    width: 90%;
+    width: auto;
     margin: 0 5%;
     background-color: $primary;
     border-radius: 8px;
@@ -31,8 +31,8 @@ const {name, image, description, url} = Astro.props
   }
 
   .card-image {
-    width: 370px;
-    height: 221.56px;
+    width: 400px;
+    height: 220px;
     object-fit: cover;
   }
 
@@ -57,7 +57,7 @@ const {name, image, description, url} = Astro.props
     margin-top: 6px;
     font-weight: $regular;
     font-family: $heading;
-    padding-left: 20px;
+    padding-left: 10px;
   }
 
   .card-content {
@@ -73,8 +73,8 @@ const {name, image, description, url} = Astro.props
   .small-image {
     position: absolute;
     top: 240px;
-    left: 242px;
-    width: 140px;
+    left: 200px;
+    width: 160px;
     height: 150px;
     display: flex;
     background-image: url('/assets/image/Frame2.svg');
