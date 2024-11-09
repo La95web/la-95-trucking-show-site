@@ -1,4 +1,92 @@
----
-const {title, email, text} = Astro.props; 
----
+<div class="podcasts-container">
+  <h2>Recibe notificaciones y avisos</h2>
+  <div class="underline-black"></div>
+  <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+  <form action="/" method="post">
+    <label for="email">Tu Email:</label>
+    <input type="email" id="email" name="email" placeholder="nombre@gmail.com" required>
+    <div class="button-container"> 
+      <button type="submit">ENVIAR</button>
+    </div>
+  </form>
+</div>
+  
+<style lang="scss">
+  @use "/assets/sass/index" as *;
 
+  .podcasts-container {
+    padding-top: 20px;
+    background-color: $accent-b-dark;
+    background-image: url("/assets/image/fire.webp");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    width: 100%;
+    height: auto;
+  }
+    
+  .podcasts-container P {
+    margin: 0 0 5%;
+    text-align: center;
+    padding: 20px;
+    color: #000;
+  }
+
+  label {
+    font-size: 1rem;
+    font-family: $text;
+    font-weight: $regular;
+    color: #000;
+    margin: 0 5%;
+  }
+
+  input {
+    width: 90%;
+    height: 45px;
+    border: 2px solid black;
+    background-color: transparent;
+    margin: 0 5%;
+    border-radius: 8px;
+  }
+
+  h2 {
+    font-size: 2rem;
+    font-weight: $regular;
+    font-family: $heading;
+    color: $primary;
+    text-align: center;
+  }
+
+  .underline-black {
+    width: 270px;
+    height: 2px;
+    background-color: $primary;
+    justify-content: center;
+    align-items: center;
+    margin-top: 0px;
+    border-radius: 2px;
+    margin: auto; 
+  }
+
+  .button-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 30px;
+  }
+ 
+  button {
+    border: 2px solid $primary;
+    border-radius: 8px;
+    background-color: transparent;
+    text-align: center;
+    color: $primary;
+    font-size: 1.5rem;
+    font-family: $heading;
+    font-weight: $regular;
+    cursor: pointer;
+    width: 130px;
+    height: 38px;
+  }
+</style>
