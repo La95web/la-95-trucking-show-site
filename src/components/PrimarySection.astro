@@ -3,17 +3,22 @@ const {title, paragraph} = Astro.props;
 ---
 
 <div class="podcasts-container">
-  <h2>{title}</h2>
-  <div class="underline"></div>
-  <p>{paragraph}</p>
-  <div class="light-button red-button">
-    <a href="">ACCIÓN</a>
-  </div>
+  <section> 
+    <h2>{title}</h2>
+    <div class="underline"></div>
+    <p>{paragraph}</p>
+    <div class="light-button red-button">
+      <a href="">ACCIÓN</a>
+    </div>
+  </section>
+  <figure>
+    <img src="/assets/image/logoDesktop.webp" alt="logo">
+  </figure>
 </div>
 
 <style lang="scss">
   @use "/assets/sass/index" as *;
-  
+
   .podcasts-container P {
     text-align: left;
     margin: 0 5%;
@@ -25,4 +30,47 @@ const {title, paragraph} = Astro.props;
     padding-top: 20px;
     padding-bottom: 1px;
   }
+
+  .podcasts-container {
+    display: flex;
+    flex-direction: column;
+    background-color: $primary;
+    padding-top: 20px;
+  }
+
+  figure {
+    display: none;
+  }
+
+  @media (min-width: 1024px) {
+    
+  .podcasts-container {
+  flex-direction: row-reverse;
+  }
+
+  figure {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  figure img {
+    width: 470px;
+    height: auto;
+  }
+
+  section {
+    padding: 90px;
+
+    h2 {
+      font-size: 3rem;
+    }
+    p {
+      font-size: 1.25rem;
+    }
+    a {
+      font-size: 2rem;
+    }
+  }
+}
 </style>
