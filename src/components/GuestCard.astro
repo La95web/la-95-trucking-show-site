@@ -1,23 +1,29 @@
 ---
 const {name, image, description, url} = Astro.props
 ---
-
-<div class="card">
-  <img src={image.src} alt="Card Image" class="card-image">
-  <div class="gradient">
-    <h3 class="card-title">{name}</h3>
-  </div>
-  <div class="card-content">
-    <p class="card-description">{description}</p>
-    <div class="light-gold gold-button">
-      <a href={url}>ACCIÓN</a>
+<section>
+    
+  <div class="card">
+    <img src={image.src} alt="Card Image" class="card-image">
+    <div class="gradient">
+      <h3 class="card-title">{name}</h3>
     </div>
-    <div class="small-image"></div>  
+    <div class="card-content">
+      <p class="card-description">{description}</p>
+      <div class="light-gold gold-button">
+        <a href={url}>ACCIÓN</a>
+      </div>
+      <div class="small-image"></div>  
+    </div>
   </div>
-</div>
+</section>
   
 <style lang="scss">
   @use '/assets/sass/index' as *;
+
+  section {
+    background-color: $tertiary;
+  }
 
   .card {
     position: relative;
