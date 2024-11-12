@@ -1,15 +1,18 @@
 ---
 const {title, paragraph} = Astro.props;
 ---
-
-<div class="podcasts-container">
-  <h2>{title}</h2>
-  <div class="underline"></div>
-  <p>{paragraph}</p>
-  <div class="light-button red-button">
-    <a href="">ACCIÓN</a>
+<section>
+  <div class="podcasts-container">
+    <div class="blurback">
+      <h2>{title}</h2>
+      <div class="underline"></div>
+      <p>{paragraph}</p>
+      <div class="light-button red-button">
+        <a href="">ACCIÓN</a>
+      </div>
+    </div>
   </div>
-</div>
+</section>
 
 <style lang="scss">
   @use "/assets/sass/index" as *;
@@ -24,5 +27,33 @@ const {title, paragraph} = Astro.props;
     background-color: $primary;
     padding-top: 20px;
     padding-bottom: 1px;
+  }
+
+  @media (min-width: 1024px) {
+    .podcasts-container {
+      background-image: url('/assets/image/black-truck.webp');
+      background-repeat: no-repeat;
+      background-size: cover;
+      background-position: center;
+      height: 700px;
+    }
+
+    .blurback {
+      position: relative;
+      background-color: rgba($primary, 0.85);
+      margin: 0 30%;
+      top: 190px;
+      right: 25%;
+      padding: 5px 0;
+      padding-top: 20px;
+      border-radius: 8px;
+      
+    }
+    h2 {
+      font-size: 3rem;
+    }
+    .underline {
+      width: 248px;
+    }
   }
 </style>
