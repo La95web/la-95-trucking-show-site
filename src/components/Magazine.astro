@@ -6,7 +6,7 @@ const {title, paragraph} = Astro.props;
   <div>
     <h2>Descargar nuestra revista</h2>
     <div class="underline"></div>
-    <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Dolorum, quisquam?</p>
+    <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Dolorum, quisquam? Lorem ipsum dolor sit, amet consectetur adipisicing elit. Voluptatem, perferendis?</p>
     <div class="light-button red-button">
       <a href="">DESCARGAR</a>
     </div>
@@ -46,7 +46,20 @@ const {title, paragraph} = Astro.props;
   @media (min-width: 1024px) {
     
   .podcasts-container {
-  flex-direction: row-reverse;
+    flex-direction: row-reverse;
+    justify-content: center;
+    align-items: center;
+  }
+  figure img {
+    margin: 0 5%;
+    width: 400px;
+    height: auto;
+  }
+  .underline {
+    width: 378px;
+  }
+  h2 {
+    font-size: 3rem;
   }
 }
 </style>
