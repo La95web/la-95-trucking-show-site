@@ -16,7 +16,7 @@ const {images} = Astro.props;
 </header>
 
 <style lang="scss">
-  @use '/assets/sass/index' as *;
+  @use '../assets/sass/index' as *;
 
   header {
     position: relative;
@@ -64,6 +64,11 @@ const {images} = Astro.props;
     span.blue {
       color: dodgerblue;
     }
+  }
+
+  img {
+    width: calc(100% / 3);
+    aspect-ratio: 402 / 226;
   }
 
   @media (min-width: 1024px) {
