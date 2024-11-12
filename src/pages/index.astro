@@ -3,9 +3,9 @@ import HomeSlider from "../components/HomeSlider.astro";
 import Radio from "../components/Radio.astro";
 import PrimarySection from "../components/PrimarySection.astro";
 import GuestCard from "../components/GuestCard.astro";
-import Badbunny from "/assets/image/bad.webp";
-import Jlo from "/assets/image/jlo.webp";
-import Yankee from "/assets/image/daddy.webp";
+import Badbunny from "../assets/image/bad.webp";
+import Jlo from "../assets/image/jlo.webp";
+import Yankee from "../assets/image/daddy.webp";
 import SpanishLayout from "../layouts/SpanishLayout.astro";
 import Carousel from "../components/Carousel.astro";
 import Magazine from "../components/Magazine.astro";
@@ -13,11 +13,14 @@ import Newsletter from "../components/Newsletter.astro";
 import Whatsapp from "../components/Whatsapp.astro";
 import Footer from "../components/Footer.astro";
 import SecondarySection from "../components/SecondarySection.astro";
+import truck1 from "../assets/image/camion.webp";
+import truck2 from "../assets/image/truck2.webp";
+import truck3 from "../assets/image/truck3.webp";
 ---
 
 
 <SpanishLayout title="la 95 trucking show">
-  <HomeSlider images={['/assets/image/camion.webp', '/assets/image/truck2.webp', '/assets/image/truck3.webp']} />
+  <HomeSlider images={[truck1.src, truck2.src, truck3.src]} />
   <Radio />
   <PrimarySection 
   title="EL PODCAST MÁS DURO"
