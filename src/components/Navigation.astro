@@ -1,9 +1,10 @@
 ---
+import logo from '../assets/image/logo.webp';
 ---
 <div class="blur-background tire">     
   <nav>
     <a class="nav-logo" href="/">
-      <img src="/assets/image/logo.webp" alt="logo">
+      <img src={logo.src} alt="logo">
     </a>
     <div class="close-menu-container">
       <button id="close-menu" type="button" class="close-menu"></button>
@@ -13,7 +14,7 @@
     </div> 
     <div class="nav-container">
       <ul class="navlinks"> 
-        <li><a class="navdesk" href="/"><img src="/assets/image/logola95.png" alt="loguito"></a></li>
+        <li><a class="navdesk" href="/"><img src="../assets/image/logola95.png" alt="loguito"></a></li>
         <li><a class="decoration" href="/" rel="noreferrer">Inicio</a></li>
         <li><a href="/nosotros/" rel="noreferrer">nosotros</a></li>
         <li><a href="/contacto/" rel="noreferrer">contacto</a></li>
@@ -30,7 +31,7 @@
 </div>
 
 <style lang="scss">
-  @use '/assets/sass/index' as *;
+  @use '../assets/sass/index' as *;
 
   .blur-background {
     position: fixed;
@@ -47,7 +48,7 @@
   }
 
   .tire {
-    background-image: url('/assets/image/Tiremark.webp');
+    background-image: url('../assets/image/Tiremark.webp');
     background-repeat: no-repeat;
     background-position: center center;
     background-size: cover;

@@ -15,7 +15,7 @@ const {title, paragraph} = Astro.props;
 </section>
 
 <style lang="scss">
-  @use "/assets/sass/index" as *;
+  @use "../assets/sass/index" as *;
 
   .podcasts-container P {
     text-align: left;
@@ -31,7 +31,7 @@ const {title, paragraph} = Astro.props;
 
   @media (min-width: 1024px) {
     .podcasts-container {
-      background-image: url('/assets/image/black-truck.webp');
+      background-image: url('../assets/image/black-truck.webp');
       background-repeat: no-repeat;
       background-size: cover;
       background-position: center;

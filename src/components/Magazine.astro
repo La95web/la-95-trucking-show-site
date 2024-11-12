@@ -1,4 +1,6 @@
 ---
+import magazine from '../assets/image/revista.png';
+
 const {title, paragraph} = Astro.props;
 ---
 
@@ -12,12 +14,12 @@ const {title, paragraph} = Astro.props;
     </div>
   </div>
   <figure>
-    <img src="/assets/image/revista.png" alt="magazine"> <!-- en espera de la imagen con las dimensiones correctas en formato webp-->
+    <img src={magazine.src} alt="magazine"> <!-- en espera de la imagen con las dimensiones correctas en formato webp-->
   </figure>
 </div>
 
 <style lang="scss">
-  @use "/assets/sass/index" as *;
+  @use "../assets/sass/index" as *;
 
   .podcasts-container {
     display: flex;

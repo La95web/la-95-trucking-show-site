@@ -1,3 +1,7 @@
+---
+import truckers from '../assets/image/truckers.webp';
+---
+
 <div class="podcasts-container">
   <div>
     <h2>Recibe notificaciones y avisos</h2>
@@ -8,17 +12,17 @@
     </div>
   </div>
   <figure>
-    <img src="/assets/image/truckers.webp" alt="truckers">
+    <img src={truckers.src} alt="truckers">
   </figure>
 </div>
     
 <style lang="scss">
-  @use "/assets/sass/index" as *;
+  @use "../assets/sass/index" as *;
 
   .podcasts-container {
     padding-top: 20px;
     background-color: $accent-a-dark;
-    background-image: url("/assets/image/whatsapp.svg");
+    background-image: url("../assets/image/whatsapp.svg");
     background-repeat: no-repeat;
     background-position: center top;
   }
