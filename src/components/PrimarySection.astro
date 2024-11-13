@@ -1,5 +1,6 @@
 ---
 const {title, paragraph} = Astro.props;
+import logo2 from '../assets/image/logoDesktop.webp';
 ---
 
 <div class="podcasts-container">
@@ -12,7 +13,7 @@ const {title, paragraph} = Astro.props;
     </div>
   </section>
   <figure>
-    <img src="../assets/image/logoDesktop.webp" alt="logo">
+    <img src={logo2.src} alt="logo">
   </figure>
 </div>
 
