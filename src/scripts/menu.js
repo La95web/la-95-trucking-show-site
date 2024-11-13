@@ -19,10 +19,13 @@ let scrollSpeed = 1;
 
 const images = carousel.children;
 const imageCount = images.length;
+const clonesNeeded = 15;
 
-for (let i = 0; i < imageCount; i++) {
+for (let j = 0; j < imageCount; j++) {
+  for (let i = 0; i< imageCount; i++) { 
   let clone = images[i].cloneNode(true);
   carousel.appendChild(clone);
+} 
 }
 
 function moveCarousel() {

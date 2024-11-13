@@ -3,8 +3,8 @@ import truckers from '../assets/image/truckers.webp';
 ---
 
 <div class="podcasts-container">
-  <div>
-    <h2>Recibe notificaciones y avisos</h2>
+  <div class="section-center">
+    <h2>únete a nuestro grupo de whatsapp</h2>
     <div class="underline-black"></div>
       <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Voluptatibus eaque deleniti tempora.</p>
     <div class="button-container"> 
@@ -28,7 +28,7 @@ import truckers from '../assets/image/truckers.webp';
   }
     
   .podcasts-container P {
-    margin: 0 0 5%;
+    margin: 0 5%;
     text-align: center;
     padding: 20px;
     color: #000;
@@ -58,7 +58,7 @@ import truckers from '../assets/image/truckers.webp';
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    padding: 20px;
+    margin-bottom: 40px;
   }
   
   a {
@@ -90,8 +90,43 @@ import truckers from '../assets/image/truckers.webp';
   @media (min-width: 1024px) {
     
     .podcasts-container {
-    display: flex;
-    flex-direction: row-reverse;
+      display: flex;
+      flex-direction: row-reverse;
+      padding-top: 0;
+    }
+
+    .podcasts-container {
+      background-image: url("../assets/image/whatsapp.svg");
+      background-position: calc(100% - 20%) center;
+      background-size: contain;
+    }
+
+    figure {
+      display: flex;
+      margin-right: 5%;
+    }
+
+    figure img {
+      height: 540px;
+      margin: 0;
+    }
+
+    .section-center {
+      padding-right: 10%;
+      margin-top: 170px;
+
+      h2 {
+        font-size: 3rem;
+        margin: 0;
+      }
+    }
+    
+    p {
+      font-size: 1.25rem;
+    }
+
+    a {
+      font-size: 2rem;
     }
   }
 </style>
