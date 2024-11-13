@@ -4,10 +4,10 @@ const {guest1, image1, description1, url1}= Astro.props
 const {guest2, image2, description2, url2}= Astro.props
 ---
 <section> 
+  <div class="center"> 
     <h2>INVITADOS ESPECIALES</h2>
-    <div class="center"> 
-      <div class="underline"></div>
-    </div>
+    <div class="underline"></div>
+  </div>
   <div class="flexbox">
     <div class="card">
       <div> 
@@ -63,10 +63,17 @@ const {guest2, image2, description2, url2}= Astro.props
   section {
     background-color: $tertiary;
   }
+  
+  .flexbox {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
 
   .card {
     position: relative;
-    width: auto;
+    width: 385px;
     margin: 0 5%;
     background-color: $primary;
     border-radius: 8px;
@@ -102,7 +109,6 @@ const {guest2, image2, description2, url2}= Astro.props
     margin-top: 6px;
     font-weight: $regular;
     font-family: $heading;
-    padding-left: 10px;
   }
 
   .card-content {
@@ -110,17 +116,16 @@ const {guest2, image2, description2, url2}= Astro.props
   }
 
   .card-description {
-    margin-left: 10px;
-    margin-right: 100px;
     margin-top: 0;
+    padding-right: 50px;
   }
 
   .small-image {
     position: absolute;
     top: 240px;
-    left: 200px;
-    width: 160px;
-    height: 150px;
+    left: 65%;
+    width: 40%;
+    height: 180px;
     background-image: url('../assets/image/Frame2.svg');
     background-size: cover;
     background-position: center;
@@ -147,26 +152,27 @@ const {guest2, image2, description2, url2}= Astro.props
 
   .light-gold.gold-button {
     background-color: $tertiary;
-    box-shadow: 0 0 20px 10px rgba($accent-b-dark, 25%);
+    box-shadow: 0 0 20px 10px rgba($accent-b-dark, 35%);
     border: 2px solid $accent-b-dark;
+    margin: 20px 0 30px;
   }
 
   .gold-button {
     background-color: $accent-b-light;
   }
 
-  .light.gold:hover {
-    background-color: $accent-b-light;
-    box-shadow: 0 0 25px 15px rgba($accent-b-light, 35%);
+  .gold-button:hover {
+    box-shadow: 0 0 25px 15px rgba($accent-b-light, 40%);
   }
 
   @media (min-width: 1024px) {
 
     .flexbox {
       display: flex;
+      flex-direction: row;
     }
 
-    h2{
+    h2 {
       font-size: 3rem;
       text-align: center;
       padding-top: 40px;
@@ -174,13 +180,30 @@ const {guest2, image2, description2, url2}= Astro.props
 
     .center {
       display: flex;
+      flex-direction: column;
       align-items: center;
       justify-content: center;
     }
 
     .underline {
       width: 207px;
+      margin-bottom: 30px;
     }
+
+    .card {
+      width: 30%;
+      margin: 0 2%;
+      margin-bottom: 30px;
+    }
+    .card-description {
+      padding-right: 30%;
+    }
+
+    .small-image {
+    top: 270px;
+    left: 60%;
+    width: 36%;
+  }
   }
 </style>
   
