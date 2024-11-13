@@ -1,0 +1,39 @@
+---
+import logo2 from '../assets/image/logo2.png';
+import logo3 from '../assets/image/logo3.png';
+import logo4 from '../assets/image/logo4.png';
+import logo5 from '../assets/image/logo5.png';
+---
+
+<div id="carouselimg">
+  <a href="#"><img src={logo2.src} alt="Slide 2"></a>
+  <a href="#"><img src={logo3.src} alt="Slide 3"></a>
+  <a href="#"><img src={logo4.src} alt="Slide 4"></a>
+  <a href="#"><img src={logo5.src} alt="Slide 5"></a>
+  <a href="#"><img src={logo3.src} alt="Slide 3"></a>
+</div>
+  
+<style lang="scss">
+  @use '../assets/sass/index' as*;
+
+  #carouselimg {
+    display: flex;
+    overflow: hidden;
+  }
+
+  div {
+    background-color: $accent-b-dark;
+    padding: 20px;
+  }
+
+  #carouselimg img {
+    width: 60px; 
+    height: auto;
+    margin-right: 40px;
+    justify-content: center;
+    align-items: center;
+  }
+</style>
+  
+  
+  

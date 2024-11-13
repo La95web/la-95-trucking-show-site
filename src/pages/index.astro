@@ -3,40 +3,50 @@ import HomeSlider from "../components/HomeSlider.astro";
 import Radio from "../components/Radio.astro";
 import PrimarySection from "../components/PrimarySection.astro";
 import GuestCard from "../components/GuestCard.astro";
-import Badbunny from "/assets/image/bad.webp";
-import Jlo from "/assets/image/jlo.webp";
-import Yankee from "/assets/image/daddy.webp";
+import Badbunny from "../assets/image/bad.webp";
+import Jlo from "../assets/image/jlo.webp";
+import Yankee from "../assets/image/daddy.webp";
 import SpanishLayout from "../layouts/SpanishLayout.astro";
+import Carousel from "../components/Carousel.astro";
+import Magazine from "../components/Magazine.astro";
+import Newsletter from "../components/Newsletter.astro";
+import Whatsapp from "../components/Whatsapp.astro";
+import Footer from "../components/Footer.astro";
+import SecondarySection from "../components/SecondarySection.astro";
+import truck1 from "../assets/image/camion.webp";
+import truck2 from "../assets/image/truck2.webp";
+import truck3 from "../assets/image/truck3.webp";
 ---
 
 
-	<SpanishLayout title="la 95 trucking show">
-		<HomeSlider images={['/assets/image/camion.webp', '/assets/image/image2.webp', '/assets/image/truck3.webp']} />
-		<Radio></Radio>
-		<PrimarySection 
-		title="EL PODCAST MÁS DURO"
-		paragraph="este es un titulo de ejemplo, este es un titulo de ejemplo, este es un titulo de ejemplo, este es un titulo de ejemplo, este es un titulo de ejemplo, este es un titulo de ejemplo, este es un titulo de ejemplo, este es un titulo de ejemplo, este es un titulo de ejemplo"></PrimarySection>
-		<h1>INVITADOS ESPECIALES</h1>
-        <div class="underline"></div>
-		<GuestCard 
-		name="Bad bunny"
-		image={Badbunny}
-		description="este es un ejemplo de la descripcion skfhskj kasjdhksf ksjdfhkshf ksdhfksf"
-		url=""></GuestCard>
-		<GuestCard 
-		name="Jennifer Lopez"
-		image={Jlo}
-		description="este es un ejemplo de la descripcion de jlo alsdja klsjdlasd haskldha sjdfhk skdjfhsk"
-		url=""></GuestCard>
-		<GuestCard 
-		name="Daddy yankee"
-		image={Yankee}
-		description="este es un ejemplo de la descripcio yankee kajsdh kajsdhkadh kajshkks ksjdfh ksjdfh ksdjfh"
-		url=""></GuestCard>
-		<PrimarySection
-		title="Conviértete en patrocinador"
-		paragraph="este es un ejemplo de la descripcio, este es un ejemplo de la descripcio, este es un ejemplo de la descripcio, este es un ejemplo de la descripcio, este es un ejemplo de la descripcio"></PrimarySection>
-	</SpanishLayout>
-		<script>
-			import "../scripts/menu.js"
-		  </script>
+<SpanishLayout title="la 95 trucking show">
+  <HomeSlider images={[truck1.src, truck2.src, truck3.src]} />
+  <Radio />
+  <PrimarySection 
+  title="EL PODCAST MÁS DURO"
+  paragraph="este es un titulo de ejemplo, este es un titulo de ejemplo, este es un titulo de ejemplo, este es un titulo de ejemplo, este es un titulo de ejemplo, este es un titulo de ejemplo, este es un titulo de ejemplo, este es un titulo de ejemplo, este es un titulo de ejemplo" />
+  <GuestCard 
+  guest="Bad bunny"
+  image={Badbunny}
+  description="Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ratione, accusamus!"
+  url=""
+  guest1="Jennifer Lopez"
+  image1={Jlo}
+  description1="Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ratione, accusamus!"
+  url1=""
+  guest2="Daddy yankee"
+  image2={Yankee}
+  description2="Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ratione, accusamus!"
+  url2="" />
+  <SecondarySection
+  title="Conviértete en patrocinador"
+  paragraph="este es un ejemplo de la descripcio, este es un ejemplo de la descripcio, este es un ejemplo de la descripcio, este es un ejemplo de la descripcio, este es un ejemplo de la descripcio" /> <!--borrar este props y title -->
+  <Carousel />
+  <Magazine />
+  <Newsletter />
+  <Whatsapp />
+  <Footer />
+</SpanishLayout>
+<script>
+	import "../scripts/menu.js"
+</script>

@@ -1,34 +1,99 @@
----
----
-<script src="https://kit.fontawesome.com/f8b4998ade.js" crossorigin="anonymous"></script>
-
 <footer>
-    <div class="content-flex">
-        <div class="contact-link">
-          <a href="#" target="_blank" class="btn contact-details">
-            <i class="fa-brands fa-instagram"></i>
-          </a>
-        </div>
-        <div class="contact-link">
-          <a href="#" target="_blank" class="btn contact-details">
-            <i class="fa-brands fa-youtube"></i>
-          </a>
-        </div>
-        <div class="contact-link">
-          <a href="#" target="_blank" class="btn contact-details">
-            <i class="fa-brands fa-facebook"></i>
-          </a>
-        </div>
-  </footer>
+  <div class="flexbox">
+    <a href="#" target="_blank" class="btn contact-details">
+      <i class="ph ph-youtube-logo"></i>
+    </a>
+    <a href="#" target="_blank" class="btn contact-details">
+      <i class="ph ph-instagram-logo"></i>
+    </a>
+    <a href="#" target="_blank" class="btn contact-details">
+      <i class="ph ph-tiktok-logo"></i>
+    </a>
+    <a href="#" target="_blank" class="btn contact-details">
+      <i class="ph ph-whatsapp-logo"></i>
+    </a>
+    <a href="#" target="_blank" class="btn contact-details">
+      <i class="ph ph-facebook-logo"></i>
+    </a>
+  </div>
+  <section> 
+    <p>&copy; la 95 trucking show - by <a href="#" target="_blank" rel="noopener noreferrer">obelisk</a>
+  </section>
+</footer>
 
-  <style>
-.social {
+<style lang="scss">
+  @use "../assets/sass/index" as*;
+
+  footer {
+    padding:30px;
+    background-color: $primary;
+    background-image: url("../assets/image/track.png");
+    background-repeat: repeat-x;
+    background-position: center;
+  }
+
+  .flexbox {
     display: flex;
-    flex-direction: row;
-    color: red;
-}
+    justify-content: center;
+    align-items: center;
+  }
 
-.fa-brands {
-    color: red;
-}
-  </style>
+  .flexbox i{
+    border: 2px solid $accent-c-light;
+    padding: 3px;
+    border-radius: 8px;
+    margin: 10px;
+  }
+
+  .flexbox .ph {
+   color: $accent-c-light;
+   font-size: 1.5rem;
+  }
+
+  p {
+    text-align: center;
+    color: white;
+    font-family: $heading;
+    font-weight: $regular;
+    font-size: 1rem;
+    margin-top: 20px;
+
+   a {
+    color: $accent-c-light;
+    font-family: $heading;
+    font-weight: $regular;
+    font-size: 1rem;
+    }
+  }
+
+  .flexbox i {
+    box-shadow: 0 0 20px 5px rgba($accent-c-light, 35%);
+  }
+  
+  .flexbox i:hover {
+    box-shadow: 0 0 25px 15px rgba($accent-c-dark, 35%);
+  }
+  @media (min-width: 1024px) {
+
+  footer {
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content:space-between;
+  }
+  
+  p {
+    font-size: 1.25rem;
+    margin: 20px 30px;
+  }
+
+  .flexbox .ph {
+   font-size: 3rem;
+   margin: 0 20px;
+  }
+
+  .flexbox i{
+    border: 3px solid $accent-c-light;
+    margin: 10px;
+  }
+  }
+</style>

@@ -1,5 +1,5 @@
 ---
-const { images } = Astro.props;
+const {images} = Astro.props;
 ---
 
 <header>
@@ -16,13 +16,13 @@ const { images } = Astro.props;
 </header>
 
 <style lang="scss">
-  @use '/assets/sass/index' as *;
+  @use '../assets/sass/index' as *;
 
   header {
     position: relative;
     width: 100%;
-    aspect-ratio: 1440 / 700;
-    overoflow-x: hidden;
+    aspect-ratio: 402 / 226;  //es el tamaño problema es la imagen
+    // overoflow-x: hidden;
     overflow: hidden;
   }
 
@@ -65,9 +65,29 @@ const { images } = Astro.props;
       color: dodgerblue;
     }
   }
+
+  img {
+    width: calc(100% / 3);
+    aspect-ratio: 402 / 226;
+  }
+
+  @media (min-width: 1024px) {
+    h1 {
+      font-size: 11rem;
+    }
+
+    header {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 1440 / 700;
+    overoflow-x: hidden;
+    overflow: hidden;
+  }
+  }
 </style>
 
 <script>
+
   let currentPosition = 1;
 
   const slide = () => {

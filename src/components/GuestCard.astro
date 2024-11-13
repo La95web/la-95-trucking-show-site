@@ -1,119 +1,209 @@
 ---
-const {name, image, description, url} = Astro.props
+const {guest, image, description, url} = Astro.props
+const {guest1, image1, description1, url1}= Astro.props
+const {guest2, image2, description2, url2}= Astro.props
 ---
-
-<div class="card">
-    <img src={image.src} alt="Card Image" class="card-image">
-    <div class="gradient">
-      <h1 class="card-title">{name}</h1>
-    </div>
-    <div class="card-content">
-      <p class="card-description">{description}</p>
-      <div class="light-gold gold-button">
-        <a href={url}>ACCIÓN</a>
-      </div>
-      <div class="small-image"></div>  
-    </div>
+<section> 
+  <div class="center"> 
+    <h2>INVITADOS ESPECIALES</h2>
+    <div class="underline"></div>
   </div>
+  <div class="flexbox">
+    <div class="card">
+      <div> 
+        <img src={image.src} alt="Card Image" class="card-image">
+        <div class="gradient">
+          <h3 class="card-title">{guest}</h3>
+        </div>
+        <div class="card-content">
+          <p class="card-description">{description}</p>
+          <div class="light-gold gold-button">
+            <a href={url}>ACCIÓN</a>
+          </div>
+          <div class="small-image"></div>
+        </div>
+      </div>
+    </div>
+    <div class="card">
+      <div> 
+        <img src={image1.src} alt="Card Image" class="card-image">
+        <div class="gradient">
+          <h3 class="card-title">{guest1}</h3>
+        </div>
+        <div class="card-content">
+          <p class="card-description">{description1}</p>
+          <div class="light-gold gold-button">
+            <a href={url1}>ACCIÓN</a>
+          </div>
+          <div class="small-image"></div>
+        </div>
+     </div>
+    </div>
+    <div class="card">
+      <div> 
+        <img src={image2.src} alt="Card Image" class="card-image">
+        <div class="gradient">
+          <h3 class="card-title">{guest2}</h3>
+        </div>
+        <div class="card-content">
+          <p class="card-description">{description2}</p>
+          <div class="light-gold gold-button">
+            <a href={url2}>ACCIÓN</a>
+          </div>
+          <div class="small-image"></div>
+        </div>
+      </div>
+    </div>
+ </div>
+</section>
   
-  <style lang="scss">
-    @use '/assets/sass/index' as *;
+<style lang="scss">
+  @use '../assets/sass/index' as *;
+
+  section {
+    background-color: $tertiary;
+  }
   
-    .card {
-      position: relative;
-      width: 90%;
-      margin: 0 5%;
-      background-color: $primary;
-      border-radius: 8px;
-      overflow: hidden;
-      margin-top: 30px;
-      margin-bottom: 30px;
-    }
-  
-    .card-image {
-      width: 370px;
-      height: 221.56px;
-      object-fit: cover;
-    }
-  
-    .gradient {
-      position: absolute;
-      bottom: 0;
-      top: 175px;
-      left: 0;
-      width: 362px;
-      height: 50px;
-      background: linear-gradient(to right, rgba(32, 35, 39) 0%,
-       rgba(32, 35, 39, 0.2) 50%,
-       rgba(52, 55, 61, 0.1 )100%);
-      display: flex;
-      align-items: left;
-      justify-content: left;
-    }
-  
-    .card-title {
-      color: white;
-      font-size: 2rem;
-      margin-top: 6px;
+  .flexbox {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .card {
+    position: relative;
+    width: 385px;
+    margin: 0 5%;
+    background-color: $primary;
+    border-radius: 8px;
+    overflow: hidden;
+    margin-top: 30px;
+    margin-bottom: 30px;
+  }
+
+  .card-image {
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
+  }
+
+  .gradient {
+    position: absolute;
+    bottom: 0;
+    top: 175px;
+    left: 0;
+    width: 362px;
+    height: 50px;
+    background: linear-gradient(to right, rgba(32, 35, 39) 0%,
+    rgba(32, 35, 39, 0.2) 50%,
+    rgba(52, 55, 61, 0.1 )100%);
+    display: flex;
+    align-items: left;
+    justify-content: left;
+  }
+
+  .card-title {
+    color: white;
+    font-size: 2rem;
+    margin-top: 6px;
+    font-weight: $regular;
+    font-family: $heading;
+  }
+
+  .card-content {
+    padding: 20px;
+  }
+
+  .card-description {
+    margin-top: 0;
+    padding-right: 50px;
+  }
+
+  .small-image {
+    position: absolute;
+    top: 240px;
+    left: 65%;
+    width: 40%;
+    height: 180px;
+    background-image: url('../assets/image/Frame2.svg');
+    background-size: cover;
+    background-position: center;
+  }
+
+  .light-gold {
+    width: 145px; 
+    height: 40px;
+    border-radius: 8px;
+    padding: 20px;
+    margin-left: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: background-color 0.3s, box-shadow 0.3s;
+
+    a {
+      color: $accent-b-dark;
+      font-size: 1.5rem;
       font-weight: $regular;
       font-family: $heading;
-      padding-left: 20px;
     }
-  
-    .card-content {
-      padding: 20px;
+  }
+
+  .light-gold.gold-button {
+    background-color: $tertiary;
+    box-shadow: 0 0 20px 10px rgba($accent-b-dark, 35%);
+    border: 2px solid $accent-b-dark;
+    margin: 20px 0 30px;
+  }
+
+  .gold-button {
+    background-color: $accent-b-light;
+  }
+
+  .gold-button:hover {
+    box-shadow: 0 0 25px 15px rgba($accent-b-light, 40%);
+  }
+
+  @media (min-width: 1024px) {
+
+    .flexbox {
+      display: flex;
+      flex-direction: row;
     }
-  
+
+    h2 {
+      font-size: 3rem;
+      text-align: center;
+      padding-top: 40px;
+    }
+
+    .center {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .underline {
+      width: 207px;
+      margin-bottom: 30px;
+    }
+
+    .card {
+      width: 30%;
+      margin: 0 2%;
+      margin-bottom: 30px;
+    }
     .card-description {
-      margin-left: 10px;
-      margin-right: 100px;
-      margin-top: 0;
+      padding-right: 30%;
     }
 
     .small-image {
-      position: absolute;
-      top: 240px;
-      left: 242px;
-      width: 140px;
-      height: 150px;
-      display: flex;
-      background-image: url('/assets/image/Frame2.svg');
-      background-size: cover;
-      background-position: center;
-    }
-
-    .light-gold {
-        width: 145px; 
-        height: 40px;
-        border-radius: 8px;
-        padding: 20px;
-        margin-left: 10px;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        transition: background-color 0.3s, box-shadow 0.3s;
-
-    a {
-        color: $accent-b-dark;
-        font-size: 1.5rem;
-        font-weight: $regular;
-        font-family: $heading;
-    }
-    }
-
-    .light-gold.gold-button {
-        background-color: $tertiary;
-        box-shadow: 0 0 20px 10px rgba($accent-b-dark, 25%);
-        border: 2px solid $accent-b-dark;
-    }
-
-    .gold-button {
-        background-color: $accent-b-light;
-    }
-
-    .light.gold:hover {
-        background-color: $accent-b-light;
-        box-shadow: 0 0 25px 15px rgba($accent-b-light, 35%);
-    }
+    top: 270px;
+    left: 60%;
+    width: 36%;
+  }
+  }
 </style>
   

@@ -1,22 +1,81 @@
 ---
 const {title, paragraph} = Astro.props;
+import logo2 from '../assets/image/logoDesktop.webp';
 ---
 
 <div class="podcasts-container">
-    <h1>{title}</h1>
+  <section> 
+    <h2>{title}</h2>
     <div class="underline"></div>
     <p>{paragraph}</p>
     <div class="light-button red-button">
-        <a href="">ACCIÓN</a>
-      </div>
+      <a href="">ACCIÓN</a>
+    </div>
+  </section>
+  <figure>
+    <img src={logo2.src} alt="logo">
+  </figure>
 </div>
 
 <style lang="scss">
-    @use "/assets/sass/index" as *;
+  @use "../assets/sass/index" as *;
+
+  .podcasts-container P {
+    text-align: left;
+    margin: 0 5%;
+    padding-top: 20px;
+  }
+
+  .podcasts-container {
+    background-color: $primary;
+    padding-top: 20px;
+    padding-bottom: 1px;
+  }
+
+  .podcasts-container {
+    display: flex;
+    flex-direction: column;
+    background-color: $primary;
+    padding-top: 20px;
+  }
+
+  figure {
+    display: none;
+  }
+
+  @media (min-width: 1024px) {
     
-    .podcasts-container P {
-        text-align: left;
-        margin: 0 5%;
-        padding-top: 20px;
+  .podcasts-container {
+  flex-direction: row-reverse;
+  }
+
+  figure {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  figure img {
+    width: 600px;
+    height: 610px;
+    margin-left: 72px ;
+  }
+
+  section {
+    padding: 150px;
+
+    h2 {
+      font-size: 3rem;
     }
+    p {
+      font-size: 1.25rem;
+    }
+    a {
+      font-size: 2rem;
+    }
+    .underline {
+      width: 248px;
+    }
+  }
+}
 </style>

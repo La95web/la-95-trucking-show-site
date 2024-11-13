@@ -12,5 +12,28 @@ document.getElementById('close-menu').addEventListener('click', () => {
     console.log('Menu closed');
 });
 
-  
+// carousel below
+
+const carousel = document.getElementById('carouselimg');
+let scrollSpeed = 1;
+
+const images = carousel.children;
+const imageCount = images.length;
+const clonesNeeded = 15;
+
+for (let j = 0; j < imageCount; j++) {
+  for (let i = 0; i< imageCount; i++) { 
+  let clone = images[i].cloneNode(true);
+  carousel.appendChild(clone);
+} 
+}
+
+function moveCarousel() {
+  carousel.scrollLeft += scrollSpeed;
+
+  if (carousel.scrollLeft >= images[0].clientWidth * imageCount){ 
+      carousel.scrollLeft = 0;
+  }
+}
+setInterval(moveCarousel, 20);
   
