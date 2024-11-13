@@ -26,7 +26,7 @@
   }
     
   .podcasts-container P {
-    margin: 0 0 5%;
+    margin: 0 5%;
     text-align: center;
     padding: 20px;
     color: #000;
@@ -88,5 +88,33 @@
     cursor: pointer;
     width: 130px;
     height: 38px;
+  }
+
+  @media (min-width: 1024px) {
+
+    .podcasts-container {
+      padding-top: 50px;
+      background-color: $accent-b-dark;
+      background-image: url("../assets/image/firedesk.svg");
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-position: center;
+    }
+    form {
+      max-width: 45%;
+      margin: 0 auto;
+    }
+    h2 {
+      font-size: 3rem;
+    }
+    p{
+      font-size: 1.5rem;
+    }
+    label {
+      font-size: 1.5rem;
+    }
+    button {
+      font-size: 2rem;
+    }
   }
 </style>
