@@ -15,14 +15,13 @@ const {images} = Astro.props;
   header {
     position: relative;
     width: 100%;
-    aspect-ratio: 402 / 226;  //es el tamaño problema es la imagen
+    aspect-ratio: 402 / 226;
     overflow: hidden;
     
   }
 
   .content-header {
     display: flex;
-    // width: 300%; 
     height: 100%;
     
   }
@@ -42,8 +41,9 @@ const {images} = Astro.props;
   }
 
   @media (min-width: 1024px) {
+    
     h1 {
-      font-size: 11rem;
+    font-size: 11rem;
     }
 
     header {
@@ -52,6 +52,6 @@ const {images} = Astro.props;
     aspect-ratio: 1440 / 700;
     overoflow-x: hidden;
     overflow: hidden;
-  }
+    }
   }
 </style>
