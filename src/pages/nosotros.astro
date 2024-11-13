@@ -1,5 +1,4 @@
 ---
-import PrimarySection from "../components/PrimarySection.astro";
 import GuestCard from "../components/GuestCard.astro";
 import Badbunny from "../assets/image/bad.webp";
 import Jlo from "../assets/image/jlo.webp";
@@ -8,15 +7,15 @@ import SpanishLayout from "../layouts/SpanishLayout.astro";
 import Footer from "../components/Footer.astro";
 import HeaderBanner from "../components/HeaderBanner.astro";
 import Team from "../assets/image/team-pro.webp";
+import AboutUsSection from "../components/AboutUsSection.astro";
 ---
 
 
 <SpanishLayout title="la 95 trucking show">
   <HeaderBanner images={Team} />
-  <PrimarySection 
-  title="EL PODCAST MÁS DURO"
-  paragraph="este es un titulo de ejemplo, este es un titulo de ejemplo, este es un titulo de ejemplo, este es un titulo de ejemplo, este es un titulo de ejemplo, este es un titulo de ejemplo, este es un titulo de ejemplo, este es un titulo de ejemplo, este es un titulo de ejemplo" />
-   <!--Nuestra razon -->
+  <AboutUsSection 
+  title="quienes somos"
+  paragraph="Lorem ipsum dolor sit amet consectetur, adipisicing elit. Eos fugiat rem saepe nesciunt vel quaerat. Lorem ipsum dolor sit amet consectetur adipisicing elit. Velit alias omnis cum inventore provident dolor." />
   <GuestCard 
   guest="Bad bunny"
   image={Badbunny}
