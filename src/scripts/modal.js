@@ -15,24 +15,39 @@ document.getElementById('close-menu').addEventListener('click', () => {
 //modal
 
 document.addEventListener('DOMContentLoaded', () => {
-  const modal = document.getElementById('myModal');
-  const btns = document.querySelectorAll('.openModal');
-  const span = document.getElementsByClassName('close')[0];
+  const openModalButtons = document.querySelectorAll('.openModal');
+  const modals = document.querySelectorAll('.modal');
+  const closeModalButtons = document.querySelectorAll('.close');
 
-  btns.forEach(btn => {
-    btn.onclick = function() {
-      modal.style.display = 'block';
-    };
+  // Abrir el modal correspondiente al hacer clic en un botón
+  openModalButtons.forEach(button => {
+    button.addEventListener('click', () => {
+      const modalId = button.getAttribute('data-modal');
+      const modal = document.getElementById(modalId);
+      if (modal) {
+        modal.style.display = 'block';
+      } else {
+        console.error(`Modal con ID ${modalId} no encontrado.`);
+      }
+    });
   });
 
-  span.onclick = function() {
-    modal.style.display = 'none';
-  };
+  // Cerrar el modal al hacer clic en la "X"
+  closeModalButtons.forEach(button => {
+    button.addEventListener('click', () => {
+      const modal = button.closest('.modal');
+      if (modal) {
+        modal.style.display = 'none';
+      }
+    });
+  });
 
-  window.onclick = function(event) {
-    if (event.target === modal) {
-      modal.style.display = 'none';
-    }
-  };
+  // Cerrar el modal al hacer clic fuera del contenido del modal
+  window.addEventListener('click', (event) => {
+    modals.forEach(modal => {
+      if (event.target === modal) {
+        modal.style.display = 'none';
+      }
+    });
+  });
 });
-  
