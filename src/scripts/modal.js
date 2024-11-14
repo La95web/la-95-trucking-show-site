@@ -19,7 +19,6 @@ document.addEventListener('DOMContentLoaded', () => {
   const modals = document.querySelectorAll('.modal');
   const closeModalButtons = document.querySelectorAll('.close');
 
-  // Abrir el modal correspondiente al hacer clic en un botón
   openModalButtons.forEach(button => {
     button.addEventListener('click', () => {
       const modalId = button.getAttribute('data-modal');
@@ -32,7 +31,6 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
-  // Cerrar el modal al hacer clic en la "X"
   closeModalButtons.forEach(button => {
     button.addEventListener('click', () => {
       const modal = button.closest('.modal');
@@ -42,7 +40,6 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
-  // Cerrar el modal al hacer clic fuera del contenido del modal
   window.addEventListener('click', (event) => {
     modals.forEach(modal => {
       if (event.target === modal) {
@@ -50,4 +47,69 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     });
   });
+});
+
+// Gallery
+document.addEventListener('DOMContentLoaded', () => {
+  const slider = document.getElementById('gallerySlider');
+  const dots = document.querySelectorAll('.dot');
+  let currentIndex = 0;
+
+  function updateGallery() {
+    const width = slider.clientWidth;
+    slider.style.transform = `translateX(-${currentIndex * width}px)`;
+
+    dots.forEach(dot => dot.classList.remove('active'));
+    dots[currentIndex].classList.add('active');
+  }
+
+  function setIndex(index) {
+    currentIndex = index;
+    updateGallery();
+  }
+
+  dots.forEach(dot => {
+    dot.addEventListener('click', () => {
+      setIndex(dot.getAttribute('data-index'));
+    });
+  });
+
+  document.getElementById('leftArrow').addEventListener('click', () => {
+    if (currentIndex > 0) {
+      setIndex(currentIndex - 1);
+    }
+  });
+
+  document.getElementById('rightArrow').addEventListener('click', () => {
+    if (currentIndex < dots.length - 1) {
+      setIndex(currentIndex + 1);
+    }
+  });
+
+  let touchStartX = 0;
+  let touchEndX = 0;
+
+  slider.addEventListener('touchstart', (e) => {
+    touchStartX = e.changedTouches[0].screenX;
+  });
+
+  slider.addEventListener('touchend', (e) => {
+    touchEndX = e.changedTouches[0].screenX;
+    handleGesture();
+  });
+
+  function handleGesture() {
+    if (touchEndX < touchStartX) {
+      if (currentIndex < dots.length - 1) {
+        setIndex(currentIndex + 1);
+      }
+    }
+    if (touchEndX > touchStartX) {
+      if (currentIndex > 0) {
+        setIndex(currentIndex - 1);
+      }
+    }
+  }
+
+  updateGallery();
 });
