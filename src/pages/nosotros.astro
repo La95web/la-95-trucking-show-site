@@ -1,28 +1,52 @@
 ---
-const pageTitle = "nosotros";  
+import GuestCard from "../components/GuestCard.astro";
+import Badbunny from "../assets/image/bad.webp";
+import Jlo from "../assets/image/jlo.webp";
+import Yankee from "../assets/image/daddy.webp";
+import SpanishLayout from "../layouts/SpanishLayout.astro";
+import Footer from "../components/Footer.astro";
+import HeaderBanner from "../components/HeaderBanner.astro";
+import Team from "../assets/image/team-pro.webp";
+import AboutUsSection from "../components/AboutUsSection.astro";
+import VisionSection from "../components/VisionSection.astro";
+import PanelistasCard from "../components/PanelistasCard.astro";
+import Modal from "../components/Modal.astro";
+import Gallery from "../components/Gallery.astro";
 ---
-<html lang="es">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width" />
-    <title>{pageTitle}</title>
-  </head>
-  <body>
-    <h1>{pageTitle}</h1>
-    <h2>vienen numeros y contactos aqui </h2>
 
-    <p>Estoy trabajando en el tutorial introductorio de Astro. Esta es la segunda página de mi sitio web, ¡y es la primera que he construido yo mismo!</p>
 
-    <p>Este sitio se irá actualizando a medida que vaya completando más partes del tutorial, ¡así que no dejes de visitarlo para ver cómo va mi viaje!</p>
-    <script>
-        import "../scripts/menu.js"
-    </script>  
-</body>
-</html>
-
-<style>
-    h1 {
-      color: purple;
-      font-size: 4rem;
-    }
-  </style>
+<SpanishLayout title="la 95 trucking show">
+  <HeaderBanner images={Team} />
+  <AboutUsSection 
+  title="quienes somos"
+  paragraph="Lorem ipsum dolor sit amet consectetur, adipisicing elit. Eos fugiat rem saepe nesciunt vel quaerat. Lorem ipsum dolor sit amet consectetur adipisicing elit. Velit alias omnis cum inventore provident dolor." />
+  <VisionSection />
+  <Modal 
+  guest1="Bad bunny"
+  description1="Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ratione, accusamus!"
+  url1=""
+  guest2="jennifer lopez"
+  description2="Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ratione, accusamus!"
+  url2=""
+  guest3="daddy yankee"
+  description3="Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ratione, accusamus!"
+  url33=""/>
+  <PanelistasCard 
+  guest="Bad bunny"
+  image={Badbunny}
+  description="Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ratione, accusamus!"
+  url=""
+  guest1="Jennifer Lopez"
+  image1={Jlo}
+  description1="Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ratione, accusamus!"
+  url1=""
+  guest2="Daddy yankee"
+  image2={Yankee}
+  description2="Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ratione, accusamus!"
+  url2="" />
+  <Gallery />
+  <Footer />
+</SpanishLayout>
+<script>
+  import "../scripts/modal.js"
+</script>
