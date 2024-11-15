@@ -6,34 +6,36 @@ import Gallery4 from "../assets/image/gallery4.webp";
 import Gallery5 from "../assets/image/gallery5.webp";
 import Gallery6 from "../assets/image/gallery6.webp";
 import Gallery7 from "../assets/image/gallery7.webp";
+import Left from "../assets/image/left.png";
+import Right from "../assets/image/right.png";
 ---
 
-
-<div class="gallery-container">
-  <h2>galeria</h2>
-  <div class="underline"></div>
-  <div class="gallery-slider" id="gallerySlider">
-    <img src={Gallery1.src} alt="Imagen 1">
-    <img src={Gallery2.src} alt="Imagen 2">
-    <img src={Gallery3.src} alt="Imagen 3">
-    <img src={Gallery4.src} alt="Imagen 4">
-    <img src={Gallery5.src} alt="Imagen 5">
-    <img src={Gallery6.src} alt="Imagen 5">
-    <img src={Gallery7.src} alt="Imagen 5">
+<section> 
+  <div class="arrow left-arrow" id="leftArrow"><img src={Left.src} alt="Left"></i></div>
+  <div class="arrow right-arrow" id="rightArrow"><img src={Right.src} alt="right"></div>
+  <div class="gallery-container">
+    <h2>galeria</h2>
+    <div class="underline"></div>
+    <div class="gallery-slider" id="gallerySlider">
+      <img src={Gallery1.src} alt="Imagen 1">
+      <img src={Gallery2.src} alt="Imagen 2">
+      <img src={Gallery3.src} alt="Imagen 3">
+      <img src={Gallery4.src} alt="Imagen 4">
+      <img src={Gallery5.src} alt="Imagen 5">
+      <img src={Gallery6.src} alt="Imagen 5">
+      <img src={Gallery7.src} alt="Imagen 5">
+    </div>
+    <div class="gallery-dots" id="galleryDots">
+      <span class="dot" data-index="0"></span>
+      <span class="dot" data-index="1"></span>
+      <span class="dot" data-index="2"></span>
+      <span class="dot" data-index="3"></span>
+      <span class="dot" data-index="4"></span>
+      <span class="dot" data-index="5"></span>
+      <span class="dot" data-index="6"></span>
+    </div>
   </div>
-  <div class="gallery-dots" id="galleryDots">
-    <span class="dot" data-index="0"></span>
-    <span class="dot" data-index="1"></span>
-    <span class="dot" data-index="2"></span>
-    <span class="dot" data-index="3"></span>
-    <span class="dot" data-index="4"></span>
-    <span class="dot" data-index="5"></span>
-    <span class="dot" data-index="6"></span>
-  </div>
-  <div class="arrow left-arrow" id="leftArrow">&#9664;</div>
-  <div class="arrow right-arrow" id="rightArrow">&#9664;</div>
-</div>
-
+</section>
 
 <style lang="scss">
   @use "../assets//sass/index" as*;
@@ -43,6 +45,12 @@ import Gallery7 from "../assets/image/gallery7.webp";
   width: auto;
   max-width: 600px;
   overflow: hidden;
+}
+
+section {
+  background-image: url("../assets/image/Pentagonos.png");
+  background-repeat:repeat;
+  background-position: cover;
 }
 
 .gallery-slider {
@@ -77,27 +85,23 @@ import Gallery7 from "../assets/image/gallery7.webp";
   box-shadow: 0 0 25px 15px rgba($accent-b-light, 25%);
 }
 
-.arrow {
+.left-arrow, .right-arrow {
   position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  font-size: 24px;
-  color: #fff;
-  background-color: rgba(0, 0, 0, 0.5);
-  border: none;
-  cursor: pointer;
+  display: flex;
+  align-items: center;
+  font-size: 50px;
   z-index: 10;
-  padding: 10px;
-  display: none; 
+  display: none;
 }
 
 .left-arrow {
-  left: 10px;
+  left: 10%;
 }
 
 .right-arrow {
-  right: 10px;
+  right: 10%;
 }
+
 
 .underline {
   width: 20%;
@@ -106,6 +110,13 @@ import Gallery7 from "../assets/image/gallery7.webp";
 @media (min-width: 1024px) {
   .arrow {
     display: block;
+  }
+
+  section {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
   }
 }
 </style>

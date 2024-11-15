@@ -3,11 +3,16 @@ const {mision, vision, valores, imagesVision} = Astro.props;
 import imagesvision from "../assets/image/Misionteam.webp";
 ---
 
+<section>
+  <div class="flex">
+    <h2>NUESTRA RAZON DE SER</h2>
+    <div class="underline"></div> 
+  </div>
+</section>
+
 <div class="podcasts-container">
-  <figure>
-    <div> 
-      <h2>nuestra razon de ser</h2>
-      <div class="underline"></div>
+    <figure>
+    <div>
       <img src={imagesvision.src} alt="team">
     </div>
   </figure>
@@ -17,19 +22,25 @@ import imagesvision from "../assets/image/Misionteam.webp";
       <i class="ph ph-sunglasses"></i>
     </div>
       <div class="colorsred"></div>
-    <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Voluptatibus eaque deleniti tempora.</p>
+    <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Voluptatibus eaque 
+      deleniti tempora. Lorem ipsum dolor sit amet consectetur adipisicing elit. 
+      Culpa autem beatae nam non tenetur neque doloremque at eos explicabo voluptate.</p>
     <div class="end-line">
       <h3>misión</h3>
-      <i class="ph ph-sunglasses"></i>
+      <i class="ph ph-target"></i>
     </div>
       <div class="colorswhite"></div>
-    <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Voluptatibus eaque deleniti tempora.</p>
+    <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. 
+      Voluptatibus eaque deleniti tempora. Lorem ipsum dolor sit amet consectetur adipisicing elit.
+       Explicabo, reprehenderit dolorem rerum deleniti debitis doloremque eaque non dolorum ipsam velit?</p>
     <div class="end-line">
       <h3>Valores</h3>
-      <i class="ph ph-sunglasses"></i>
+      <i class="ph ph-nut"></i>
     </div>
       <div class="colorsblue"></div>
-    <p class="last-text">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Voluptatibus eaque deleniti tempora.</p>
+    <p class="last-text">Lorem ipsum dolor sit amet consectetur,
+       adipisicing elit. Voluptatibus eaque deleniti tempora. Lorem ipsum dolor sit,
+        amet consectetur adipisicing elit. Dolore harum cum rerum veniam accusamus labore est culpa maiores illum quisquam.</p>
   </div>
 </div>
     
@@ -102,7 +113,7 @@ import imagesvision from "../assets/image/Misionteam.webp";
     justify-content: center;
     align-items: center;
     margin: 0;
-    background-color: $primary;
+    background-color: $primary; 
   }
 
   figure img {
@@ -111,36 +122,57 @@ import imagesvision from "../assets/image/Misionteam.webp";
     height: auto;
   }
 
+  .flex {
+    background-color: $primary;
+  }
+
   @media (min-width: 1024px) {
     
     .podcasts-container {
       display: flex;
-      flex-direction: row-reverse;
-      padding-top: 0;
+      flex-direction: row;
     }
 
     figure {
       display: flex;
-      margin-right: 5%;
+      margin-right: 3%;
     }
 
     figure img {
-      height: 540px;
       margin: 0;
+      width: 648px;
+      height: 560px;
     }
 
-    .section-center {
-      padding-right: 10%;
-      margin-top: 170px;
-
-      h2 {
-        font-size: 3rem;
-        margin: 0;
-      }
+    h3 {
+      margin-top: 20px;
+      font-size: 2rem;
     }
     
     p {
       font-size: 1.25rem;
+    }
+
+    .colorsred {
+      margin-left: 35px;
+    }
+  
+    .colorsblue {
+      margin-left: 35px;
+    }
+
+    .colorswhite {
+      margin-left: 35px;
+    }
+
+    .section {
+      display: flex;
+      flex-direction: row;
+    }
+
+    .flex {
+      background-color: $primary;
+      padding-bottom: 20px;
     }
   }
 </style>
