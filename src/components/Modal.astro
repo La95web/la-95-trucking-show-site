@@ -9,7 +9,7 @@ const {guest3, description3, url3}= Astro.props
 
 <div id="modalA" class="modal">
     <div class="close-menu-container">
-      <span class="close">&times;</span>
+      <span class="close"></span>
       <div class="rombo">
         <div class="line2"></div>
       </div>
@@ -19,7 +19,7 @@ const {guest3, description3, url3}= Astro.props
       <div>
         <h3 class="card-title">{guest1}</h3>
         <p>PANELISTA</p>
-        <div class="underline"></div>
+        <div class="underlinep"></div>
         <p class="textRight">{description1}</p>
         <div class="socialLeft"> 
           <a href={url1} target="_blank" class="btn contact-details">
@@ -38,7 +38,7 @@ const {guest3, description3, url3}= Astro.props
   
   <div id="modalB" class="modal">
     <div class="close-menu-container">
-      <span class="close">&times;</span>
+      <span class="close"></span>
       <div class="rombo">
         <div class="line2"></div>
       </div>
@@ -67,7 +67,7 @@ const {guest3, description3, url3}= Astro.props
 
   <div id="modalC" class="modal">
     <div class="close-menu-container">
-      <span class="close">&times;</span>
+      <span class="close"></span>
       <div class="rombo">
         <div class="line2"></div>
       </div>
@@ -94,10 +94,10 @@ const {guest3, description3, url3}= Astro.props
     </div>
   </div>
 
-  <style lang="scss">
-    @use "../assets//sass/index" as*;
+<style lang="scss">
+  @use "../assets//sass/index" as*;
 
-    .modal {
+  .modal {
     display: none; 
     position: fixed;
     z-index: 99;
@@ -124,7 +124,7 @@ const {guest3, description3, url3}= Astro.props
     padding-top: 20px;
     border-radius: 8px;
   }
-  
+
   img {
     width: 100%;
   }
@@ -136,7 +136,7 @@ const {guest3, description3, url3}= Astro.props
   h3 {
     color: $secondary;
     font-size: 2rem;
-     padding-top: 10px;
+    padding-top: 10px;
   }
 
   p {
@@ -212,10 +212,10 @@ const {guest3, description3, url3}= Astro.props
   }
 
   .modal-content .ph {
-   color: $accent-c-light;
-   font-size: 2rem;
-   margin-right: 20px;
-   background-color: $primary;
+    color: $accent-c-light;
+    font-size: 2rem;
+    margin-right: 20px;
+    background-color: $primary;
   }
 
   .socialLeft {
@@ -225,6 +225,55 @@ const {guest3, description3, url3}= Astro.props
     align-items: left;
     padding-top: 10px;
   }
-//   modal end
 
-  </style>
+ @media (min-width: 1024px) {
+   
+  .modal-content {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    margin: 12% auto;
+    width: 70%;
+    overflow: hidden;
+  }
+
+  .modal-content img {
+    padding-top: 0px;
+  }
+
+  img {
+    width: 654px;
+  }
+
+  .underlinep {
+    width: 75%;
+    height: 2px;
+    background-color: $accent-b-dark;
+    justify-content: left;
+    margin-top: 0px;
+    border-radius: 2px;
+    margin: 0 12%; 
+  }
+
+  .socialLeft {
+    padding-top: 20px;
+    margin-left: 10%;
+  }
+
+  .textRight {
+    margin-left: 10%;
+  }
+
+  .modal-content > div {
+    background-color: $tertiary;
+    padding: 2.5%;
+  }
+
+  .close-menu-container {
+    top: 30%;
+    right: 16%;
+  }
+ }
+</style>

@@ -43,43 +43,48 @@ import logo2 from '../assets/image/logoDesktop.webp';
   }
 
   figure img {
-    width: 100%;
+    width: 330px;
     height: auto;
   }
 
-  @media (min-width: 1024px) {
-    
-  .podcasts-container {
-  flex-direction: row-reverse;
-  }
+    @media (min-width: 1024px) {
 
-  figure {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
+    figure {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
 
-  figure img {
-    width: 600px;
-    height: 610px;
-    margin-left: 72px ;
-  }
+    figure img {
+      width: 500px;
+      height: auto;
+      margin-left: 72px ;
+    }
 
-  section {
-    padding: 150px;
+    section {
+      padding: 50px;
 
-    h2 {
-      font-size: 3rem;
+      h2 {
+        font-size: 3rem;
+      }
+      p {
+        font-size: 1.25rem;
+      }
+      a {
+        font-size: 2rem;
+      }
+      .underline {
+        width: 25%;
+      }
     }
-    p {
-      font-size: 1.25rem;
-    }
-    a {
-      font-size: 2rem;
-    }
-    .underline {
-      width: 248px;
+      
+    .podcasts-container {
+      flex-direction: row-reverse;
+      justify-content: center;
+      align-items: center;
+      background-image: url('../assets/image/FireVector.webp');
+      background-repeat: no-repeat;
+      background-position: calc(100% - 20%) center;
     }
   }
-}
 </style>

@@ -1,10 +1,12 @@
 ---
-const {images} = Astro.props;
+import Team1 from "../assets/image/team-pro.webp";
+import Team2 from "../assets/image/team-pro-2.webp";
 ---
 
 <header>
   <div class="content-header">
-    <img src={images.src} alt="image">
+    <img src={Team1.src} alt="image" class="movil-image">
+    <img src={Team2.src} alt="desktop image" class="desktop-image">
     <h1>nosotros</h1>
   </div>
 </header>
@@ -12,18 +14,20 @@ const {images} = Astro.props;
 <style lang="scss">
   @use '../assets/sass/index' as *;
 
+  .desktop-image img {
+    display: none;
+  }
+
   header {
     position: relative;
     width: 100%;
     aspect-ratio: 402 / 226;
     overflow: hidden;
-    
   }
 
   .content-header {
     display: flex;
     height: 100%;
-    
   }
   
   h1 {
@@ -41,7 +45,11 @@ const {images} = Astro.props;
   }
 
   @media (min-width: 1024px) {
-    
+
+    .movil-image {
+      display: none;
+    }
+
     h1 {
     font-size: 11rem;
     }
