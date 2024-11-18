@@ -1,13 +1,12 @@
 ---
-import Team1 from "../assets/image/team-pro.webp";
-import Team2 from "../assets/image/team-pro-2.webp";
+const {titleUs, Team1, Team2} = Astro.props;
 ---
 
 <header>
   <div class="content-header">
     <img src={Team1.src} alt="image" class="movil-image">
     <img src={Team2.src} alt="desktop image" class="desktop-image">
-    <h1>nosotros</h1>
+    <h1>{titleUs}</h1>
   </div>
 </header>
 
@@ -52,6 +51,7 @@ import Team2 from "../assets/image/team-pro-2.webp";
 
     h1 {
     font-size: 11rem;
+    align-items: center;
     }
 
     header {
