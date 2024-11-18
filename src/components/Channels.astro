@@ -1,0 +1,108 @@
+---
+const {title, textA, textB, textC } = Astro.props;
+---
+
+<section>
+  <h2>otros canales</h2>
+  <div class="underline"></div>
+  <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Aliquid, error?</p>
+  <figure>
+    <div>
+      <i class="ph ph-whatsapp-logo"></i>
+      <h3>Whatsapp</h3>
+      <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Fuga, quae?</p>
+      <div class="light-gold gold-button">
+        <a href="">enviar correo</a>
+      </div>
+    </div>
+    <div>
+      <i class="ph ph-envelope-simple"></i>
+      <h3>correo electronico</h3>
+      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Totam, unde?</p>
+      <div class="light-gold gold-button">
+        <a href="">enviar correo</a>
+      </div>
+    </div>
+  </figure>
+</section>
+
+<article>
+  <h2>horario de atención</h2>
+  <div class="underline-black"></div>
+  <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Aliquid, error?</p>
+</article>
+
+<style lang="scss">
+  @use "../assets//sass/index" as*;
+
+  section {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding-top: 20px;
+  }
+
+  figure i {
+    color: $accent-b-dark;
+    font-size: 5.5rem;
+  }
+
+  .light-gold {
+    border-radius: 8px;
+    padding: 10px;
+    transition: background-color 0.3s, box-shadow 0.3s;
+    margin: 40px; 
+  }
+
+  a {
+    color: $secondary;
+    font-size: 1.5rem;
+    font-weight: $regular;
+    font-family: $heading;
+  }
+
+  .light-gold.gold-button {
+    background-color: $tertiary;
+    box-shadow: 0 0 20px 10px rgba($accent-b-dark, 35%);
+    border: 2px solid $accent-b-dark;
+  }
+
+  .gold-button {
+    background-color: $accent-b-light;
+  }
+
+  .gold-button:hover {
+    box-shadow: 0 0 25px 15px rgba($accent-b-light, 40%);
+  }
+
+  article {
+    display: block;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    background-color: $accent-b-dark;
+    padding: 20px;
+
+    h2 {
+      color: $primary;
+    }
+
+    p {
+      color: $primary;
+    }
+  }
+
+  .underline-black {
+    width: 270px;
+    height: 2px;
+    background-color: $primary;
+    justify-content: center;
+    align-items: center;
+    margin-top: 0px;
+    border-radius: 2px;
+    margin: auto; 
+  }
+
+</style>
