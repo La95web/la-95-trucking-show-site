@@ -1,21 +1,26 @@
 ---
-const pageTitle = "Conctacto";  //esto es blog
-import "../style/global.scss";
+import SpanishLayout from "../layouts/SpanishLayout.astro";
+import Footer from "../components/Footer.astro";
+import HeaderBanner from "../components/HeaderBanner.astro";
+import Movil from "../assets/image/trucker2movil.png"
+import Desktop from "../assets/image/truckers2.png";
+import FeedbackForm from "../components/FeedbackForm.astro";
 ---
-<html lang="es">
-  <head>
-    <meta charset="utf-8"/>
-    <meta name="viewport" content="width=device-width" />
-    <title>{pageTitle}</title>
-  </head>
-  <body>
-    <h1>{pageTitle}</h1>
-    <p>Aquí es donde publicaré acerca de mi viaje aprendiendo Astro./p>
-    <ul>
-      <li><a href="/posts/home-1/">Publicación 1</a></li>
-    </ul>
-    <script>
-        import "../scripts/menu.js"
-    </script>
-  </body>
-</html>
+
+<SpanishLayout title="la 95 trucking show">
+  <HeaderBanner
+  titleUs="contacto"
+  Team1={Movil}
+  Team2={Desktop} />
+  <FeedbackForm 
+  title="contactanos"
+  text="Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptates id maxime explicabo quidem culpa repellendus magnam omnis fugiat, velit autem iste voluptate tenetur non magni, labore nulla porro dolores officiis."
+  name="tu nombre"
+  email="tu email"
+  textarea="tu mensaje"
+  send="Enviar"/>
+  <Footer />
+</SpanishLayout>
+<script>
+  import "../scripts/mainMenu.js"
+</script>
