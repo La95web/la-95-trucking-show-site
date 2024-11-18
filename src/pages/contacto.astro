@@ -5,6 +5,7 @@ import HeaderBanner from "../components/HeaderBanner.astro";
 import Movil from "../assets/image/trucker2movil.png"
 import Desktop from "../assets/image/truckers2.png";
 import FeedbackForm from "../components/FeedbackForm.astro";
+import Channels from "../components/Channels.astro";
 ---
 
 <SpanishLayout title="la 95 trucking show">
@@ -19,8 +20,10 @@ import FeedbackForm from "../components/FeedbackForm.astro";
   email="tu email"
   textarea="tu mensaje"
   send="Enviar"/>
+  <Channels />
   <Footer />
 </SpanishLayout>
 <script>
   import "../scripts/mainMenu.js"
+  import "../scripts/FormValidation.js"
 </script>
