@@ -4,15 +4,19 @@ const {title, text, name, email, textarea, send} = Astro.props;
 <section>
   <div class="podcasts-container">
     <h2>{title}</h2>
-    <div class="underline"></div>
+    <div class="underline-content"></div>
     <p>{text}</p>
     <form action="/" method="post">
-      <label for="name">{name}</label>
-      <input type="text" id="name" name="name" placeholder="Your name" required>
-
-      <label for="email">{email}</label>
-      <input type="email" id="email" name="email" placeholder="name@gmail.com" required>
-
+      <div class="row"> 
+        <div class="column">
+          <label for="name">{name}</label>
+          <input type="text" id="name" name="name" placeholder="Your name" required>
+        </div>
+        <div class="column">
+          <label for="email">{email}</label>
+          <input type="email" id="email" name="email" placeholder="name@gmail.com" required>
+        </div>
+      </div>
       <label for="message">{textarea}</label>
       <textarea id="message" name="message" placeholder="Write your message..."></textarea>
       <div class="button-container"> 
@@ -30,9 +34,8 @@ const {title, text, name, email, textarea, send} = Astro.props;
   }
     
   .podcasts-container P {
-    margin: 0 5%;
+    margin: 20px 5% 0;
     color: $secondary;
-    margin-top: 20px;
   }
 
   label {
@@ -43,8 +46,19 @@ const {title, text, name, email, textarea, send} = Astro.props;
     padding-top: 20px;
   }
 
-  .underline {
-    width: 25%;
+  .column {
+    padding-top: 20px;
+  }
+
+  .underline-content {
+    width: 30%;
+    height: 2px;
+    background-color: $accent-b-light;
+    justify-content: right;
+    align-items: right;
+    margin-top: 0px;
+    border-radius: 2px;
+    margin: 0 5%; 
   }
 
   button {
@@ -94,15 +108,45 @@ const {title, text, name, email, textarea, send} = Astro.props;
 
   @media (min-width: 1024px) {
 
-    form {
-      max-width: 45%;
-      margin: 0 auto;
+    .podcasts-container {
+      text-align: center;
+      align-items: center;
+
+      label {
+        text-align: left;
+      }
     }
+
+    .row {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+    }
+
+    .column {
+      display: flex;
+      flex-direction: column;
+      text-align: left;
+      width: 48%;
+    }
+
+    .underline-content {
+      width: 150px;
+      height: 2px;
+      background-color: $accent-b-light;
+      justify-content: center;
+      align-items: center;
+      margin-top: 0px;
+      border-radius: 2px;
+      margin: auto; 
+    }
+
     h2 {
       font-size: 3rem;
     }
     p{
       font-size: 1.5rem;
+      padding: 20px;
     }
     label {
       font-size: 1.5rem;
