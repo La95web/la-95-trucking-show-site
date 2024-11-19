@@ -24,12 +24,15 @@ import truck3 from "../assets/image/truck3.webp";
   <Radio />
   <PrimarySection 
   title="EL PODCAST MÁS DURO"
-  paragraph="este es un titulo de ejemplo, este es un titulo de ejemplo, este es un titulo de ejemplo, este es un titulo de ejemplo, este es un titulo de ejemplo, este es un titulo de ejemplo, este es un titulo de ejemplo, este es un titulo de ejemplo, este es un titulo de ejemplo" />
+  paragraph="este es un titulo de ejemplo, este es un titulo de ejemplo, este es un titulo de ejemplo, este es un titulo de ejemplo, este es un titulo de ejemplo, este es un titulo de ejemplo, este es un titulo de ejemplo, este es un titulo de ejemplo, este es un titulo de ejemplo" 
+  button="ver más"/>
   <GuestCard 
+  titleA="invitados especiales"
   guest="Bad bunny"
   image={Badbunny}
   description="Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ratione, accusamus!"
   url=""
+  button="ver más"
   guest1="Jennifer Lopez"
   image1={Jlo}
   description1="Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ratione, accusamus!"
@@ -40,11 +43,21 @@ import truck3 from "../assets/image/truck3.webp";
   url2="" />
   <SecondarySection
   title="Conviértete en patrocinador"
-  paragraph="este es un ejemplo de la descripcio, este es un ejemplo de la descripcio, este es un ejemplo de la descripcio, este es un ejemplo de la descripcio, este es un ejemplo de la descripcio" /> <!--borrar este props y title -->
+  paragraph="este es un ejemplo de la descripcio, este es un ejemplo de la descripcio, este es un ejemplo de la descripcio, este es un ejemplo de la descripcio, este es un ejemplo de la descripcio"
+  button="ver más" /> 
   <Carousel />
-  <Magazine />
-  <Newsletter />
-  <Whatsapp />
+  <Magazine 
+  titleA="Descargar nuestra revista"
+  textA="Lorem ipsum, dolor sit amet consectetur adipisicing elit. Dolorum, quisquam? Lorem ipsum dolor sit, amet consectetur adipisicing elit. Voluptatem, perferendis? Lorem ipsum dolor sit amet consectetur adipisicing elit. Sunt labore earum accusantium molestias cupiditate omnis! Lorem, ipsum dolor sit amet consectetur adipisicing elit. Omnis architecto, soluta aspernatur eum voluptatem eligendi dolorem et dolor iste animi."
+  button="descargar"/>
+  <Newsletter
+  titleA="Recibe notificaciones y avisos"
+  label="Tu email:"
+  button="enviar" />
+  <Whatsapp
+  titleA="únete a nuestro grupo de whatsapp"
+  textA="Lorem ipsum dolor sit amet consectetur, adipisicing elit. Voluptatibus eaque deleniti tempora."
+  button="ÚNETE" />
   <Footer />
 </SpanishLayout>
 <script>
