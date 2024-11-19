@@ -1,12 +1,16 @@
+---
+const {titleA, label, button} = Astro.props;
+---
+
 <div class="podcasts-container">
-  <h2>Recibe notificaciones y avisos</h2>
+  <h2>{titleA}</h2>
   <div class="underline-black"></div>
   <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
   <form action="/" method="post">
-    <label for="email">Tu Email:</label>
+    <label for="email">{label}</label>
     <input type="email" id="email" name="email" placeholder="name@gmail.com" required>
     <div class="button-container"> 
-      <button type="submit">ENVIAR</button>
+      <button type="submit">{button}</button>
     </div>
   </form>
 </div>

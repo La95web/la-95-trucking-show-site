@@ -1,14 +1,15 @@
 ---
 import truckers from '../assets/image/truckers.webp';
+const {titleA, textA, button} = Astro.props;
 ---
 
 <div class="podcasts-container">
   <div class="section-center">
-    <h2>únete a nuestro grupo de whatsapp</h2>
+    <h2>{titleA}</h2>
     <div class="underline-black"></div>
-      <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Voluptatibus eaque deleniti tempora.</p>
+      <p>{textA}</p>
     <div class="button-container"> 
-      <a href="#">ÚNETE</a>
+      <a href="#">{button}</a>
     </div>
   </div>
   <figure>

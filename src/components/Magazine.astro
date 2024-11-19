@@ -1,21 +1,16 @@
 ---
 import magazine from '../assets/image/revista.png';
 
-const {title, paragraph} = Astro.props;
+const {titleA, textA, button} = Astro.props;
 ---
 
 <div class="podcasts-container">
   <div>
-    <h2>Descargar nuestra revista</h2>
+    <h2>{titleA}</h2>
     <div class="underline"></div>
-    <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Dolorum, quisquam? Lorem ipsum dolor sit,
-      amet consectetur adipisicing elit. Voluptatem, perferendis?
-      Lorem ipsum dolor sit amet consectetur adipisicing elit.
-      Sunt labore earum accusantium molestias cupiditate omnis! Lorem, ipsum dolor sit
-      amet consectetur adipisicing elit. Omnis architecto, 
-      soluta aspernatur eum voluptatem eligendi dolorem et dolor iste animi.</p>
+    <p>{textA}</p>
     <div class="light-button red-button">
-      <a href="">DESCARGAR</a>
+      <a href="">{button}</a>
     </div>
   </div>
   <figure>
