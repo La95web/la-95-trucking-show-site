@@ -1,7 +1,7 @@
 ---
 import TrafficLight from "../components/TrafficLight.astro";
 import Navigation from "../components/Navigation.astro";
-
+import Footer from "../components/Footer.astro";
 const {title} = Astro.props;
 ---
 
@@ -19,6 +19,7 @@ const {title} = Astro.props;
     <TrafficLight />
     <Navigation />
     <slot />
+    <Footer />
   </body>
 </html>
 
@@ -54,7 +55,7 @@ const {title} = Astro.props;
   }
   
   .underline {
-    width: 170px;
+    width: 130px;
     height: 2px;
     background-color: $accent-b-dark;
     justify-content: left;
