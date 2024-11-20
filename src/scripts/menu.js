@@ -36,4 +36,5 @@ function moveCarousel() {
   }
 }
 setInterval(moveCarousel, 20);
+
   
