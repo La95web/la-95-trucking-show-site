@@ -2,7 +2,7 @@
 import Badbunny from "../assets/image/bad.webp";
 import Jlo from "../assets/image/jlo.webp";
 import Yankee from "../assets/image/daddy.webp";
-import SpanishLayout from "../layouts/SpanishLayout.astro";
+import EnglishLayout from "../layouts/EnglishLayout.astro";
 import HeaderBanner from "../components/HeaderBanner.astro";
 import AboutUsSection from "../components/AboutUsSection.astro";
 import VisionSection from "../components/VisionSection.astro";
@@ -15,13 +15,13 @@ import Footer from "../components/Footer.astro";
 ---
 
 
-<SpanishLayout title="la 95 trucking show">
+<EnglishLayout title="la 95 trucking show">
   <HeaderBanner 
-  titleUs="nosotros"
+  titleUs="US"
   Team1={Team1}
   Team2={Team2}/>
   <AboutUsSection 
-  title="quienes somos"
+  title="how we are?"
   paragraph="Lorem ipsum dolor sit amet consectetur, adipisicing elit. Eos fugiat rem saepe nesciunt vel quaerat. Lorem ipsum dolor sit amet consectetur adipisicing elit. Velit alias omnis cum inventore provident dolor." />
   <VisionSection
   titleA="nuestra razón de ser"
@@ -56,7 +56,7 @@ import Footer from "../components/Footer.astro";
   url2="" />
   <Gallery />
   <Footer />
-</SpanishLayout>
+</EnglishLayout>
 <script>
   import "../scripts/modal.js"
 </script>

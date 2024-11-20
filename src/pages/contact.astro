@@ -1,5 +1,5 @@
 ---
-import SpanishLayout from "../layouts/SpanishLayout.astro";
+import EnglishLayout from "../layouts/EnglishLayout.astro";
 import HeaderBanner from "../components/HeaderBanner.astro";
 import Movil from "../assets/image/trucker2movil.png"
 import Desktop from "../assets/image/truckers2.png";
@@ -8,13 +8,13 @@ import Channels from "../components/Channels.astro";
 import Footer from "../components/Footer.astro";
 ---
 
-<SpanishLayout title="la 95 trucking show">
+<EnglishLayout title="la 95 trucking show">
   <HeaderBanner
-  titleUs="contacto"
+  titleUs="contact"
   Team1={Movil}
   Team2={Desktop} />
   <FeedbackForm 
-  title="contactanos"
+  title="contact us"
   text="Lorem ipsum dolor sit amet consectetur. Voluptates id maxime explicabo quidem culpa repellendus magnam omnis fugiat, autem iste voluptate tenetur non magni, labore nulla porro dolores officiis."
   name="Tu nombre"
   email="Tu email"
@@ -32,7 +32,7 @@ import Footer from "../components/Footer.astro";
   sendA="enviar mensaje"
   sendB="enviar correo" />
   <Footer />
-</SpanishLayout>
+</EnglishLayout>
 <script>
   import "../scripts/mainMenu.js"
   import "../scripts/FormValidation.js"
