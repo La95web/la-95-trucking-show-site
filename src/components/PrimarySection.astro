@@ -12,7 +12,7 @@ import logo2 from '../assets/image/logoDesktop.webp';
       <a href="">{button}</a>
     </div>
   </section>
-  <figure>
+  <figure id="animation">
     <img src={logo2.src} alt="logo">
   </figure>
 </div>
@@ -42,6 +42,17 @@ import logo2 from '../assets/image/logoDesktop.webp';
   figure {
     display: none;
   }
+
+  #animation {
+  opacity: 0;
+  transform: translateX(-100%);
+  transition: opacity 0.6s ease-out, transform 0.9s ease-out;
+
+  &.animate {
+      opacity: 1;
+      transform: translateX(0);
+  }
+}
 
   @media (min-width: 1024px) {
     

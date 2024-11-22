@@ -8,7 +8,7 @@ const {guest2, image2, description2}= Astro.props
     <h2>panelistas</h2>
     <div class="underlineshort"></div>
   </div>
-  <div class="flexbox">
+  <div id="animation" class="flexbox">
     <div class="card">
       <div> 
         <img src={image.src} alt="Card Image" class="card-image">
@@ -159,6 +159,7 @@ const {guest2, image2, description2}= Astro.props
       font-weight: $regular;
       font-family: $heading;
       background-color: $tertiary;
+      cursor: pointer;
     }
   }
 
@@ -176,6 +177,17 @@ const {guest2, image2, description2}= Astro.props
   .gold-button:hover {
     box-shadow: 0 0 25px 15px rgba($accent-b-light, 40%);
   }
+
+  #animation {
+  opacity: 0;
+  transform: translateY(100%);
+  transition: opacity 0.6s ease-out, transform 0.9s ease-out;
+
+  &.animate {
+      opacity: 1;
+      transform: translateX(0);
+  }
+}
 
   @media (min-width: 1024px) {
 
