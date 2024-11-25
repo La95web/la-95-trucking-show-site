@@ -1,14 +1,14 @@
 ---
-const {guest, image, description} = Astro.props
+const {guest, image, description, button, title} = Astro.props
 const {guest1, image1, description1}= Astro.props
 const {guest2, image2, description2}= Astro.props 
 ---
 <section> 
   <div class="center"> 
-    <h2>panelistas</h2>
+    <h2>{title}</h2>
     <div class="underlineshort"></div>
   </div>
-  <div class="flexbox">
+  <div id="animation" class="flexbox">
     <div class="card">
       <div> 
         <img src={image.src} alt="Card Image" class="card-image">
@@ -18,7 +18,7 @@ const {guest2, image2, description2}= Astro.props
         <div class="card-content">
           <p class="card-description">{description}</p>
           <div class="light-gold gold-button">
-            <button class="openModal" data-modal="modalA">Ver más</button>
+            <button class="openModal" data-modal="modalA">{button}</button>
           </div>
           <div class="small-image"></div>
         </div>
@@ -33,7 +33,7 @@ const {guest2, image2, description2}= Astro.props
         <div class="card-content">
           <p class="card-description">{description1}</p>
           <div class="light-gold gold-button">
-            <button class="openModal" data-modal="modalB">Ver más</button>
+            <button class="openModal" data-modal="modalB">{button}</button>
           </div>
           <div class="small-image"></div>
         </div>
@@ -48,7 +48,7 @@ const {guest2, image2, description2}= Astro.props
         <div class="card-content">
           <p class="card-description">{description2}</p>
           <div class="light-gold gold-button">
-            <button class="openModal" data-modal="modalC">Ver más</button>
+            <button class="openModal" data-modal="modalC">{button}</button>
           </div>
           <div class="small-image"></div>
         </div>
@@ -116,7 +116,7 @@ const {guest2, image2, description2}= Astro.props
   }
 
   .underlineshort {
-    width: 30%;
+    width: 120px;
     height: 2px;
     background-color: $accent-b-dark;
     margin: 0 5%;
@@ -159,6 +159,7 @@ const {guest2, image2, description2}= Astro.props
       font-weight: $regular;
       font-family: $heading;
       background-color: $tertiary;
+      cursor: pointer;
     }
   }
 
@@ -176,6 +177,17 @@ const {guest2, image2, description2}= Astro.props
   .gold-button:hover {
     box-shadow: 0 0 25px 15px rgba($accent-b-light, 40%);
   }
+
+  #animation {
+  opacity: 0;
+  transform: translateX(-100%);
+  transition: opacity 0.6s ease-out, transform 0.9s ease-out;
+
+  &.animate {
+      opacity: 1;
+      transform: translateX(0);
+  }
+}
 
   @media (min-width: 1024px) {
 

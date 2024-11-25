@@ -8,13 +8,14 @@ import Gallery6 from "../assets/image/gallery6.webp";
 import Gallery7 from "../assets/image/gallery7.webp";
 import Left from "../assets/image/left.png";
 import Right from "../assets/image/right.png";
+const {title} = Astro.props;
 ---
 
 <section> 
   <div class="arrow left-arrow" id="leftArrow"><img src={Left.src} alt="Left"></i></div>
   <div class="arrow right-arrow" id="rightArrow"><img src={Right.src} alt="right"></div>
   <div class="gallery-container">
-    <h2>galeria</h2>
+    <h2>{title}</h2>
     <div class="underline"></div>
     <div class="gallery-slider" id="gallerySlider">
       <img src={Gallery1.src} alt="Imagen 1">
@@ -102,14 +103,24 @@ section {
   right: 10%;
 }
 
-
 .underline {
   width: 20%;
 }
 
+@media (min-width: 600px) { 
+
+  section {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+ }
+
 @media (min-width: 1024px) {
   .arrow {
     display: block;
+    cursor: pointer;
   }
 
   section {
@@ -117,6 +128,24 @@ section {
     flex-direction: column;
     justify-content: center;
     align-items: center;
+  }
+
+  .gallery-container {
+    max-width: 400px;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .underline {
+    width: 10%;
+    height: 2px;
+    background-color: $accent-b-dark;
+    justify-content: center;
+    align-items: center;
+    margin-top: 0px;
+    border-radius: 2px;
+    margin: auto; 
   }
 }
 </style>

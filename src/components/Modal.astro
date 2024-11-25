@@ -2,9 +2,9 @@
 import Panelista1 from "../assets/image/bad.webp";
 import Panelista2 from "../assets/image/jlo.webp";
 import Panelista3 from "../assets/image/daddy.webp";
-const {guest1, description1, url1} = Astro.props
-const {guest2, description2, url2}= Astro.props
-const {guest3, description3, url3}= Astro.props 
+const {guest1, description1, title} = Astro.props
+const {guest2, description2}= Astro.props
+const {guest3, description3}= Astro.props 
 ---
 
 <div id="modalA" class="modal">
@@ -17,18 +17,24 @@ const {guest3, description3, url3}= Astro.props
     <div class="modal-content">
       <img src={Panelista1.src} alt="Card Image">
       <div>
+        <div class="close-menu-B">
+          <span class="close"></span>
+          <div class="rombo">
+            <div class="line2"></div>
+          </div>
+        </div>
         <h3 class="card-title">{guest1}</h3>
-        <p>PANELISTA</p>
-        <div class="underlinep"></div>
+        <p>{title}</p>
+        <div class="underline-center"></div>
         <p class="textRight">{description1}</p>
         <div class="socialLeft"> 
-          <a href={url1} target="_blank" class="btn contact-details">
+          <a href="#" target="_blank" class="btn contact-details">
             <i class="ph ph-instagram-logo"></i>
           </a>
-          <a href={url1} target="_blank" class="btn contact-details">
+          <a href="#" target="_blank" class="btn contact-details">
             <i class="ph ph-tiktok-logo"></i>
           </a>
-          <a href={url1} target="_blank" class="btn contact-details">
+          <a href="#" target="_blank" class="btn contact-details">
             <i class="ph ph-facebook-logo"></i>
           </a>
         </div>
@@ -46,18 +52,24 @@ const {guest3, description3, url3}= Astro.props
     <div class="modal-content">
       <img src={Panelista2.src} alt="Card Image">
       <div>
+        <div class="close-menu-B">
+          <span class="close"></span>
+          <div class="rombo">
+            <div class="line2"></div>
+          </div>
+        </div>
         <h3 class="card-title">{guest2}</h3>
-        <p>PANELISTA</p>
-        <div class="underline"></div>
+        <p>{title}</p>
+        <div class="underline-center"></div>
         <p class="textRight">{description2}</p>
         <div class="socialLeft"> 
-          <a href={url2} target="_blank" class="btn contact-details">
+          <a href="#" target="_blank" class="btn contact-details">
             <i class="ph ph-instagram-logo"></i>
           </a>
-          <a href={url2} target="_blank" class="btn contact-details">
+          <a href="#" target="_blank" class="btn contact-details">
             <i class="ph ph-tiktok-logo"></i>
           </a>
-          <a href={url2} target="_blank" class="btn contact-details">
+          <a href="#" target="_blank" class="btn contact-details">
             <i class="ph ph-facebook-logo"></i>
           </a>
         </div>
@@ -75,18 +87,24 @@ const {guest3, description3, url3}= Astro.props
     <div class="modal-content">
       <img src={Panelista3.src} alt="Card Image">
       <div>
+        <div class="close-menu-B">
+          <span class="close"></span>
+          <div class="rombo">
+            <div class="line2"></div>
+          </div>
+        </div>
         <h3 class="card-title">{guest3}</h3>
-        <p>PANELISTA</p>
-        <div class="underline"></div>
+        <p>{title}</p>
+        <div class="underline-center"></div>
         <p class="textRight">{description3}</p>
         <div class="socialLeft"> 
-          <a href={url3} target="_blank" class="btn contact-details">
+          <a href="#" target="_blank" class="btn contact-details">
             <i class="ph ph-instagram-logo"></i>
           </a>
-          <a href={url3} target="_blank" class="btn contact-details">
+          <a href="#" target="_blank" class="btn contact-details">
             <i class="ph ph-tiktok-logo"></i>
           </a>
-          <a href={url3} target="_blank" class="btn contact-details">
+          <a href="#" target="_blank" class="btn contact-details">
             <i class="ph ph-facebook-logo"></i>
           </a>
         </div>
@@ -147,11 +165,15 @@ const {guest3, description3, url3}= Astro.props
     margin: 10px 0;
   }
 
-  .underline {
-    align-items: center;
-    justify-content: center;
-    width: 350px;
+  .underline-center {
+    width: 270px;
     height: 2px;
+    background-color: $accent-b-dark;
+    justify-content: center;
+    align-items: center;
+    margin-top: 0px;
+    border-radius: 2px;
+    margin: auto;  
   }
   // start button close
   .close-menu-container {
@@ -226,6 +248,10 @@ const {guest3, description3, url3}= Astro.props
     padding-top: 10px;
   }
 
+  .close-menu-B {
+    display: none;
+  }
+
  @media (min-width: 1024px) {
    
   .modal-content {
@@ -244,17 +270,11 @@ const {guest3, description3, url3}= Astro.props
   }
 
   img {
-    width: 654px;
+    width: 645px;
   }
 
-  .underlinep {
-    width: 75%;
-    height: 2px;
-    background-color: $accent-b-dark;
-    justify-content: left;
-    margin-top: 0px;
-    border-radius: 2px;
-    margin: 0 12%; 
+  .underline-center {
+    width: 300px; 
   }
 
   .socialLeft {
@@ -268,12 +288,24 @@ const {guest3, description3, url3}= Astro.props
 
   .modal-content > div {
     background-color: $tertiary;
-    padding: 2.5%;
+    padding: 1%;
   }
 
-  .close-menu-container {
-    top: 30%;
-    right: 16%;
+  .close-menu-container{
+    display: none;
+  }
+
+  .close-menu-B {
+    position: relative;
+    top: 0px;
+    z-index: 1;
+    display: flex;
+    justify-content: right;
+    align-items: right;
+  }
+  
+  .line2 {
+    display: flex;
   }
  }
 </style>

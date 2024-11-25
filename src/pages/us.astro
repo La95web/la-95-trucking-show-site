@@ -2,7 +2,7 @@
 import Badbunny from "../assets/image/bad.webp";
 import Jlo from "../assets/image/jlo.webp";
 import Yankee from "../assets/image/daddy.webp";
-import SpanishLayout from "../layouts/SpanishLayout.astro";
+import EnglishLayout from "../layouts/EnglishLayout.astro";
 import HeaderBanner from "../components/HeaderBanner.astro";
 import AboutUsSection from "../components/AboutUsSection.astro";
 import VisionSection from "../components/VisionSection.astro";
@@ -15,24 +15,24 @@ import Footer from "../components/Footer.astro";
 ---
 
 
-<SpanishLayout title="la 95 trucking show">
+<EnglishLayout title="la 95 trucking show">
   <HeaderBanner 
-  titleUs="nosotros"
+  titleUs="about us"
   Team1={Team1}
   Team2={Team2}/>
   <AboutUsSection 
-  title="quienes somos"
+  title="how we are?"
   paragraph="Lorem ipsum dolor sit amet consectetur, adipisicing elit. Eos fugiat rem saepe nesciunt vel quaerat. Lorem ipsum dolor sit amet consectetur adipisicing elit. Velit alias omnis cum inventore provident dolor." />
   <VisionSection
-  titleA="nuestra razón de ser"
-  titleB="mision"
+  titleA="Our purpose"
+  titleB="mission"
   titleC="vision"
-  titleD="valores"
+  titleD="our values"
   textA="Lorem ipsum dolor sit amet consectetur, adipisicing elit. Voluptatibus eaque deleniti tempora. Lorem ipsum dolor sit amet consectetur adipisicing elit. Culpa autem beatae nam non tenetur neque doloremque at eos explicabo voluptate."
   textB="Lorem ipsum dolor sit amet consectetur, adipisicing elit. Voluptatibus eaque deleniti tempora. Lorem ipsum dolor sit amet consectetur adipisicing elit. Explicabo, reprehenderit dolorem rerum deleniti debitis doloremque eaque non dolorum ipsam velit?"
   textC="Lorem ipsum dolor sit amet consectetur, adipisicing elit. Voluptatibus eaque deleniti tempora. Lorem ipsum dolor sit, amet consectetur adipisicing elit. Dolore harum cum rerum veniam accusamus labore est culpa maiores illum quisquam" />
   <Modal 
-  title="panelista"
+  title="panelists"
   guest1="Bad bunny"
   description1="Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ratione, accusamus!"
   url1=""
@@ -42,27 +42,27 @@ import Footer from "../components/Footer.astro";
   guest3="daddy yankee"
   description3="Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ratione, accusamus!"
   url33=""/>
-  <PanelistasCard
-  title = "panelistas" 
+  <PanelistasCard 
+  title="panelists"
   guest="Bad bunny"
   image={Badbunny}
   description="Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ratione, accusamus!"
   url=""
-  button="ver más"
+  button="see more"
   guest1="Jennifer Lopez"
   image1={Jlo}
   description1="Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ratione, accusamus!"
   url1=""
-  button="ver más"
+  button="see more"
   guest2="Daddy yankee"
   image2={Yankee}
   description2="Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ratione, accusamus!"
-  url2="" 
-  button="ver más"/>
+  url2=""
+  button="see more" />
   <Gallery
-  title="galeria" />
+  title="gallery" />
   <Footer />
-</SpanishLayout>
+</EnglishLayout>
 <script>
   import "../scripts/modal.js"
 </script>

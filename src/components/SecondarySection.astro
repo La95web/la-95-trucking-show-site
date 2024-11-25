@@ -1,5 +1,5 @@
 ---
-const {title, paragraph} = Astro.props;
+const {title, paragraph, button} = Astro.props;
 ---
 <section>
   <div class="podcasts-container">
@@ -8,7 +8,7 @@ const {title, paragraph} = Astro.props;
       <div class="underline"></div>
       <p>{paragraph}</p>
       <div class="light-button red-button">
-        <a href="">ACCIÓN</a>
+        <a href="">{button}</a>
       </div>
     </div>
   </div>
@@ -28,6 +28,7 @@ const {title, paragraph} = Astro.props;
     padding-top: 20px;
     padding-bottom: 1px;
   }
+
 
   @media (min-width: 1024px) {
     .podcasts-container {

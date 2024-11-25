@@ -6,7 +6,7 @@ import GuestCard from "../components/GuestCard.astro";
 import Badbunny from "../assets/image/bad.webp";
 import Jlo from "../assets/image/jlo.webp";
 import Yankee from "../assets/image/daddy.webp";
-import SpanishLayout from "../layouts/SpanishLayout.astro";
+import EnglishLayout from "../layouts/EnglishLayout.astro";
 import Carousel from "../components/Carousel.astro";
 import Magazine from "../components/Magazine.astro";
 import Newsletter from "../components/Newsletter.astro";
@@ -19,20 +19,20 @@ import truck3 from "../assets/image/truck3.webp";
 ---
 
 
-<SpanishLayout title="la 95 trucking show">
+<EnglishLayout title="la 95 trucking show">
   <HomeSlider images={[truck1.src, truck2.src, truck3.src]} />
   <Radio />
   <PrimarySection 
-  title="EL PODCAST MÁS DURO"
-  paragraph="este es un titulo de ejemplo, este es un titulo de ejemplo, este es un titulo de ejemplo, este es un titulo de ejemplo, este es un titulo de ejemplo, este es un titulo de ejemplo, este es un titulo de ejemplo, este es un titulo de ejemplo, este es un titulo de ejemplo" 
-  button="ver más"/>
+  title="The coolest podcast"
+  paragraph="Lorem ipsum dolor sit amet consectetur adipisicing elit. Quam, vitae velit alias nesciunt soluta itaque modi ipsam distinctio consequuntur atque. Lorem ipsum dolor sit amet consectetur adipisicing elit. Quam, vitae velit alias nesciunt soluta itaque modi ipsam distinctio consequuntur atque." 
+  button="SEE MORE"/>
   <GuestCard 
-  titleA="invitados especiales"
+  titleA="SPECIAL GUEST"
   guest="Bad bunny"
   image={Badbunny}
   description="Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ratione, accusamus!"
   url=""
-  button="ver más"
+  button="see more"
   guest1="Jennifer Lopez"
   image1={Jlo}
   description1="Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ratione, accusamus!"
@@ -42,24 +42,24 @@ import truck3 from "../assets/image/truck3.webp";
   description2="Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ratione, accusamus!"
   url2="" />
   <SecondarySection
-  title="Conviértete en patrocinador"
-  paragraph="este es un ejemplo de la descripcio, este es un ejemplo de la descripcio, este es un ejemplo de la descripcio, este es un ejemplo de la descripcio, este es un ejemplo de la descripcio"
-  button="ver más" /> 
+  title="Become a sponsor"
+  paragraph="Lorem ipsum dolor sit amet consectetur adipisicing elit. Quam, vitae velit alias nesciunt soluta itaque modi ipsam distinctio consequuntur atque."
+  button="see more" /> 
   <Carousel />
   <Magazine 
-  titleA="Descargar nuestra revista"
+  titleA="download magazine here"
   textA="Lorem ipsum, dolor sit amet consectetur adipisicing elit. Dolorum, quisquam? Lorem ipsum dolor sit, amet consectetur adipisicing elit. Voluptatem, perferendis? Lorem ipsum dolor sit amet consectetur adipisicing elit. Sunt labore earum accusantium molestias cupiditate omnis! Lorem, ipsum dolor sit amet consectetur adipisicing elit. Omnis architecto, soluta aspernatur eum voluptatem eligendi dolorem et dolor iste animi."
-  button="descargar"/>
+  button="download"/>
   <Newsletter
-  titleA="Recibe notificaciones y avisos"
-  label="Tu email:"
-  button="enviar" />
+  titleA="Receive notifications and alerts"
+  label="your email:"
+  button="send" />
   <Whatsapp
-  titleA="únete a nuestro grupo de whatsapp"
+  titleA="Join our WhatsApp group"
   textA="Lorem ipsum dolor sit amet consectetur, adipisicing elit. Voluptatibus eaque deleniti tempora."
-  button="ÚNETE" />
+  button="join" />
   <Footer />
-</SpanishLayout>
+</EnglishLayout>
 <script>
 	import "../scripts/menu.js"
 </script>

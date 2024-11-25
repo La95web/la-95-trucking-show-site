@@ -1,46 +1,40 @@
 ---
-const {mision, vision, valores, imagesVision} = Astro.props;
+const {titleA, titleB, titleC, titleD, textA, textB, textC} = Astro.props;
 import imagesvision from "../assets/image/Misionteam.webp";
 ---
 
 <section>
   <div class="flex">
-    <h2>NUESTRA RAZON DE SER</h2>
+    <h2>{titleA}</h2>
     <div class="underline"></div> 
   </div>
 </section>
 
 <div class="podcasts-container">
-    <figure>
+  <figure>
     <div>
       <img src={imagesvision.src} alt="team">
     </div>
   </figure>
   <div class="section-center">
     <div class="end-line">
-      <h3>Vision</h3>
+      <h3>{titleB}</h3>
       <i class="ph ph-sunglasses"></i>
     </div>
-      <div class="colorsred"></div>
-    <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Voluptatibus eaque 
-      deleniti tempora. Lorem ipsum dolor sit amet consectetur adipisicing elit. 
-      Culpa autem beatae nam non tenetur neque doloremque at eos explicabo voluptate.</p>
+    <div class="blackline"></div>
+    <p>{textA}</p>
     <div class="end-line">
-      <h3>misión</h3>
+      <h3>{titleC}</h3>
       <i class="ph ph-target"></i>
     </div>
-      <div class="colorswhite"></div>
-    <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. 
-      Voluptatibus eaque deleniti tempora. Lorem ipsum dolor sit amet consectetur adipisicing elit.
-       Explicabo, reprehenderit dolorem rerum deleniti debitis doloremque eaque non dolorum ipsam velit?</p>
+    <div class="blackline"></div>
+    <p>{textB}</p>
     <div class="end-line">
-      <h3>Valores</h3>
+      <h3>{titleD}</h3>
       <i class="ph ph-nut"></i>
     </div>
-      <div class="colorsblue"></div>
-    <p class="last-text">Lorem ipsum dolor sit amet consectetur,
-       adipisicing elit. Voluptatibus eaque deleniti tempora. Lorem ipsum dolor sit,
-        amet consectetur adipisicing elit. Dolore harum cum rerum veniam accusamus labore est culpa maiores illum quisquam.</p>
+    <div class="blackline"></div>
+    <p class="last-text">{textC}</p>
   </div>
 </div>
     
@@ -54,16 +48,19 @@ import imagesvision from "../assets/image/Misionteam.webp";
     
   .podcasts-container P {
     margin: 0 5%;
-    color: $secondary;
+    color: $primary;
     padding-top: 20px;
   }
 
-  
+  .section-center {
+    background-color: $accent-b-dark;
+  }
+
   h3 {
     font-size: 2rem;
     font-weight: $regular;
     font-family: $heading;
-    color: $secondary;
+    color: $primary;
     margin: 0 5%;
     margin-top: 20px;
   }
@@ -73,7 +70,7 @@ import imagesvision from "../assets/image/Misionteam.webp";
   }
   
   .section-center i {
-    color: $accent-c-dark;
+    color: $primary;
     font-size: 34px;
     margin-right: 20px;
     margin-top: 25px; 
@@ -84,26 +81,10 @@ import imagesvision from "../assets/image/Misionteam.webp";
     justify-content: space-between;
   }
 
-  .colorsred {
+  .blackline{
     width: 85%;
     height: 2px;
-    background-color: $accent-c-dark;
-    margin-top: 0px;
-    margin-left: 20px;
-  }
-  
-  .colorsblue {
-    width: 85%;
-    height: 2px;
-    background-color: #4D80FF;
-    margin-top: 0px;
-    margin-left: 20px;
-  }
-
-  .colorswhite {
-    width: 85%;
-    height: 2px;
-    background-color: $secondary;
+    background-color: $primary;
     margin-top: 0px;
     margin-left: 20px;
   }
@@ -113,10 +94,11 @@ import imagesvision from "../assets/image/Misionteam.webp";
     justify-content: center;
     align-items: center;
     margin: 0;
-    background-color: $primary; 
+    background-color: $primary;
   }
 
   figure img {
+    display: block;
     margin-top: 20px;
     width: 100%;
     height: auto;
@@ -135,7 +117,7 @@ import imagesvision from "../assets/image/Misionteam.webp";
 
     figure {
       display: flex;
-      margin-right: 3%;
+      margin: 0;
     }
 
     figure img {
@@ -153,16 +135,9 @@ import imagesvision from "../assets/image/Misionteam.webp";
       font-size: 1.25rem;
     }
 
-    .colorsred {
+    .blackline {
       margin-left: 35px;
-    }
-  
-    .colorsblue {
-      margin-left: 35px;
-    }
-
-    .colorswhite {
-      margin-left: 35px;
+      min-width: 90%;
     }
 
     .section {

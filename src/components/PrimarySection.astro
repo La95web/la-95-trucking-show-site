@@ -1,5 +1,5 @@
 ---
-const {title, paragraph} = Astro.props;
+const {title, paragraph, button} = Astro.props;
 import logo2 from '../assets/image/logoDesktop.webp';
 ---
 
@@ -9,10 +9,10 @@ import logo2 from '../assets/image/logoDesktop.webp';
     <div class="underline"></div>
     <p>{paragraph}</p>
     <div class="light-button red-button">
-      <a href="">ACCIÓN</a>
+      <a href="">{button}</a>
     </div>
   </section>
-  <figure>
+  <figure id="animation">
     <img src={logo2.src} alt="logo">
   </figure>
 </div>
@@ -56,13 +56,13 @@ import logo2 from '../assets/image/logoDesktop.webp';
   }
 
   figure img {
-    width: 600px;
-    height: 610px;
-    margin-left: 72px ;
+    width: 500px;
+    height: auto;
+    margin-left: 72px;
   }
 
   section {
-    padding: 150px;
+    padding: 50px;
 
     h2 {
       font-size: 3rem;
@@ -77,5 +77,16 @@ import logo2 from '../assets/image/logoDesktop.webp';
       width: 248px;
     }
   }
+
+  #animation {
+  opacity: 0;
+  transform: translateX(-100%);
+  transition: opacity 0.6s ease-out, transform 0.9s ease-out;
+
+  &.animate {
+      opacity: 1;
+      transform: translateX(0);
+  }
+}
 }
 </style>
