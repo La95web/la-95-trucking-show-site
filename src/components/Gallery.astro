@@ -8,13 +8,14 @@ import Gallery6 from "../assets/image/gallery6.webp";
 import Gallery7 from "../assets/image/gallery7.webp";
 import Left from "../assets/image/left.png";
 import Right from "../assets/image/right.png";
+const {title} = Astro.props;
 ---
 
 <section> 
   <div class="arrow left-arrow" id="leftArrow"><img src={Left.src} alt="Left"></i></div>
   <div class="arrow right-arrow" id="rightArrow"><img src={Right.src} alt="right"></div>
   <div class="gallery-container">
-    <h2>galeria</h2>
+    <h2>{title}</h2>
     <div class="underline"></div>
     <div class="gallery-slider" id="gallerySlider">
       <img src={Gallery1.src} alt="Imagen 1">

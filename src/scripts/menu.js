@@ -37,22 +37,6 @@ function moveCarousel() {
 }
 setInterval(moveCarousel, 20);
 
-document.addEventListener('DOMContentLoaded', () => {
-    const section = document.getElementById('services');
-    
-    function handleScroll() {
-        const sectionTop = section.getBoundingClientRect().top;
-        const windowHeight = window.innerHeight;
-  
-        if (sectionTop < windowHeight) {
-            section.classList.add('animate');
-        }
-    }
-  
-    window.addEventListener('scroll', handleScroll);
-    handleScroll(); 
-  });
-
   // animation
 
   document.addEventListener('DOMContentLoaded', () => {

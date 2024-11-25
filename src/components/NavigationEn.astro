@@ -16,7 +16,7 @@ import logo2 from '../assets/image/logoDesktop.webp';
     <div class="nav-container">
       <ul class="navlinks"> 
         <li><a class="navdesk" href="/"><img src={logo2.src} alt="loguito"></a></li>
-        <li><a class="decoration" href="/home/" rel="noreferrer">home</a></li>
+        <li><a href="/home/" rel="noreferrer">home</a></li>
         <li><a href="/us/" rel="noreferrer">about us</a></li>
         <li><a href="/contact/" rel="noreferrer">contact</a></li>
         <li><a href="#" rel="noreferrer">news & tips</a></li>
@@ -91,7 +91,7 @@ import logo2 from '../assets/image/logoDesktop.webp';
     color: $secondary;
   }
 
-  li .decoration {
+  li:hover {
     text-decoration:underline;
     text-decoration-color: $accent-b-light;
     text-underline-offset: 13px;
@@ -176,6 +176,9 @@ import logo2 from '../assets/image/logoDesktop.webp';
 
     .nav-container {
       background-color: $tertiary;
+      position: fixed;
+      z-index: 99;
+      width: 100%;
     }
 
     .navlinks {
@@ -189,10 +192,6 @@ import logo2 from '../assets/image/logoDesktop.webp';
 
     .navlinks a {
       color: $secondary;
-    }
-
-    .navlinks a:hover {
-      box-shadow: 0 0 25px 15px rgba($primary, 40%);
     }
 
     .close-menu-container {

@@ -2,7 +2,7 @@
 import Panelista1 from "../assets/image/bad.webp";
 import Panelista2 from "../assets/image/jlo.webp";
 import Panelista3 from "../assets/image/daddy.webp";
-const {guest1, description1} = Astro.props
+const {guest1, description1, title} = Astro.props
 const {guest2, description2}= Astro.props
 const {guest3, description3}= Astro.props 
 ---
@@ -24,7 +24,7 @@ const {guest3, description3}= Astro.props
           </div>
         </div>
         <h3 class="card-title">{guest1}</h3>
-        <p>PANELISTA</p>
+        <p>{title}</p>
         <div class="underline-center"></div>
         <p class="textRight">{description1}</p>
         <div class="socialLeft"> 
@@ -59,7 +59,7 @@ const {guest3, description3}= Astro.props
           </div>
         </div>
         <h3 class="card-title">{guest2}</h3>
-        <p>PANELISTA</p>
+        <p>{title}</p>
         <div class="underline-center"></div>
         <p class="textRight">{description2}</p>
         <div class="socialLeft"> 
@@ -94,7 +94,7 @@ const {guest3, description3}= Astro.props
           </div>
         </div>
         <h3 class="card-title">{guest3}</h3>
-        <p>PANELISTA</p>
+        <p>{title}</p>
         <div class="underline-center"></div>
         <p class="textRight">{description3}</p>
         <div class="socialLeft"> 
