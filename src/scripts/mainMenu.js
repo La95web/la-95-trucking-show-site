@@ -11,3 +11,26 @@ document.getElementById('close-menu').addEventListener('click', () => {
     document.getElementsByClassName('blur-background')[0].classList.remove('active');
     console.log('Menu closed');
 });
+
+// search
+
+document.addEventListener('DOMContentLoaded', () => {
+  const searchInput = document.getElementById('site-search');
+  const newsItems = document.getElementsByClassName('news-item');
+  
+  searchInput.addEventListener('input', function() {
+    const query = this.value.toLowerCase();
+    
+    for (let newsItem of newsItems) {
+      const containsQuery = newsItem.textContent.toLowerCase().includes(query);
+      newsItem.style.display = containsQuery ? 'flex' : 'none';
+    }
+
+    if (query === '') {
+      for (let newsItem of newsItems) {
+        newsItem.style.display = 'flex';
+      }
+    }
+  });
+});
+
