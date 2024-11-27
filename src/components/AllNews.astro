@@ -1,0 +1,240 @@
+---
+const {title, paragraph} = Astro.props;
+import NewImg from "../assets/image/logoDesktop.webp";
+const response = await fetch('https://randomuser.me/api/');
+const data = await response.json();
+const newData = data.results[0];
+---
+
+<div class="section">
+  <nav>
+    <ul>
+      <li><a href="#">noticias</a></li>
+      <li><a href="#">tips</a></li>
+    </ul>
+  </nav>
+  <div>
+    <input type="search" id="site-search" name="" class="search-input" placeholder="Search...">
+  </div>
+</div>
+<div class="podcasts-container">
+  <div class="section"> 
+    <h2>{title}</h2>
+    <div class="underline"></div>
+    <p>{paragraph}</p>
+  </div>
+</div>
+<section>
+  <div class="section-content news-item" id="content">
+    <div>
+      <h4>{newData.location.country}</h4>
+      <div class="underlineNews"></div>
+      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit...</p>
+      <br>
+      <span>{newData.location.postcode}<span>
+    </div>
+    <div class="image">
+      <img src={NewImg.src} alt="news">
+    </div>
+  </div>
+  <div class="section-content news-item">
+    <div>
+      <h4>{newData.location.state}</h4>
+      <div class="underlineNews"></div>
+      <p>choque ipsum dolor sit amet luis, consectetur adipisicing elit...</p>
+      <br>
+      <span>{newData.location.postcode}<span>
+    </div>
+    <div class="image">
+      <img src={NewImg.src} alt="news">
+    </div>
+  </div>
+  <div class="light-gold gold-button">
+    <button>ver mas</button>
+  </div>
+</section>
+
+<style lang="scss">
+  @use "../assets/sass/index" as *;
+
+  //start
+  .section {
+    display: flex;
+    flex-direction: column;
+  }
+
+  ul {
+    display: flex;
+    justify-content: space-around;
+    margin: 20px;
+    padding: 0;
+  }
+
+  a {
+    color: $secondary;
+  }
+
+  li:hover {
+    text-decoration:underline;
+    text-decoration-color: $accent-b-light;
+    text-underline-offset: 13px;
+    text-decoration-thickness: 3px;
+  }
+
+  input {
+    background-color: $accent-b-dark;
+    border: none;
+    width: 100%;
+    height: 60px;
+    background-image: url("../assets/image/lupa.png");
+    justify-content: center;
+    align-items: center;
+    background-repeat: no-repeat;
+    background-position: calc(100% - 5%) center;
+    padding-left: 5%;
+    padding-right: 5%;
+  }
+
+  input::placeholder { 
+    width: 85%;
+    border-bottom: 1px solid #000;
+    padding-bottom: 10px;
+    font-family: $text;
+    font-weight: $regular;
+    font-size: 1rem; 
+  }
+
+  //end
+
+  .podcasts-container P {
+    text-align: left;
+    margin: 0 5%;
+    padding-top: 20px;
+  }
+
+  .podcasts-container {
+    background-color: $primary;
+    padding-top: 20px;
+    padding-bottom: 1px;
+  }
+
+  .podcasts-container {
+    display: flex;
+    flex-direction: column;
+    background-color: $primary;
+    padding-top: 20px;
+  }
+
+  section {
+    display: flex;
+    flex-direction: column;
+    background-color: $primary;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .section-content{
+    display: flex;
+    flex-direction: row-reverse;
+    background-color: $primary;
+    padding-top: 20px;
+
+    p{
+      margin: 0;
+    }
+  }
+  
+  span {
+    color: rgba($secondary, 80%);
+    font-family: $text;
+    font-weight: $regular;
+    font-size: 1rem;
+    padding-top: 10px;
+  }
+  
+  h4 {
+    font-family: $heading;
+    font-weight: $regular;
+    font-size: 1.75rem;
+    margin: 0;
+    color: $secondary;
+  }
+
+  .image {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 5%;
+    box-shadow: 0px 4px 4px 0px rgba(black, 30%);
+  }
+
+  img {
+    width: 120px;
+    height: auto;
+  }
+
+  .underlineNews {
+    width: 90%;
+    height: 2px;
+    background-color: $accent-b-dark;
+    justify-content: left;
+    align-items: left;
+    margin-top: 0px;
+    border-radius: 2px;
+    margin: 0; 
+  }
+
+  .light-gold {
+    width: 145px; 
+    height: 40px;
+    border-radius: 8px;
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: background-color 0.3s, box-shadow 0.3s;
+  }
+
+  button{
+    color: $accent-b-dark;
+    font-size: 1.5rem;
+    font-weight: $regular;
+    font-family: $heading;
+    background-color: $tertiary;
+    cursor: pointer;
+  }
+
+  .light-gold.gold-button {
+    background-color: $tertiary;
+    box-shadow: 0 0 20px 10px rgba($accent-b-dark, 35%);
+    border: 2px solid $accent-b-dark;
+    margin: 20px 0 30px;
+  }
+
+  .gold-button {
+    background-color: $accent-b-light;
+  }
+
+  .gold-button:hover {
+    box-shadow: 0 0 25px 15px rgba($accent-b-light, 40%);
+  }
+
+  @media (min-width: 1024px) {
+    .section {
+      padding: 50px;
+
+      h2 {
+        font-size: 3rem;
+      }
+      p {
+        font-size: 1.25rem;
+      }
+      a {
+        font-size: 2rem;
+      }
+      .underline {
+        width: 25%;
+      }
+    }
+  }
+</style>
