@@ -78,8 +78,8 @@ const {titleA, textA, button} = Astro.props;
 
   figure {
     display: flex;
-    justify-content: center;
-    align-items: center;
+    justify-content: left;
+    align-items: left;
     margin: 0;
   }
 
@@ -93,18 +93,14 @@ const {titleA, textA, button} = Astro.props;
     .podcasts-container {
       display: flex;
       flex-direction: row-reverse;
-      padding-top: 0;
+      justify-content: space-between;
+      padding: 0;
     }
 
     .podcasts-container {
       background-image: url("../assets/image/whatsapp.svg");
-      background-position: calc(100% - 20%) center;
+      background-position: calc(100% - 25%) center;
       background-size: contain;
-    }
-
-    figure {
-      display: flex;
-      margin-right: 5%;
     }
 
     figure img {

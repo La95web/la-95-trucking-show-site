@@ -7,7 +7,8 @@ const newData = data.results[0];
 ---
 
 <div class="section">
-
+  <!-- <button id="button-noticias">Noticias</button>
+  <button id="button-tips">sugerencias</button> -->
   <nav>
     <ul>
       <li><a href="/noticias/">noticias</a></li>
@@ -54,7 +55,7 @@ const newData = data.results[0];
       <div>
         <h4>{newData.location.state}</h4>
         <div class="underlineNews"></div>
-        <p>lorem ipsum dolor sit amet elit Lorem ipsum dolor, consectetur adipisicing elit Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempora, iste dolor sit amet consectetur adipisicing elit. Tempora, iste</p>
+        <p>Choque en la autopista ipsum dolor sit amet elit Lorem ipsum dolor, consectetur adipisicing elit Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempora, iste dolor sit amet consectetur adipisicing elit. Tempora, iste</p>
         <br>
         <span>{newData.location.postcode}<span>
       </div>
@@ -70,6 +71,7 @@ const newData = data.results[0];
     </div>
   </div>
 </div>
+
 
 <style lang="scss">
   @use "../assets/sass/index" as *;
