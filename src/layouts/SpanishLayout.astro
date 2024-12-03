@@ -22,7 +22,7 @@ const {title} = Astro.props;
 </html>
 
 <style is:global lang="scss">
-  @use '/src/assets/sass/index' as *; 
+  @use '../assets/sass/index' as *; 
     
   html {
     scroll-behavior: smooth;
@@ -116,4 +116,5 @@ const {title} = Astro.props;
     background-color: $accent-c-light;
     box-shadow: 0 0 25px 15px rgba($accent-c-light, 40%);
   }
+  
 </style>
