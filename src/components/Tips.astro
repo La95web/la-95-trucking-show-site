@@ -7,75 +7,82 @@ const newData = data.results[0];
 ---
 
 <div class="section">
+  <!-- <button id="button-noticias">Noticias</button>
+  <button id="button-tips">sugerencias</button> -->
   <nav>
     <ul>
-      <li><a href="/noticias/" data-astro-prefetch id="link-noticias">noticias</a></li>
-      <li><a href="/tips/" data-astro-prefetch id="link-tips">tips</a></li>
+      <li><a href="/noticias/">noticias</a></li>
+      <li><a href="/tips/">tips</a></li>
     </ul>
   </nav>
   <div class="section-input">
     <input type="search" id="site-search" name="" class="search-input" placeholder="Search...">
   </div>
 </div>
+
 <div class="podcasts-container" id="dynamic-content">
-  <div> 
+  <div>
     <h2>{title}</h2>
     <div class="underline"></div>
     <p>{paragraph}</p>
   </div>
+  <div id="content-noticias" class="content-item">
+    <div class="section-content-tips news-item" id="content">
+      <div>
+        <h4>{newData.name.first}</h4>
+        <div class="underlineNews"></div>
+        <p>lorem PERO dolor sit amet elit Lorem ipsum dolor, consectetur adipisicing elit Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempora, iste dolor sit amet consectetur adipisicing elit. Tempora, iste</p>
+        <br>
+        <span>{newData.location.postcode}<span>
+      </div>
+      <div class="image">
+        <img src={NewImg.src} alt="news">
+      </div>
+    </div>
+    <div class="section-content-tips news-item">
+      <div>
+        <h4>{newData.location.country}</h4>
+        <div class="underlineNews"></div>
+        <p>lorem ipsum dolor sit amet elit Lorem ipsum dolor, consectetur adipisicing elit Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempora, iste dolor sit amet consectetur adipisicing elit. Tempora, iste</p>
+        <br>
+        <span>{newData.location.postcode}<span>
+      </div>
+      <div class="image">
+        <img src={NewImg.src} alt="news">
+      </div>
+    </div>
+    <div class="section-content-tips news-item">
+      <div>
+        <h4>{newData.location.state}</h4>
+        <div class="underlineNews"></div>
+        <p>Choque en la autopista ipsum dolor sit amet elit Lorem ipsum dolor, consectetur adipisicing elit Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempora, iste dolor sit amet consectetur adipisicing elit. Tempora, iste</p>
+        <br>
+        <span>{newData.location.postcode}<span>
+      </div>
+      <div class="image">
+        <img src={NewImg.src} alt="news">
+      </div>
+    </div>
+    <div id="result"><h3>sin resultados</h3></div>
+    <div class="section-center">
+      <div class="light-gold gold-button">
+        <button id="load-more">{button}</button>
+      </div>
+    </div>
+  </div>
 </div>
-<section>
-  <div class="section-content news-item" id="content">
-    <div>
-      <h4>{newData.name.first}</h4>
-      <div class="underlineNews"></div>
-      <p>lorem ipsum dolor sit amet elit Lorem ipsum dolor, consectetur adipisicing elit Lorem ipsum dolor
-        sit amet consectetur adipisicing elit. Tempora, iste dolor sit amet consectetur adipisicing elit. Tempora, iste</p>
-      <br>
-      <span>{newData.location.postcode}<span>
-    </div>
-    <div class="image">
-      <img src={NewImg.src} alt="news">
-    </div>
-  </div>
-  <div class="section-content news-item">
-    <div>
-      <h4>{newData.location.country}</h4>
-      <div class="underlineNews"></div>
-      <p>lorem ipsum dolor sit amet elit Lorem ipsum dolor, consectetur adipisicing elit Lorem ipsum dolor
-        sit amet consectetur adipisicing elit. Tempora, iste dolor sit amet consectetur adipisicing elit. Tempora, iste</p>
-      <br>
-      <span>{newData.location.postcode}<span>
-    </div>
-    <div class="image">
-      <img src={NewImg.src} alt="news">
-    </div>
-  </div>
 
-  <div class="section-content news-item">
-    <div>
-      <h4>{newData.location.state}</h4>
-      <div class="underlineNews"></div>
-      <p>lorem ipsum dolor sit amet elit Lorem ipsum dolor, consectetur adipisicing elit Lorem ipsum dolor
-        sit amet consectetur adipisicing elit. Tempora, iste dolor sit amet consectetur adipisicing elit. Tempora, iste</p>
-      <br>
-      <span>{newData.location.postcode}<span>
-    </div>
-    <div class="image">
-      <img src={NewImg.src} alt="news">
-    </div>
-  </div>
-  <div class="section-center">
-    <div class="light-gold gold-button">
-      <button>{button}</button>
-    </div>
-  </div>
-</section>
 
 <style lang="scss">
   @use "../assets/sass/index" as *;
 
-  //start
+  #result {
+    display: none;
+    text-align: center;
+    align-items: center;
+    padding-top: 50px;
+  }
+
   .section {
     display: flex;
     flex-direction: column;
@@ -149,8 +156,8 @@ const newData = data.results[0];
     background-color: $primary;
   }
   
-  .section-content{
-    display: flex;
+  .section-content-tips{
+    display: flex; 
     flex-direction: row-reverse;
     justify-content: left;
     text-align: left;
@@ -267,7 +274,7 @@ const newData = data.results[0];
 
     nav ul {
       gap: 250px;
-      margin: 0 100px;
+      margin: 0 250px;
     }
 
     .section-input {
@@ -278,7 +285,7 @@ const newData = data.results[0];
       margin: 0;
     }
 
-    .section-content p {
+    .section-content-tips p {
       margin:  10px 150px 0 0;
     }
 
@@ -286,7 +293,7 @@ const newData = data.results[0];
       width: 178px; 
     }
 
-    .section-content:hover {
+    .section-content-tips:hover {
       padding-left: 45px;
       transition: padding-left 0.3s ease-in-out;
       cursor: pointer;
