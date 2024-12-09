@@ -78,34 +78,3 @@ document.addEventListener('DOMContentLoaded', () => {
 
   showItems(itemsToShow);
 });
-
-
-
-
-//links news
-
-// document.addEventListener('DOMContentLoaded', () => {
-//   const noticiasButton = document.getElementById('button-noticias');
-//   const tipsButton = document.getElementById('button-tips');
-//   const noticiasContent = document.getElementById('content-noticias');
-//   const tipsContent = document.getElementById('content-tips');
-
-//   noticiasButton.addEventListener('click', () => {
-//     showContent(noticiasContent);
-//   });
-
-//   tipsButton.addEventListener('click', () => {
-//     showContent(tipsContent);
-//   });
-
-//   function showContent(contentToShow) {
-//     // Ocultar todos los contenidos
-//     document.querySelectorAll('.content-item').forEach(content => {
-//       content.style.display = 'none';
-      
-//     });
-
-//     // Mostrar el contenido seleccionado
-//     contentToShow.style.display = 'block';
-//   }
-// });
