@@ -1,0 +1,269 @@
+---
+import imageCard from "../assets/image/cardpodcast1.png";
+import Play from "../assets/image/Youtube.png";
+import PlayContent from "../assets/image/play.png"
+const {title, paragraph} = Astro.props;
+const response = await fetch('https://randomuser.me/api/');
+const data = await response.json();
+const newData = data.results[0];
+---
+
+<div class="section">
+  <div class="section-input">
+    <input type="search" id="site-search" name="search" class="search-input" placeholder="Search...">
+  </div>
+</div>
+
+<section>
+  <div id="result"><h3>sin resultados</h3></div>
+  <figure class="news-item">
+    <div class="section-Image">
+      <div class="gradient">
+        <img src={Play.src} alt="">
+      </div>
+      <a href="https://www.youtube.com/@LA95TRUCKINGSHOW" target="_blank">
+      <img src={imageCard.src} alt="FrontImage"></a>
+    </div>
+    </div>
+    <div class="content-card">
+      <img src={PlayContent.src} alt="vector">
+      <div>
+        <p>
+          Lorem ipsum dolor sit amet consectetur adipisicing 1.
+        </p>
+        <p class="flush"><br>December, 24-2024<br></p>
+      </div>
+    </div>
+  </figure>
+  <figure class="news-item">
+    <div class="section-Image">
+      <div class="gradient">
+        <img src={Play.src} alt="">
+      </div>
+      <a href="https://www.youtube.com/@LA95TRUCKINGSHOW" target="_blank">
+      <img src={imageCard.src} alt="FrontImage"></a>
+    </div>
+    </div>
+    <div class="content-card">
+      <img src={PlayContent.src} alt="vector">
+      <div>
+        <p>
+          Lorem ipsum dolor sit amet consectetur adipisicing 2.
+        </p>
+        <p class="flush"><br>October, 24-2024<br></p>
+      </div>
+    </div>
+</figure>
+
+<figure class="news-item">
+  <div class="section-Image">
+    <div class="gradient">
+      <img src={Play.src} alt="">
+    </div>
+    <img src={imageCard.src} alt="FrontImage">
+  </div>
+  </div>
+  <div class="content-card">
+    <img src={PlayContent.src} alt="vector">
+    <div>
+      <p>
+        Lorem ipsum dolor sit amet consectetur adipisicing 3.
+      </p>
+      <p class="flush"><br>October, 24-2024<br></p>
+    </div>
+  </div>
+</figure>
+
+<figure class="news-item">
+  <div class="section-Image">
+    <div class="gradient">
+      <img src={Play.src} alt="">
+    </div>
+    <img src={imageCard.src} alt="FrontImage">
+  </div>
+  </div>
+  <div class="content-card">
+    <img src={PlayContent.src} alt="vector">
+    <div>
+      <p>
+        Lorem 4 ipsum dolor highway route 95
+      </p>
+      <p class="flush"><br>October, 24-2024<br></p>
+    </div>
+  </div>
+</figure>
+
+<figure class="news-item">
+  <div class="section-Image">
+    <div class="gradient">
+      <img src={Play.src} alt="">
+    </div>
+    <a href="https://www.youtube.com/@LA95TRUCKINGSHOW" target="_blank">
+    <img src={imageCard.src} alt="FrontImage"></a>
+  </div>
+</div>
+  <div class="content-card">
+    <img src={PlayContent.src} alt="vector">
+    <div>
+      <p>
+        Lorem ipsum dolor sit amet adipisicing camion 5.
+      </p>
+      <p class="flush"><br>October, 24-2024<br></p>
+    </div>
+  </div>
+</figure>
+
+<figure class="news-item">
+  <div class="section-Image">
+    <div class="gradient">
+      <img src={Play.src} alt="">
+    </div>
+    <img src={imageCard.src} alt="FrontImage">
+  </div>
+  </div>
+  <div class="content-card">
+    <img src={PlayContent.src} alt="vector">
+    <div>
+      <p>
+        Lorem ipsum dolor sit amet consectetur autopista 6.
+      </p>
+      <p class="flush"><br>October, 24-2024<br></p>
+    </div>
+  </div>
+</figure>
+</section>
+
+<style lang="scss">
+  @use "../assets//sass/index" as*;
+
+  #result {
+    display: none;
+    text-align: center;
+    align-items: center;
+    padding-top: 50px;
+  }
+
+  input {
+    background-color: $accent-b-dark;
+    border: none;
+    width: 100%;
+    height: 60px;
+    background-image: url("../assets/image/lupa.png");
+    justify-content: center;
+    align-items: center;
+    background-repeat: no-repeat;
+    background-position: calc(100% - 5%) center;
+    padding-left: 5%;
+    padding-right: 5%;
+  }
+
+  input::placeholder { 
+    width: 85%;
+    border-bottom: 1px solid #000;
+    padding-bottom: 10px;
+    font-family: $text;
+    font-weight: $regular;
+    font-size: 1rem; 
+  }
+
+  input[type="search"]::-webkit-search-cancel-button{
+    -webkit-appearance: none;
+    appearance: none;
+  }
+
+  figure {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .content-card {
+    width: 362px;
+    height: 150px;
+    display: flex;
+    flex-direction: row-reverse;
+    background-color: $tertiary;
+    border-bottom-left-radius: 8px;
+    border-bottom-right-radius: 8px;
+  }
+
+  .content-card img {
+    width: 75px;
+    height: 75px;
+    margin-right: 20px;
+    border-radius: 8px;
+  }
+
+  .section-Image {
+    position: relative;
+    background-color: $tertiary;
+    margin-top: 30px;
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+  }
+
+  .gradient {
+    position: absolute;
+    bottom: 0;
+    top: 142px;
+    left: 0;
+    width: 362px;
+    height: 50px;
+    background: linear-gradient(to left, rgba(32, 35, 39) 0%,
+    rgba(32, 35, 39, 0.6) 50%,
+    rgba(52, 55, 61, 0.5 )100%);
+    display: flex;
+    justify-content: flex-end;
+  }
+
+  .gradient img {
+  width: 50px;
+  height: auto;
+  margin-right: 10px;
+  }
+
+  p {
+    margin: 5px 0 0 10px;
+  }
+  
+  .flush {
+    color: rgba($secondary, 80%);
+  }
+
+  body {
+    background-color: $primary;
+  }
+
+  section {
+    min-height: 50dvh;
+  }
+
+  @media (min-width: 1024px) {
+
+    section {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .section {
+      background-image: url('../assets/image/Intersect.svg');
+      background-repeat: no-repeat;
+      background-size: contain;
+      background-position: right;
+      justify-content: left;  
+      background-color: $accent-b-dark;
+    }
+
+    input {
+      width: 50%;
+      background-position: calc(100% - 40%) center;
+    }
+
+    input::placeholder {
+      width: 60%;
+    }
+  } 
+</style>
