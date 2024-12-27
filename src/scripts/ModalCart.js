@@ -50,7 +50,7 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   function setIndex(index) {
-    currentIndex = index;
+    currentIndex = parseInt(index, 10);
     updateGallery();
   }
 
@@ -87,6 +87,71 @@ document.addEventListener('DOMContentLoaded', () => {
   function handleGesture() {
     if (touchEndX < touchStartX) {
       if (currentIndex < dots.length - 1) {
+        setIndex(currentIndex + 1);
+      }
+    }
+    if (touchEndX > touchStartX) {
+      if (currentIndex > 0) {
+        setIndex(currentIndex - 1);
+      }
+    }
+  }
+
+  updateGallery();
+});
+
+// GALLERY MODAL SLIDER
+document.addEventListener('DOMContentLoaded', () => {
+  const sliderModal = document.getElementById('gallerySliderModal');
+  const dotsModal = document.querySelectorAll('.dot-modal');
+  let currentIndex = 0;
+
+  function updateGallery() {
+    const width = sliderModal.clientWidth;
+    sliderModal.style.transform = `translateX(-${currentIndex * width}px)`;
+
+    dotsModal.forEach(dot => dot.classList.remove('active'));
+    dotsModal[currentIndex].classList.add('active');
+  }
+
+  function setIndex(index) {
+    currentIndex = parseInt(index, 10);
+    updateGallery();
+  }
+
+  dotsModal.forEach(dot => {
+    dot.addEventListener('click', () => {
+      setIndex(dot.getAttribute('data-index'));
+    });
+  });
+
+  document.getElementById('leftArrowModal').addEventListener('click', () => {
+    if (currentIndex > 0) {
+      setIndex(currentIndex - 1);
+    }
+  });
+
+  document.getElementById('rightArrowModal').addEventListener('click', () => {
+    if (currentIndex < dotsModal.length - 1) {
+      setIndex(currentIndex + 1);
+    }
+  });
+
+  let touchStartX = 0;
+  let touchEndX = 0;
+
+  sliderModal.addEventListener('touchstart', (e) => {
+    touchStartX = e.changedTouches[0].screenX;
+  });
+
+  sliderModal.addEventListener('touchend', (e) => {
+    touchEndX = e.changedTouches[0].screenX;
+    handleGesture();
+  });
+
+  function handleGesture() {
+    if (touchEndX < touchStartX) {
+      if (currentIndex < dotsModal.length - 1) {
         setIndex(currentIndex + 1);
       }
     }
