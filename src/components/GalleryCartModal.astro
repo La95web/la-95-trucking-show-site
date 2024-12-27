@@ -1,0 +1,124 @@
+---
+import Gallery from "../assets/image/had.png";
+import Left from "../assets/image/left.png";
+import Right from "../assets/image/right.png";
+---
+<section> 
+  <div class="arrow left-arrow" id="leftArrow"><img src={Left.src} alt="Left"></i></div>
+  <div class="arrow right-arrow" id="rightArrow"><img src={Right.src} alt="right"></div>
+  <div class="gallery-container">
+    <div class="gallery-slider" id="gallerySlider">
+      <img src={Gallery.src} alt="Imagen 1">
+      <img src={Gallery.src} alt="Imagen 2">
+      <img src={Gallery.src} alt="Imagen 3">
+      <img src={Gallery.src} alt="Imagen 4">
+      <img src={Gallery.src} alt="Imagen 5">
+      <img src={Gallery.src} alt="Imagen 5">
+      <img src={Gallery.src} alt="Imagen 5">
+    </div>
+    <div class="gallery-dots" id="galleryDots">
+      <span class="dot" data-index="0"></span>
+      <span class="dot" data-index="1"></span>
+      <span class="dot" data-index="2"></span>
+      <span class="dot" data-index="3"></span>
+      <span class="dot" data-index="4"></span>
+      <span class="dot" data-index="5"></span>
+      <span class="dot" data-index="6"></span>
+    </div>
+  </div>
+</section>
+
+<style lang="scss">
+  @use "../assets//sass/index" as*;
+
+.gallery-container {
+  position: relative;
+  width: auto;
+  max-width: 600px;
+  overflow: hidden;
+}
+
+.gallery-slider {
+  display: flex;
+  transition: transform 0.5s ease;
+}
+
+.gallery-slider img {
+  padding-top: 20px;
+  width: 100%;
+  flex-shrink: 0;
+}
+
+.gallery-dots {
+  text-align: center;
+  margin-top: 10px;
+}
+
+.gallery-dots .dot {
+  display: inline-block;
+  width: 29px;
+  height: 10px;
+  margin: 5px;
+  background-color: $tertiary;
+  border: 2px solid $accent-b-light;
+  border-radius: 10%;
+  cursor: pointer;
+}
+
+.gallery-dots .dot.active {
+  background-color: $accent-b-light;
+  box-shadow: 0 0 25px 15px rgba($accent-b-light, 25%);
+}
+
+.left-arrow, .right-arrow {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  font-size: 50px;
+  z-index: 10;
+  display: none;
+}
+
+.left-arrow {
+  left: 10%;
+}
+
+.right-arrow {
+  right: 10%;
+}
+
+.underline {
+  width: 20%;
+}
+
+@media (min-width: 600px) { 
+
+  section {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+ }
+
+@media (min-width: 1024px) {
+  .arrow {
+    display: block;
+    cursor: pointer;
+  }
+
+  section {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .gallery-container {
+    max-width: 400px;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+  }
+}
+</style>

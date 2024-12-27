@@ -1,0 +1,226 @@
+---
+import Had from "../assets/image/had.png"
+import GalleryCartModal from "./GalleryCartModal.astro"
+---
+
+
+<div id="modalA" class="modal">
+  <div class="close-menu-container">
+    <span class="close"></span>
+    <div class="rombo">
+      <div class="line2"></div>
+    </div>
+  </div>
+  <div class="modal-content">
+    <GalleryCartModal />
+    <div>
+      <div class="close-menu-B">
+        <span class="close"></span>
+        <div class="rombo">
+          <div class="line2"></div>
+        </div>
+      </div>
+      <h3>GORRA DE MALLA</h3>
+      <div class="underline"></div>
+      <p class="textRight">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolorum, necessitatibus?</p>
+      <article>
+        <p>USD $ 15</p>
+        <div class="light-button dark-button">
+          <button id="addItemButton">AGREGAR</button>
+        </div>
+      </article>
+    </div>
+  </div>
+</div>
+
+<style lang="scss">
+  @use "../assets//sass/index" as *;
+
+  .modal {
+    display: none; 
+    position: fixed;
+    z-index: 99;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    backdrop-filter: blur(10px);
+    background-color: rgba($tertiary, 0.85);
+  }
+
+  .modal-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    margin: 15% auto;
+    width: 90%;
+  }
+
+  .modal-content img {
+    padding-top: 20px;
+    border-radius: 8px;
+  }
+
+  img {
+    width: 100%;
+  }
+
+  .modal-content .textRight {
+    text-align: left;
+  }
+
+  h3 {
+    color: $secondary;
+    font-size: 2rem;
+    padding-top: 10px;
+    text-align: left;
+    margin: 0 5%;
+  }
+
+  p {
+    color: $secondary;
+    font-size: 1.25rem;
+    font-family: $text;
+    font-weight: $bold;
+    margin: 20px 5% 0;
+  }
+
+  .underline {
+    width: 241px;  
+  }
+
+  article {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  }
+
+  button {
+    border: none;
+    background-color: transparent;
+    font-size: 1.5rem;
+    font-family: $heading;
+    font-weight: $regular;
+    cursor: pointer;
+  }
+  
+  .light-button.dark-button {
+    background-color: $accent-b-dark;
+    box-shadow: 0 0 20px 10px rgba($accent-b-dark, 20%);
+  }
+  // start button close
+  .close-menu-container {
+    position: fixed;
+    top: 30px;
+    right: 5%;
+    z-index: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .close {
+    position: absolute;
+    width: 60px;
+    height: 60px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    z-index: 2;
+  }
+
+  .rombo {
+    width: 35px;
+    height: 35px;
+    background-color: #34373D;
+    transform: rotate(45deg); 
+    box-shadow: 0 0 10px 5px rgba($primary, 70%);
+    border-radius: 4px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .line2 {
+    width: 29px;
+    height: 4px;
+    background-color: #E03F53; 
+    position: relative;
+    box-shadow: 0 0 10px 5px rgba(221, 46, 68, 35%);
+  }
+
+  .line2::before {
+    content: "";
+    position: absolute;
+    width: 29px;
+    height: 4px;
+    background-color: #E03F53;
+    box-shadow: 0 0 10px 5px rgba(221, 46, 68, 35%);
+    transform: rotate(90deg);
+  }
+  // end button close
+  .close-menu-B {
+    display: none;
+  }
+
+ @media (min-width: 1024px) {
+   
+  .modal-content {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    margin: 12% auto;
+    width: 70%;
+    overflow: hidden;
+  }
+
+  .modal-content img {
+    padding-top: 0px;
+  }
+
+  img {
+    width: 645px;
+  }
+
+  .underline-center {
+    width: 300px; 
+  }
+
+  .socialLeft {
+    padding-top: 20px;
+    margin-left: 10%;
+  }
+
+  .textRight {
+    margin-left: 10%;
+  }
+
+  .modal-content > div {
+    background-color: $tertiary;
+    padding: 1%;
+  }
+
+  .close-menu-container{
+    display: none;
+  }
+
+  .close-menu-B {
+    position: relative;
+    top: 0px;
+    z-index: 1;
+    display: flex;
+    justify-content: right;
+    align-items: right;
+  }
+  
+  .line2 {
+    display: flex;
+  }
+ }
+</style>
