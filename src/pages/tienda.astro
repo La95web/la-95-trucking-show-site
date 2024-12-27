@@ -1,0 +1,22 @@
+---
+import SpanishLayout from "../layouts/SpanishLayout.astro";
+import HeaderShop from "../components/HeaderShop.astro";
+import Team1 from "../assets/image/BannerMovil.webp";
+import Footer from "../components/Footer.astro";
+import ShopItems from "../components/ShopItems.astro";
+import ModalCart from "../components/ModalCart.astro";
+---
+
+<SpanishLayout title="la 95 trucking show">
+  <HeaderShop
+  titleA="tienda"
+  Team1={Team1}
+  />
+  <ShopItems />
+  <ModalCart />
+  <Footer />
+</SpanishLayout>
+<script>
+  import "../scripts/mainMenu.js";
+  import "../scripts/ModalCart.js"
+</script>
