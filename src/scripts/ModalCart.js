@@ -37,68 +37,70 @@ document.addEventListener('DOMContentLoaded', () => {
 
 // Gallery
 document.addEventListener('DOMContentLoaded', () => {
-  const slider = document.getElementById('gallerySlider');
-  const dots = document.querySelectorAll('.dot');
-  let currentIndex = 0;
 
-  function updateGallery() {
-    const width = slider.clientWidth;
-    slider.style.transform = `translateX(-${currentIndex * width}px)`;
+  const sliderCart = document.getElementById('gallerySliderCart');
+  const dotsCart = document.querySelectorAll('.dot-cart');
+  let currentIndexCart = 0;
 
-    dots.forEach(dot => dot.classList.remove('active'));
-    dots[currentIndex].classList.add('active');
+  function updateGalleryCart() {
+    const width = sliderCart.clientWidth;
+    sliderCart.style.transform = `translateX(-${currentIndexCart * width}px)`;
+
+    dotsCart.forEach(dot => dot.classList.remove('active'));
+    dotsCart[currentIndexCart].classList.add('active');
   }
 
-  function setIndex(index) {
-    currentIndex = parseInt(index, 10);
-    updateGallery();
+  function setIndexCart(index) {
+    currentIndexCart = parseInt(index, 10); 
+    updateGalleryCart();
   }
 
-  dots.forEach(dot => {
+  dotsCart.forEach(dot => {
     dot.addEventListener('click', () => {
-      setIndex(dot.getAttribute('data-index'));
+      setIndexCart(dot.getAttribute('data-index'));
     });
   });
 
   document.getElementById('leftArrow').addEventListener('click', () => {
-    if (currentIndex > 0) {
-      setIndex(currentIndex - 1);
+    if (currentIndexCart > 0) {
+      setIndexCart(currentIndexCart - 1);
     }
   });
 
-  document.getElementById('rightArrow').addEventListener('click', () => {
-    if (currentIndex < dots.length - 1) {
-      setIndex(currentIndex + 1);
+  document.getElementById('rightArrow').addEventListener('click', () => { 
+    if (currentIndexCart < dotsCart.length - 1) {
+      setIndexCart(currentIndexCart + 1);
     }
   });
 
   let touchStartX = 0;
   let touchEndX = 0;
 
-  slider.addEventListener('touchstart', (e) => {
+  sliderCart.addEventListener('touchstart', (e) => {
     touchStartX = e.changedTouches[0].screenX;
   });
 
-  slider.addEventListener('touchend', (e) => {
+  sliderCart.addEventListener('touchend', (e) => {
     touchEndX = e.changedTouches[0].screenX;
     handleGesture();
   });
 
   function handleGesture() {
     if (touchEndX < touchStartX) {
-      if (currentIndex < dots.length - 1) {
-        setIndex(currentIndex + 1);
+      if (currentIndexCart < dotsCart.length - 1) {
+        setIndexCart(currentIndexCart + 1);
       }
     }
     if (touchEndX > touchStartX) {
-      if (currentIndex > 0) {
-        setIndex(currentIndex - 1);
+      if (currentIndexCart > 0) {
+        setIndexCart(currentIndexCart - 1);
       }
     }
   }
 
-  updateGallery();
+  updateGalleryCart();
 });
+
 
 // GALLERY MODAL SLIDER
 document.addEventListener('DOMContentLoaded', () => {
