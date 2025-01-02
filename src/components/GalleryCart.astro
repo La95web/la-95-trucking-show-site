@@ -109,7 +109,6 @@ import Right from "../assets/image/right.png";
 
   .slide {
     min-width: 100%;
-    box-sizing: border-box;
   }
 
   .gallery-slider img {
@@ -190,10 +189,12 @@ article {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    align-items: left;
     width: 100%;
     max-width: 300px;
     margin: 0 auto;
+    h3 {
+      text-align: left;
+    }
   }
 
   .underlineSecondary{
@@ -255,17 +256,8 @@ article {
     box-shadow: 0 0 25px 15px rgba($accent-b-light, 25%);
   }
 
-@media (min-width: 600px) { 
-
-  section {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-  }
- }
-
 @media (min-width: 1024px) {
+  
   .arrow {
     display: block;
     cursor: pointer;
@@ -273,16 +265,26 @@ article {
 
   section {
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     justify-content: center;
     align-items: center;
   }
 
   .gallery-container {
-    max-width: 400px;
+    max-width: 1100px;
     text-align: center;
     align-items: center;
     justify-content: center;
+  }
+
+  .gallery-slider {
+    display: flex;
+    transition: transform 0.5s ease;
+    width: 33%;
+  }
+
+  .gallery-slider img {
+    width: 70%;
   }
 }
 </style>

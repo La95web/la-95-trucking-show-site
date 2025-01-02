@@ -1,36 +1,65 @@
 ---
-import Had from "../assets/image/had.png"
-import GalleryCartModal from "./GalleryCartModal.astro"
+import Gallery from "../assets/image/haddesk.png";
+import Left from "../assets/image/left.png";
+import Right from "../assets/image/right.png";
+const response = await fetch('https://serpapi.com/searches/8fa8058388dba07e/67584f6499ba832aea003483.json');
+const data = await response.json();
+const newData = data.local_results.places[0];
 ---
 
 
 <div id="modalA" class="modal">
-  <div class="close-menu-container">
-    <span class="close"></span>
-    <div class="rombo">
-      <div class="line2"></div>
-    </div>
-  </div>
-  <div class="modal-content">
-    <GalleryCartModal />
-    <div>
-      <div class="close-menu-B">
-        <span class="close"></span>
-        <div class="rombo">
-          <div class="line2"></div>
-        </div>
+    <div class="close-menu-container">
+      <span class="close"></span>
+      <div class="rombo">
+        <div class="line2"></div>
       </div>
-      <h3>GORRA DE MALLA</h3>
-      <div class="underline"></div>
-      <p class="textRight">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolorum, necessitatibus?</p>
-      <article>
-        <p>USD $ 15</p>
-        <div class="light-button dark-button">
-          <button id="addItemButton">AGREGAR</button>
-        </div>
-      </article>
     </div>
-  </div>
+    <div class="modal-content">
+      <section> 
+        <div class="arrow left-arrow" id="leftArrowModal"><img src={Left.src} alt="Left"></i></div>
+        <div class="arrow right-arrow" id="rightArrowModal"><img src={Right.src} alt="right"></div>
+        
+        <div class="gallery-container">
+          <div class="gallery-slider" id="gallerySliderModal">
+            <img src={Gallery.src} alt="Imagen 1">
+            <img src={Gallery.src} alt="Imagen 2">
+            <img src={Gallery.src} alt="Imagen 3">
+            <img src={Gallery.src} alt="Imagen 4">
+            <img src={Gallery.src} alt="Imagen 5">
+            <img src={Gallery.src} alt="Imagen 5">
+            <img src={Gallery.src} alt="Imagen 5">
+          </div>
+          <div class="gallery-dots" id="galleryDotsModal">
+            <span class="dot-modal" data-index="0"></span>
+            <span class="dot-modal" data-index="1"></span>
+            <span class="dot-modal" data-index="2"></span>
+            <span class="dot-modal" data-index="3"></span>
+            <span class="dot-modal" data-index="4"></span>
+            <span class="dot-modal" data-index="5"></span>
+            <span class="dot-modal" data-index="6"></span>
+          </div>
+        </div>
+ 
+      </section>
+      <div>
+        <div class="close-menu-B">
+          <span class="close"></span>
+          <div class="rombo">
+            <div class="line2"></div>
+          </div>
+        </div>
+        <h3>{newData.type}</h3>
+        <div class="underline"></div>
+        <p class="textRight">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolorum, necessitatibus?</p>
+        <article>
+          <p>USD $ 15</p>
+          <div class="light-button dark-button">
+            <button id="addItemButton">AGREGAR</button>
+          </div>
+        </article>
+      </div>
+    </div>
 </div>
 
 <style lang="scss">
@@ -57,7 +86,7 @@ import GalleryCartModal from "./GalleryCartModal.astro"
     text-align: center;
     margin: 15% auto;
     width: 90%;
-  }
+    }
 
   .modal-content img {
     padding-top: 20px;
@@ -70,6 +99,8 @@ import GalleryCartModal from "./GalleryCartModal.astro"
 
   .modal-content .textRight {
     text-align: left;
+    margin: 20px 50px 0;
+    font-weight: $regular;
   }
 
   h3 {
@@ -77,19 +108,19 @@ import GalleryCartModal from "./GalleryCartModal.astro"
     font-size: 2rem;
     padding-top: 10px;
     text-align: left;
-    margin: 0 5%;
+    margin: 20px 50px 0;
   }
 
   p {
     color: $secondary;
     font-size: 1.25rem;
     font-family: $text;
-    font-weight: $bold;
-    margin: 20px 5% 0;
+    font-weight: $regular;
   }
 
   .underline {
-    width: 241px;  
+    width: 301px; 
+    margin: 0px 50px 0; 
   }
 
   article {
@@ -97,6 +128,9 @@ import GalleryCartModal from "./GalleryCartModal.astro"
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  p{
+    font-weight: $medium;
+  }
   }
 
   button {
@@ -176,34 +210,13 @@ import GalleryCartModal from "./GalleryCartModal.astro"
     align-items: center;
     text-align: center;
     margin: 12% auto;
-    width: 70%;
+    width: 90%;
     overflow: hidden;
-  }
-
-  .modal-content img {
-    padding-top: 0px;
-  }
-
-  img {
-    width: 645px;
+    background-color: $tertiary;
   }
 
   .underline-center {
     width: 300px; 
-  }
-
-  .socialLeft {
-    padding-top: 20px;
-    margin-left: 10%;
-  }
-
-  .textRight {
-    margin-left: 10%;
-  }
-
-  .modal-content > div {
-    background-color: $tertiary;
-    padding: 1%;
   }
 
   .close-menu-container{
@@ -221,6 +234,15 @@ import GalleryCartModal from "./GalleryCartModal.astro"
   
   .line2 {
     display: flex;
+  }
+
+  .modal-content 
+  .textRight, 
+  h3, 
+  .underline{
+    text-align: left;
+    margin-left: 20%;
+    margin-right: 25%;
   }
  }
 </style>
