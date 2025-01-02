@@ -1,7 +1,8 @@
 ---
 import SpanishLayout from "../layouts/SpanishLayout.astro";
 import HeaderShop from "../components/HeaderShop.astro";
-import Team1 from "../assets/image/BannerMovil.webp";
+import ShopA from "../assets/image/movilshop.png";
+import ShopB from "../assets/image/headerShopDesk.webp";
 import Footer from "../components/Footer.astro";
 import ShopItems from "../components/ShopItems.astro";
 import ModalCart from "../components/ModalCart.astro";
@@ -10,8 +11,9 @@ import GalleryCart from "../components/GalleryCart.astro";
 
 <SpanishLayout title="la 95 trucking show">
   <HeaderShop
-  titleA="tienda"
-  Team1={Team1}
+  titleA="Tienda"
+  imgA={ShopA}
+  imgB={ShopB}
   />
   <GalleryCart />
   <ShopItems />
