@@ -1,5 +1,6 @@
 ---
-import Gallery from "../assets/image/had.png";
+import Jeans from "../assets/image/jeans.png";
+import Jacket from "../assets/image/jacket.png";
 import Left from "../assets/image/left.png";
 import Right from "../assets/image/right.png";
 ---
@@ -8,42 +9,83 @@ import Right from "../assets/image/right.png";
   <div class="arrow right-arrow" id="rightArrow"><img src={Right.src} alt="right"></div>
   <div class="gallery-container">
     <article>
-      <h2>Articulos</h2>
+      <h2>Artículos Destacados</h2>
       <div class="underline"></div>
       <p>Lorem ipsum odor amet, consectetuer adipiscing elit.</p>
     </article>
-    <div class="gallery-slider" id="gallerySlider">
-      <img src={Gallery.src} alt="Imagen 1">
-      <img src={Gallery.src} alt="Imagen 2">
-      <img src={Gallery.src} alt="Imagen 3">
-      <img src={Gallery.src} alt="Imagen 4">
-      <img src={Gallery.src} alt="Imagen 5">
-      <img src={Gallery.src} alt="Imagen 5">
-      <img src={Gallery.src} alt="Imagen 5">
+    <div id="gallerySliderCart" class="gallery-slider">
+      <div class="slide">
+        <img src={Jacket.src} alt="Imagen 1">
+        <figure>
+          <h3>Jacket gris</h3>
+          <div class="underlineSecondary"></div>
+          <p>USD $ 15</p>
+          <div class="inline">
+            <div class="light-button dark-button">
+              <button id="addItemButton">AGREGAR</button>
+            </div>
+            <div class="light-button darkness-button spread">
+              <button class="openModal" data-modal="modalA">VER MÁS</button>
+            </div>
+          </div>
+        </figure>
+      </div>
+      <div class="slide">
+        <img src={Jeans.src} alt="Imagen 2">
+        <figure>
+          <h3>jeans azules</h3>
+          <div class="underlineSecondary"></div>
+          <p>USD $ 70</p>
+          <div class="inline">
+            <div class="light-button dark-button">
+              <button id="addItemButton">AGREGAR</button>
+            </div>
+            <div class="light-button darkness-button spread">
+              <button class="openModal" data-modal="modalA">VER MÁS</button>
+            </div>
+          </div>
+        </figure>
+      </div>
+      <div class="slide">
+        <img src={Jacket.src} alt="Imagen 2">
+        <figure>
+          <h3>chaqueta casual</h3>
+          <div class="underlineSecondary"></div>
+          <p>USD $ 25</p>
+          <div class="inline">
+            <div class="light-button dark-button">
+              <button id="addItemButton">AGREGAR</button>
+            </div>
+            <div class="light-button darkness-button spread">
+              <button class="openModal" data-modal="modalA">VER MÁS</button>
+            </div>
+          </div>
+        </figure>
+      </div>
+      <div class="slide">
+        <img src={Jeans.src} alt="Imagen 2">
+        <figure>
+          <h3>jeans azules</h3>
+          <div class="underlineSecondary"></div>
+          <p>USD $ 70</p>
+          <div class="inline">
+            <div class="light-button dark-button">
+              <button id="addItemButton">AGREGAR</button>
+            </div>
+            <div class="light-button darkness-button spread">
+              <button class="openModal" data-modal="modalA">VER MÁS</button>
+            </div>
+          </div>
+        </figure>
+      </div>
+      <!-- justo aca agregamos otro contendedor pero vamos a esperar la api -->
     </div>
   
-    <figure>
-      <h3>gorra de malla</h3>
-      <div class="underlineSecondary"></div>
-      <p>USD $ 15</p>
-      <div class="inline">
-        <div class="light-button dark-button">
-          <button id="addItemButton">AGREGAR</button>
-        </div>
-        <div class="light-button darkness-button spread">
-          <button class="openModal" data-modal="modalA">VER MÁS</button>
-        </div>
-      </div>
-    </figure>
-
-    <div class="gallery-dots" id="galleryDots">
-      <span class="dot" data-index="0"></span>
-      <span class="dot" data-index="1"></span>
-      <span class="dot" data-index="2"></span>
-      <span class="dot" data-index="3"></span>
-      <span class="dot" data-index="4"></span>
-      <span class="dot" data-index="5"></span>
-      <span class="dot" data-index="6"></span>
+    <div class="gallery-dots" id="gallerySliderCart">
+      <span class="dot-cart" data-index="0"></span>
+      <span class="dot-cart" data-index="1"></span>
+      <span class="dot-cart" data-index="2"></span>
+      <span class="dot-cart" data-index="3"></span>
     </div>
   </div>
 </section>
@@ -52,6 +94,7 @@ import Right from "../assets/image/right.png";
   @use "../assets//sass/index" as*;
 
   .gallery-container {
+    width: 100%;
     position: relative;
     width: auto;
     max-width: 600px;
@@ -61,6 +104,12 @@ import Right from "../assets/image/right.png";
   .gallery-slider {
     display: flex;
     transition: transform 0.5s ease;
+    width: 100%;
+  }
+
+  .slide {
+    min-width: 100%;
+    box-sizing: border-box;
   }
 
   .gallery-slider img {
@@ -69,12 +118,16 @@ import Right from "../assets/image/right.png";
     flex-shrink: 0;
   }
 
-  .gallery-dots {
-    text-align: center;
-    margin-bottom: 30px;
+  p {
+    margin: 10px;
   }
 
-  .gallery-dots .dot {
+  .gallery-dots {
+    text-align: center;
+    margin: 50px 0 20px;
+  }
+
+  .gallery-dots .dot-cart {
     display: inline-block;
     width: 29px;
     height: 10px;
@@ -85,7 +138,7 @@ import Right from "../assets/image/right.png";
     cursor: pointer;
   }
 
-  .gallery-dots .dot.active {
+  .gallery-dots .dot-cart.active {
     background-color: $accent-b-light;
     box-shadow: 0 0 25px 15px rgba($accent-b-light, 25%);
   }
@@ -122,7 +175,7 @@ article {
   }
 
   .underline {
-    width: 120px;
+    width: 300px;
   }
 
   section {
@@ -144,7 +197,7 @@ article {
   }
 
   .underlineSecondary{
-    width: 241px;
+    width: 271px;
     height: 2px;
     background-color: $accent-b-dark;
     justify-content: left;
