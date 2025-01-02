@@ -1,0 +1,139 @@
+---
+import Had from "../assets/image/had.png";
+---
+
+<article>
+  <h2>Artículos</h2>
+  <div class="underline"></div>
+  <p>Lorem ipsum odor amet, consectetuer adipiscing elit.</p>
+</article>
+<section>
+  <figure>
+    <img src={Had.src} alt="item">
+    <h3>gorra de malla</h3>
+    <div class="underlineSecondary"></div>
+    <p>USD $ 15</p>
+    <div class="inline">
+      <div class="light-button dark-button">
+        <button id="addItemButton">AGREGAR</button>
+      </div>
+      <div class="light-button darkness-button spread">
+        <button class="openModal" data-modal="modalA">VER MÁS</button>
+      </div>
+    </div>
+  </figure>
+
+  <figure>
+    <img src={Had.src} alt="item">
+    <h3>gorra de malla</h3>
+    <div class="underlineSecondary"></div>
+    <p>USD $ 15</p>
+    <div class="inline">
+      <div class="light-button dark-button">
+        <button id="addItemButton">AGREGAR</button>
+      </div>
+      <div class="light-button darkness-button spread">
+        <button class="openModal" data-modal="modalA">VER MÁS</button>
+      </div>
+    </div>
+  </figure>
+</section>
+
+<style lang="scss">
+  @use "../assets/sass/index" as*;
+
+  body {
+    background-color: $primary;
+  }
+
+  article {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding-top: 20px;
+  }
+
+  .underline {
+    width: 120px;
+  }
+
+  section {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    margin: 20px 0;
+    gap: 60px;
+  }
+
+  figure {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: left;
+    width: 100%;
+    max-width: 300px;
+    margin: 0 auto;
+  }
+
+  .underlineSecondary{
+    width: 241px;
+    height: 2px;
+    background-color: $accent-b-dark;
+    justify-content: left;
+    margin-top: 0px;
+    border-radius: 2px;
+    margin: 0 5%; 
+  }
+
+  p{
+    text-align: center;
+  }
+
+  img {
+    width: 100%;
+    height: auto;
+  }
+
+  .inline {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  button {
+    border: none;
+    background-color: transparent;
+    font-size: 1.5rem;
+    font-family: $heading;
+    font-weight: $regular;
+    cursor: pointer;
+  }
+  
+  .light-button.dark-button {
+    background-color: $accent-b-dark;
+    box-shadow: 0 0 20px 10px rgba($accent-b-dark, 20%);
+  }
+
+  .darkness-button {
+    background-color: transparent;
+    border: 2px solid $accent-b-dark;
+    box-shadow: 0 0 20px 10px rgba($accent-b-dark, 20%);
+  }
+
+  .darkness-button button {
+    color: $accent-b-dark;
+  }
+  
+  .light-button:hover {
+    background-color: $accent-b-light;
+    box-shadow: 0 0 25px 15px rgba($accent-b-light, 25%);
+  }
+
+  .spread:hover {
+    background-color: transparent;
+    box-shadow: 0 0 25px 15px rgba($accent-b-light, 25%);
+  }
+  
+</style>

@@ -1,9 +1,9 @@
 ---
 const {title, paragraph, button} = Astro.props;
 import NewImg from "../assets/image/logoDesktop.webp";
-const response = await fetch('https://randomuser.me/api/');
+const response = await fetch('https://serpapi.com/searches/8fa8058388dba07e/67584f6499ba832aea003483.json');
 const data = await response.json();
-const newData = data.results[0];
+const newData = data.local_results.places[0];
 ---
 
 <div class="section">
@@ -27,11 +27,11 @@ const newData = data.results[0];
   <div class="content-item">
     <div class="section-content-tips news-item" id="content">
       <div>
-        <h4>{newData.name.first}</h4>
+        <h4>{newData.description}</h4>
         <div class="underlineNews"></div>
         <p>lorem PERO dolor sit amet elit Lorem ipsum dolor, consectetur adipisicing elit Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempora, iste dolor sit amet consectetur adipisicing elit. Tempora, iste</p>
         <br>
-        <span>{newData.location.postcode}<span>
+        <span>October, 24-2024<span>
       </div>
       <div class="image">
         <img src={NewImg.src} alt="news">
@@ -39,11 +39,11 @@ const newData = data.results[0];
     </div>
     <div class="section-content-tips news-item">
       <div>
-        <h4>{newData.location.country}</h4>
+        <h4>{newData.title}</h4>
         <div class="underlineNews"></div>
         <p>lorem ipsum dolor sit amet elit Lorem ipsum dolor, consectetur adipisicing elit Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempora, iste dolor sit amet consectetur adipisicing elit. Tempora, iste</p>
         <br>
-        <span>{newData.location.postcode}<span>
+        <span>November, 24-2024<span>
       </div>
       <div class="image">
         <img src={NewImg.src} alt="news">
@@ -51,11 +51,11 @@ const newData = data.results[0];
     </div>
     <div class="section-content-tips news-item">
       <div>
-        <h4>{newData.location.state}</h4>
+        <h4>{newData.type}</h4>
         <div class="underlineNews"></div>
         <p>lorem ipsum dolor sit amet elit Lorem ipsum dolor, consectetur adipisicing elit Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempora, iste dolor sit amet consectetur adipisicing elit. Tempora, iste</p>
         <br>
-        <span>{newData.location.postcode}<span>
+        <span>December, 24-2024<span>
       </div>
       <div class="image">
         <img src={NewImg.src} alt="news">

@@ -15,7 +15,7 @@ document.getElementById('close-menu').addEventListener('click', () => {
 // carousel below
 
 const carousel = document.getElementById('carouselimg');
-let scrollSpeed = 1;
+let scrollSpeed = 2;
 
 const images = carousel.children;
 const imageCount = images.length;
