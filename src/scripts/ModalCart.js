@@ -48,6 +48,14 @@ document.addEventListener('DOMContentLoaded', () => {
 
     dotsCart.forEach(dot => dot.classList.remove('active'));
     dotsCart[currentIndexCart].classList.add('active');
+
+    if (window.innerWidth > 1024) {
+      leftArrow.style.display = currentIndexCart === 0 ? 'none' : 'block';
+      rightArrow.style.display = currentIndexCart === dotsCart.length - 1 ? 'none' : 'block';
+    } else {
+      leftArrow.style.display = 'none';
+      rightArrow.style.display = 'none';
+    }
   }
 
   function setIndexCart(index) {
@@ -98,6 +106,14 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   }
 
+  setInterval(() => {
+    if (currentIndexCart < dotsCart.length - 1) {
+      setIndexCart(currentIndexCart + 1);
+    } else {
+      setIndexCart(0);
+    }
+  } , 5000);
+
   updateGalleryCart();
 });
 
@@ -106,18 +122,26 @@ document.addEventListener('DOMContentLoaded', () => {
 document.addEventListener('DOMContentLoaded', () => {
   const sliderModal = document.getElementById('gallerySliderModal');
   const dotsModal = document.querySelectorAll('.dot-modal');
-  let currentIndex = 0;
+  let currentIndexModal = 0;
 
   function updateGallery() {
     const width = sliderModal.clientWidth;
-    sliderModal.style.transform = `translateX(-${currentIndex * width}px)`;
+    sliderModal.style.transform = `translateX(-${currentIndexModal * width}px)`;
 
     dotsModal.forEach(dot => dot.classList.remove('active'));
-    dotsModal[currentIndex].classList.add('active');
+    dotsModal[currentIndexModal].classList.add('active');
+
+    if (window.innerWidth > 1024) {
+      leftArrowModal.style.display = currentIndexModal === 0 ? 'none' : 'block';
+      rightArrowModal.style.display = currentIndexModal === dotsModal.length - 1 ? 'none' : 'block';
+    } else {
+      leftArrowModal.style.display = 'none';
+      rightArrowModal.style.display = 'none';
+    }
   }
 
   function setIndex(index) {
-    currentIndex = parseInt(index, 10);
+    currentIndexModal = parseInt(index, 10);
     updateGallery();
   }
 
@@ -128,14 +152,14 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
   document.getElementById('leftArrowModal').addEventListener('click', () => {
-    if (currentIndex > 0) {
-      setIndex(currentIndex - 1);
+    if (currentIndexModal > 0) {
+      setIndex(currentIndexModal - 1);
     }
   });
 
   document.getElementById('rightArrowModal').addEventListener('click', () => {
-    if (currentIndex < dotsModal.length - 1) {
-      setIndex(currentIndex + 1);
+    if (currentIndexModal < dotsModal.length - 1) {
+      setIndex(currentIndexModal + 1);
     }
   });
 
@@ -153,13 +177,13 @@ document.addEventListener('DOMContentLoaded', () => {
 
   function handleGesture() {
     if (touchEndX < touchStartX) {
-      if (currentIndex < dotsModal.length - 1) {
-        setIndex(currentIndex + 1);
+      if (currentIndexModal < dotsModal.length - 1) {
+        setIndex(currentIndexModal + 1);
       }
     }
     if (touchEndX > touchStartX) {
-      if (currentIndex > 0) {
-        setIndex(currentIndex - 1);
+      if (currentIndexModal > 0) {
+        setIndex(currentIndexModal - 1);
       }
     }
   }

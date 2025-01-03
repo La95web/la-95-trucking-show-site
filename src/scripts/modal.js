@@ -61,6 +61,14 @@ document.addEventListener('DOMContentLoaded', () => {
 
     dots.forEach(dot => dot.classList.remove('active'));
     dots[currentIndex].classList.add('active');
+
+    if (window.innerWidth > 1024) {
+      leftArrow.style.display = currentIndex === 0 ? 'none' : 'block';
+      rightArrow.style.display = currentIndex === dots.length - 1 ? 'none' : 'block';
+    } else {
+      leftArrow.style.display = 'none';
+      rightArrow.style.display = 'none';
+    }
   }
 
   function setIndex(index) {
