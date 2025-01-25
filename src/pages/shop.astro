@@ -1,5 +1,5 @@
 ---
-import SpanishLayout from "../layouts/SpanishLayout.astro";
+import EnglishLayout from "../layouts/EnglishLayout.astro";
 import HeaderShop from "../components/HeaderShop.astro";
 import ShopA from "../assets/image/movilshop.png";
 import ShopB from "../assets/image/headerShopDesk.webp";
@@ -9,29 +9,29 @@ import ModalCart from "../components/ModalCart.astro";
 import GalleryCart from "../components/GalleryCart.astro";
 ---
 
-<SpanishLayout title="la 95 trucking show">
+<EnglishLayout title="la 95 trucking show">
   <HeaderShop
-  link1="/carrito/"
-  titleA="Tienda"
+  link1="/cart/"
+  titleA="shop"
   imgA={ShopA}
   imgB={ShopB}
   />
   <GalleryCart
-  title="artículos destacados"
+  title="Featured Articles"
   paragraph="lorem ipsum dolar sit amet"
-  primarybutton="agregar"
-  secondarybutton="ver más" />
-  <ShopItems 
-  title="articulos"
+  primarybutton="add"
+  secondarybutton="see more" />
+  <ShopItems
+  title="articles"
   paragraph="lorem ipsum dolar sit amet"
-  primarybutton="agregar"
-  secondarybutton="ver más" />
+  primarybutton="Add to Card"
+  secondarybutton="see more" />
   <ModalCart />
   <Footer />
-</SpanishLayout>
+</EnglishLayout>
 <script>
   import "../scripts/mainMenu.js";
   import "../scripts/ModalCart.js";
   import "../scripts/ModalShop.js";
-  import "../scripts/shopItems.js";
+  import "../scripts/itemsEnglish.js"
 </script>

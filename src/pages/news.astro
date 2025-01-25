@@ -1,5 +1,5 @@
 ---
-import SpanishLayout from "../layouts/SpanishLayout.astro";
+import Englishlayout from "../layouts/EnglishLayout.astro";
 import Team1 from "../assets/image/noticiasimg.webp";
 import Team2 from "../assets/image/truckerDesktop.webp";
 import Footer from "../components/Footer.astro";
@@ -8,23 +8,23 @@ import HeaderNews from "../components/HeaderNews.astro";
 const ShowContent = true;
 ---
 
-<SpanishLayout title="la 95 trucking show">
+<Englishlayout title="la 95 trucking show">
   <HeaderNews
-  titleA="noticias &"
+  titleA="news &"
   titleB="tips"
   Team1={Team1}
   Team2={Team2}/>
   <AllNews
-  link1="/noticias/"
-  link2="/tips/"
-  navNews="noticas"
+  link1="/news/"
+  link2="/tipsEn/"
+  navNews="news"
   navTips="tips"
-  title="noticias"
+  title="news"
   paragraph="Lorem ipsum odor amet, consectetuer adipiscing elit. Suscipit id tristique posuere facilisi ac nibh lacus enim condimentum sagittis ligula mauris."
-  button="ver más" />
+  button="see more" />
   <Footer />
-</SpanishLayout>
+</Englishlayout>
 <script>
-  import "../scripts/mainMenu.js"
-   import "../scripts/SearchNews.js"
+  import "../scripts/mainMenu.js";
+  import "../scripts/SearchNews.js"
 </script>

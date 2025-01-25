@@ -1,12 +1,12 @@
 ---
-const {titleUs, Team1, Team2} = Astro.props;
+const {title, Team1, Team2} = Astro.props;
 ---
 
 <header>
   <div class="content-header">
     <img src={Team1.src} alt="image" class="movil-image">
     <img src={Team2.src} alt="desktop image" class="desktop-image">
-    <h1>{titleUs}</h1>
+    <h1>{title}</h1>
   </div>
 </header>
 

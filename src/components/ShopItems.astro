@@ -1,44 +1,62 @@
 ---
 import Had from "../assets/image/had.png";
-
-let items = [];
-
-try {
-  const response = await fetch('https://serpapi.com/searches/8fa8058388dba07e/67584f6499ba832aea003483.json');
-  const data = await response.json();
-  items = data.local_results.places;
-} catch (error) {
-  console.error('Error fetching data:', error);
-}
+const {title, paragraph, primarybutton, secondarybutton} = Astro.props;
 ---
 
 <article>
-  <h2>Artículos</h2>
+  <h2>{title}</h2>
   <div class="underline"></div>
-  <p>Lorem ipsum odor amet, consectetuer adipiscing elit.</p>
+  <p>{paragraph}</p>
 </article>
 <section>
-  {items.length > 0 ? (
-    items.map(item => (
+
       <figure>
         <img src={Had.src} alt="item"/>
-        <h3>{item.type}</h3>
+        <h3>articulo1</h3>
         <div class="underlineSecondary"></div>
-        <p>USD $70</p>
+        <p>USD $10</p>
         <div class="inline">
           <div class="light-button dark-button">
-            <button id="addItemButton">AGREGAR</button>
+            <button class="add-to-cart-button" data-index="0" >{primarybutton}</button>
           </div>
           <div class="light-button darkness-button spread">
-            <button class="openModal" data-modal="modalA">VER MÁS</button>
+            <button class="openModal" data-modal="modalA">{secondarybutton}</button>
           </div>
         </div>
       </figure>
-    ))
-  ) : (
-    <p>Cargando artículos...</p>
-  )}
+
+      <figure>
+        <img src={Had.src} alt="item"/>
+        <h3>articulo1</h3>
+        <div class="underlineSecondary"></div>
+        <p>USD $10</p>
+        <div class="inline">
+          <div class="light-button dark-button">
+            <button class="add-to-cart-button" data-index="1" >{primarybutton}</button>
+          </div>
+          <div class="light-button darkness-button spread">
+            <button class="openModal" data-modal="modalA">{secondarybutton}</button>
+          </div>
+        </div>
+      </figure>
+
+      <figure>
+        <img src={Had.src} alt="item"/>
+        <h3>articulo1</h3>
+        <div class="underlineSecondary"></div>
+        <p>USD $10</p>
+        <div class="inline">
+          <div class="light-button dark-button">
+            <button class="add-to-cart-button" data-index="2" >{primarybutton}</button>
+          </div>
+          <div class="light-button darkness-button spread">
+            <button class="openModal" data-modal="modalA">{secondarybutton}</button>
+          </div>
+        </div>
+      </figure>
+  
 </section>
+
 
 <style lang="scss">
   @use "../assets/sass/index" as*;
