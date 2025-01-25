@@ -3,15 +3,16 @@ import Jeans from "../assets/image/jeans.png";
 import Jacket from "../assets/image/jacket.png";
 import Left from "../assets/image/left.png";
 import Right from "../assets/image/right.png";
+const {title, paragraph, primarybutton, secondarybutton} = Astro.props;
 ---
 <section> 
   <div class="arrow left-arrow" id="leftArrow"><img src={Left.src} alt="Left"></i></div>
   <div class="arrow right-arrow" id="rightArrow"><img src={Right.src} alt="right"></div>
   <div class="gallery-container">
     <article>
-      <h2>Artículos Destacados</h2>
+      <h2>{title}</h2>
       <div class="underline"></div>
-      <p>Lorem ipsum odor amet, consectetuer adipiscing elit.</p>
+      <p>{paragraph}</p>
     </article>
     <div id="gallerySliderCart" class="gallery-slider">
       <div class="slide">
@@ -22,10 +23,10 @@ import Right from "../assets/image/right.png";
           <p>USD $ 15</p>
           <div class="inline">
             <div class="light-button dark-button">
-              <button id="addItemButton">AGREGAR</button>
+              <button id="addItemButton" class="add-to-cart-button" data-index='1'>{primarybutton}</button>
             </div>
             <div class="light-button darkness-button spread">
-              <button class="openModal" data-modal="modalA">VER MÁS</button>
+              <button class="openModal" data-modal="modalA">{secondarybutton}</button>
             </div>
           </div>
         </figure>
@@ -38,10 +39,10 @@ import Right from "../assets/image/right.png";
           <p>USD $ 70</p>
           <div class="inline">
             <div class="light-button dark-button">
-              <button id="addItemButton">AGREGAR</button>
+              <button id="addItemButton">{primarybutton}</button>
             </div>
             <div class="light-button darkness-button spread">
-              <button class="openModal" data-modal="modalA">VER MÁS</button>
+              <button class="openModal" data-modal="modalA">{secondarybutton}</button>
             </div>
           </div>
         </figure>
@@ -54,10 +55,10 @@ import Right from "../assets/image/right.png";
           <p>USD $ 25</p>
           <div class="inline">
             <div class="light-button dark-button">
-              <button id="addItemButton">AGREGAR</button>
+              <button id="addItemButton">{primarybutton}</button>
             </div>
             <div class="light-button darkness-button spread">
-              <button class="openModal" data-modal="modalA">VER MÁS</button>
+              <button class="openModal" data-modal="modalA">{secondarybutton}</button>
             </div>
           </div>
         </figure>
@@ -70,10 +71,10 @@ import Right from "../assets/image/right.png";
           <p>USD $ 70</p>
           <div class="inline">
             <div class="light-button dark-button">
-              <button id="addItemButton">AGREGAR</button>
+              <button id="addItemButton">{primarybutton}</button>
             </div>
             <div class="light-button darkness-button spread">
-              <button class="openModal" data-modal="modalA">VER MÁS</button>
+              <button class="openModal" data-modal="modalA">{secondarybutton}</button>
             </div>
           </div>
         </figure>
@@ -163,8 +164,8 @@ import Right from "../assets/image/right.png";
     width: 20%;
   }
 
-//start description 
-article {
+  //start description 
+  article {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -225,7 +226,7 @@ article {
   button {
     border: none;
     background-color: transparent;
-    font-size: 1.5rem;
+    font-size: 1.3rem;
     font-family: $heading;
     font-weight: $regular;
     cursor: pointer;

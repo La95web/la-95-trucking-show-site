@@ -1,0 +1,90 @@
+---
+const {titlecart, button} = Astro.props;
+---
+<section>
+  <h2>{titlecart}</h2> 
+  <div class="underline"></div>
+  <ul id="cart-container">
+    <div class="contenedor">
+      <p class="text"></p>
+    </div>
+  </ul>
+  <aside>
+    <h3>Subtotal</h3>
+    <p class="total" id="total">USD $ 0</p>
+  </aside>
+  <div class="line"></div>
+  <button class="light-button red-button" type="submit">{button}</button>
+  <div class="container"></div>
+</section>
+
+<style lang="scss">
+  @use "../assets/sass/index" as *;
+
+  body {
+    background-color: $primary;
+  }
+
+  .line {
+    margin: 0 5%;
+    width: 90%;
+    height: 2px;
+    background-color: $accent-b-dark;
+    margin-top: 0px;
+    border-radius: 2px;
+  }
+
+  section {
+    display: flex;
+    flex-direction: column;
+    justify-content: left;
+    align-items: left;
+   
+  }
+
+  ul {
+    color: white;
+  }
+
+  .cart-item {
+    list-style: none;
+    margin: 10px 0;
+    display: flex;
+    align-items: center;
+  }
+
+  .underline {
+    margin: 0 5%;
+    width: 170px;
+  }
+
+  .total {
+    font-weight: bold;
+  }
+
+  button {
+    margin: 30px 5% 30px;
+    font-family: $heading;
+    font-weight: $regular;
+    font-size: 1.5rem;
+  }
+
+  h2 {
+    margin: 30px 5% 0;
+  }
+
+  h3 {
+    margin: 0 5%;
+  }
+
+  aside {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    p{
+      margin: 0 8% 0;
+    }
+  }
+
+</style>

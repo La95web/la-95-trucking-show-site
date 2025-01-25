@@ -2,9 +2,9 @@
 import Gallery from "../assets/image/haddesk.png";
 import Left from "../assets/image/left.png";
 import Right from "../assets/image/right.png";
-const response = await fetch('https://serpapi.com/searches/8fa8058388dba07e/67584f6499ba832aea003483.json');
-const data = await response.json();
-const newData = data.local_results.places[0];
+// const response = await fetch('https://serpapi.com/searches/8fa8058388dba07e/67584f6499ba832aea003483.json');
+// const data = await response.json();
+// const newData = data.local_results.places[0];
 ---
 
 
@@ -49,13 +49,13 @@ const newData = data.local_results.places[0];
             <div class="line2"></div>
           </div>
         </div>
-        <h3>{newData.type}</h3>
+        <h3>la gorra</h3>
         <div class="underline"></div>
         <p class="textRight">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolorum, necessitatibus?</p>
         <article>
           <p>USD $ 15</p>
           <div class="light-button dark-button">
-            <button id="addItemButton">AGREGAR</button>
+            <button id="addItemButton" class="add-to-cart-button" data-index='0'>AGREGAR</button>
           </div>
         </article>
       </div>
