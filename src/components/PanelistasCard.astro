@@ -1,7 +1,5 @@
 ---
-const {guest, image, description, button, title} = Astro.props
-const {guest1, image1, description1}= Astro.props
-const {guest2, image2, description2}= Astro.props 
+const {guest, guest1, guest2, image, image1, image2, description, description1, description2, button, title} = Astro.props
 ---
 <section> 
   <div class="center"> 
@@ -49,6 +47,102 @@ const {guest2, image2, description2}= Astro.props
           <p class="card-description">{description2}</p>
           <div class="light-gold gold-button">
             <button class="openModal" data-modal="modalC">{button}</button>
+          </div>
+          <div class="small-image"></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div> 
+        <img src={image2.src} alt="Card Image" class="card-image">
+        <div class="gradient">
+          <h3 class="card-title">{guest2}</h3>
+        </div>
+        <div class="card-content">
+          <p class="card-description">{description2}</p>
+          <div class="light-gold gold-button">
+            <button class="openModal" data-modal="modalD">{button}</button>
+          </div>
+          <div class="small-image"></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div> 
+        <img src={image2.src} alt="Card Image" class="card-image">
+        <div class="gradient">
+          <h3 class="card-title">{guest2}</h3>
+        </div>
+        <div class="card-content">
+          <p class="card-description">{description2}</p>
+          <div class="light-gold gold-button">
+            <button class="openModal" data-modal="modalE">{button}</button>
+          </div>
+          <div class="small-image"></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div> 
+        <img src={image2.src} alt="Card Image" class="card-image">
+        <div class="gradient">
+          <h3 class="card-title">{guest2}</h3>
+        </div>
+        <div class="card-content">
+          <p class="card-description">{description2}</p>
+          <div class="light-gold gold-button">
+            <button class="openModal" data-modal="modalF">{button}</button>
+          </div>
+          <div class="small-image"></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div> 
+        <img src={image2.src} alt="Card Image" class="card-image">
+        <div class="gradient">
+          <h3 class="card-title">{guest2}</h3>
+        </div>
+        <div class="card-content">
+          <p class="card-description">{description2}</p>
+          <div class="light-gold gold-button">
+            <button class="openModal" data-modal="modalG">{button}</button>
+          </div>
+          <div class="small-image"></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div> 
+        <img src={image2.src} alt="Card Image" class="card-image">
+        <div class="gradient">
+          <h3 class="card-title">{guest2}</h3>
+        </div>
+        <div class="card-content">
+          <p class="card-description">{description2}</p>
+          <div class="light-gold gold-button">
+            <button class="openModal" data-modal="modalH">{button}</button>
+          </div>
+          <div class="small-image"></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div> 
+        <img src={image2.src} alt="Card Image" class="card-image">
+        <div class="gradient">
+          <h3 class="card-title">{guest2}</h3>
+        </div>
+        <div class="card-content">
+          <p class="card-description">{description2}</p>
+          <div class="light-gold gold-button">
+            <button class="openModal" data-modal="modalI">{button}</button>
           </div>
           <div class="small-image"></div>
         </div>
@@ -193,6 +287,9 @@ const {guest2, image2, description2}= Astro.props
 
     .flexbox {
       display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      align-items: center;
       flex-direction: row;
     }
 
