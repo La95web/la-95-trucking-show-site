@@ -1,6 +1,6 @@
 ---
 import truckers from '../assets/image/truckers.webp';
-const {titleA, textA, button} = Astro.props;
+const {titleA, textB, textA, button} = Astro.props;
 ---
 
 <div class="podcasts-container">
@@ -8,7 +8,8 @@ const {titleA, textA, button} = Astro.props;
     <h2>{titleA}</h2>
     <div class="underline-black"></div>
       <p>{textA}</p>
-    <div class="button-container"> 
+      <p>{textB}</p>
+    <div class="button-container">
       <a href="#">{button}</a>
     </div>
   </div>
@@ -16,7 +17,7 @@ const {titleA, textA, button} = Astro.props;
     <img src={truckers.src} alt="truckers">
   </figure>
 </div>
-    
+
 <style lang="scss">
   @use "../assets/sass/index" as *;
 
@@ -27,11 +28,11 @@ const {titleA, textA, button} = Astro.props;
     background-repeat: no-repeat;
     background-position: center top;
   }
-    
+
   .podcasts-container P {
     margin: 0 5%;
     text-align: center;
-    padding: 20px;
+    padding: 10px;
     color: #000;
   }
 
@@ -47,11 +48,8 @@ const {titleA, textA, button} = Astro.props;
     width: 270px;
     height: 2px;
     background-color: $primary;
-    justify-content: center;
-    align-items: center;
     margin-top: 0px;
     border-radius: 2px;
-    margin: auto; 
   }
 
   .button-container {
@@ -61,7 +59,7 @@ const {titleA, textA, button} = Astro.props;
     align-items: center;
     margin-bottom: 40px;
   }
-  
+
   a {
     border: 2px solid $primary;
     border-radius: 8px;
@@ -85,11 +83,17 @@ const {titleA, textA, button} = Astro.props;
 
   figure img {
     width: 100%;
-    height: auto;
+  }
+
+  .section-center {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
   }
 
   @media (min-width: 1024px) {
-    
+
     .podcasts-container {
       display: flex;
       flex-direction: row-reverse;
@@ -104,20 +108,22 @@ const {titleA, textA, button} = Astro.props;
     }
 
     figure img {
-      height: 540px;
+      width: 500px;
       margin: 0;
     }
 
     .section-center {
-      padding-right: 10%;
-      margin-top: 170px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
 
       h2 {
         font-size: 3rem;
         margin: 0;
       }
     }
-    
+
     p {
       font-size: 1.25rem;
     }

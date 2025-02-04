@@ -1,8 +1,8 @@
 document.addEventListener('DOMContentLoaded', () => {
   const products = JSON.parse(localStorage.getItem('products')) || [
-    { name: "Producto 1", price: 170.25, type: "Tipo 1"},
-    { name: "Producto 2", price: 180.54, type: "Tipo 2"},
-    { name: "Producto 3", price: 190.44, type: "Tipo 3"},
+    { name: "Producto 1", price: 170.00, type: "Tipo 1"},
+    { name: "Producto 2", price: 180.00, type: "Tipo 2"},
+    { name: "Producto 3", price: 190.00, type: "Tipo 3"},
   ];
 
   localStorage.setItem('products', JSON.stringify(products));
@@ -29,12 +29,12 @@ document.addEventListener('DOMContentLoaded', () => {
       const existingItem = cart.find(cartItem => cartItem.name === item.name);
 
       if (existingItem) {
-        button.textContent = 'Agregado';
+        button.textContent = 'Added';
       }
 
       button.addEventListener('click', (event) => {
         addToCart(item);
-        button.textContent = 'Agregado';
+        button.textContent = 'Added';
       });
     });
   }

@@ -38,22 +38,17 @@ import logo2 from '../assets/image/logoDesktop.webp';
     display: none;
   }
 
-  @media (min-width: 1024px) {
+  @media only screen and (min-width: 1024px) {
     
   .podcasts-container {
-  flex-direction: row-reverse;
+    flex-direction: row-reverse;
   }
 
   figure {
     display: flex;
     justify-content: center;
     align-items: center;
-  }
-
-  figure img {
-    width: 500px;
-    height: auto;
-    margin-left: 72px;
+    margin: 0 5%;
   }
 
   section {
