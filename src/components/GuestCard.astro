@@ -1,29 +1,17 @@
 ---
-const {titleA, button, guest, image, description, url} = Astro.props
-const {guest1, image1, description1, url1}= Astro.props
-const {guest2, image2, description2, url2}= Astro.props
+const {guest1, guest2, guest3, guest4, guest5, guest6, guest7,
+guest8, guest9, guest10, guest11, guest12, guest13, image1, image2, image3,
+image4, image5, image6, image7, image8, image9, image10, image11, image12, image13,
+description1, description2, description3, description4, description5, description06,
+description7, description8, description9, description10, 
+description11, description12,description13, button, titleA} = Astro.props
 ---
 <section> 
   <div class="center"> 
     <h2>{titleA}</h2>
-    <div class="underline"></div>
+    <div class="underlineshort"></div>
   </div>
   <div class="flexbox">
-    <div class="card">
-      <div> 
-        <img src={image.src} alt="Card Image" class="card-image">
-        <div class="gradient">
-          <h3 class="card-title">{guest}</h3>
-        </div>
-        <div class="card-content">
-          <p class="card-description">{description}</p>
-          <div class="light-gold gold-button">
-            <a href={url}>{button}</a>
-          </div>
-          <div class="small-image"></div>
-        </div>
-      </div>
-    </div>
     <div class="card">
       <div> 
         <img src={image1.src} alt="Card Image" class="card-image">
@@ -33,12 +21,14 @@ const {guest2, image2, description2, url2}= Astro.props
         <div class="card-content">
           <p class="card-description">{description1}</p>
           <div class="light-gold gold-button">
-            <a href={url1}>{button}</a>
+            <a href="https://phosphoricons.com/?q=%22github%22" target="_blank">
+            <button>{button}</button></a>
           </div>
           <div class="small-image"></div>
         </div>
-     </div>
+      </div>
     </div>
+
     <div class="card">
       <div> 
         <img src={image2.src} alt="Card Image" class="card-image">
@@ -48,20 +38,89 @@ const {guest2, image2, description2, url2}= Astro.props
         <div class="card-content">
           <p class="card-description">{description2}</p>
           <div class="light-gold gold-button">
-            <a href={url2}>{button}</a>
+            <a href="https://phosphoricons.com/?q=%22github%22" target="_blank">
+            <button>{button}</button></a>
           </div>
           <div class="small-image"></div>
         </div>
       </div>
     </div>
+
+    <div class="card">
+      <div> 
+        <img src={image3.src} alt="Card Image" class="card-image">
+        <div class="gradient">
+          <h3 class="card-title">{guest3}</h3>
+        </div>
+        <div class="card-content">
+        <p class="card-description">{description3}</p>
+        <div class="light-gold gold-button">
+          <a href="https://phosphoricons.com/?q=%22github%22" target="_blank">
+          <button>{button}</button></a>
+        </div>
+          <div class="small-image"></div>
+        </div>
+      </div>
+   </div>
+
+   <div class="card">
+    <div> 
+      <img src={image3.src} alt="Card Image" class="card-image">
+      <div class="gradient">
+        <h3 class="card-title">{guest3}</h3>
+      </div>
+      <div class="card-content">
+      <p class="card-description">{description3}</p>
+      <div class="light-gold gold-button">
+        <a href="https://phosphoricons.com/?q=%22github%22" target="_blank">
+        <button>{button}</button></a>
+      </div>
+        <div class="small-image"></div>
+      </div>
+    </div>
  </div>
+
+ <div class="card">
+  <div> 
+    <img src={image3.src} alt="Card Image" class="card-image">
+    <div class="gradient">
+      <h3 class="card-title">{guest3}</h3>
+    </div>
+    <div class="card-content">
+    <p class="card-description">{description3}</p>
+    <div class="light-gold gold-button">
+      <a href="https://phosphoricons.com/?q=%22github%22" target="_blank">
+      <button>{button}</button></a>
+    </div>
+      <div class="small-image"></div>
+    </div>
+  </div>
+</div>
+
+<div class="card">
+  <div> 
+    <img src={image3.src} alt="Card Image" class="card-image">
+    <div class="gradient">
+      <h3 class="card-title">{guest3}</h3>
+    </div>
+    <div class="card-content">
+    <p class="card-description">{description3}</p>
+    <div class="light-gold gold-button">
+      <a href="https://phosphoricons.com/?q=%22github%22" target="_blank">
+      <button>{button}</button></a>
+    </div>
+      <div class="small-image"></div>
+    </div>
+  </div>
+</div>
+   
 </section>
-  
+
 <style lang="scss">
   @use '../assets/sass/index' as *;
 
   section {
-    background-color: $tertiary;
+    background-color: $primary;
   }
   
   .flexbox {
@@ -75,11 +134,13 @@ const {guest2, image2, description2, url2}= Astro.props
     position: relative;
     width: 385px;
     margin: 0 5%;
-    background-color: $primary;
+    background-color: $tertiary;
     border-radius: 8px;
     overflow: hidden;
     margin-top: 30px;
     margin-bottom: 30px;
+    display: flex;
+    flex-direction: column;
   }
 
   .card-image {
@@ -111,13 +172,29 @@ const {guest2, image2, description2, url2}= Astro.props
     font-family: $heading;
   }
 
+  h2 {
+    padding-top: 20px;
+  }
+
+  .underlineshort {
+    width: 120px;
+    height: 2px;
+    background-color: $accent-b-dark;
+    margin: 0 5%;
+  }
+
   .card-content {
     padding: 20px;
+    display: flex;
+    flex-direction: column;
+    height: 50%; 
   }
 
   .card-description {
     margin-top: 0;
-    padding-right: 50px;
+    padding-right: 40px;
+    min-height: 60px; 
+    flex: 1; 
   }
 
   .small-image {
@@ -126,7 +203,7 @@ const {guest2, image2, description2, url2}= Astro.props
     left: 65%;
     width: 40%;
     height: 180px;
-    background-image: url('../assets/image/Frame2.svg');
+    background-image: url('../assets/image/darkmic.svg');
     background-size: cover;
     background-position: center;
   }
@@ -142,11 +219,13 @@ const {guest2, image2, description2, url2}= Astro.props
     align-items: center;
     transition: background-color 0.3s, box-shadow 0.3s;
 
-    a {
+    button, #openModal {
       color: $accent-b-dark;
       font-size: 1.5rem;
       font-weight: $regular;
       font-family: $heading;
+      background-color: $tertiary;
+      cursor: pointer;
     }
   }
 
@@ -165,10 +244,24 @@ const {guest2, image2, description2, url2}= Astro.props
     box-shadow: 0 0 25px 15px rgba($accent-b-light, 40%);
   }
 
+  #animation {
+  opacity: 0;
+  transform: translateX(-100%);
+  transition: opacity 0.6s ease-out, transform 0.9s ease-out;
+
+  &.animate {
+      opacity: 1;
+      transform: translateX(0);
+  }
+}
+
   @media (min-width: 1024px) {
 
     .flexbox {
       display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      align-items: center;
       flex-direction: row;
     }
 
@@ -183,26 +276,42 @@ const {guest2, image2, description2, url2}= Astro.props
       flex-direction: column;
       align-items: center;
       justify-content: center;
-    }
-
-    .underline {
-      width: 207px;
-      margin-bottom: 30px;
+      padding-bottom: 20px;
     }
 
     .card {
-      width: 23%;
+      height: 500px;
       margin: 0 2%;
       margin-bottom: 30px;
     }
+
     .card-description {
       padding-right: 30%;
+      min-height: 100px;
     }
 
     .small-image {
+      top: 320px;
       left: 60%;
       width: 36%;
     }
+
+    .underlineshort {
+      width: 10%;
+      height: 2px;
+      background-color: $accent-b-dark;
+      margin: 0 5%;
+    }
+    
+    .light-gold {
+      width: 145px; 
+      height: 40px;
+      border-radius: 8px;
+      padding: 20px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      transition: background-color 0.3s, box-shadow 0.3s;
+    }
   }
 </style>
-  
