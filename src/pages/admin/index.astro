@@ -1,0 +1,16 @@
+<h1>Admin Dashboard</h1>
+<p id="greetings"></p>
+
+
+<script>
+  const jsonUser = sessionStorage.getItem("user");
+  const displayGreet = document.getElementById("greetings");
+
+  if (jsonUser && sessionStorage.getItem("token")) {
+    const user = JSON.parse(jsonUser);
+    displayGreet.textContent = `Welcome ${user.email}`;
+  } else {
+    sessionStorage.clear();
+    window.location.href = "/admin/login";
+  }
+</script>

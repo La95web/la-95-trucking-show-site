@@ -79,7 +79,7 @@ function updateCartDisplay(cartItems) {
       cartContainer.appendChild(cartItem);
     });
   } else {
-    cartContainer.textContent = 'El carrito está vacío.';
+    cartContainer.textContent = 'The cart is empty.';
     cartContainer.style.fontSize = '2rem';
     cartContainer.style.padding = '40px';
     cartContainer.style.textAlign = 'center';
@@ -126,7 +126,7 @@ function updateButtonState(productName, isAdded) {
     const item = products[itemIndex];
 
     if (item.name === productName) {
-      button.textContent = isAdded ? 'Agregado' : 'Agregar';
+      button.textContent = isAdded ? 'Added' : 'Add to cart';
     }
   });
 }

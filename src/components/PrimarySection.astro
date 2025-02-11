@@ -27,38 +27,28 @@ import logo2 from '../assets/image/logoDesktop.webp';
   }
 
   .podcasts-container {
-    background-color: $primary;
-    padding-top: 20px;
-    padding-bottom: 1px;
-  }
-
-  .podcasts-container {
     display: flex;
     flex-direction: column;
     background-color: $primary;
-    padding-top: 20px;
+    padding-top: 70px;
+    padding-bottom: 70px;
   }
 
   figure {
     display: none;
   }
 
-  @media (min-width: 1024px) {
+  @media only screen and (min-width: 1024px) {
     
   .podcasts-container {
-  flex-direction: row-reverse;
+    flex-direction: row-reverse;
   }
 
   figure {
     display: flex;
     justify-content: center;
     align-items: center;
-  }
-
-  figure img {
-    width: 500px;
-    height: auto;
-    margin-left: 72px;
+    margin: 0 5%;
   }
 
   section {

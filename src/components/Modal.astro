@@ -1,116 +1,478 @@
 ---
-import Panelista1 from "../assets/image/bad.webp";
-import Panelista2 from "../assets/image/jlo.webp";
-import Panelista3 from "../assets/image/daddy.webp";
-const {guest1, description1, title} = Astro.props
-const {guest2, description2}= Astro.props
-const {guest3, description3}= Astro.props 
+import Panelista1 from "../assets/image/panelista1.webp";
+import Panelista2 from "../assets/image/panelista2.webp";
+import Panelista3 from "../assets/image/panelista3.webp";
+import Panelista4 from "../assets/image/panelista4.webp";
+import Panelista5 from "../assets/image/panelista5.webp";
+import Panelista6 from "../assets/image/panelista6.webp";
+import Panelista7 from "../assets/image/panelista7.webp";
+import Panelista8 from "../assets/image/panelista8.webp";
+import Panelista9 from "../assets/image/panelista9.webp";
+import Panelista10 from "../assets/image/panelista10.webp";
+import Panelista11 from "../assets/image/panelista10.webp";
+import Panelista12 from "../assets/image/panelista10.webp";
+import Panelista13 from "../assets/image/panelista10.webp";
+const {guest1, guest2, guest3, guest4, guest5, guest6,
+guest7, guest8, guest9, guest10, guest11, guest12, guest13, description1, description2, description3,
+description4, description5, description6,
+description7, description8, description9, description10, description11,
+ description12, description13, title} = Astro.props
 ---
 
 <div id="modalA" class="modal">
-    <div class="close-menu-container">
+  <div class="close-menu-container">
+    <span class="close"></span>
+    <div class="rombo">
+      <div class="line2"></div>
+    </div>
+  </div>
+  <div class="modal-content">
+    <img src={Panelista1.src} alt="Card Image">
+    <div class="close-menu-B">
       <span class="close"></span>
       <div class="rombo">
         <div class="line2"></div>
       </div>
     </div>
-    <div class="modal-content">
-      <img src={Panelista1.src} alt="Card Image">
-      <div>
-        <div class="close-menu-B">
-          <span class="close"></span>
-          <div class="rombo">
-            <div class="line2"></div>
-          </div>
-        </div>
-        <h3 class="card-title">{guest1}</h3>
-        <p>{title}</p>
-        <div class="underline-center"></div>
-        <p class="textRight">{description1}</p>
-        <div class="socialLeft"> 
-          <a href="#" target="_blank" class="btn contact-details">
-            <i class="ph ph-instagram-logo"></i>
-          </a>
-          <a href="#" target="_blank" class="btn contact-details">
-            <i class="ph ph-tiktok-logo"></i>
-          </a>
-          <a href="#" target="_blank" class="btn contact-details">
-            <i class="ph ph-facebook-logo"></i>
-          </a>
-        </div>
+    <section>
+      <h3 class="card-title">{guest1}</h3>
+      <p>{title}</p>
+      <div class="underline-center"></div>
+      <p class="textRight">{description1}</p>
+      <div class="socialLeft"> 
+        <a href="https://www.instagram.com/thetruckingbarbie?igsh=cWUzYmZwZTRjNWc2" target="_blank" class="btn contact-details">
+          <i class="ph ph-instagram-logo"></i>
+        </a>
+        <a href="#" target="_blank" class="btn contact-details">
+          <i class="ph ph-tiktok-logo"></i>
+        </a>
+        <a href="#" target="_blank" class="btn contact-details">
+          <i class="ph ph-facebook-logo"></i>
+        </a>
       </div>
-    </div>
+    </section>
   </div>
-  
-  <div id="modalB" class="modal">
-    <div class="close-menu-container">
-      <span class="close"></span>
-      <div class="rombo">
-        <div class="line2"></div>
-      </div>
-    </div>
-    <div class="modal-content">
-      <img src={Panelista2.src} alt="Card Image">
-      <div>
-        <div class="close-menu-B">
-          <span class="close"></span>
-          <div class="rombo">
-            <div class="line2"></div>
-          </div>
-        </div>
-        <h3 class="card-title">{guest2}</h3>
-        <p>{title}</p>
-        <div class="underline-center"></div>
-        <p class="textRight">{description2}</p>
-        <div class="socialLeft"> 
-          <a href="#" target="_blank" class="btn contact-details">
-            <i class="ph ph-instagram-logo"></i>
-          </a>
-          <a href="#" target="_blank" class="btn contact-details">
-            <i class="ph ph-tiktok-logo"></i>
-          </a>
-          <a href="#" target="_blank" class="btn contact-details">
-            <i class="ph ph-facebook-logo"></i>
-          </a>
-        </div>
-      </div>
-    </div>
-  </div>
+</div>
 
-  <div id="modalC" class="modal">
-    <div class="close-menu-container">
+<div id="modalB" class="modal">
+  <div class="close-menu-container">
+    <span class="close"></span>
+    <div class="rombo">
+      <div class="line2"></div>
+    </div>
+  </div>
+  <div class="modal-content">
+    <img src={Panelista2.src} alt="Card Image">
+    <div class="close-menu-B">
       <span class="close"></span>
       <div class="rombo">
         <div class="line2"></div>
       </div>
     </div>
-    <div class="modal-content">
-      <img src={Panelista3.src} alt="Card Image">
-      <div>
-        <div class="close-menu-B">
-          <span class="close"></span>
-          <div class="rombo">
-            <div class="line2"></div>
-          </div>
-        </div>
-        <h3 class="card-title">{guest3}</h3>
-        <p>{title}</p>
-        <div class="underline-center"></div>
-        <p class="textRight">{description3}</p>
-        <div class="socialLeft"> 
-          <a href="#" target="_blank" class="btn contact-details">
-            <i class="ph ph-instagram-logo"></i>
-          </a>
-          <a href="#" target="_blank" class="btn contact-details">
-            <i class="ph ph-tiktok-logo"></i>
-          </a>
-          <a href="#" target="_blank" class="btn contact-details">
-            <i class="ph ph-facebook-logo"></i>
-          </a>
-        </div>
+    <section>
+      <h3 class="card-title">{guest2}</h3>
+      <p>{title}</p>
+      <div class="underline-center"></div>
+      <p class="textRight">{description2}</p>
+      <div class="socialLeft"> 
+        <a href="https://www.instagram.com/lina.v_29?igsh=MTZjZ3E3bjEzNXYzNg==" target="_blank" class="btn contact-details">
+          <i class="ph ph-instagram-logo"></i>
+        </a>
+        <a href="#" target="_blank" class="btn contact-details">
+          <i class="ph ph-tiktok-logo"></i>
+        </a>
+        <a href="#" target="_blank" class="btn contact-details">
+          <i class="ph ph-facebook-logo"></i>
+        </a>
       </div>
+    </section>
+  </div>
+</div>
+
+<div id="modalC" class="modal">
+  <div class="close-menu-container">
+    <span class="close"></span>
+    <div class="rombo">
+      <div class="line2"></div>
     </div>
   </div>
+  <div class="modal-content">
+    <img src={Panelista3.src} alt="Card Image">
+    <div class="close-menu-B">
+      <span class="close"></span>
+      <div class="rombo">
+        <div class="line2"></div>
+      </div>
+    </div>
+    <section>
+      <h3 class="card-title">{guest3}</h3>
+      <p>{title}</p>
+      <div class="underline-center"></div>
+      <p class="textRight">{description3}</p>
+      <div class="socialLeft"> 
+        <a href="https://www.instagram.com/__izzyrojas?igsh=dG9saXpkazloZ3Jl" target="_blank" class="btn contact-details">
+          <i class="ph ph-instagram-logo"></i>
+        </a>
+        <a href="#" target="_blank" class="btn contact-details">
+          <i class="ph ph-tiktok-logo"></i>
+        </a>
+        <a href="#" target="_blank" class="btn contact-details">
+          <i class="ph ph-facebook-logo"></i>
+        </a>
+      </div>
+    </section>
+  </div>
+</div>
+
+<div id="modalD" class="modal">
+  <div class="close-menu-container">
+    <span class="close"></span>
+    <div class="rombo">
+      <div class="line2"></div>
+    </div>
+  </div>
+  <div class="modal-content">
+    <img src={Panelista4.src} alt="Card Image">
+    <div class="close-menu-B">
+      <span class="close"></span>
+      <div class="rombo">
+        <div class="line2"></div>
+      </div>
+    </div>
+    <section>
+      <h3 class="card-title">{guest4}</h3>
+      <p>{title}</p>
+      <div class="underline-center"></div>
+      <p class="textRight">{description4}</p>
+      <div class="socialLeft"> 
+        <a href="https://www.instagram.com/carlosg_rd?igsh=MWt3ZW03eHIwejhndg==" target="_blank" class="btn contact-details">
+          <i class="ph ph-instagram-logo"></i>
+        </a>
+        <a href="#" target="_blank" class="btn contact-details">
+          <i class="ph ph-tiktok-logo"></i>
+        </a>
+        <a href="#" target="_blank" class="btn contact-details">
+          <i class="ph ph-facebook-logo"></i>
+        </a>
+      </div>
+    </section>
+  </div>
+</div>
+
+<div id="modalE" class="modal">
+  <div class="close-menu-container">
+    <span class="close"></span>
+    <div class="rombo">
+      <div class="line2"></div>
+    </div>
+  </div>
+  <div class="modal-content">
+    <img src={Panelista5.src} alt="Card Image">
+    <div class="close-menu-B">
+      <span class="close"></span>
+      <div class="rombo">
+        <div class="line2"></div>
+      </div>
+    </div>
+    <section>
+      <h3 class="card-title">{guest5}</h3>
+      <p>{title}</p>
+      <div class="underline-center"></div>
+      <p class="textRight">{description5}</p>
+      <div class="socialLeft"> 
+        <a href="https://www.instagram.com/jmateo663?igsh=ODJscHhya3Z5Z2Vt" target="_blank" class="btn contact-details">
+          <i class="ph ph-instagram-logo"></i>
+        </a>
+        <a href="#" target="_blank" class="btn contact-details">
+          <i class="ph ph-tiktok-logo"></i>
+        </a>
+        <a href="#" target="_blank" class="btn contact-details">
+          <i class="ph ph-facebook-logo"></i>
+        </a>
+      </div>
+    </section>
+  </div>
+</div>
+
+<div id="modalF" class="modal">
+  <div class="close-menu-container">
+    <span class="close"></span>
+    <div class="rombo">
+      <div class="line2"></div>
+    </div>
+  </div>
+  <div class="modal-content">
+    <img src={Panelista6.src} alt="Card Image">
+    <div class="close-menu-B">
+      <span class="close"></span>
+      <div class="rombo">
+        <div class="line2"></div>
+      </div>
+    </div>
+    <section>
+      <h3 class="card-title">{guest6}</h3>
+      <p>{title}</p>
+      <div class="underline-center"></div>
+      <p class="textRight">{description6}</p>
+      <div class="socialLeft"> 
+        <a href="https://www.instagram.com/jonathanliz1?igsh=MzE5NHBuYXgzMzZp" target="_blank" class="btn contact-details">
+          <i class="ph ph-instagram-logo"></i>
+        </a>
+        <a href="#" target="_blank" class="btn contact-details">
+          <i class="ph ph-tiktok-logo"></i>
+        </a>
+        <a href="#" target="_blank" class="btn contact-details">
+          <i class="ph ph-facebook-logo"></i>
+        </a>
+      </div>
+    </section>
+  </div>
+</div>
+
+<div id="modalG" class="modal">
+  <div class="close-menu-container">
+    <span class="close"></span>
+    <div class="rombo">
+      <div class="line2"></div>
+    </div>
+  </div>
+  <div class="modal-content">
+    <img src={Panelista7.src} alt="Card Image">
+    <div class="close-menu-B">
+      <span class="close"></span>
+      <div class="rombo">
+        <div class="line2"></div>
+      </div>
+    </div>
+    <section>
+      <h3 class="card-title">{guest7}</h3>
+      <p>{title}</p>
+      <div class="underline-center"></div>
+      <p class="textRight">{description7}</p>
+      <div class="socialLeft"> 
+        <a href="" target="_blank" class="btn contact-details">
+          <i class="ph ph-instagram-logo"></i>
+        </a>
+        <a href="#" target="_blank" class="btn contact-details">
+          <i class="ph ph-tiktok-logo"></i>
+        </a>
+        <a href="#" target="_blank" class="btn contact-details">
+          <i class="ph ph-facebook-logo"></i>
+        </a>
+      </div>
+    </section>
+  </div>
+</div>
+
+<div id="modalH" class="modal">
+  <div class="close-menu-container">
+    <span class="close"></span>
+    <div class="rombo">
+      <div class="line2"></div>
+    </div>
+  </div>
+  <div class="modal-content">
+    <img src={Panelista8.src} alt="Card Image">
+    <div class="close-menu-B">
+      <span class="close"></span>
+      <div class="rombo">
+        <div class="line2"></div>
+      </div>
+    </div>
+    <section>
+      <h3 class="card-title">{guest8}</h3>
+      <p>{title}</p>
+      <div class="underline-center"></div>
+      <p class="textRight">{description8}</p>
+      <div class="socialLeft"> 
+        <a href="https://www.instagram.com/gobertpereyra?igsh=MTNvbGF1NHlvcTYxZQ==" target="_blank" class="btn contact-details">
+          <i class="ph ph-instagram-logo"></i>
+        </a>
+        <a href="#" target="_blank" class="btn contact-details">
+          <i class="ph ph-tiktok-logo"></i>
+        </a>
+        <a href="#" target="_blank" class="btn contact-details">
+          <i class="ph ph-facebook-logo"></i>
+        </a>
+      </div>
+    </section>
+  </div>
+</div>
+
+<div id="modalI" class="modal">
+  <div class="close-menu-container">
+    <span class="close"></span>
+    <div class="rombo">
+      <div class="line2"></div>
+    </div>
+  </div>
+  <div class="modal-content">
+    <img src={Panelista9.src} alt="Card Image">
+    <div class="close-menu-B">
+      <span class="close"></span>
+      <div class="rombo">
+        <div class="line2"></div>
+      </div>
+    </div>
+    <section>
+      <h3 class="card-title">{guest9}</h3>
+      <p>{title}</p>
+      <div class="underline-center"></div>
+      <p class="textRight">{description9}</p>
+      <div class="socialLeft"> 
+        <a href="" target="_blank" class="btn contact-details">
+          <i class="ph ph-instagram-logo"></i>
+        </a>
+        <a href="#" target="_blank" class="btn contact-details">
+          <i class="ph ph-tiktok-logo"></i>
+        </a>
+        <a href="#" target="_blank" class="btn contact-details">
+          <i class="ph ph-facebook-logo"></i>
+        </a>
+      </div>
+    </section>
+  </div>
+</div>
+
+<div id="modalJ" class="modal">
+  <div class="close-menu-container">
+    <span class="close"></span>
+    <div class="rombo">
+      <div class="line2"></div>
+    </div>
+  </div>
+  <div class="modal-content">
+    <img src={Panelista10.src} alt="Card Image">
+    <div class="close-menu-B">
+      <span class="close"></span>
+      <div class="rombo">
+        <div class="line2"></div>
+      </div>
+    </div>
+    <section>
+      <h3 class="card-title">{guest10}</h3>
+      <p>{title}</p>
+      <div class="underline-center"></div>
+      <p class="textRight">{description10}</p>
+      <div class="socialLeft"> 
+        <a href="https://www.instagram.com/tn_carmona05?igsh=dzFhcG45bGdnbDF2" target="_blank" class="btn contact-details">
+          <i class="ph ph-instagram-logo"></i>
+        </a>
+        <a href="#" target="_blank" class="btn contact-details">
+          <i class="ph ph-tiktok-logo"></i>
+        </a>
+        <a href="#" target="_blank" class="btn contact-details">
+          <i class="ph ph-facebook-logo"></i>
+        </a>
+      </div>
+    </section>
+  </div>
+</div>
+
+<div id="modalK" class="modal">
+  <div class="close-menu-container">
+    <span class="close"></span>
+    <div class="rombo">
+      <div class="line2"></div>
+    </div>
+  </div>
+  <div class="modal-content">
+    <img src={Panelista11.src} alt="Card Image">
+    <div class="close-menu-B">
+      <span class="close"></span>
+      <div class="rombo">
+        <div class="line2"></div>
+      </div>
+    </div>
+    <section>
+      <h3 class="card-title">{guest11}</h3>
+      <p>{title}</p>
+      <div class="underline-center"></div>
+      <p class="textRight">{description11}</p>
+      <div class="socialLeft"> 
+        <a href="" target="_blank" class="btn contact-details">
+          <i class="ph ph-instagram-logo"></i>
+        </a>
+        <a href="#" target="_blank" class="btn contact-details">
+          <i class="ph ph-tiktok-logo"></i>
+        </a>
+        <a href="#" target="_blank" class="btn contact-details">
+          <i class="ph ph-facebook-logo"></i>
+        </a>
+      </div>
+    </section>
+  </div>
+</div>
+
+<div id="modalL" class="modal">
+  <div class="close-menu-container">
+    <span class="close"></span>
+    <div class="rombo">
+      <div class="line2"></div>
+    </div>
+  </div>
+  <div class="modal-content">
+    <img src={Panelista12.src} alt="Card Image">
+    <div class="close-menu-B">
+      <span class="close"></span>
+      <div class="rombo">
+        <div class="line2"></div>
+      </div>
+    </div>
+    <section>
+      <h3 class="card-title">{guest12}</h3>
+      <p>{title}</p>
+      <div class="underline-center"></div>
+      <p class="textRight">{description12}</p>
+      <div class="socialLeft"> 
+        <a href="" target="_blank" class="btn contact-details">
+          <i class="ph ph-instagram-logo"></i>
+        </a>
+        <a href="#" target="_blank" class="btn contact-details">
+          <i class="ph ph-tiktok-logo"></i>
+        </a>
+        <a href="#" target="_blank" class="btn contact-details">
+          <i class="ph ph-facebook-logo"></i>
+        </a>
+      </div>
+    </section>
+  </div>
+</div>
+
+<div id="modalM" class="modal">
+  <div class="close-menu-container">
+    <span class="close"></span>
+    <div class="rombo">
+      <div class="line2"></div>
+    </div>
+  </div>
+  <div class="modal-content">
+    <img src={Panelista13.src} alt="Card Image">
+    <div class="close-menu-B">
+      <span class="close"></span>
+      <div class="rombo">
+        <div class="line2"></div>
+      </div>
+    </div>
+    <section>
+      <h3 class="card-title">{guest13}</h3>
+      <p>{title}</p>
+      <div class="underline-center"></div>
+      <p class="textRight">{description13}</p>
+      <div class="socialLeft"> 
+        <a href="" target="_blank" class="btn contact-details">
+          <i class="ph ph-instagram-logo"></i>
+        </a>
+        <a href="#" target="_blank" class="btn contact-details">
+          <i class="ph ph-tiktok-logo"></i>
+        </a>
+        <a href="#" target="_blank" class="btn contact-details">
+          <i class="ph ph-facebook-logo"></i>
+        </a>
+      </div>
+    </section>
+  </div>
+</div>
 
 <style lang="scss">
   @use "../assets//sass/index" as*;
@@ -253,24 +615,29 @@ const {guest3, description3}= Astro.props
   }
 
  @media (min-width: 1024px) {
-   
+  
   .modal-content {
     display: flex;
     flex-direction: row;
-    justify-content: center;
+    justify-content: space-around;
     align-items: center;
-    text-align: center;
-    margin: 12% auto;
-    width: 70%;
     overflow: hidden;
+    border-radius: 8px;
+    background-color: $tertiary;
+    width: 90%;
+    position: relative;
+
+    section {
+      padding: 0px 140px;
+    }
   }
 
   .modal-content img {
-    padding-top: 0px;
+    padding: 0;
   }
 
   img {
-    width: 645px;
+    width: 45%;
   }
 
   .underline-center {
@@ -279,11 +646,10 @@ const {guest3, description3}= Astro.props
 
   .socialLeft {
     padding-top: 20px;
-    margin-left: 10%;
   }
 
   .textRight {
-    margin-left: 10%;
+    margin-top: 20px;
   }
 
   .modal-content > div {
@@ -296,8 +662,9 @@ const {guest3, description3}= Astro.props
   }
 
   .close-menu-B {
-    position: relative;
-    top: 0px;
+    position: absolute;
+    top: 10px;
+    right: 10px;
     z-index: 1;
     display: flex;
     justify-content: right;

@@ -1,8 +1,12 @@
+---
+const radioUrl = "https://play.radioking.io/modern-radio52";
+---
 <div class="radio-container">
     <button id="play-button"></button>
     <button id="pause-button"></button>
     <p id="song-title">La neverita-bad bunny</p>
     <button id="volume-button"></button>
+    <audio id="radio-player" src={radioUrl}></audio>
 </div>
 
 <style lang="scss">
@@ -11,10 +15,8 @@
   .radio-container {
     @include center-contents;
     background-color: $accent-b-dark;
-    aspect-ratio: 402 / 45;
-    margin-bottom: 0px;
-    display: flex; 
-    align-items: center; 
+    padding: calc(45 / 402 * 5% );
+    margin-bottom: 0;
     justify-content: space-around;
   }
 
@@ -53,24 +55,20 @@
   @media (min-width: 1024px) {
 
     .radio-container {
-    background-image: url('../assets/image/Intersect.svg');
-    background-repeat: no-repeat;
-    background-size: contain;
-    background-position: right;
-    aspect-ratio: 1440 / 60;
-    justify-content: left;
-  }
+      background-image: url('../assets/image/Intersect.svg');
+      background-repeat: no-repeat;
+      background-size: contain;
+      background-position: right;
+      aspect-ratio: 1440 / 60;
+      justify-content: left;
+    }
 
-  button {
-    margin: 0 5%;
-  }
+    button {
+      margin: 0 5%;
+    }
 
-  #pause-button  {
-    margin-right: 50px;
-  }
+    #pause-button  {
+      margin-right: 50px;
+    }
   }
 </style>
-
-
-
-

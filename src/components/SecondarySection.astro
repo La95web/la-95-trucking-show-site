@@ -8,7 +8,7 @@ const {title, paragraph, button} = Astro.props;
       <div class="underline"></div>
       <p>{paragraph}</p>
       <div class="light-button red-button">
-        <a href="">{button}</a>
+        <a href="/en/contact/">{button}</a>
       </div>
     </div>
   </div>
@@ -37,20 +37,22 @@ const {title, paragraph, button} = Astro.props;
       background-size: cover;
       background-position: center;
       height: 700px;
+      position: relative;
     }
 
     .blurback {
-      position: relative;
+      position: absolute;
       background-color: rgba($primary, 0.85);
-      margin: 0 30%;
-      top: 35%;
-      right: 25%;
-      padding: 5px 0;
-      padding-top: 20px;
+      margin: 0 5%;
+      max-width: 40%;
+      top: 150px;
+      padding: 0;
       border-radius: 8px;
       padding-bottom: 20px;
     }
+
     h2 {
+      padding-top: 20px;
       font-size: 3rem;
     }
     .underline {

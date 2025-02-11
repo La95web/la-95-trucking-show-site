@@ -1,0 +1,35 @@
+<form id="login-form">
+  <label>
+    <span>Email</span>
+    <input id="email" type="email" name="email" required />
+  </label>
+  <label>
+    <span>Password</span>
+    <input id="password" type="text" name="password" required />
+  </label>
+  <button type="submit">Log In</button>
+  <small id="error-message"></small>
+</form>
+
+<script>
+  import loginUser from "../../scripts/api/login";
+
+  if (sessionStorage.getItem('user') && sessionStorage.getItem('token')) {
+    window.location.href = '/admin/';
+  } else {
+    sessionStorage.clear();
+  }
+
+  const form = document.getElementById('login-form');
+  const email = document.getElementById('email') as HTMLInputElement;
+  const password = document.getElementById('password') as HTMLInputElement;
+  const errorDisplay = document.getElementById('error-message');
+
+  form.addEventListener('submit', async (event) => {
+    event.preventDefault();
+
+    loginUser(email.value, password.value)
+      .then(() => window.location.href = '/admin/')
+      .catch((error) => errorDisplay.textContent = error.message);  
+  });
+</script>

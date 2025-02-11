@@ -1,7 +1,7 @@
 ---
 import magazine from '../assets/image/revista.png';
 
-const {titleA, textA, button} = Astro.props;
+const {titleA, textA, textB, button} = Astro.props;
 ---
 
 <div class="podcasts-container">
@@ -9,6 +9,8 @@ const {titleA, textA, button} = Astro.props;
     <h2>{titleA}</h2>
     <div class="underline"></div>
     <p>{textA}</p>
+    <br>
+    <p>{textB}</p>
     <div class="light-button red-button">
       <a href="">{button}</a>
     </div>
@@ -41,8 +43,7 @@ const {titleA, textA, button} = Astro.props;
   }
 
   figure img {
-    width: 75%;
-    height: auto;
+    width: 80%;
   }
 
   @keyframes bounce {
