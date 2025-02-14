@@ -1,0 +1,18 @@
+@use '../../../../assets/sass/' as *;
+
+.image {
+  width: 100px;
+  height: auto;
+}
+
+.item {
+  @include center-contents;
+
+  justify-content: space-between;
+  background-color: $primary;
+  padding: 1rem 3rem;
+}
+
+.odd {
+  background-color: $tertiary;
+}

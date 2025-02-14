@@ -1,0 +1,47 @@
+<nav>
+  <ul>
+    <li>
+      <a href="/admin">Admin</a>
+    </li>
+    <li>
+      <a href="/admin/podcasts">Podcasts</a>
+    </li>
+    <li>
+      <a href="/admin/articles">Articles</a>
+    </li>
+    <li>
+      <a href="/admin/products">Products</a>
+    </li>
+  </ul>
+</nav>
+
+<style lang="scss">
+  @use '../assets/sass/index' as *;
+
+  nav {
+    background-color: $primary;
+    color: $secondary;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px 0;
+  }
+
+  ul {
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
+    max-width: 800px;
+    list-style: none;
+  }
+
+  a {
+    text-decoration: none;
+    color: $secondary;
+    font-size: 1.5rem;
+    font-weight: $bold;
+  }
+
+  a:hover {
+    color: $accent-b-light;
+  }

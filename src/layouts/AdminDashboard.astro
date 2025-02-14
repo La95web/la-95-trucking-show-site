@@ -1,0 +1,39 @@
+---
+import AdminNavigation from "../components/AdminNavigation.astro";
+
+const {title} = Astro.props;
+---
+
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<link rel="icon" type="image/svg+xml" href="" />
+		<meta name="viewport" content="width=device-width" />
+		<meta name="generator" content={Astro.generator} /> <!--chequear luego antes de ir a produccion -->
+		<title>{title}</title>
+		<script src="https://unpkg.com/@phosphor-icons/web"></script>
+	</head>
+  <body>
+    <AdminNavigation />
+    <slot />
+
+    <script>
+      const jsonUser = sessionStorage.getItem("user");
+    
+      if (!(jsonUser && sessionStorage.getItem("token"))) {
+        sessionStorage.clear();
+        window.location.href = "/admin/login"; 
+      }
+    </script>
+  </body>
+
+  <style lang="scss">
+    @use '../assets/sass/index' as *;
+
+    body {
+      background-color: $primary;
+      color: $secondary;
+    }
+  </style>
+</html>
