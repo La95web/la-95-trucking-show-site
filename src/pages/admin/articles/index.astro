@@ -1,4 +1,6 @@
 ---
+import ArticleForm from "../../../components/forms/article-form/ArticleForm";
+import ArticlesListItem from "../../../components/lists/list-items/articles-list-item/ArticlesListItem";
 import AdminDashboard from "../../../layouts/AdminDashboard.astro";
 const articles = await fetch(import.meta.env.PUBLIC_API_BASE_URL.concat('articles'), {
   method: 'GET',
@@ -9,20 +11,13 @@ const articles = await fetch(import.meta.env.PUBLIC_API_BASE_URL.concat('article
 const reversedArticles = articles.reverse();
 ---
 <AdminDashboard title="Articles">
-  <h1>Lista de Artículos</h1>
+  <h1>Artículos</h1>
+  <h2>Nuevo Artículo</h2>
+  <ArticleForm client:load />
+  <h2>Lista de Artículos</h2>
   <ul>
     {reversedArticles.map((article) => (
-      <li>
-        <h2>{article.title}</h2>
-        {article.main_image_url && <img src={article.main_image_url} alt="Article main image" />}
-        <p>{article.type}</p>
-        <p>{new Date(article.uploaded_at).toLocaleDateString(undefined, {
-          year: 'numeric',
-          month: 'long',
-          day: 'numeric',
-        })}</p>
-        <a href={`/admin/articles/${article.id}`}>Ver Secciones</a>
-      </li>
+      <ArticlesListItem article={article} client:load />
     ))}
   </ul>
 </AdminDashboard>
@@ -36,7 +31,11 @@ const reversedArticles = articles.reverse();
   }
 
   li {
-    margin-bottom: 1rem;
+    @include center-contents;
+
+    justify-content: space-between;
+    margin-bottom: 2rem;
+    padding: 0 3rem;
   }
 
   img {
