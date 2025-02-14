@@ -22,8 +22,6 @@ const ProductForm = ({ product = null, onCancel = null }) => {
   const handleSubmit = (event) => {
     event.preventDefault();
 
-    console.log(formState.price * 100);
-
     const formData = new FormData();
 
     formData.append('product[title]', formState.title);
