@@ -1,5 +1,5 @@
 const loginUser = async (email, password) => {
-  return await fetch('http://localhost:3000/v1/users/log_in', {
+  return await fetch(import.meta.env.PUBLIC_API_BASE_URL.concat('users/log_in'), {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
