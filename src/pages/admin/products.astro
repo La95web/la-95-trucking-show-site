@@ -1,0 +1,31 @@
+---
+import ProductsListItem from "../../components/lists/list-items/products-list-item/ProductsListItem";
+import AdminDashboard from "../../layouts/AdminDashboard.astro";
+import ProductForm from "../../components/forms/product-form/ProductForm";
+
+const products = await fetch(import.meta.env.PUBLIC_API_BASE_URL.concat('products/'), {
+  method: 'GET',
+  headers: {
+    'Accept': 'application/json',
+  },
+}).then((response) => response.json());
+---
+
+<AdminDashboard title="Productos">
+  <h1>Productos</h1>
+  <h2>Nuevo Producto</h2>
+  <ProductForm client:load />
+  <h2>Lista de Productos</h2>
+  <ul>
+    {products.map((product, index) => (
+      <ProductsListItem index={index + 1} product={product} client:load />
+    ))}
+  </ul>
+</AdminDashboard>
+
+<style lang="scss">
+  ul {
+    list-style: none;
+    padding: 0;
+  }
+</style>
