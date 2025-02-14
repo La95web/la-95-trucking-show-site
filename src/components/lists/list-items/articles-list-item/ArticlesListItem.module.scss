@@ -1,0 +1,19 @@
+@use '../../../../assets/sass/' as *;
+
+.list-item {
+  @include center-contents;
+
+  justify-content: space-between;
+  margin-bottom: 2rem;
+  padding: 0 3rem;
+}
+
+.image {
+  width: 100px;
+  height: auto;
+}
+
+.link {
+  color: $accent-b-light;
+  text-decoration: none;
+}
