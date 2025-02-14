@@ -1,0 +1,27 @@
+---
+import AdminDashboard from "../../layouts/AdminDashboard.astro";
+
+const podcasts = await fetch(import.meta.env.PUBLIC_API_BASE_URL.concat('podcasts'), {
+  method: 'GET',
+  headers: {
+    'Accept': 'application/json',
+  },
+}).then((response) => response.json());
+
+const reversedPodcasts = podcasts.reverse();
+---
+<AdminDashboard title="Podcasts">
+  <h1>Lista de Podcasts</h1>
+  <ul>
+    {reversedPodcasts.map((podcast) => (
+      <li>
+        <h2>{podcast.title}</h2>
+        <p>{new Date(podcast.uploaded_at).toLocaleDateString(undefined, {
+          year: 'numeric',
+          month: 'long',
+          day: 'numeric',
+        })}</p>
+      </li>
+    ))}
+  </ul>
+</AdminDashboard>

@@ -1,16 +1,14 @@
-<h1>Admin Dashboard</h1>
-<p id="greetings"></p>
+---
+import AdminDashboard from '../../layouts/AdminDashboard.astro';
+---
+<AdminDashboard title="Admin Dashboard">
+  <h1>Admin Dashboard</h1>
+  <p id="greetings"></p>
 
+  <script>
+    const displayGreet = document.getElementById("greetings");
 
-<script>
-  const jsonUser = sessionStorage.getItem("user");
-  const displayGreet = document.getElementById("greetings");
-
-  if (jsonUser && sessionStorage.getItem("token")) {
-    const user = JSON.parse(jsonUser);
+    const user = JSON.parse(sessionStorage.getItem("user"));
     displayGreet.textContent = `Welcome ${user.email}`;
-  } else {
-    sessionStorage.clear();
-    window.location.href = "/admin/login";
-  }
-</script>
+  </script>
+</AdminDashboard>
