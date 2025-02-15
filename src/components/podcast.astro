@@ -1,8 +1,13 @@
 ---
-import imageCard from "../assets/image/cardpodcast1.png";
 import Play from "../assets/image/Youtube.png";
-import PlayContent from "../assets/image/play.png"
-const {title, paragraph} = Astro.props;
+import PlayContent from "../assets/image/play.png";
+
+const podcasts = await fetch(import.meta.env.PUBLIC_API_BASE_URL.concat('podcasts'), {
+  method: 'GET',
+  headers: {
+    'Accept': 'application/json',
+  },
+}).then((response) => response.json());
 ---
 
 <div class="section">
@@ -12,122 +17,30 @@ const {title, paragraph} = Astro.props;
 </div>
 
 <section>
-  <div id="result"><h3>No results found.</h3></div>
-  <figure class="news-item">
-    <div class="section-Image">
-      <div class="gradient">
-        <img src={Play.src} alt="">
-      </div>
-      <a href="https://www.youtube.com/@LA95TRUCKINGSHOW" target="_blank">
-      <img src={imageCard.src} alt="FrontImage"></a>
-    </div>
-    </div>
-    <div class="content-card">
-      <img src={PlayContent.src} alt="vector">
-      <div>
-        <p>
-          Lorem ipsum dolor sit amet consectetur adipisicing 1.
-        </p>
-        <p class="flush"><br>December, 24-2024<br></p>
-      </div>
-    </div>
-  </figure>
-  <figure class="news-item">
-    <div class="section-Image">
-      <div class="gradient">
-        <img src={Play.src} alt="">
-      </div>
-      <a href="https://www.youtube.com/@LA95TRUCKINGSHOW" target="_blank">
-      <img src={imageCard.src} alt="FrontImage"></a>
-    </div>
-    </div>
-    <div class="content-card">
-      <img src={PlayContent.src} alt="vector">
-      <div>
-        <p>
-          Lorem ipsum dolor sit amet consectetur adipisicing 2.
-        </p>
-        <p class="flush"><br>October, 24-2024<br></p>
-      </div>
-    </div>
-</figure>
+  {podcasts.length > 0 ? (
+    podcasts.map((podcast) => (
+      <figure class="news-item">
+        <div class="section-Image">
+          <div class="gradient">
+            <img src={Play.src} alt="#">
+          </div>
+          <a href={podcast.video_url} target="_blank">
+            <img src={podcast.thumbnail} alt="FrontImage">
+          </a>
+        </div>
+        <div class="content-card">
+          <img src={PlayContent.src} alt="vector">
+          <div>
+            <p>{podcast.title}</p>
+            <p class="flush"><br>{new Date(podcast.uploaded_at).toLocaleDateString()}<br></p>
+          </div>
+        </div>
+      </figure>
+    ))
+  ) : (
+    <div id="result"><h3>No results found.</h3></div>
+  )}
 
-<figure class="news-item">
-  <div class="section-Image">
-    <div class="gradient">
-      <img src={Play.src} alt="">
-    </div>
-    <img src={imageCard.src} alt="FrontImage">
-  </div>
-  </div>
-  <div class="content-card">
-    <img src={PlayContent.src} alt="vector">
-    <div>
-      <p>
-        Lorem ipsum dolor sit amet consectetur adipisicing 3.
-      </p>
-      <p class="flush"><br>October, 24-2024<br></p>
-    </div>
-  </div>
-</figure>
-
-<figure class="news-item">
-  <div class="section-Image">
-    <div class="gradient">
-      <img src={Play.src} alt="">
-    </div>
-    <img src={imageCard.src} alt="FrontImage">
-  </div>
-  </div>
-  <div class="content-card">
-    <img src={PlayContent.src} alt="vector">
-    <div>
-      <p>
-        Lorem 4 ipsum dolor highway route 95
-      </p>
-      <p class="flush"><br>October, 24-2024<br></p>
-    </div>
-  </div>
-</figure>
-
-<figure class="news-item">
-  <div class="section-Image">
-    <div class="gradient">
-      <img src={Play.src} alt="">
-    </div>
-    <a href="https://www.youtube.com/@LA95TRUCKINGSHOW" target="_blank">
-    <img src={imageCard.src} alt="FrontImage"></a>
-  </div>
-</div>
-  <div class="content-card">
-    <img src={PlayContent.src} alt="vector">
-    <div>
-      <p>
-        Lorem ipsum dolor sit amet adipisicing camion 5.
-      </p>
-      <p class="flush"><br>October, 24-2024<br></p>
-    </div>
-  </div>
-</figure>
-
-<figure class="news-item">
-  <div class="section-Image">
-    <div class="gradient">
-      <img src={Play.src} alt="">
-    </div>
-    <img src={imageCard.src} alt="FrontImage">
-  </div>
-  </div>
-  <div class="content-card">
-    <img src={PlayContent.src} alt="vector">
-    <div>
-      <p>
-        Lorem ipsum dolor sit amet consectetur autopista 6.
-      </p>
-      <p class="flush"><br>October, 24-2024<br></p>
-    </div>
-  </div>
-</figure>
 </section>
 
 <style lang="scss">
