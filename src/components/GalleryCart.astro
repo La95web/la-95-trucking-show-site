@@ -1,12 +1,18 @@
 ---
-import Jeans from "../assets/image/jeans.png";
-import Jacket from "../assets/image/jacket.png";
 import Left from "../assets/image/left.png";
 import Right from "../assets/image/right.png";
-const {title, paragraph, primarybutton, secondarybutton} = Astro.props;
+const { title, paragraph, primarybutton, secondarybutton } = Astro.props;
+
+const products = await fetch(import.meta.env.PUBLIC_API_BASE_URL.concat('products'), {
+  method: 'GET',
+  headers: {
+    'Accept': 'application/json',
+  },
+}).then((response) => response.json());
 ---
+
 <section> 
-  <div class="arrow left-arrow" id="leftArrow"><img src={Left.src} alt="Left"></i></div>
+  <div class="arrow left-arrow" id="leftArrow"><img src={Left.src} alt="Left"></div>
   <div class="arrow right-arrow" id="rightArrow"><img src={Right.src} alt="right"></div>
   <div class="gallery-container">
     <article>
@@ -15,78 +21,33 @@ const {title, paragraph, primarybutton, secondarybutton} = Astro.props;
       <p>{paragraph}</p>
     </article>
     <div id="gallerySliderCart" class="gallery-slider">
-      <div class="slide">
-        <img src={Jacket.src} alt="Imagen 1">
-        <figure>
-          <h3>Jacket gris</h3>
-          <div class="underlineSecondary"></div>
-          <p>USD $ 15</p>
-          <div class="inline">
-            <div class="light-button dark-button">
-              <button id="addItemButton" class="add-to-cart-button" data-index='1'>{primarybutton}</button>
-            </div>
-            <div class="light-button darkness-button spread">
-              <button class="openModal" data-modal="modalA">{secondarybutton}</button>
-            </div>
+      {products.length > 0 ? (
+        products.map((product) => (
+          <div class="slide">
+            <img src={product.main_image} alt={product.title}>
+            <figure>
+              <h3>{product.title}</h3>
+              <div class="underlineSecondary"></div>
+              <p>USD ${product.price}</p>
+              <div class="inline">
+                <div class="light-button dark-button">
+                  <button id="addItemButton" class="add-to-cart-button" data-index={product.id}>{primarybutton}</button>
+                </div>
+                <div class="light-button darkness-button spread">
+                  <button class="openModal" data-modal="modalA">{secondarybutton}</button>
+                </div>
+              </div>
+            </figure>
           </div>
-        </figure>
-      </div>
-      <div class="slide">
-        <img src={Jeans.src} alt="Imagen 2">
-        <figure>
-          <h3>jeans azules</h3>
-          <div class="underlineSecondary"></div>
-          <p>USD $ 70</p>
-          <div class="inline">
-            <div class="light-button dark-button">
-              <button id="addItemButton">{primarybutton}</button>
-            </div>
-            <div class="light-button darkness-button spread">
-              <button class="openModal" data-modal="modalA">{secondarybutton}</button>
-            </div>
-          </div>
-        </figure>
-      </div>
-      <div class="slide">
-        <img src={Jacket.src} alt="Imagen 2">
-        <figure>
-          <h3>chaqueta casual</h3>
-          <div class="underlineSecondary"></div>
-          <p>USD $ 25</p>
-          <div class="inline">
-            <div class="light-button dark-button">
-              <button id="addItemButton">{primarybutton}</button>
-            </div>
-            <div class="light-button darkness-button spread">
-              <button class="openModal" data-modal="modalA">{secondarybutton}</button>
-            </div>
-          </div>
-        </figure>
-      </div>
-      <div class="slide">
-        <img src={Jeans.src} alt="Imagen 2">
-        <figure>
-          <h3>jeans azules</h3>
-          <div class="underlineSecondary"></div>
-          <p>USD $ 70</p>
-          <div class="inline">
-            <div class="light-button dark-button">
-              <button id="addItemButton">{primarybutton}</button>
-            </div>
-            <div class="light-button darkness-button spread">
-              <button class="openModal" data-modal="modalA">{secondarybutton}</button>
-            </div>
-          </div>
-        </figure>
-      </div>
-      <!-- justo aca agregamos otro contendedor pero vamos a esperar la api -->
+        ))
+      ) : (
+        <div id="result"><h3>No results found.</h3></div>
+      )}
     </div>
-  
     <div class="gallery-dots" id="gallerySliderCart">
-      <span class="dot-cart" data-index="0"></span>
-      <span class="dot-cart" data-index="1"></span>
-      <span class="dot-cart" data-index="2"></span>
-      <span class="dot-cart" data-index="3"></span>
+      {products.map((_, index) => (
+        <span class="dot-cart" data-index={index}></span>
+      ))}
     </div>
   </div>
 </section>

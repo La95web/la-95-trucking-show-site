@@ -2,9 +2,12 @@
 import Gallery from "../assets/image/haddesk.png";
 import Left from "../assets/image/left.png";
 import Right from "../assets/image/right.png";
-// const response = await fetch('https://serpapi.com/searches/8fa8058388dba07e/67584f6499ba832aea003483.json');
-// const data = await response.json();
-// const newData = data.local_results.places[0];
+const products = await fetch(import.meta.env.PUBLIC_API_BASE_URL.concat('products'), {
+  method: 'GET',
+  headers: {
+    'Accept': 'application/json',
+  },
+}).then((response) => response.json());
 ---
 
 
