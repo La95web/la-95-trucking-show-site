@@ -5,10 +5,12 @@ import update from '../../../scripts/api/update';
 const ArticleForm = ({ article = null, onCancel = null }) => {
     const [formState, setFormState] = useState(article ? {
       title: article.title,
+      content: article.content,
       uploaded_at: article.uploaded_at,
       type: article.type,
     } : {
       title: '',
+      content: '',
       uploaded_at: '',
       type: 'News',
     });
@@ -21,6 +23,7 @@ const ArticleForm = ({ article = null, onCancel = null }) => {
       const formData = new FormData();
   
       formData.append('article[title]', formState.title);
+      formData.append('article[content]', formState.content);
       formData.append('article[uploaded_at]', formState.uploaded_at);
       formData.append('article[type]', formState.type);
       if (formState.main_image) formData.append('article[mail_image]', formState.image);
@@ -40,6 +43,10 @@ const ArticleForm = ({ article = null, onCancel = null }) => {
       <label>
         Title:<br />
         <input type="text" name="title" value={formState.title} onChange={handleDataChange} /><br />
+      </label>
+      <label>
+        Contenido:<br />
+        <textarea name="content" value={formState.content} onChange={handleDataChange} /><br />
       </label>
       <label>
         Uploaded At:<br />
