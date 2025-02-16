@@ -2,7 +2,7 @@
 const { title, paragraph, button, navNews, navTips, link1, link2 } = Astro.props;
 import NewImg from "../assets/image/logoDesktop.webp";
 
-const articles = await fetch(import.meta.env.PUBLIC_API_BASE_URL.concat('article/news'), {
+const articles = await fetch(import.meta.env.PUBLIC_API_BASE_URL.concat('article'), {
   method: 'GET',
   headers: {
     'Accept': 'application/json',
@@ -46,7 +46,7 @@ const articles = await fetch(import.meta.env.PUBLIC_API_BASE_URL.concat('article
       ))
     ) : (
       <div id="result"><h3>No results found.</h3></div>
-    )}
+    )
     <div class="section-center">
       <div class="light-gold gold-button">
         <button id="load-more">{button}</button>
