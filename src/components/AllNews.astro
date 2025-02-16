@@ -1,8 +1,9 @@
 ---
-const { title, paragraph, button, navNews, navTips, link1, link2 } = Astro.props;
+const { title, language = 'es', paragraph, button, navNews, navTips, link1, link2 } = Astro.props;
 import NewImg from "../assets/image/logoDesktop.webp";
+import formatDate from "../scripts/formatDate";
 
-const articles = await fetch(import.meta.env.PUBLIC_API_BASE_URL.concat('article'), {
+const articles = await fetch(import.meta.env.PUBLIC_API_BASE_URL.concat('news'), {
   method: 'GET',
   headers: {
     'Accept': 'application/json',
@@ -35,9 +36,9 @@ const articles = await fetch(import.meta.env.PUBLIC_API_BASE_URL.concat('article
           <div>
             <h4>{article.title}</h4>
             <div class="underlineNews"></div>
-            <p>{article.type}</p>
+            <p>{article.content}</p>
             <br>
-            <span>{new Date(article.uploaded_at).toLocaleDateString()}</span>
+            <span>{formatDate(article.uploaded_at, language)}</span>
           </div>
           <div class="image">
             <img src={NewImg.src} alt="news">
