@@ -1,7 +1,6 @@
 ---
 import Play from "../assets/image/Youtube.png";
 import PlayContent from "../assets/image/play.png";
-import car from "../assets/image/car.png";
 
 const podcasts = await fetch(import.meta.env.PUBLIC_API_BASE_URL.concat('podcasts'), {
   method: 'GET',
@@ -25,13 +24,13 @@ const podcasts = await fetch(import.meta.env.PUBLIC_API_BASE_URL.concat('podcast
           <div class="gradient">
           <img src={Play.src} alt="logo" />
           </div>
-            <a href={podcast.video_url} target="_blank">
-              <img src={car.src} alt="imagen" />
-            </a>
+          <a href={podcast.video_url} target="_blank">
+            <img src={podcast.thumbnail} alt="imagen" class="radio" />
+          </a>
         </div>
         <div class="content-card">
           <img src={PlayContent.src} alt="play" />
-          <div>
+          <div class="text-container">
             <p>{podcast.title}</p>
             <p class="flush">{new Date(podcast.uploaded_at).toLocaleDateString()}</p>
           </div>
@@ -46,6 +45,11 @@ const podcasts = await fetch(import.meta.env.PUBLIC_API_BASE_URL.concat('podcast
 
 <style lang="scss">
   @use "../assets//sass/index" as*;
+
+  .radio {
+    width: 359px;
+    object-fit: cover;
+  }
 
   #result {
     display: none;
@@ -93,6 +97,7 @@ const podcasts = await fetch(import.meta.env.PUBLIC_API_BASE_URL.concat('podcast
     width: 362px;
     height: 150px;
     display: flex;
+    justify-content: space-between;
     flex-direction: row-reverse;
     background-color: $tertiary;
     border-bottom-left-radius: 8px;
@@ -102,11 +107,10 @@ const podcasts = await fetch(import.meta.env.PUBLIC_API_BASE_URL.concat('podcast
   .content-card img {
     width: 75px;
     height: 75px;
-    margin-right: 20px;
     border-radius: 8px;
   }
 
-  .section-Image {
+  .section-image {
     position: relative;
     background-color: $tertiary;
     margin-top: 30px;
@@ -117,7 +121,7 @@ const podcasts = await fetch(import.meta.env.PUBLIC_API_BASE_URL.concat('podcast
   .gradient {
     position: absolute;
     bottom: 0;
-    top: 142px;
+    top: 200px;
     left: 0;
     width: 362px;
     height: 50px;
@@ -136,6 +140,13 @@ const podcasts = await fetch(import.meta.env.PUBLIC_API_BASE_URL.concat('podcast
 
   p {
     margin: 5px 0 0 10px;
+  }
+
+  .text-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 100%;
   }
   
   .flush {

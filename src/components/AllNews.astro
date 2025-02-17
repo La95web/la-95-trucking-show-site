@@ -32,16 +32,15 @@ const articles = await fetch(import.meta.env.PUBLIC_API_BASE_URL.concat('news'),
   <div class="content-item">
     {articles.length > 0 ? (
       articles.map((article) => (
-        <div class="section-content-tips news-item" id={article.id}>
-          <div>
+        <div class="section-content-tips news-item">
+          <article>
             <h4>{article.title}</h4>
             <div class="underlineNews"></div>
             <p>{article.content}</p>
-            <br>
             <span>{formatDate(article.uploaded_at, language)}</span>
-          </div>
+          </article>
           <div class="image">
-            <img src={article.image} alt="news">
+            <img src={article.main_image} alt="news" />
           </div>
         </div>
       ))
@@ -58,6 +57,12 @@ const articles = await fetch(import.meta.env.PUBLIC_API_BASE_URL.concat('news'),
 
 <style lang="scss">
   @use "../assets/sass/index" as *;
+
+  article{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
 
   #result {
     display: none;
@@ -158,7 +163,7 @@ const articles = await fetch(import.meta.env.PUBLIC_API_BASE_URL.concat('news'),
     font-family: $text;
     font-weight: $regular;
     font-size: 1.25rem;
-    padding-top: 10px;
+    padding-top: 20px;
   }
   
   h4 {
