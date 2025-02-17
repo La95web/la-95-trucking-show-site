@@ -1,6 +1,7 @@
 ---
 import Play from "../assets/image/Youtube.png";
 import PlayContent from "../assets/image/play.png";
+import car from "../assets/image/car.png";
 
 const podcasts = await fetch(import.meta.env.PUBLIC_API_BASE_URL.concat('podcasts'), {
   method: 'GET',
@@ -20,19 +21,19 @@ const podcasts = await fetch(import.meta.env.PUBLIC_API_BASE_URL.concat('podcast
   {podcasts.length > 0 ? (
     podcasts.map((podcast) => (
       <figure class="news-item">
-        <div class="section-Image">
+        <div class="section-image">
           <div class="gradient">
-            <img src={Play.src} alt="#">
+          <img src={Play.src} alt="logo" />
           </div>
-          <a href={podcast.video_url} target="_blank">
-            <img src={podcast.thumbnail} alt="FrontImage">
-          </a>
+            <a href={podcast.video_url} target="_blank">
+              <img src={car.src} alt="imagen" />
+            </a>
         </div>
         <div class="content-card">
-          <img src={PlayContent.src} alt="vector">
+          <img src={PlayContent.src} alt="play" />
           <div>
             <p>{podcast.title}</p>
-            <p class="flush"><br>{new Date(podcast.uploaded_at).toLocaleDateString()}<br></p>
+            <p class="flush">{new Date(podcast.uploaded_at).toLocaleDateString()}</p>
           </div>
         </div>
       </figure>
@@ -128,9 +129,9 @@ const podcasts = await fetch(import.meta.env.PUBLIC_API_BASE_URL.concat('podcast
   }
 
   .gradient img {
-  width: 50px;
-  height: auto;
-  margin-right: 10px;
+    width: 50px;
+    height: auto;
+    margin-right: 10px;
   }
 
   p {

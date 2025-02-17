@@ -41,7 +41,7 @@ const articles = await fetch(import.meta.env.PUBLIC_API_BASE_URL.concat('news'),
             <span>{formatDate(article.uploaded_at, language)}</span>
           </div>
           <div class="image">
-            <img src={NewImg.src} alt="news">
+            <img src={article.image} alt="news">
           </div>
         </div>
       ))
