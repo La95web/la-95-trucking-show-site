@@ -34,9 +34,7 @@ const products = await fetch(import.meta.env.PUBLIC_API_BASE_URL.concat('product
                 <div class="light-button dark-button">
                   <button id="addItemButton" class="add-to-cart-button" data-index={product.id}>{primarybutton}</button>
                 </div>
-                <div class="light-button darkness-button spread">
-                  <button class="openModal" data-modal="modalA">{secondarybutton}</button>
-                </div>
+                
               </div>
             </figure>
           </div>
