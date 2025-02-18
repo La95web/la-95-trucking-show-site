@@ -1,7 +1,6 @@
 ---
-import Had from "../assets/image/had.png";
 import money from "../scripts/money";
-const { title, paragraph, primarybutton, secondarybutton } = Astro.props;
+const { title, paragraph, primarybutton } = Astro.props;
 
 const products = await fetch(import.meta.env.PUBLIC_API_BASE_URL.concat('products'), {
   method: 'GET',
@@ -9,6 +8,8 @@ const products = await fetch(import.meta.env.PUBLIC_API_BASE_URL.concat('product
     'Accept': 'application/json',
   },
 }).then((response) => response.json());
+
+const spanishProducts = products.filter((product) => product.language === 'spanish');
 ---
 
 <article>
