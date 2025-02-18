@@ -1,12 +1,12 @@
 ---
-const {title, text, name, email, textarea, send} = Astro.props;
+const {title, text, name, email, textarea, send, formMessage } = Astro.props;
 ---
 <section>
   <div class="podcasts-container">
     <h2>{title}</h2>
     <div class="underline-content"></div>
     <p>{text}</p>
-    <form action="/" method="post">
+    <form id="contact-form" data-form-message={formMessage}>
       <div class="row"> 
         <div class="column">
           <label for="name">{name}</label>
@@ -25,6 +25,43 @@ const {title, text, name, email, textarea, send} = Astro.props;
     </form>
   </div>
 </section>
+
+<script>
+  const form = document.getElementById("contact-form");
+  const formMessage = form.dataset.formMessage;
+  const name = document.getElementById("name");
+  const email = document.getElementById("email");
+  const message = document.getElementById("message");
+
+  form.addEventListener("submit", (event) => {
+    event.preventDefault();
+    
+    fetch(import.meta.env.PUBLIC_API_BASE_URL.concat("contact_submissions/"), {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        contact_submission: {
+          name: name.value,
+          email: email.value,
+          message: message.value,
+        }
+      }),
+    })
+      .then((response) => response.json())
+      .then((data) => {
+        if (data.error) throw new Error(data.error);
+        
+        form.reset();
+        alert(formMessage);
+      })
+      .catch((error) => {
+        alert(error.message);
+      });
+
+  });
+</script>
     
 <style lang="scss">
   @use "../assets/sass/index" as *;
