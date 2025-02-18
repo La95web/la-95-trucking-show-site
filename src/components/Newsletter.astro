@@ -1,12 +1,12 @@
 ---
-const {titleA, textB, label, button} = Astro.props;
+const {titleA, textB, label, button, formMessage} = Astro.props;
 ---
 
 <div class="podcasts-container">
   <h2>{titleA}</h2>
   <div class="underline-black"></div>
   <p>{textB}</p>
-  <form action="/" method="post">
+  <form id="newsletter-form" data-form-message={formMessage}>
     <label for="email">{label}</label>
     <input type="email" id="email" name="email" placeholder="name@gmail.com" required>
     <div class="button-container"> 
@@ -14,6 +14,39 @@ const {titleA, textB, label, button} = Astro.props;
     </div>
   </form>
 </div>
+
+<script>
+  const form = document.getElementById("newsletter-form");
+  const formMessage = form.dataset.formMessage;
+  const email = document.getElementById("email");
+
+  form.addEventListener("submit", (event) => {
+    event.preventDefault();
+    
+    fetch(import.meta.env.PUBLIC_API_BASE_URL.concat("subscribers/"), {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        subscriber: {
+          email: email.value,
+        }
+      }),
+    })
+      .then((response) => response.json())
+      .then((data) => {
+        if (data.error) throw new Error(data.error);
+        
+        form.reset();
+        alert(formMessage);
+      })
+      .catch((error) => {
+        alert(error.message);
+      });
+
+  });
+</script>
   
 <style lang="scss">
   @use "../assets/sass/index" as *;
