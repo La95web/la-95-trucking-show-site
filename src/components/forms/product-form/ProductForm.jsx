@@ -9,12 +9,14 @@ const ProductForm = ({ product = null, onCancel = null }) => {
     stripe_id: product.stripe_id,
     price: product.price / 100,
     featured: product.featured,
+    language: product.language,
   } : {
     title: '',
     description: '',
     stripe_id: '',
     price: 0,
     featured: false,
+    language: 'spanish',
   });
 
   const handleDataChange = (event) => setFormState({ ...formState, [event.target.name]: event.target.value });
@@ -28,6 +30,7 @@ const ProductForm = ({ product = null, onCancel = null }) => {
     formData.append('product[description]', formState.description);
     formData.append('product[stripe_id]', formState.stripe_id);
     formData.append('product[price]', formState.price * 100);
+    formData.append('product[language]', formState.language);
     formState.featured ? 
       formData.append('product[featured]', 'true') :
       formData.append('product[featured]', 'false');
@@ -64,6 +67,14 @@ const ProductForm = ({ product = null, onCancel = null }) => {
       <label>
         Price:<br />
         <input type="number" name="price" value={formState.price} onChange={handleDataChange} step="0.01" /><br />
+      </label>
+      <label>
+        Lenguaje:<br />
+        <select name="language" value={formState.language} onChange={handleDataChange}>
+          <option value="spanish">Spanish</option>
+          <option value="english">English</option>
+        </select>
+        <br />
       </label>
       <label>
         Main Image:<br />

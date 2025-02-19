@@ -7,10 +7,12 @@ const PodcastForm = ({ podcast = null, onCancel = null }) => {
     title: podcast.title,
     uploaded_at: podcast.uploaded_at,
     video_url: podcast.video_url,
+    language: podcast.language,
   } : {
     title: '',
     uploaded_at: '',
     video_url: '',
+    language: 'spanish',
   });
 
   const handleDataChange = (event) => setFormState({ ...formState, [event.target.name]: event.target.value });
@@ -24,6 +26,7 @@ const PodcastForm = ({ podcast = null, onCancel = null }) => {
     if (formState.thumbnail) formData.append('podcast[thumbnail]', formState.thumbnail);
     formData.append('podcast[uploaded_at]', formState.uploaded_at);
     formData.append('podcast[video_url]', formState.video_url);
+    formData.append('podcast[language]', formState.language);
 
     if (podcast && onCancel) update(`podcasts/${podcast.id}/`, formData)
       .then(() => window.location.reload())
@@ -51,6 +54,14 @@ const PodcastForm = ({ podcast = null, onCancel = null }) => {
       <label>
         Video URL:<br />
         <input type="url" name="video_url" value={formState.video_url} onChange={handleDataChange} /><br />
+      </label>
+      <label>
+        Lenguaje:<br />
+        <select name="language" value={formState.language} onChange={handleDataChange}>
+          <option value="spanish">Español</option>
+          <option value="english">Inglés</option>
+        </select>
+        <br />
       </label>
       {onCancel && <button type="button" onClick={onCancel}>Cancelar</button>}
       <button type="submit">Subir</button>
