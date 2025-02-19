@@ -1,0 +1,65 @@
+---
+const {titleUs, Team1, Team2} = Astro.props;
+---
+
+<header>
+  <div class="content-header">
+    <img src={Team1.src} alt="image" class="movil-image">
+    <img src={Team2.src} alt="desktop image" class="desktop-image">
+    <h1>{titleUs}</h1>
+  </div>
+</header>
+
+<style lang="scss">
+  @use '../assets/sass/index' as *;
+
+  .desktop-image img {
+    display: none;
+  }
+
+  header {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 402 / 226;
+    overflow: hidden;
+  }
+
+  .content-header {
+    display: flex;
+    height: 100%;
+  }
+  
+  h1 {
+    @include center-contents;
+    position: absolute;
+    flex-direction:unset;
+    align-items: end;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to bottom, rgba($primary, 30%), rgba($primary, 50%), rgba($primary, 100%));
+    margin: 0;
+    font-family: $heading;
+    font-weight: $regular;
+    font-size: 4rem;
+  }
+
+  @media (min-width: 1024px) {
+
+    .movil-image {
+      display: none;
+    }
+
+    h1 {
+    font-size: 11rem;
+    align-items: center;
+    }
+
+    header {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 1440 / 700;
+    overoflow-x: hidden;
+    overflow: hidden;
+    }
+  }
+</style>

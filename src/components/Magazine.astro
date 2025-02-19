@@ -1,0 +1,90 @@
+---
+import magazine from '../assets/image/revista.png';
+
+const {titleA, textA, textB, button} = Astro.props;
+---
+
+<div class="podcasts-container">
+  <div>
+    <h2>{titleA}</h2>
+    <div class="underline"></div>
+    <p>{textA}</p>
+    <br>
+    <p>{textB}</p>
+    <div class="light-button red-button">
+      <a href="">{button}</a>
+    </div>
+  </div>
+  <figure>
+    <img src={magazine.src} alt="magazine"> <!-- en espera de la imagen con las dimensiones correctas en formato webp-->
+  </figure>
+</div>
+
+<style lang="scss">
+  @use "../assets/sass/index" as *;
+
+  .podcasts-container {
+    display: flex;
+    flex-direction: column;
+    background-color: $primary;
+    padding-top: 20px;
+  }
+
+  .podcasts-container P {
+    text-align: left;
+    margin: 0 5%;
+    padding-top: 20px;
+  }
+
+  figure {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  figure img {
+    width: 80%;
+  }
+
+  @keyframes bounce {
+    0%, 20%, 50%, 80%, 100% {
+      transform: translateY(0);
+    }
+    40% {
+      transform: translateY(-30px);
+    }
+    60% {
+      transform: translateY(-15px);
+    }
+  }
+
+  figure {
+    animation: bounce 4s infinite;
+  }
+
+  @media (min-width: 1024px) {
+    
+  .podcasts-container {
+    flex-direction: row-reverse;
+    justify-content: center;
+    align-items: center;
+    background-image: url('../assets/image/arrow.webp');
+    background-repeat: no-repeat;
+    background-position: calc(100% - 20%) center;
+  }
+  figure img {
+    margin-left: 10%;
+    width: 500px;
+    height: auto;
+  }
+  .underline {
+    width: 378px;
+  }
+  h2 {
+    font-size: 3rem;
+  }
+  p {
+    padding-right: 20%;
+  }
+}
+</style>

@@ -1,0 +1,130 @@
+---
+const {titleA, titleB, titleC, titleD, textA, textB, textC, textD, sendA, sendB } = Astro.props;
+---
+
+<section>
+  <h2>{titleA}</h2>
+  <div class="underline"></div>
+  <p>{textA}</p>
+  <figure>
+    <div>
+      <i class="ph ph-whatsapp-logo"></i>
+      <h3>{titleB}</h3>
+      <p>{textB}</p>
+      <div class="content">
+        <a href="">{sendA}</a>
+      </div>
+    </div>
+    <div>
+      <i class="ph ph-envelope-simple"></i>
+      <h3>{titleC}</h3>
+      <p>{textC}</p>
+      <div class="content">
+        <a href="mailto:la95truckingshow@gmail.com?subject=Consulta%20sobre%20tus%20servicios" target="_blank">{sendB}</a>
+      </div>
+    </div>
+  </figure>
+</section>
+
+<article>
+  <h2>{titleD}</h2>
+  <div class="underline-black"></div>
+  <p>{textD}</p>
+</article>
+
+<style lang="scss">
+  @use "../assets//sass/index" as*;
+
+  section {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding-top: 20px;
+  }
+
+  figure i {
+    color: $accent-b-dark;
+    font-size: 5.5rem;
+  }
+
+  .light-gold {
+    border-radius: 8px;
+    padding: 10px;
+    transition: background-color 0.3s, box-shadow 0.3s;
+    margin: 40px; 
+  }
+
+  .content {
+    padding: 20px;
+  }
+
+  a {
+    color: $secondary;
+    font-size: 1.5rem;
+    font-weight: $regular;
+    font-family: $heading;
+    border: 2px solid $accent-b-light;
+    border-radius: 8px;
+    padding: 5px 30px;
+    background-color: $tertiary;
+    box-shadow: 0 0 20px 10px rgba($accent-b-dark, 25%);
+    border: 2px solid $accent-b-dark;
+  }
+
+  a:hover {
+    box-shadow: 0 0 25px 15px rgba($accent-b-light, 30%);
+  }
+
+  article {
+    display: block;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    background-color: $accent-b-dark;
+    padding: 20px;
+
+    h2 {
+      color: $primary;
+    }
+
+    p {
+      color: $primary;
+    }
+  }
+
+  .underline-black {
+    width: 270px;
+    height: 2px;
+    background-color: $primary;
+    justify-content: center;
+    align-items: center;
+    margin-top: 0px;
+    border-radius: 2px;
+    margin: auto; 
+  }
+
+  @media (min-width: 1024px) {
+
+    figure {
+      display: flex;
+      flex-direction: row;
+      text-align: center;
+      
+    }
+    p{
+      padding: 20px;
+      max-width: 70%;
+      margin: 0 auto;
+    }
+
+    .underline {
+      width: 120px;
+    }
+
+    .underline-black {
+    width: 150px;
+  }
+  }
+</style>

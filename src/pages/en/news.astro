@@ -1,0 +1,30 @@
+---
+import Englishlayout from "../../layouts/EnglishLayout.astro";
+import Team1 from "../../assets/image/noticiasimg.webp";
+import Team2 from "../../assets/image/truckerDesktop.webp";
+import Footer from "../../components/Footer.astro";
+import AllNews from "../../components/AllNews.astro";
+import HeaderNews from "../../components/HeaderNews.astro";
+---
+
+<Englishlayout title="la 95 trucking show">
+  <HeaderNews
+  titleA="news &"
+  titleB="tips"
+  Team1={Team1}
+  Team2={Team2}/>
+  <AllNews
+  link1="../news/"
+  link2="../tips/"
+  navNews="news"
+  navTips="tips"
+  title="news"
+  language="en"
+  paragraph="Stay informed with breaking news, covering global events, technological advancements, and more, all in one place. Our team brings you accurate and timely information instantly."
+  button="see more" />
+  <Footer />
+</Englishlayout>
+<script>
+  import "../../scripts/mainMenu.js";
+  import "../../scripts/SearchNews.js"
+</script>

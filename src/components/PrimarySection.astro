@@ -1,0 +1,82 @@
+---
+const {title, paragraph, button} = Astro.props;
+import logo2 from '../assets/image/logoDesktop.webp';
+---
+
+<div class="podcasts-container">
+  <section> 
+    <h2>{title}</h2>
+    <div class="underline"></div>
+    <p>{paragraph}</p>
+    <div class="light-button red-button">
+      <a href="">{button}</a>
+    </div>
+  </section>
+  <figure id="animation">
+    <img src={logo2.src} alt="logo">
+  </figure>
+</div>
+
+<style lang="scss">
+  @use "../assets/sass/index" as *;
+
+  .podcasts-container P {
+    text-align: left;
+    margin: 0 5%;
+    padding-top: 20px;
+  }
+
+  .podcasts-container {
+    display: flex;
+    flex-direction: column;
+    background-color: $primary;
+    padding-top: 70px;
+    padding-bottom: 70px;
+  }
+
+  figure {
+    display: none;
+  }
+
+  @media only screen and (min-width: 1024px) {
+    
+  .podcasts-container {
+    flex-direction: row-reverse;
+  }
+
+  figure {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 5%;
+  }
+
+  section {
+    padding: 50px;
+
+    h2 {
+      font-size: 3rem;
+    }
+    p {
+      font-size: 1.25rem;
+    }
+    a {
+      font-size: 2rem;
+    }
+    .underline {
+      width: 248px;
+    }
+  }
+
+  #animation {
+  opacity: 0;
+  transform: translateX(-100%);
+  transition: opacity 0.6s ease-out, transform 0.9s ease-out;
+
+  &.animate {
+      opacity: 1;
+      transform: translateX(0);
+  }
+}
+} 
+</style>

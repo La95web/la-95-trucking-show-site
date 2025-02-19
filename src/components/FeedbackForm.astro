@@ -1,0 +1,193 @@
+---
+const {title, text, name, email, textarea, send, formMessage } = Astro.props;
+---
+<section>
+  <div class="podcasts-container">
+    <h2>{title}</h2>
+    <div class="underline-content"></div>
+    <p>{text}</p>
+    <form id="contact-form" data-form-message={formMessage}>
+      <div class="row"> 
+        <div class="column">
+          <label for="name">{name}</label>
+          <input type="text" id="name" name="name" placeholder="Your name" required>
+        </div>
+        <div class="column">
+          <label for="email">{email}</label>
+          <input type="email" id="email" name="email" placeholder="name@gmail.com" required>
+        </div>
+      </div>
+      <label for="message">{textarea}</label>
+      <textarea id="message" name="message" placeholder="Write your message..."></textarea>
+      <div class="button-container"> 
+        <button class="light-button red-button" type="submit">{send}</button>
+      </div>
+    </form>
+  </div>
+</section>
+
+<script>
+  const form = document.getElementById("contact-form");
+  const formMessage = form.dataset.formMessage;
+  const name = document.getElementById("name");
+  const email = document.getElementById("email");
+  const message = document.getElementById("message");
+
+  form.addEventListener("submit", (event) => {
+    event.preventDefault();
+    
+    fetch(import.meta.env.PUBLIC_API_BASE_URL.concat("contact_submissions/"), {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        contact_submission: {
+          name: name.value,
+          email: email.value,
+          message: message.value,
+        }
+      }),
+    })
+      .then((response) => response.json())
+      .then((data) => {
+        if (data.error) throw new Error(data.error);
+        
+        form.reset();
+        alert(formMessage);
+      })
+      .catch((error) => {
+        alert(error.message);
+      });
+
+  });
+</script>
+    
+<style lang="scss">
+  @use "../assets/sass/index" as *;
+
+  section {
+    background-color: $primary;
+  }
+    
+  .podcasts-container P {
+    margin: 20px 5% 0;
+    color: $secondary;
+  }
+
+  label {
+    font-size: 1.25rem;
+    font-family: $text;
+    font-weight: $regular;
+    color: $secondary;
+    padding-top: 10px;
+  }
+
+  .column, textarea {
+    margin-top: 10px;
+  }
+
+  .underline-content {
+    width: 30%;
+    height: 2px;
+    background-color: $accent-b-light;
+    justify-content: right;
+    align-items: right;
+    margin-top: 0px;
+    border-radius: 2px;
+    margin: 0 5%; 
+  }
+
+  button {
+    margin-top: 40px;
+    margin-left: 0;
+    font-size: 1.5rem;
+    font-family: $heading;
+  }
+  
+  textarea:hover {
+    box-shadow: 0 0 25px 15px rgba($accent-b-dark, 25%);
+    border: 2px solid $accent-b-light;
+  }
+
+  input:hover {
+    box-shadow: 0 0 25px 15px rgba($accent-b-dark, 25%);
+    border: 2px solid $accent-b-light;
+  }
+
+  input {
+    width: 100%;
+    height: 45px;
+    border: 2px solid $secondary;
+    background-color: transparent;
+    border-radius: 8px;
+    color: $secondary;
+    font-family: Arial, Helvetica, sans-serif;
+    margin-top: 10px;
+  }
+
+  form {
+    display: flex;
+    flex-direction: column;
+    margin: 0 5%;
+  }
+
+  textarea {
+    height: 221px;
+    border: 2px solid $secondary;
+    background-color: transparent;
+    border-radius: 8px;
+    color: $secondary;
+    font-family: Arial, Helvetica, sans-serif;
+  }
+
+  @media (min-width: 1024px) {
+
+    .podcasts-container {
+      text-align: center;
+      align-items: center;
+
+      label {
+        text-align: left;
+      }
+    }
+
+    .row {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+    }
+
+    .column {
+      display: flex;
+      flex-direction: column;
+      text-align: left;
+      width: 48%;
+    }
+
+    .underline-content {
+      width: 150px;
+      height: 2px;
+      background-color: $accent-b-light;
+      justify-content: center;
+      align-items: center;
+      margin-top: 0px;
+      border-radius: 2px;
+      margin: auto; 
+    }
+
+    h2 {
+      font-size: 3rem;
+    }
+    p{
+      font-size: 1.5rem;
+      padding: 20px;
+    }
+    label {
+      font-size: 1.5rem;
+    }
+    button {
+      font-size: 2rem;
+    }
+  }
+</style>

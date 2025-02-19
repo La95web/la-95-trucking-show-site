@@ -1,0 +1,14 @@
+---
+import AdminDashboard from '../../layouts/AdminDashboard.astro';
+---
+<AdminDashboard title="Admin Dashboard">
+  <h1>Admin Dashboard</h1>
+  <p id="greetings"></p>
+
+  <script>
+    const displayGreet = document.getElementById("greetings");
+
+    const user = JSON.parse(sessionStorage.getItem("user"));
+    displayGreet.textContent = `Welcome ${user.email}`;
+  </script>
+</AdminDashboard>

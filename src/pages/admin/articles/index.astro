@@ -1,0 +1,50 @@
+---
+import ArticleForm from "../../../components/forms/article-form/ArticleForm";
+import ArticlesListItem from "../../../components/lists/list-items/articles-list-item/ArticlesListItem";
+import AdminDashboard from "../../../layouts/AdminDashboard.astro";
+const articles = await fetch(import.meta.env.PUBLIC_API_BASE_URL.concat('articles'), {
+  method: 'GET',
+  headers: {
+    'Accept': 'application/json',
+  },
+}).then((response) => response.json());
+const reversedArticles = articles.reverse();
+---
+<AdminDashboard title="Articles">
+  <h1>Artículos</h1>
+  <h2>Nuevo Artículo</h2>
+  <ArticleForm client:load />
+  <h2>Lista de Artículos</h2>
+  <ul>
+    {reversedArticles.map((article) => (
+      <ArticlesListItem article={article} client:load />
+    ))}
+  </ul>
+</AdminDashboard>
+
+<style lang="scss">
+  @use '../../../assets/sass/' as *;
+
+  ul {
+    list-style: none;
+    padding: 0;
+  }
+
+  li {
+    @include center-contents;
+
+    justify-content: space-between;
+    margin-bottom: 2rem;
+    padding: 0 3rem;
+  }
+
+  img {
+    width: 100px;
+    height: auto;
+  }
+
+  a {
+    color: $accent-b-light;
+    text-decoration: none;
+  }
+</style>

@@ -1,0 +1,153 @@
+---
+const {titleA, titleB, titleC, titleD, textA, textB, textC} = Astro.props;
+import imagesvision from "../assets/image/Misionteam.webp";
+---
+
+<section>
+  <div class="flex">
+    <h2>{titleA}</h2>
+    <div class="underline"></div> 
+  </div>
+</section>
+
+<div class="podcasts-container">
+  <figure>
+    <div>
+      <img src={imagesvision.src} alt="team">
+    </div>
+  </figure>
+  <div class="section-center">
+    <div class="end-line">
+      <h3>{titleB}</h3>
+      <i class="ph ph-sunglasses"></i>
+    </div>
+    <div class="blackline"></div>
+    <p>{textA}</p>
+    <div class="end-line">
+      <h3>{titleC}</h3>
+      <i class="ph ph-target"></i>
+    </div>
+    <div class="blackline"></div>
+    <p>{textB}</p>
+    <div class="end-line">
+      <h3>{titleD}</h3>
+      <i class="ph ph-nut"></i>
+    </div>
+    <div class="blackline"></div>
+    <p class="last-text">{textC}</p>
+  </div>
+</div>
+    
+<style lang="scss">
+  @use "../assets/sass/index" as *;
+
+  .podcasts-container {
+    display: flex;
+    flex-direction: column;
+  }
+    
+  .podcasts-container P {
+    margin: 0 5%;
+    color: $primary;
+    padding-top: 20px;
+  }
+
+  .section-center {
+    background-color: $accent-b-dark;
+  }
+
+  h3 {
+    font-size: 2rem;
+    font-weight: $regular;
+    font-family: $heading;
+    color: $primary;
+    margin: 0 5%;
+    margin-top: 20px;
+  }
+
+  .last-text {
+    padding-bottom: 20px;
+  }
+  
+  .section-center i {
+    color: $primary;
+    font-size: 34px;
+    margin-right: 20px;
+    margin-top: 25px; 
+  }
+  
+  .end-line {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .blackline{
+    width: 85%;
+    height: 2px;
+    background-color: $primary;
+    margin-top: 0px;
+    margin-left: 20px;
+  }
+
+  figure {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0;
+    background-color: $primary;
+  }
+
+  figure img {
+    display: block;
+    margin-top: 20px;
+    width: 100%;
+    height: auto;
+  }
+
+  .flex {
+    background-color: $primary;
+  }
+
+  @media only screen and (min-width: 1030px) {
+    
+    .podcasts-container {
+      display: flex;
+      flex-direction: row;
+    }
+
+    figure {
+      display: flex;
+      margin: 0;
+    }
+
+    figure img {
+      margin: 0;
+      width: 648px;
+      height: 560px;
+    }
+
+    h3 {
+      margin-top: 20px;
+      font-size: 2rem;
+    }
+    
+    p {
+      font-size: 1.25rem;
+    }
+
+    .blackline {
+      margin-left: 35px;
+      min-width: 90%;
+    }
+
+    .section {
+      display: flex;
+      flex-direction: row;
+    }
+
+    .flex {
+      background-color: $primary;
+      padding-bottom: 20px;
+    }
+  }
+</style>

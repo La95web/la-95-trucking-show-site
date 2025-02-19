@@ -1,0 +1,135 @@
+---
+import truckers from '../assets/image/truckers.webp';
+const {titleA, textB, textA, button} = Astro.props;
+---
+
+<div class="podcasts-container">
+  <div class="section-center">
+    <h2>{titleA}</h2>
+    <div class="underline-black"></div>
+      <p>{textA}</p>
+      <p>{textB}</p>
+    <div class="button-container">
+      <a href="https://chat.whatsapp.com/FhZ8GWMITjML4wqYMLzT9C" target="_blank">{button}</a>
+    </div>
+  </div>
+  <figure>
+    <img src={truckers.src} alt="truckers">
+  </figure>
+</div>
+
+<style lang="scss">
+  @use "../assets/sass/index" as *;
+
+  .podcasts-container {
+    padding-top: 20px;
+    background-color: $accent-a-dark;
+    background-image: url("../assets/image/whatsapp.svg");
+    background-repeat: no-repeat;
+    background-position: center top;
+  }
+
+  .podcasts-container P {
+    margin: 0 5%;
+    text-align: center;
+    padding: 10px;
+    color: #000;
+  }
+
+  h2 {
+    font-size: 2rem;
+    font-weight: $regular;
+    font-family: $heading;
+    color: $primary;
+    text-align: center;
+  }
+
+  .underline-black {
+    width: 270px;
+    height: 2px;
+    background-color: $primary;
+    margin-top: 0px;
+    border-radius: 2px;
+  }
+
+  .button-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 40px;
+  }
+
+  a {
+    border: 2px solid $primary;
+    border-radius: 8px;
+    background-color: transparent;
+    text-align: center;
+    color: $primary;
+    font-size: 1.5rem;
+    font-family: $heading;
+    font-weight: $regular;
+    cursor: pointer;
+    width: 130px;
+    height: 38px;
+  }
+
+  figure {
+    display: flex;
+    justify-content: left;
+    align-items: left;
+    margin: 0;
+  }
+
+  figure img {
+    width: 100%;
+  }
+
+  .section-center {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  @media (min-width: 1024px) {
+
+    .podcasts-container {
+      display: flex;
+      flex-direction: row-reverse;
+      justify-content: space-between;
+      padding: 0;
+    }
+
+    .podcasts-container {
+      background-image: url("../assets/image/whatsapp.svg");
+      background-position: calc(100% - 25%) center;
+      background-size: contain;
+    }
+
+    figure img {
+      width: 500px;
+      margin: 0;
+    }
+
+    .section-center {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+
+      h2 {
+        font-size: 3rem;
+        margin: 0;
+      }
+    }
+
+    p {
+      font-size: 1.25rem;
+    }
+
+    a {
+      font-size: 2rem;
+    }
+  }
+</style>

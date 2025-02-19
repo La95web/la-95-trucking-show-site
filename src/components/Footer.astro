@@ -1,0 +1,101 @@
+<footer>
+  <div class="flexbox">
+    <a href="https://www.youtube.com/@LA95TRUCKINGSHOW" target="_blank" class="btn contact-details">
+      <i class="ph ph-youtube-logo"></i>
+    </a>
+    <a href="https://www.instagram.com/la95truckingshow/" target="_blank" class="btn contact-details">
+      <i class="ph ph-instagram-logo"></i>
+    </a>
+    <a href="https://www.tiktok.com/@la95truckingshow" target="_blank" class="btn contact-details">
+      <i class="ph ph-tiktok-logo"></i>
+    </a>
+    <a href="https://wa.me/12015984639" target="_blank" class="btn contact-details">
+      <i class="ph ph-whatsapp-logo"></i>
+    </a>
+    <a href="https://www.facebook.com/profile.php?id=100089084365171" target="_blank" class="btn contact-details">
+      <i class="ph ph-facebook-logo"></i>
+    </a>
+  </div>
+  <section> 
+    <p>&copy; la 95 trucking show - by <a href="https://luissanteliz.netlify.app/" target="_blank" rel="noopener noreferrer">OBELISK</a>
+  </section>
+</footer>
+
+<style lang="scss">
+  @use "../assets/sass/index" as*;
+
+  footer {
+    padding: 30px;
+    background-color: $primary;
+    background-image: url("../assets/image/track.png");
+    background-repeat: repeat-x;
+    background-position: center;
+  }
+
+  .flexbox {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+  }
+
+  .flexbox i{
+    border: 2px solid $accent-c-light;
+    padding: 3px;
+    border-radius: 8px;
+    margin: 10px;
+    background-color: $tertiary;
+  }
+
+  .flexbox .ph {
+   color: $accent-c-light;
+   font-size: 1.5rem;
+  }
+
+  p {
+    text-align: center;
+    color: white;
+    font-family: $heading;
+    font-weight: $regular;
+    font-size: 1rem;
+    margin-top: 15px 0;
+
+   a {
+    color: $accent-c-light;
+    font-family: $heading;
+    font-weight: $regular;
+    font-size: 1.2rem;
+    }
+  }
+
+  .flexbox i {
+    box-shadow: 0 0 20px 5px rgba($accent-c-light, 35%);
+  }
+  
+  .flexbox i:hover {
+    box-shadow: 0 0 25px 15px rgba($accent-c-dark, 40%);
+  }
+  @media (min-width: 1024px) {
+
+  footer {
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content:space-between;
+  }
+  
+  p {
+    font-size: 1.25rem;
+    margin: 20px 30px;
+  }
+
+  .flexbox .ph {
+   font-size: 3rem;
+   margin: 0 20px;
+  }
+
+  .flexbox i{
+    border: 3px solid $accent-c-light;
+    margin: 10px;
+  }
+  }
+</style>

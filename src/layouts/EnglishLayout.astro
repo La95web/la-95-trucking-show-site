@@ -1,0 +1,236 @@
+---
+import TrafficLight from "../components/TrafficLight.astro";
+import NavigationEn from "../components/NavigationEn.astro";
+const {title} = Astro.props;
+---
+
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<link rel="icon" type="image/svg+xml" href="" />
+		<meta name="viewport" content="width=device-width" />
+		<meta name="generator" content={Astro.generator} /> <!--chequear luego antes de ir a produccion -->
+		<title>{title}</title>
+		<script src="https://unpkg.com/@phosphor-icons/web"></script>
+	</head>
+  <body>
+    <TrafficLight />
+    <NavigationEn />
+    <slot />
+  </body>
+</html>
+
+<style is:global lang="scss">
+  @use '../assets/sass/index' as *; 
+    
+  html {
+    scroll-behavior: smooth;
+  }
+  
+  li, ol, a {
+    list-style: none;
+    text-decoration: none;
+  }
+  
+  body {
+    background-color: $tertiary;
+    font-size: 16px;
+    margin: 0;
+    padding: 0;
+  }
+  
+  * {
+    box-sizing: border-box;
+  }
+  
+  h1, h3 {
+    font-size: 2rem;
+    font-weight: $regular;
+    font-family: $heading;
+    color: $secondary;
+    margin: 0 5%;
+  }
+
+  h2 {
+    font-size: 3rem;
+    font-weight: $regular;
+    font-family: $heading;
+    color: $secondary;
+    margin: 0 5%;
+  }
+  
+  .underline {
+    width: 130px;
+    height: 2px;
+    background-color: $accent-b-dark;
+    justify-content: left;
+    margin-top: 0px;
+    border-radius: 2px;
+    margin: 0 5%; 
+  }
+  
+  p {
+    font-size: 1.25rem;
+    font-family: $text;
+    font-weight: $regular;
+    color: $secondary;
+  }
+  
+  // inicia boton rojo de accion
+  
+  .light-button {
+    width: 145px; 
+    height: 40px;
+    border-radius: 8px;
+    margin: 30px 5% 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: background-color 0.3s, box-shadow 0.3s;
+    cursor: pointer;
+  }
+  
+  a {
+    color: $primary;
+    font-size: 1.5rem;
+    font-weight: $regular;
+    font-family: $heading;
+  }
+
+  button {
+    border: none;
+  }
+  
+  .light-button.red-button {
+    background-color: $accent-c-dark;
+    box-shadow: 0 0 20px 10px rgba($accent-c-dark, 35%);
+  }
+  
+  .red-button {
+    background-color: $accent-c-light;
+  }
+  
+  .light-button:hover {
+    background-color: $accent-c-light;
+    box-shadow: 0 0 25px 15px rgba($accent-c-light, 40%);
+  }
+
+  // cart 
+
+  #cart-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+  }
+
+  .cart-item {
+    display: block;
+    background-color: $tertiary;
+    width: 90%;
+    padding: 15px;
+
+    p {
+      margin: 0 2%;
+    }
+  }
+
+  .cart-item:nth-child(even) {
+    background-color: $primary;
+  }
+
+  .flex-container {
+    display: flex;
+    position: relative;
+   
+    justify-content:space-between;
+    cursor: pointer;
+    
+    button {
+      background-color: transparent;
+    }
+  }
+
+  .trash img {
+    position: absolute;
+    left: 70px;
+    width: 32px;
+    top: 30px;
+  }
+
+  .button-section {
+    display: flex;
+    align-items: center;
+    gap: 27px; 
+    border: 2px solid $accent-b-dark;
+    border-radius: 15px;
+    margin: 20px 2% 0;
+    position: relative;
+    width: 130px;
+    
+    span {
+      font-size: 1rem;
+      font-family: $text;
+      font-weight: $medium;
+    }
+    img {
+      display: flex;
+      width: 18px;
+      height: 18px;
+      cursor: pointer;
+    }
+  }
+
+  .button-section::before,
+  .button-section::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 2px;
+    background-color: $accent-b-dark; 
+  }
+
+  .button-section::before {
+    left: 35px; 
+  }
+
+  .button-section::after {
+    right: 35px; 
+  }
+
+  .simbol-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    
+    p{
+     margin: 10px 10px 0;
+    }
+  }
+
+  .trash {
+    position: absolute;
+    left: 25%;
+  }
+
+  @media (min-width: 1024px) {
+
+    .cart-item {
+      display: grid;
+      grid-template-columns: 2fr 4fr auto;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .trash {
+      position: absolute;
+      left: 150px;
+    }
+  }
+  
+</style>
+

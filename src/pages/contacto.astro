@@ -1,0 +1,40 @@
+---
+import SpanishLayout from "../layouts/SpanishLayout.astro";
+import HeaderBanner from "../components/HeaderBanner.astro";
+import Movil from "../assets/image/trucker2movil.png"
+import Desktop from "../assets/image/truckers2.png";
+import FeedbackForm from "../components/FeedbackForm.astro";
+import Channels from "../components/Channels.astro";
+import Footer from "../components/Footer.astro";
+---
+
+<SpanishLayout title="la 95 trucking show">
+  <HeaderBanner
+  titleUs="contacto"
+  Team1={Movil}
+  Team2={Desktop} />
+  <FeedbackForm 
+  formMessage="¡Gracias por tu mensaje! Nos pondremos en contacto contigo."
+  title="contactanos"
+  text="¡Queremos escucharte! ¿Tienes preguntas, ideas o necesitas información exclusiva? Completa el formulario con tu nombre, email y mensaje. Recibe tips, noticias, podcasts y mucho más. ¡Tu voz importa, contáctanos hoy!"
+  name="Tu nombre:"
+  email="Tu email:"
+  textarea="Tu mensaje:"
+  send="Enviar"/>
+  <Channels
+  titleA="otros canales"
+  titleB="whatsapp"
+  titleC="correo electronico"
+  titleD="horario de atención"
+  textA="Estamos aquí para ayudarte. Conéctate con nosotros a través de nuestros diversos canales de contacto para obtener información, soporte y más. ¡Estamos ansiosos por saber de ti!"
+  textB="¡Conéctate con nosotros en WhatsApp para recibir actualizaciones y soporte inmediato!"
+  textC="¡Escríbenos a nuestro correo para recibir actualizaciones y asistencia personalizada!"
+  textD="Nuestro horario de atención es de lunes a viernes, de 9:00 AM a 6:00 PM."
+  sendA="enviar mensaje"
+  sendB="enviar correo" />
+  <Footer />
+</SpanishLayout>
+<script>
+  import "../scripts/mainMenu.js"
+  import "../scripts/FormValidation.js"
+</script>

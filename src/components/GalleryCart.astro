@@ -1,0 +1,251 @@
+---
+import Left from "../assets/image/left.png";
+import Right from "../assets/image/right.png";
+import money from "../scripts/money";
+const { title, paragraph, primarybutton, secondarybutton } = Astro.props;
+
+const products = await fetch(import.meta.env.PUBLIC_API_BASE_URL.concat('products'), {
+  method: 'GET',
+  headers: {
+    'Accept': 'application/json',
+  },
+}).then((response) => response.json());
+---
+
+<section> 
+  <div class="arrow left-arrow" id="leftArrow"><img src={Left.src} alt="Left"></div>
+  <div class="arrow right-arrow" id="rightArrow"><img src={Right.src} alt="right"></div>
+  <div class="gallery-container">
+    <article>
+      <h2>{title}</h2>
+      <div class="underline"></div>
+      <p>{paragraph}</p>
+    </article>
+    <div id="gallerySliderCart" class="gallery-slider">
+      {products.length > 0 ? (
+        products.map((product) => (
+          <div class="slide">
+            <img src={product.main_image_url} alt={product.title} />
+            <figure>
+              <h3>{product.title}</h3>
+              <div class="underlineSecondary"></div>
+              <p>{money(product.price)}</p>
+              <div class="inline">
+                <div class="light-button dark-button">
+                  <button id="addItemButton" class="add-to-cart-button" data-index={product.id}>{primarybutton}</button>
+                </div>
+                
+              </div>
+            </figure>
+          </div>
+        ))
+      ) : (
+        <div id="result"><h3>No results found.</h3></div>
+      )}
+    </div>
+    <div class="gallery-dots" id="gallerySliderCart">
+      {products.map((_, index) => (
+        <span class="dot-cart" data-index={index}></span>
+      ))}
+    </div>
+  </div>
+</section>
+
+<style lang="scss">
+  @use "../assets//sass/index" as*;
+
+  .gallery-container {
+    width: 100%;
+    position: relative;
+    width: auto;
+    max-width: 600px;
+    overflow: hidden;
+  }
+
+  .gallery-slider {
+    display: flex;
+    transition: transform 0.5s ease;
+    width: 100%;
+  }
+
+  .slide {
+    min-width: 100%;
+  }
+
+  .gallery-slider img {
+    padding-top: 20px;
+    width: 100%;
+    flex-shrink: 0;
+  }
+
+  p {
+    margin: 10px;
+  }
+
+  .gallery-dots {
+    text-align: center;
+    margin: 50px 0 20px;
+  }
+
+  .gallery-dots .dot-cart {
+    display: inline-block;
+    width: 29px;
+    height: 10px;
+    margin: 5px;
+    background-color: $tertiary;
+    border: 2px solid $accent-b-light;
+    border-radius: 10%;
+    cursor: pointer;
+  }
+
+  .gallery-dots .dot-cart.active {
+    background-color: $accent-b-light;
+    box-shadow: 0 0 25px 15px rgba($accent-b-light, 25%);
+  }
+
+  .left-arrow, .right-arrow {
+    position: absolute;
+    display: flex;
+    align-items: center;
+    font-size: 50px;
+    z-index: 10;
+    display: none;
+  }
+
+  .left-arrow {
+    left: 10%;
+  }
+
+  .right-arrow {
+    right: 10%;
+  }
+
+  .underline {
+    width: 20%;
+  }
+
+  //start description 
+  article {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding-top: 20px;
+  }
+
+  .underline {
+    width: 300px;
+  }
+
+  section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 20px 0;
+    background-color: $tertiary;
+  }
+
+  figure {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 100%;
+    max-width: 300px;
+    margin: 0 auto;
+    h3 {
+      text-align: left;
+    }
+  }
+
+  .underlineSecondary{
+    width: 271px;
+    height: 2px;
+    background-color: $accent-b-dark;
+    justify-content: left;
+    margin-top: 0px;
+    border-radius: 2px;
+    margin: 0 5%; 
+  }
+
+  p{
+    text-align: center;
+  }
+
+  img {
+    width: 100%;
+    aspect-ratio: 3 / 2;
+  }
+
+  .inline {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  button {
+    border: none;
+    background-color: transparent;
+    font-size: 1.3rem;
+    font-family: $heading;
+    font-weight: $regular;
+    cursor: pointer;
+  }
+  
+  .light-button.dark-button {
+    background-color: $accent-b-dark;
+    box-shadow: 0 0 20px 10px rgba($accent-b-dark, 20%);
+  }
+
+  .darkness-button {
+    background-color: transparent;
+    border: 2px solid $accent-b-dark;
+    box-shadow: 0 0 20px 10px rgba($accent-b-dark, 20%);
+  }
+
+  .darkness-button button {
+    color: $accent-b-dark;
+  }
+  
+  .light-button:hover {
+    background-color: $accent-b-light;
+    box-shadow: 0 0 25px 15px rgba($accent-b-light, 25%);
+  }
+
+  .spread:hover {
+    background-color: transparent;
+    box-shadow: 0 0 25px 15px rgba($accent-b-light, 25%);
+  }
+
+@media (min-width: 1024px) {
+  
+  .arrow {
+    display: block;
+    cursor: pointer;
+  }
+
+  section {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .gallery-container {
+    max-width: 1100px;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .gallery-slider {
+    display: flex;
+    transition: transform 0.5s ease;
+    width: 33%;
+  }
+
+  .gallery-slider img {
+    width: 70%;
+  }
+}
+</style>

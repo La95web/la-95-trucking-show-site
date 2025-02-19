@@ -1,0 +1,50 @@
+---
+import HomeSlider from "../../components/HomeSlider.astro";
+import Radio from "../../components/Radio.astro";
+import PrimarySection from "../../components/PrimarySection.astro";
+import EnglishLayout from "../../layouts/EnglishLayout.astro";
+import Carousel from "../../components/Carousel.astro";
+import Magazine from "../../components/Magazine.astro";
+import Newsletter from "../../components/Newsletter.astro";
+import Whatsapp from "../../components/Whatsapp.astro";
+import Footer from "../../components/Footer.astro";
+import SecondarySection from "../../components/SecondarySection.astro";
+import truck1 from "../../assets/image/camion.webp";
+import truck2 from "../../assets/image/truck2.webp";
+import truck3 from "../../assets/image/camion.webp";
+---
+
+<EnglishLayout title="la 95 trucking show">
+  <HomeSlider images={[truck1.src, truck2.src, truck3.src]} />
+  <Radio />
+  <PrimarySection 
+  title="THE HARDEST-HITTING PODCAST"
+  paragraph="Welcome to La 95 Trucking Show, the podcast made by and for truckers! 🚛✨ Here we talk about life on the road, unforgettable anecdotes, useful tips, and everything that moves the world of transportation. If you are passionate about the route, road stories, and want to be part of this great community on wheels, this is your space. Buckle up, start the engine, and join us on this journey! Don't forget to subscribe and share with fellow road companions."
+  button="see more"/>
+  <SecondarySection
+  title="Become a Sponsor"
+  paragraph="Join La 95 Trucking Show and increase your brand's visibility to an engaged audience. Take advantage of our authentic recommendations and growing content format to generate credibility and trust. Explore a sponsorship alliance with us to propel your brand to new heights."
+  button="contact" /> 
+  <Carousel />
+  <Magazine 
+  titleA="Download our magazine"
+  textA="Discover a world of knowledge and inspiration! Download our magazine and dive into exclusive articles, current trends, and tips that will transform your vision. Don't miss out; the next level is just a click away!"
+  textB="coming soon!"
+  button="download"/>
+  <Newsletter
+  titleA="Receive notifications and alerts"
+  textB="Stay up to date! Subscribe to receive the latest news and events directly on your device. Confirm your interest and don't miss any important news. Activate notifications now."
+  label="Your email:"
+  formMessage="Thank you for subscribing!"
+  button="send" />
+  <Whatsapp
+  titleA="join our WhatsApp group"
+  textA="📢 Attention truckers! 🚛💨"
+  textB="We invite you to join our WhatsApp group of the 95 Trucking Show. A space where we will share information, news, routes, events, and everything related to our passion for trucks."
+  button="JOIN" />
+  <Footer />
+</EnglishLayout>
+
+<script>
+	import "../../scripts/home.js"
+</script>

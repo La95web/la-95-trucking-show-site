@@ -1,0 +1,25 @@
+---
+import PodcastForm from "../../components/forms/podcast-form/PodcastForm";
+import PodcastsListItem from "../../components/lists/list-items/podcasts-list-item/PodcastsListItem";
+import AdminDashboard from "../../layouts/AdminDashboard.astro";
+
+const podcasts = await fetch(import.meta.env.PUBLIC_API_BASE_URL.concat('podcasts'), {
+  method: 'GET',
+  headers: {
+    'Accept': 'application/json',
+  },
+}).then((response) => response.json());
+
+const reversedPodcasts = podcasts.reverse();
+---
+<AdminDashboard title="Podcasts">
+  <h1>Podcasts</h1>
+  <h2>Nuevo Podcast</h2>
+  <PodcastForm client:load />
+  <h2>Lista de Pocasts</h2>
+  <ul>
+    {reversedPodcasts.map((podcast) => (
+      <PodcastsListItem podcast={podcast} client:load />
+    ))}
+  </ul>
+</AdminDashboard>

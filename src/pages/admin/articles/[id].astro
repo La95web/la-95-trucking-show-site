@@ -1,0 +1,26 @@
+---
+export const prerender = false;
+
+import ListItem from "../../../components/lists/list-items/sections-list-items/SectionsListItem.jsx";
+import AdminDashboard from "../../../layouts/AdminDashboard.astro";
+import SectionForm from "../../../components/forms/section-form/SectionForm.jsx";
+
+const { id } = Astro.params;
+
+const article = await fetch(import.meta.env.PUBLIC_API_BASE_URL.concat(`articles/${id}`), {
+  method: 'GET',
+  headers: {
+    'Accept': 'application/json',
+  },
+}).then((response) => response.json());
+---
+<AdminDashboard title={article.title}>
+  <h1>{article.title} Sections</h1>
+  <ul>
+    {article.sections.map((section) => (
+      <ListItem section={section} client:load />
+    ))}
+  </ul>
+  <h2>Nueva Sección</h2>
+  <SectionForm articleId={article.id} client:load />
+</AdminDashboard>

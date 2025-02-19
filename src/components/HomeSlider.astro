@@ -1,0 +1,105 @@
+---
+const {images} = Astro.props;
+---
+
+<header>
+  <div id="slider">
+    {images.map((image) => (
+      <img src={image} alt="Slider image" />
+    ))}
+  </div>
+  <h1 id="main-title">
+    <span class="red">LA 95</span>
+    <span class="white">TRUCKING</span>
+    <span class="blue">SHOW</span>
+  </h1>
+</header>
+
+<style lang="scss">
+  @use '../assets/sass/index' as *;
+
+  header {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 402 / 226;
+    overflow: hidden;
+  }
+
+  #slider {
+    display: flex;
+    width: 300%; // cantidad de img
+    height: 100%;
+    transform: translateX(0);
+    transition: transform 0.5s;
+  }
+  
+  h1 {
+    @include center-contents;
+    position: absolute;
+    top: 0;
+    left: 0;
+    flex-direction: column;
+    align-items: start;
+    width: 100%;
+    height: 100%;
+    background-color: rgba($primary, 0.45);
+    padding: 0;
+    padding-left: 5%;
+    margin: 0;
+    transition: background-color 0.3s;
+    font-family: $heading;
+    font-weight: $regular;
+    font-size: 4rem;
+    line-height: 0.9;
+
+    span.red {
+      color: $accent-c-dark;
+    }
+
+    span.white {
+      color: $secondary;
+    }
+
+    span.blue {
+      color: dodgerblue;
+    }
+  }
+
+  img {
+    width: calc(100% / 3);
+    aspect-ratio: 402 / 226;
+  }
+
+  @media (min-width: 1024px) {
+    h1 {
+      top: 40px;
+      font-size: 10rem;
+    }
+
+    header {
+      position: relative;
+      width: 100%;
+      aspect-ratio: 1440 / 700;
+      overoflow-x: hidden;
+      overflow: hidden;
+    }
+  }
+</style>
+
+<script>
+
+  let currentPosition = 1;
+
+  const slide = () => {
+    const slider = document.getElementById('slider');
+    slider.style.transform = `translateX(${-100 * currentPosition / 3}%)`;
+
+    if (currentPosition === 2) {
+      currentPosition = 0;
+    } else {
+      currentPosition++;
+    }
+  }
+
+  setInterval(slide, 5000);
+</script>

@@ -1,0 +1,24 @@
+---
+import SpanishLayout from "../layouts/SpanishLayout.astro";
+import CartShop from "../components/Headercart.astro";
+import ShopA from "../assets/image/headercart.png";
+import ShopB from "../assets/image/headercart2.webp";
+import Footer from "../components/Footer.astro";
+import Cartorder from "../components/Cartorder.astro";
+---
+
+<SpanishLayout title="la 95 trucking show">
+  <CartShop 
+  title="carrito"
+  Team1={ShopA}
+  Team2={ShopB}
+  />
+  <Cartorder
+  titlecart="lista de artículos"
+  button="pagar"/>
+  <Footer />
+</SpanishLayout>
+<script>
+  import "../scripts/mainMenu.js"; 
+  import "../scripts/Order.js";
+</script>
