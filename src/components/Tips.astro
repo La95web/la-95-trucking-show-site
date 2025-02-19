@@ -1,13 +1,15 @@
 ---
-const { title, paragraph, button, navNews, navTips, link1, link2 } = Astro.props;
+const { title, language = 'es', paragraph, button, navNews, navTips, link1, link2 } = Astro.props;
 import NewImg from "../assets/image/logoDesktop.webp";
+import formatDate from "../scripts/formatDate";
 
-const articles = await fetch(import.meta.env.PUBLIC_API_BASE_URL.concat('article'), {
+const articles = await fetch(import.meta.env.PUBLIC_API_BASE_URL.concat('tips'), {
   method: 'GET',
   headers: {
     'Accept': 'application/json',
   },
 }).then((response) => response.json());
+const spanishArticles = articles.filter((article) => article.language === 'spanish');
 ---
 
 <div class="section">
@@ -31,22 +33,21 @@ const articles = await fetch(import.meta.env.PUBLIC_API_BASE_URL.concat('article
   <div id="content-noticias" class="content-item">
     {articles.length > 0 ? (
       articles.map((article) => (
-        <div class="section-content-tips news-item" id={article.id}>
-          <div>
+        <a class="section-content-tips news-item">
+          <article>
             <h4>{article.title}</h4>
             <div class="underlineNews"></div>
-            <p>{article.type}</p>
-            <br>
-            <span>{new Date(article.uploaded_at).toLocaleDateString()}</span>
-          </div>
+            <p>{article.content}</p>
+            <span>{formatDate(article.uploaded_at, language)}</span>
+          </article>
           <div class="image">
-            <img src={NewImg.src} alt="news">
+            <img src={NewImg.src} alt="news" />
           </div>
-        </div>
+        </a>
       ))
     ) : (
       <div id="result"><h3>No results found.</h3></div>
-    )
+      )}
     <div class="section-center">
       <div class="light-gold gold-button">
         <button id="load-more">{button}</button>
@@ -58,6 +59,12 @@ const articles = await fetch(import.meta.env.PUBLIC_API_BASE_URL.concat('article
 
 <style lang="scss">
   @use "../assets/sass/index" as *;
+
+  article{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
 
   #result {
     display: none;
@@ -158,7 +165,7 @@ const articles = await fetch(import.meta.env.PUBLIC_API_BASE_URL.concat('article
     font-family: $text;
     font-weight: $regular;
     font-size: 1.25rem;
-    padding-top: 10px;
+    padding-top: 20px;
   }
   
   h4 {

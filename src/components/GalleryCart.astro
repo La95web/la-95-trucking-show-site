@@ -1,6 +1,7 @@
 ---
 import Left from "../assets/image/left.png";
 import Right from "../assets/image/right.png";
+import money from "../scripts/money";
 const { title, paragraph, primarybutton, secondarybutton } = Astro.props;
 
 const products = await fetch(import.meta.env.PUBLIC_API_BASE_URL.concat('products'), {
@@ -24,18 +25,16 @@ const products = await fetch(import.meta.env.PUBLIC_API_BASE_URL.concat('product
       {products.length > 0 ? (
         products.map((product) => (
           <div class="slide">
-            <img src={product.main_image} alt={product.title}>
+            <img src={product.main_image_url} alt={product.title} />
             <figure>
               <h3>{product.title}</h3>
               <div class="underlineSecondary"></div>
-              <p>USD ${product.price}</p>
+              <p>{money(product.price)}</p>
               <div class="inline">
                 <div class="light-button dark-button">
                   <button id="addItemButton" class="add-to-cart-button" data-index={product.id}>{primarybutton}</button>
                 </div>
-                <div class="light-button darkness-button spread">
-                  <button class="openModal" data-modal="modalA">{secondarybutton}</button>
-                </div>
+                
               </div>
             </figure>
           </div>
@@ -175,7 +174,7 @@ const products = await fetch(import.meta.env.PUBLIC_API_BASE_URL.concat('product
 
   img {
     width: 100%;
-    height: auto;
+    aspect-ratio: 3 / 2;
   }
 
   .inline {

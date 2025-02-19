@@ -1,6 +1,6 @@
 ---
-import Had from "../assets/image/had.png";
-const { title, paragraph, primarybutton, secondarybutton } = Astro.props;
+import money from "../scripts/money";
+const { title, paragraph, primarybutton } = Astro.props;
 
 const products = await fetch(import.meta.env.PUBLIC_API_BASE_URL.concat('products'), {
   method: 'GET',
@@ -8,6 +8,8 @@ const products = await fetch(import.meta.env.PUBLIC_API_BASE_URL.concat('product
     'Accept': 'application/json',
   },
 }).then((response) => response.json());
+
+const spanishProducts = products.filter((product) => product.language === 'spanish');
 ---
 
 <article>
@@ -19,18 +21,16 @@ const products = await fetch(import.meta.env.PUBLIC_API_BASE_URL.concat('product
   {products.length > 0 ? (
     products.map((product) => (
       <figure id={product.id}>
-        <img src={product.main_image} alt="item"/>
+        <img src={product.main_image_url} alt="item"/>
         <h3>{product.title}</h3>
         <div class="underlineSecondary"></div>
         <p>{product.description}</p>
-        <p>USD ${product.price}</p>
+        <p>{money(product.price)}</p>
         <div class="inline">
           <div class="light-button dark-button">
             <button class="add-to-cart-button" data-index={product.id}>{primarybutton}</button>
           </div>
-          <div class="light-button darkness-button spread">
-            <button class="openModal" data-modal="modalA">{secondarybutton}</button>
-          </div>
+          
         </div>
       </figure>
     ))
@@ -93,7 +93,7 @@ const products = await fetch(import.meta.env.PUBLIC_API_BASE_URL.concat('product
 
   img {
     width: 100%;
-    height: auto;
+    aspect-ratio: 3 / 2;
   }
 
   .inline {

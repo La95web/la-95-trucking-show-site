@@ -24,7 +24,7 @@ const ArticlesListItem = ({ article }) => {
           })}</p>
         </div>
         <div>
-          <a href={`/admin/articles/${article.id}`} className={styles.link}>Ver Secciones</a><br />
+          {/* <a href={`/admin/articles/${article.id}`} className={styles.link}>Ver Secciones</a><br /> */}
           <button onClick={openModal}>Editar</button><br />
           <button onClick={handleDestroy}>Eliminar</button><br />
         </div>
