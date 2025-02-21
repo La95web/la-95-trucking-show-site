@@ -9,7 +9,7 @@ export default defineConfig({
   prefetch: true,
 
   vite: {
-    base: '/majestic-pastelito-8bd1d8.netlify.app',
+    base: '/la-95-trucking-show.netlify.app',
     css: {
       preprocessorOptions: {
         scss: {
