@@ -9,7 +9,7 @@ export default defineConfig({
   prefetch: true,
 
   vite: {
-    base: '67b7f88a2aeca0e6fdc42cdd--majestic-pastelito-8bd1d8.netlify.app',
+    base: '/majestic-pastelito-8bd1d8.netlify.app',
     css: {
       preprocessorOptions: {
         scss: {
