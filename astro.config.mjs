@@ -1,15 +1,14 @@
 import { defineConfig } from 'astro/config';
 
-import node from '@astrojs/node';
-
 import react from '@astrojs/react';
+
+import netlify from '@astrojs/netlify';
 
 // https://astro.build/config
 export default defineConfig({
   prefetch: true,
 
   vite: {
-    base: '/la-95-trucking-show.netlify.app',
     css: {
       preprocessorOptions: {
         scss: {
@@ -19,9 +18,7 @@ export default defineConfig({
     }
   },
 
-  adapter: node({
-    mode: 'standalone',
-  }),
+  adapter: netlify(),
 
   integrations: [react()],
 });
