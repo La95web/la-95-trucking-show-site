@@ -42,7 +42,7 @@ const spanishArticles = articles.filter((article) => article.language === 'spani
             <span>{formatDate(article.uploaded_at, language)}</span>
           </article>
           <div class="image">
-            <img src={article.main_image} alt="news" />
+            <img src={article.thumbnail_url} alt="news" />
           </div>
         </div>
       ))
