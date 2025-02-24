@@ -1,9 +1,5 @@
 document.addEventListener('DOMContentLoaded', () => {
-  const products = JSON.parse(localStorage.getItem('products')) || [
-    { name: "Producto 1", price: 170.00, type: "Tipo 1"},
-    { name: "Producto 2", price: 180.00, type: "Tipo 2"},
-    { name: "Producto 3", price: 190.00, type: "Tipo 3"},
-  ];
+  const products = JSON.parse(localStorage.getItem('products'));
 
   localStorage.setItem('products', JSON.stringify(products));
 

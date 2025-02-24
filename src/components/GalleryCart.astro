@@ -2,7 +2,7 @@
 import Left from "../assets/image/left.png";
 import Right from "../assets/image/right.png";
 import money from "../scripts/money";
-const { title, paragraph, primarybutton, secondarybutton } = Astro.props;
+const { title, paragraph, primarybutton} = Astro.props;
 
 const products = await fetch(import.meta.env.PUBLIC_API_BASE_URL.concat('products'), {
   method: 'GET',
@@ -40,7 +40,7 @@ const products = await fetch(import.meta.env.PUBLIC_API_BASE_URL.concat('product
           </div>
         ))
       ) : (
-        <div id="result"><h3>No results found.</h3></div>
+        <div id="result"><h3>No products found.</h3></div>
       )}
     </div>
     <div class="gallery-dots" id="gallerySliderCart">
@@ -168,7 +168,7 @@ const products = await fetch(import.meta.env.PUBLIC_API_BASE_URL.concat('product
     margin: 0 5%; 
   }
 
-  p{
+  p {
     text-align: center;
   }
 
