@@ -1,6 +1,5 @@
 ---
 const { title, language = 'es', paragraph, button, navNews, navTips, link1, link2 } = Astro.props;
-import NewImg from "../assets/image/logoDesktop.webp";
 import formatDate from "../scripts/formatDate";
 
 const articles = await fetch(import.meta.env.PUBLIC_API_BASE_URL.concat('news'), {
