@@ -11,8 +11,4 @@ document.addEventListener('DOMContentLoaded', () => {
   pauseButton.addEventListener('click', () => {
     radioPlayer.pause();
   });
-
-  volumetButton.addEventListener('click', () => {
-    radioPlayer.pause();
-  });
 });
