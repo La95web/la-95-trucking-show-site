@@ -8,7 +8,6 @@ const articles = await fetch(import.meta.env.PUBLIC_API_BASE_URL.concat('tips'),
     'Accept': 'application/json',
   },
 }).then((response) => response.json());
-const spanishArticles = articles.filter((article) => article.language === 'spanish');
 ---
 
 <div class="section">
@@ -31,7 +30,7 @@ const spanishArticles = articles.filter((article) => article.language === 'spani
   </div>
   <div id="content-noticias" class="content-item">
     {articles.length > 0 ? (
-      articles.map((article) => (
+      articles.filter((article) => article.language === 'spanish').map((article) => (
         <a class="section-content-tips news-item">
           <article>
             <h4>{article.title}</h4>
@@ -46,7 +45,7 @@ const spanishArticles = articles.filter((article) => article.language === 'spani
       ))
     ) : (
       <div id="result"><h3>No results found.</h3></div>
-      )}
+    )}
     <div class="section-center">
       <div class="light-gold gold-button">
         <button id="load-more">{button}</button>
@@ -54,7 +53,6 @@ const spanishArticles = articles.filter((article) => article.language === 'spani
     </div>
   </div>
 </div>
-
 
 <style lang="scss">
   @use "../assets/sass/index" as *;

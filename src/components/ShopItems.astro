@@ -16,7 +16,7 @@ const products = await fetch(import.meta.env.PUBLIC_API_BASE_URL.concat('product
   <p>{paragraph}</p>
 </article>
 <section>
-  {products.map((product, index) => (
+  {products.filter((product) => product.language === 'spanish').map((product, index) => (
     <figure id={`product-${index}`}>
       <img src={product.main_image_url} alt={product.title}/>
       <h3>{product.title}</h3>
