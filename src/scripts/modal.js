@@ -52,19 +52,39 @@ document.addEventListener('DOMContentLoaded', () => {
 // Gallery
 document.addEventListener('DOMContentLoaded', () => {
   const slider = document.getElementById('gallerySlider');
-  const dots = document.querySelectorAll('.dot');
+  const dotsContainer = document.getElementById('galleryDots');
+  const leftArrow = document.getElementById('leftArrow');
+  const rightArrow = document.getElementById('rightArrow');
+
+  const totalImages = slider.querySelectorAll('img').length;
+  const MAX_DOTS = 7; // Número máximo de puntos visibles
+  const totalDots = Math.min(MAX_DOTS, totalImages);
+
+  // Crear puntos dinámicamente
+  for (let i = 0; i < totalDots; i++) {
+    const dot = document.createElement('span');
+    dot.className = 'dot';
+    dot.setAttribute('data-index', i);
+    dotsContainer.appendChild(dot);
+  }
+
+  const dots = dotsContainer.querySelectorAll('.dot');
   let currentIndex = 0;
 
   function updateGallery() {
     const width = slider.clientWidth;
     slider.style.transform = `translateX(-${currentIndex * width}px)`;
 
-    dots.forEach(dot => dot.classList.remove('active'));
-    dots[currentIndex].classList.add('active');
+    dots.forEach((dot, index) => {
+      const dotIndex = (currentIndex + index) % totalDots;
+      dot.setAttribute('data-index', dotIndex);
+      dot.classList.remove('active');
+      if (index === 0) dot.classList.add('active');
+    });
 
     if (window.innerWidth > 1024) {
       leftArrow.style.display = currentIndex === 0 ? 'none' : 'block';
-      rightArrow.style.display = currentIndex === dots.length - 1 ? 'none' : 'block';
+      rightArrow.style.display = currentIndex === totalImages - 1 ? 'none' : 'block';
     } else {
       leftArrow.style.display = 'none';
       rightArrow.style.display = 'none';
@@ -78,7 +98,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   dots.forEach(dot => {
     dot.addEventListener('click', () => {
-      setIndex(dot.getAttribute('data-index'));
+      setIndex(parseInt(dot.getAttribute('data-index')));
     });
   });
 
@@ -89,7 +109,7 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
   document.getElementById('rightArrow').addEventListener('click', () => {
-    if (currentIndex < dots.length - 1) {
+    if (currentIndex < totalImages - 1) {
       setIndex(currentIndex + 1);
     }
   });
@@ -98,29 +118,32 @@ document.addEventListener('DOMContentLoaded', () => {
   let touchEndX = 0;
 
   slider.addEventListener('touchstart', (e) => {
-    touchStartX = e.changedTouches[0].screenX;
+    touchStartX = e.touches[0].clientX;
   });
 
   slider.addEventListener('touchend', (e) => {
-    touchEndX = e.changedTouches[0].screenX;
-    handleGesture();
+    touchEndX = e.changedTouches[0].clientX;
+    handleSwipe();
   });
 
-  function handleGesture() {
+  function handleSwipe() {
     if (touchEndX < touchStartX) {
-      if (currentIndex < dots.length - 1) {
+      // Swipe left
+      if (currentIndex < totalImages - 1) {
         setIndex(currentIndex + 1);
       }
     }
     if (touchEndX > touchStartX) {
+      // Swipe right
       if (currentIndex > 0) {
         setIndex(currentIndex - 1);
       }
     }
   }
-
-  updateGallery();
+  
+  updateGallery(); // Actualiza la galería al cargar la página
 });
+
 
   // animation
 
