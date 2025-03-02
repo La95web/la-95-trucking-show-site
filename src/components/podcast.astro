@@ -8,8 +8,6 @@ const podcasts = await fetch(import.meta.env.PUBLIC_API_BASE_URL.concat('podcast
     'Accept': 'application/json',
   },
 }).then((response) => response.json());
-
-const spanishPodcasts = podcasts.filter((podcast) => podcast.language === 'spanish');
 ---
 
 <div class="section">
@@ -20,11 +18,11 @@ const spanishPodcasts = podcasts.filter((podcast) => podcast.language === 'spani
 
 <section>
   {podcasts.length > 0 ? (
-    podcasts.map((podcast) => (
+    podcasts.filter((podcast) => podcast.language === 'spanish').map((podcast) => (
       <figure class="news-item">
         <div class="section-image">
           <div class="gradient">
-          <img src={Play.src} alt="logo" />
+            <img src={Play.src} alt="logo" />
           </div>
           <a href={podcast.video_url} target="_blank">
             <img src={podcast.thumbnail} alt="imagen" class="radio" />
@@ -42,7 +40,6 @@ const spanishPodcasts = podcasts.filter((podcast) => podcast.language === 'spani
   ) : (
     <div id="result"><h3>No results found.</h3></div>
   )}
-
 </section>
 
 <style lang="scss">

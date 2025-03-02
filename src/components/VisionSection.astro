@@ -1,6 +1,6 @@
 ---
 const {titleA, titleB, titleC, titleD, textA, textB, textC} = Astro.props;
-import imagesvision from "../assets/image/Misionteam.webp";
+import imagesvision from "../assets/image/josemiguel.jpg";
 ---
 
 <section>
@@ -98,11 +98,13 @@ import imagesvision from "../assets/image/Misionteam.webp";
   }
 
   figure img {
-    display: block;
-    margin-top: 20px;
-    width: 100%;
-    height: auto;
-  }
+  display: block;
+  margin-top: 20px;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
 
   .flex {
     background-color: $primary;

@@ -35,7 +35,7 @@ function moveCarousel() {
       carousel.scrollLeft = 0;
   }
 }
-setInterval(moveCarousel, 20);
+setInterval(moveCarousel, 30);
 
   // animation
 

@@ -1,8 +1,4 @@
 document.addEventListener('DOMContentLoaded', () => {
-  const products = JSON.parse(localStorage.getItem('products'));
-
-  localStorage.setItem('products', JSON.stringify(products));
-
   function addToCart(item) {
     const cart = JSON.parse(localStorage.getItem('cart')) || [];
     const existingItem = cart.find(cartItem => cartItem.name === item.name);
