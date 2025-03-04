@@ -58,10 +58,11 @@ document.addEventListener('DOMContentLoaded', () => {
 
   const totalImages = slider.querySelectorAll('img').length;
   const MAX_DOTS = 7; // Número máximo de puntos visibles
-  const totalDots = Math.min(MAX_DOTS, totalImages);
+
+  let currentIndex = 0;
 
   // Crear puntos dinámicamente
-  for (let i = 0; i < totalDots; i++) {
+  for (let i = 0; i < MAX_DOTS; i++) {
     const dot = document.createElement('span');
     dot.className = 'dot';
     dot.setAttribute('data-index', i);
@@ -69,17 +70,16 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   const dots = dotsContainer.querySelectorAll('.dot');
-  let currentIndex = 0;
 
   function updateGallery() {
     const width = slider.clientWidth;
     slider.style.transform = `translateX(-${currentIndex * width}px)`;
 
     dots.forEach((dot, index) => {
-      const dotIndex = (currentIndex + index) % totalDots;
+      const dotIndex = (currentIndex + index) % totalImages;
       dot.setAttribute('data-index', dotIndex);
       dot.classList.remove('active');
-      if (index === 0) dot.classList.add('active');
+      if (index === (currentIndex % MAX_DOTS)) dot.classList.add('active');
     });
 
     if (window.innerWidth > 1024) {
@@ -93,7 +93,22 @@ document.addEventListener('DOMContentLoaded', () => {
 
   function setIndex(index) {
     currentIndex = index;
+    updateDots();
     updateGallery();
+  }
+
+  function updateDots() {
+    const startIndex = Math.max(currentIndex - Math.floor(MAX_DOTS / 2), 0);
+    const endIndex = Math.min(startIndex + MAX_DOTS, totalImages);
+
+    dots.forEach((dot, index) => {
+      if (index < endIndex - startIndex) {
+        dot.style.display = 'inline-block';
+        dot.setAttribute('data-index', startIndex + index);
+      } else {
+        dot.style.display = 'none';
+      }
+    });
   }
 
   dots.forEach(dot => {
@@ -102,13 +117,13 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
-  document.getElementById('leftArrow').addEventListener('click', () => {
+  leftArrow.addEventListener('click', () => {
     if (currentIndex > 0) {
       setIndex(currentIndex - 1);
     }
   });
 
-  document.getElementById('rightArrow').addEventListener('click', () => {
+  rightArrow.addEventListener('click', () => {
     if (currentIndex < totalImages - 1) {
       setIndex(currentIndex + 1);
     }
@@ -140,9 +155,11 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     }
   }
-  
+
   updateGallery(); // Actualiza la galería al cargar la página
+  updateDots(); // Actualiza los puntos al cargar la página
 });
+
 
 
   // animation
