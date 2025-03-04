@@ -57,11 +57,10 @@ document.addEventListener('DOMContentLoaded', () => {
   const rightArrow = document.getElementById('rightArrow');
 
   const totalImages = slider.querySelectorAll('img').length;
-  const MAX_DOTS = 7; // Número máximo de puntos visibles
+  const MAX_DOTS = 7; 
 
   let currentIndex = 0;
 
-  // Crear puntos dinámicamente
   for (let i = 0; i < MAX_DOTS; i++) {
     const dot = document.createElement('span');
     dot.className = 'dot';
@@ -143,25 +142,20 @@ document.addEventListener('DOMContentLoaded', () => {
 
   function handleSwipe() {
     if (touchEndX < touchStartX) {
-      // Swipe left
       if (currentIndex < totalImages - 1) {
         setIndex(currentIndex + 1);
       }
     }
     if (touchEndX > touchStartX) {
-      // Swipe right
       if (currentIndex > 0) {
         setIndex(currentIndex - 1);
       }
     }
   }
 
-  updateGallery(); // Actualiza la galería al cargar la página
-  updateDots(); // Actualiza los puntos al cargar la página
+  updateGallery(); 
+  updateDots(); 
 });
-
-
-
   // animation
 
   document.addEventListener('DOMContentLoaded', () => {
