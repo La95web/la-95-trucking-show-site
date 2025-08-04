@@ -1,0 +1,240 @@
+---
+const {title, Team1, Team2} = Astro.props;
+---
+
+<section>
+  <h2>Lorem ipsum dolor sit amet.</h2>
+  <div class="section-content"> 
+    <div class="content-block">
+      <i class="ph ph-shield-plus"></i>
+      <p>Seguros medicos</p>
+    </div>
+    <div class="content-block">
+      <i class="ph ph-truck"></i>
+      <p>Lorem, ipsum.</p>
+    </div>
+    <div class="content-block">
+      <i class="ph ph-tire"></i>
+      <p>Lorem ipsum dolor sit.</p>
+    </div>
+    <div class="content-block">
+      <i class="ph ph-building"></i>
+      <p>Seguros medicos</p>
+    </div>
+    <div class="content-block">
+      <i class="ph ph-wrench"></i>
+      <p>Lorem, ipsum.</p>
+    </div>
+    <div class="content-block">
+      <i class="ph ph-scales"></i>
+      <p>Lorem ipsum dolor sit.</p>
+    </div>
+    <div class="content-block">
+      <i class="ph ph-scales"></i>
+      <p>Lorem ipsum dolor sit.</p>
+    </div>
+    <div class="content-block">
+      <i class="ph ph-scales"></i>
+      <p>Lorem ipsum dolor sit.</p>
+    </div>
+    <div class="content-block">
+      <i class="ph ph-scales"></i>
+      <p>Lorem ipsum dolor sit.</p>
+    </div>
+  </div>
+</section>
+
+<section> 
+  <h2>Lorem ipsum dolor sit amet.</h2>
+  <div class="section-content">
+    <div class="content-box">
+      <p>Lorem, ipsum dolor.</p>
+    </div>
+    <div class="content-box">
+      <p>Lorem, ipsum dolor.</p>
+    </div>
+    <div class="content-box">
+      <p>Lorem, ipsum dolor.</p>
+    </div>
+    <div class="content-box">
+      <p>Lorem, ipsum dolor.</p>
+    </div>
+    <div class="content-box">
+      <p>Lorem, ipsum dolor.</p>
+    </div>
+    <div class="content-box">
+      <p>Lorem, ipsum dolor.</p>
+    </div>
+    <div class="content-box">
+      <p>Lorem, ipsum dolor.</p>
+    </div>
+    <div class="content-box">
+      <p>Lorem, ipsum dolor.</p>
+    </div>
+  </div>
+</section>
+
+<section>
+  <h2>Llena el formulario y suscribete ahora.!!</h2>
+  <form class="subscription-form">
+    <div class="form-group">
+      <input type="text" name="nombre" placeholder="Nombre" required />
+      <input type="text" name="apellido" placeholder="Apellido" required />
+    </div>
+    <div class="form-group">
+      <input type="email" name="email" placeholder="Email" required />
+      <input type="tel" name="telefono" placeholder="Teléfono" required />
+    </div>
+    <div class="form-group checkbox-group">
+      <input type="checkbox" id="terminos" name="terminos" required />
+      <label for="terminos">
+      Acepto los <a href="/terminos" target="_blank">términos y condiciones</a>
+      </label>
+    </div>
+    <div class="form-group button-group">
+      <button type="submit" class="btn mensual">Suscripción mensual $5</button>
+      <button type="submit" class="btn anual">Suscripción anual $45 (ahorra un 25%)</button>
+    </div>
+  </form>
+</section>
+
+
+<style lang="scss">
+  @use "../assets/sass/index" as *;
+
+  section {
+    text-align: center;
+    padding: 50px 0;
+    background-color: $primary;
+  }
+
+  .section-content {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    background-color: $primary;
+    padding-top: 70px;
+    padding-bottom: 70px;
+    margin: 0 5%;
+  }
+
+  .content-block {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    font-size: 1.5rem;
+    font-weight: $regular;
+    font-family: $heading;
+    border: 2px solid $accent-b-light;
+    background-color: $tertiary;
+    border-radius: 8px;
+    padding: 5px 30px;
+    gap: 10px;
+    max-width: 350px;
+    width: 100%;
+    box-sizing: border-box;
+  }
+
+  .content-block i {
+    color: $accent-b-light;
+    font-size: 2rem;
+  }
+
+  .content-box {
+    font-size: 1.5rem;
+    font-weight: $regular;
+    font-family: $heading;
+    background-color: $tertiary;
+    border-radius: 8px;
+    padding: 20px;
+    max-width: 300px;
+    width: 100%;
+    box-sizing: border-box;
+    transition: transform 0.2s ease;
+    cursor: pointer;
+  }
+
+  .content-box:hover {
+    transform: scale(1.05);
+  }
+
+  // form styles
+ .subscription-form {
+    max-width: 800px;
+    margin: 30px auto 0 auto;
+    background: $tertiary;
+    padding: 30px 20px;
+    border-radius: 12px;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+  }
+
+  .form-group {
+    display: flex;
+    gap: 16px;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .form-group input[type="text"],
+  .form-group input[type="email"],
+  .form-group input[type="tel"] {
+    flex: 1 1 180px;
+    padding: 10px;
+    border-radius: 6px;
+    border: 1px solid $accent-b-light;
+    font-size: 1rem;
+    background: #fff;
+  }
+
+  .checkbox-group {
+    align-items: center;
+    gap: 8px;
+    justify-content: flex-start;
+  }
+
+  .checkbox-group label {
+    font-size: 0.95rem;
+  }
+
+  .button-group {
+    display: flex;
+    gap: 16px;
+    justify-content: center;
+  }
+
+  .btn {
+    padding: 12px 24px;
+    border-radius: 8px;
+    border: none;
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+    background: $accent-b-light;
+    color: #fff;
+    transition: background 0.2s;
+  }
+
+  .btn.mensual {
+    background: $accent-b-light;
+  }
+
+  .btn.anual {
+    background: $primary;
+  }
+
+  .btn:hover {
+    filter: brightness(0.95);
+  }
+
+  label {
+    font-size: 0.95rem;
+    color: white;
+    
+  }
+  
+</style>
