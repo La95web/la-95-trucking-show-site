@@ -1,0 +1,55 @@
+---
+import EnglishLayout from "../../layouts/EnglishLayout.astro";
+import Footer from "../../components/Footer.astro";
+---
+
+<EnglishLayout title="Terms and conditions">
+<section>
+  <h1>Terms and Conditions</h1>
+  <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Temporibus inventore labore veniam eveniet adipisci quis in, esse, magnam voluptates ab recusandae provident corrupti deserunt dolor quibusdam error cupiditate explicabo veritatis porro perspiciatis natus at ad placeat quaerat? Omnis tempore, ipsam placeat provident temporibus impedit. Soluta cum ipsam debitis porro, vel laboriosam natus repellendus molestias necessitatibus quis? Aliquid aliquam vero rerum tempore nobis consectetur ullam eum cum minima consequuntur, id perferendis aperiam sunt accusamus nulla unde dolorem adipisci. Quibusdam excepturi vitae cupiditate ex velit quae suscipit magni explicabo ad enim asperiores mollitia rem doloribus in, expedita blanditiis. At reprehenderit quasi nihil adipisci ad obcaecati autem officiis odio est minima assumenda consequatur quod, facilis nesciunt perferendis fugit culpa quam illum temporibus esse ipsa earum voluptates sapiente fugiat. Reiciendis inventore, veritatis asperiores, libero iusto excepturi impedit atque sunt quos voluptatibus aperiam harum quis. Eveniet adipisci a doloremque natus dolorem ipsa reiciendis illum animi rerum. Nesciunt possimus porro officiis ab quaerat maxime facere impedit veniam necessitatibus perspiciatis! Quidem cum tenetur totam odio provident voluptates porro, debitis quisquam ipsum fugit magnam temporibus sit ex itaque aut, reiciendis placeat repellendus laboriosam id nihil laudantium, molestiae quia corrupti. Expedita laudantium quam, aperiam ex quisquam perferendis praesentium asperiores.
+  </p>
+</section>
+  
+  <Footer />
+</EnglishLayout>
+<script>
+  import "../scripts/mainMenu.js"
+</script>
+
+<style lang="scss">
+  @use "../assets/sass/index" as *;
+
+    section {
+			display: block;
+			padding: 12rem;
+			min-height: 100vh;
+    }
+
+    h1 {
+        font-size: 2.5rem;
+        margin-bottom: 1rem;
+        text-align: center;
+    }
+
+    p {
+        font-size: 1.2rem;
+        line-height: 1.6;
+        margin-bottom: 1rem;
+        text-align: justify;
+    }
+
+		@media (max-width: 768px) {
+				section {
+						padding: 3rem;
+						margin-top: 90px;
+				}
+
+				h1 {
+						font-size: 2rem;
+				}
+
+				p {
+						font-size: 1rem;
+				}
+		}	
+</style>
