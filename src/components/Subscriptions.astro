@@ -1,9 +1,17 @@
 ---
+import imageA from '../assets/image/business1.jpg';
+import imageB from '../assets/image/business2.jpg';
+import imageC from '../assets/image/business3.jpg';
+import imageD from '../assets/image/business4.jpg';
+import imageE from '../assets/image/business5.jpg';
+import imageF from '../assets/image/business6.jpg';
+import imageG from '../assets/image/business7.jpg';
+import imageH from '../assets/image/business8.jpg';
 const {title, Team1, Team2} = Astro.props;
 ---
 
 <section>
-  <h2>Lorem ipsum dolor sit amet.</h2>
+  <h2>Suscríbete ahora y podras tener los siguientes beneficios.</h2>
   <div class="section-content"> 
     <div class="content-block">
       <i class="ph ph-shield-plus"></i>
@@ -45,37 +53,41 @@ const {title, Team1, Team2} = Astro.props;
 </section>
 
 <section> 
-  <h2>Lorem ipsum dolor sit amet.</h2>
+  <h2>Empresas donde podras usar tu cupon.</h2>
   <div class="section-content">
     <div class="content-box">
-      <p>Lorem, ipsum dolor.</p>
+      <img src={imageA.src} class="modal-img" alt="#">
     </div>
     <div class="content-box">
-      <p>Lorem, ipsum dolor.</p>
+      <img src={imageB.src} class="modal-img" alt="#">
     </div>
     <div class="content-box">
-      <p>Lorem, ipsum dolor.</p>
+      <img src={imageC.src} class="modal-img" alt="#">
     </div>
     <div class="content-box">
-      <p>Lorem, ipsum dolor.</p>
+      <img src={imageD.src} class="modal-img" alt="#">
     </div>
     <div class="content-box">
-      <p>Lorem, ipsum dolor.</p>
+      <img src={imageE.src} class="modal-img" alt="#">
     </div>
     <div class="content-box">
-      <p>Lorem, ipsum dolor.</p>
+      <img src={imageF.src} class="modal-img" alt="#">
     </div>
     <div class="content-box">
-      <p>Lorem, ipsum dolor.</p>
+      <img src={imageG.src} class="modal-img" alt="#">
     </div>
     <div class="content-box">
-      <p>Lorem, ipsum dolor.</p>
+      <img src={imageH.src} class="modal-img" alt="#">
     </div>
+  </div>
+  <div id="imgModal" class="modal">
+    <span class="close">&times;</span>
+    <img class="modal-content" id="modalImg" />
   </div>
 </section>
 
 <section>
-  <h2>Llena el formulario y suscribete ahora.!!</h2>
+  <h2>Llena el formulario y suscríbete ahora.!!</h2>
   <form class="subscription-form">
     <div class="form-group">
       <input type="text" name="nombre" placeholder="Nombre" required />
@@ -88,7 +100,7 @@ const {title, Team1, Team2} = Astro.props;
     <div class="form-group checkbox-group">
       <input type="checkbox" id="terminos" name="terminos" required />
       <label for="terminos">
-      Acepto los <a href="/terminos" target="_blank">términos y condiciones</a>
+      <a href="/terminos" target="_blank">Acepto los términos y condiciones</a>
       </label>
     </div>
     <div class="form-group button-group">
@@ -97,6 +109,26 @@ const {title, Team1, Team2} = Astro.props;
     </div>
   </form>
 </section>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    const modal = document.getElementById('imgModal');
+    const modalImg = document.getElementById('modalImg');
+    const closeBtn = document.querySelector('.modal .close');
+    document.querySelectorAll('.modal-img').forEach(img => {
+      img.addEventListener('click', function () {
+        modal.style.display = 'flex';
+        modalImg.src = this.src;
+      });
+    });
+    closeBtn.addEventListener('click', function () {
+      modal.style.display = 'none';
+    });
+    modal.addEventListener('click', function (e) {
+      if (e.target === modal) modal.style.display = 'none';
+    });
+  });
+</script>
 
 
 <style lang="scss">
@@ -122,19 +154,28 @@ const {title, Team1, Team2} = Astro.props;
 
   .content-block {
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     align-items: center;
-    font-size: 1.5rem;
+    justify-content: center;
+    font-size: 1.1rem;
     font-weight: $regular;
     font-family: $heading;
     border: 2px solid $accent-b-light;
     background-color: $tertiary;
     border-radius: 8px;
-    padding: 5px 30px;
-    gap: 10px;
-    max-width: 350px;
-    width: 100%;
+    width: 180px;      
+    height: 180px;        
     box-sizing: border-box;
+    padding: 16px;
+    gap: 10px;
+    text-align: center;  
+    overflow: hidden;   
+    transition: box-shadow 0.2s;
+  }
+
+  .content-block i {
+    color: $accent-b-light;
+    font-size: 2rem;
   }
 
   .content-block i {
@@ -143,21 +184,52 @@ const {title, Team1, Team2} = Astro.props;
   }
 
   .content-box {
-    font-size: 1.5rem;
-    font-weight: $regular;
-    font-family: $heading;
-    background-color: $tertiary;
-    border-radius: 8px;
-    padding: 20px;
-    max-width: 300px;
-    width: 100%;
-    box-sizing: border-box;
-    transition: transform 0.2s ease;
-    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
   }
 
-  .content-box:hover {
-    transform: scale(1.05);
+  .content-box img {
+    width: 160px;
+    height: 160px;
+    object-fit: cover;
+    border-radius: 0%;
+    border: 5px solid $tertiary;
+    display: block;
+    margin: 0 auto;
+    cursor: pointer;
+  }
+  //modal img
+  .modal {
+    display: none;
+    position: fixed;
+    z-index: 9999;
+    left: 0;
+    top: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0,0,0,0.7);
+    justify-content: center;
+    align-items: center;
+  }
+
+  .modal-content {
+    max-width: 80vw;
+    max-height: 80vh;
+    border-radius: 16px;
+    box-shadow: 0 2px 24px rgba(0,0,0,0.2);
+  }
+
+  .close {
+    position: absolute;
+    top: 40px;
+    right: 60px;
+    color: #fff;
+    font-size: 3rem;
+    font-weight: bold;
+    cursor: pointer;
+    z-index: 10000;
   }
 
   // form styles
@@ -220,7 +292,8 @@ const {title, Team1, Team2} = Astro.props;
   }
 
   .btn.mensual {
-    background: $accent-b-light;
+    background: $accent-c-light;
+    padding: 12px 80px;
   }
 
   .btn.anual {
@@ -231,10 +304,25 @@ const {title, Team1, Team2} = Astro.props;
     filter: brightness(0.95);
   }
 
-  label {
-    font-size: 0.95rem;
-    color: white;
-    
+  a {
+    color: $accent-b-light;
+    text-decoration: underline;
+    font-size: 0.9em;
   }
-  
+
+  @media (min-width: 1024px) {
+
+    .content-block {
+      flex-direction: row;
+      align-items: left;
+      justify-content: left;
+      width: 350px;      
+      height: 70px;        
+    } 
+
+    .content-box img {
+      width: 220px;
+      height: 220px;
+    }
+  }
 </style>
