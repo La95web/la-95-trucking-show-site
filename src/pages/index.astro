@@ -1,11 +1,7 @@
 ---
 import HomeSlider from "../components/HomeSlider.astro";
 import Subscriptions from "../components/Subscriptions.astro";
-import Radio from "../components/Radio.astro";
-import PrimarySection from "../components/PrimarySection.astro";
 import SpanishLayout from "../layouts/SpanishLayout.astro";
-import Carousel from "../components/Carousel.astro";
-import Magazine from "../components/Magazine.astro";
 import Newsletter from "../components/Newsletter.astro";
 import Whatsapp from "../components/Whatsapp.astro";
 import Footer from "../components/Footer.astro";
@@ -13,26 +9,24 @@ import SecondarySection from "../components/SecondarySection.astro";
 import truck1 from "../assets/image/camion.webp";
 import truck2 from "../assets/image/truck2.webp";
 import truck3 from "../assets/image/truck3.webp";
+import VisionSection from "../components/VisionSection.astro";
 ---
 
 <SpanishLayout title="la 95 trucking show">
   <HomeSlider images={[truck1.src, truck2.src, truck3.src]} />
   <Subscriptions />
-  <!-- <Radio /> -->
-  <!-- <PrimarySection 
-  title="EL PODCAST MÁS DURO"
-  paragraph="¡Bienvenidos a La 95 Trucking Show, el podcast hecho por y para camioneros! 🚛✨ Aquí hablamos de la vida en la carretera, anécdotas inolvidables, consejos útiles y todo lo que mueve el mundo del transporte. Si te apasiona la ruta, las historias de carretera y quieres ser parte de esta gran comunidad sobre ruedas, este es tu espacio. ¡Ajusta el cinturón, enciende el motor y acompáñanos en este viaje! No olvides suscribirte y compartir con otros compañeros de ruta." 
-  button="ver más"/> -->
+  <VisionSection
+  titleA="nuestra razón de ser"
+  titleB="mision"
+  titleC="vision"
+  titleD="valores"
+  textA="Ser el podcast líder en la comunidad camionera, brindando información relevante, entretenimiento y un espacio de expresión para los conductores de camiones. Buscamos dar voz a quienes recorren las carreteras, compartiendo sus experiencias, desafíos y éxitos, mientras fortalecemos el sentido de comunidad y apoyo mutuo."
+  textB="Convertirnos en el referente principal para los camioneros de habla hispana, creando un espacio donde se compartan conocimientos, anécdotas y noticias del sector. Aspiramos a influir positivamente en la industria del transporte y mejorar la calidad de vida de los conductores a través de contenido valioso y auténtico."
+  textC="Nuestros valores son el respeto por la labor de los camioneros, la autenticidad en las historias, el compromiso con contenido relevante, la unidad para fomentar la solidaridad y la pasión por la industria del transporte."/>
   <SecondarySection
-  title="Conviértete en patrocinador"
-  paragraph="Únase a La 95 Trucking Show y aumente la visibilidad de su marca ante una audiencia comprometida. Aproveche nuestras recomendaciones auténticas y el formato de contenido en crecimiento para generar credibilidad y confianza. Explore una alianza de patrocinio con nosotros para impulsar su marca a nuevos horizontes."
-  button="contáctanos" /> 
-  <Carousel />
-  <Magazine 
-  titleA="Descargar nuestra revista"
-  textA="¡Descubre un mundo de conocimiento e inspiración! Descarga nuestra revista y sumérgete en artículos exclusivos, tendencias actuales y consejos que transformarán tu visión. ¡No te lo pierdas, el siguiente nivel está a un clic de distancia!"
-  textB="Muy pronto!"
-  button="descargar"/>
+  title="Mira nuestros ultimos podcasts"
+  paragraph="SuscrÍbete a nuestro canal de youtube y no te pierdas ningun episodio."
+  button="Podcast" />
   <Newsletter
   titleA="Recibe notificaciones y avisos"
   textB="¡Mantente al día! Suscríbete para recibir las últimas novedades y eventos directamente en tu dispositivo. Confirma tu interés y no te pierdas ninguna noticia importante. Activa las notificaciones ahora."
@@ -48,5 +42,4 @@ import truck3 from "../assets/image/truck3.webp";
 </SpanishLayout>
 <script>
 	import "../scripts/home.js";
-  import "../scripts/Radio.js"
 </script>
