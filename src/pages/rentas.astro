@@ -1,0 +1,16 @@
+---
+import SpanishLayout from "../layouts/SpanishLayout.astro";
+import Footer from "../components/Footer.astro";
+import Realstate from "../components/Realstate.astro";
+import room1 from "../assets/image/room1.png";
+import room2 from "../assets/image/bad1.png";
+---
+
+<SpanishLayout title="Rentas - La 95 Trucking Show">
+
+  <Realstate images={[room1.src, room2.src]} />
+  <Footer />
+</SpanishLayout>
+<script>
+  import "../scripts/mainMenu.js"
+</script>

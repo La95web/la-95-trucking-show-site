@@ -18,18 +18,20 @@ import VisionSection from "../components/VisionSection.astro";
 import PanelistasCard from "../components/PanelistasCard.astro";
 import Modal from "../components/Modal.astro";
 import Gallery from "../components/Gallery.astro";
-import Team1 from "../assets/image/MisionteamMovil.jpg";
-import Team2 from "../assets/image/Misionteam2.jpg";
+import Team1 from "../assets/image/headerMovil.jpg";
+import Team2 from "../assets/image/headerDesktop.jpg";
 import Footer from "../components/Footer.astro";
+import Category from "../components/category.astro";
 ---
 
 
 <SpanishLayout title="la 95 trucking show">
   <HeaderBanner 
-  titleUs="nosotros"
+  titleUs="Empleos"
   Team1={Team1}
   Team2={Team2}/>
-  <AboutUsSection 
+  <Category/>
+  <!-- <AboutUsSection 
   title="quienes somos"
   paragraph="Nuestra misión es ser el podcast líder en la comunidad camionera, brindando información relevante, entretenimiento y un espacio de expresión para los conductores de camiones. Queremos dar voz a quienes recorren las carreteras, compartiendo sus experiencias y fortaleciendo el sentido de comunidad y apoyo mutuo. Nuestra visión es convertirnos en el referente principal para camioneros de habla hispana, mejorando la calidad de vida de los conductores a través de contenido valioso y auténtico." />
   <VisionSection
@@ -141,7 +143,7 @@ import Footer from "../components/Footer.astro";
   button="ver más"
   />
   <Gallery
-  title="galeria" />
+  title="galeria" /> -->
   <Footer />
 </SpanishLayout>
 <script>

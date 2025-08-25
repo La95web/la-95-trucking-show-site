@@ -1,0 +1,28 @@
+---
+import SpanishLayout from "../layouts/SpanishLayout.astro";
+import Footer from "../components/Footer.astro";
+import Drivers from "../components/Drivers.astro";
+import Modal from "../components/modaldispatcher.astro";
+import Job1 from "../assets/image/dispatcher.png";
+---
+
+<SpanishLayout title="Empleo para Dispatcher">
+  <Drivers
+  title = "Dispatcher" 
+  guest2="Se busca dispatcher en ITR"
+  image2={Job1}
+  description2="Únete a nuestro equipo en empresas de transporte"
+  button="ver más"
+
+  guest1="empresa ITRUCKER"
+  image1={Job1}
+  description1="Únete a nuestro equipo en empresas de transporte"
+  button="ver más"
+  />
+  <Modal />
+  <Footer />
+</SpanishLayout>
+<script>
+  import "../scripts/mainMenu.js"
+  import "../scripts/modal.js"
+</script>

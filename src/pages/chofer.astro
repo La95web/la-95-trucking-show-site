@@ -1,0 +1,29 @@
+---
+import SpanishLayout from "../layouts/SpanishLayout.astro";
+import Footer from "../components/Footer.astro";
+import Drivers from "../components/Drivers.astro";
+import Modal from "../components/modaljobs.astro";
+import Job1 from "../assets/image/truckdriver.webp";
+---
+
+<SpanishLayout title="Empleo para choferes">
+  
+  <Drivers
+  title = "Empleo para choferes" 
+  guest2="Se buscar chofer"
+  image2={Job1}
+  description2="Únete a nuestro equipo en los puertos de Newwark"
+  button="ver más"
+
+  guest1="Se buscar chofer"
+  image1={Job1}
+  description1="Únete a nuestro equipo en los puertos de Newwark!"
+  button="ver más"
+  />
+  <Modal />
+  <Footer />
+</SpanishLayout>
+<script>
+  import "../scripts/mainMenu.js"
+  import "../scripts/modal.js"
+</script>

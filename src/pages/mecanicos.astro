@@ -1,0 +1,29 @@
+---
+import SpanishLayout from "../layouts/SpanishLayout.astro";
+import Footer from "../components/Footer.astro";
+import Mecanics from "../components/mecanics.astro";
+import Modal from "../components/modalmecanics.astro";
+import Job1 from "../assets/image/mecanico.png";
+---
+
+<SpanishLayout title="Empleo para Mecanicos">
+  
+  <Mecanics
+  title = "Si eres mecánico aplica aqui" 
+  guest1="Se busca mecanico diesel"
+  image1={Job1}
+  description1="Únete al equipo: Buscamos mecánico con experiencia"
+  button="ver más"
+
+  guest2="Se busca mecánico repair"
+  image2={Job1}
+  description2="Únete al equipo: Buscamos mecánico con experiencia"
+  button="ver más"
+  />
+  <Modal />
+  <Footer />
+</SpanishLayout>
+<script>
+  import "../scripts/mainMenu.js"
+  import "../scripts/modal.js"
+</script>
