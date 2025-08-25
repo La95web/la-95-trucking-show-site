@@ -24,7 +24,7 @@ document.addEventListener('DOMContentLoaded', () => {
       const modalId = button.getAttribute('data-modal');
       const modal = document.getElementById(modalId);
       if (modal) {
-        modal.style.display = 'block';
+        modal.style.display = 'flex';
       } else {
         console.error(`Modal con ID ${modalId} no encontrado.`);
       }
@@ -35,14 +35,6 @@ document.addEventListener('DOMContentLoaded', () => {
     button.addEventListener('click', () => {
       const modal = button.closest('.modal');
       if (modal) {
-        modal.style.display = 'none';
-      }
-    });
-  });
-
-  window.addEventListener('click', (event) => {
-    modals.forEach(modal => {
-      if (event.target === modal) {
         modal.style.display = 'none';
       }
     });
@@ -156,20 +148,3 @@ document.addEventListener('DOMContentLoaded', () => {
   updateGallery(); 
   updateDots(); 
 });
-  // animation
-
-  document.addEventListener('DOMContentLoaded', () => {
-    const section = document.getElementById('animation');
-    
-    function handleScroll() {
-        const sectionTop = section.getBoundingClientRect().top;
-        const windowHeight = window.innerHeight;
-  
-        if (sectionTop < windowHeight) {
-            section.classList.add('animate');
-        }
-    }
-  
-    window.addEventListener('scroll', handleScroll);
-    handleScroll(); 
-  });
