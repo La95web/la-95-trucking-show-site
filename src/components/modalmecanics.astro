@@ -1,0 +1,290 @@
+---
+const { title, guest1, description1 } = Astro.props;
+---
+
+<div id="modalA" class="modal">
+  <div class="close-menu-container">
+    <span class="close"></span>
+    <div class="rombo">
+      <div class="line2"></div>
+    </div>
+  </div>
+  <div class="block-title"> 
+    <div class="content-block">
+      <p> <strong>Ubicación:</strong> New Jersey</p>
+      <p><strong>Pago por hora:</strong> 20 USD</p>
+      <p><strong>Experiencia minima:</strong> 2 años</p>
+      <p><strong>Conocimientos en mecanica diesel</strong></p>
+      <p><strong>Cualidades:</strong> Responsable, puntual y con actitud proactiva.</p>
+    </div>
+    <form  id="contact-form">
+      <div class="row">
+        <label>
+          <input type="text" name="nombre" placeholder="Nombre" required />
+        </label>
+        <label>
+          <input type="text" name="apellido" placeholder="Apellido" required />
+        </label>
+      </div>
+      <div class="column">
+        <label>
+          <input type="email" name="email" placeholder="Email" required pattern="^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$" title="Please enter a valid email address (example@domain.com)" />
+        </label>
+        <label>
+          <input type="tel" name="telefono" placeholder="Teléfono" required pattern="[0-10}" minlength="10" maxlength="10" />
+        </label>
+      </div>
+       <button type="submit" class="light-gold gold-button">Contactar empleador</button>
+    </form>
+  </div>
+</div>
+
+<div id="modalB" class="modal">
+  <div class="close-menu-container">
+    <span class="close"></span>
+    <div class="rombo">
+      <div class="line2"></div>
+    </div>
+  </div>
+  <div class="block-title"> 
+    <div class="content-block">
+      <p> <strong>Ubicación:</strong> Massachusetts</p>
+      <p><strong>Pago por hora:</strong> 18 USD</p>
+      <p><strong>Experiencia minima:</strong> 2 años</p>
+      <p><strong>Conocimientos en mecanica diesel</strong></p>
+      <p><strong>Cualidades:</strong> Responsable, puntual y con actitud proactiva.</p>
+    </div>
+    <form  id="contact-form">
+      <div class="row">
+        <label>
+          <input type="text" name="nombre" placeholder="Nombre" required />
+        </label>
+        <label>
+          <input type="text" name="apellido" placeholder="Apellido" required />
+        </label>
+      </div>
+      <div class="column">
+        <label>
+          <input type="email" name="email" placeholder="Email" required pattern="^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$" title="Please enter a valid email address (example@domain.com)" />
+        </label>
+        <label>
+          <input type="tel" name="telefono" placeholder="Teléfono" required pattern="[0-10}" minlength="10" maxlength="10" />
+        </label>
+      </div>
+       <button type="submit" class="light-gold gold-button">Contactar empleador</button>
+    </form>
+  </div>
+</div>
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    const form = document.getElementById('contact-form');
+    form.addEventListener('submit', function (e) {
+      e.preventDefault();
+
+      if (form.checkValidity()) {
+        const nombre = form.nombre.value;
+        const apellido = form.apellido.value;
+        const email = form.email.value;
+        const telefono = form.telefono.value;
+        const mensaje = `Hola, mi nombre es ${nombre} ${apellido}, escribo desde la 95 trucking show. Estoy interesado en la vacante de mecánico.`;
+        const url = `https://wa.me/+12015984639?text=${encodeURIComponent(mensaje)}`;
+        window.open(url, '_blank');
+      } else {
+        form.reportValidity();
+      }
+    });
+  });
+</script>
+
+<style lang="scss">
+  @use "../assets/sass/index" as *;
+
+
+  .modal {
+    display: none;
+    flex-direction: column; 
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    z-index: 99;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: none;
+    backdrop-filter: blur(10px);
+    background-color: rgba($tertiary, 0.85);
+  }
+
+  //rombo
+  .close-menu-container {
+    position: fixed;
+    top: 30px;
+    right: 5%;
+    z-index: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .close {
+    position: absolute;
+    width: 60px;
+    height: 60px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    z-index: 2;
+  }
+
+  .rombo {
+    width: 35px;
+    height: 35px;
+    background-color: #34373D;
+    transform: rotate(45deg); 
+    box-shadow: 0 0 10px 5px rgba($primary, 70%);
+    border-radius: 4px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .line2 {
+    width: 29px;
+    height: 4px;
+    background-color: #E03F53; 
+    position: relative;
+    box-shadow: 0 0 10px 5px rgba(221, 46, 68, 35%);
+  }
+
+  .line2::before {
+    content: "";
+    position: absolute;
+    width: 29px;
+    height: 4px;
+    background-color: #E03F53;
+    box-shadow: 0 0 10px 5px rgba(221, 46, 68, 35%);
+    transform: rotate(90deg);
+  }
+  //end rombo
+
+  .content-block {
+   margin-top: 120px;
+   width: 100%;
+   max-width: 500px;
+   padding: 20px;
+
+   p {
+     margin: 10px 0;
+     font-size: 1.5rem;
+   }
+  }
+
+  form {
+    width: 100%;
+    max-width: 500px;
+    padding: 20px;
+  }
+
+  form .row {
+    display: flex;
+    gap: 16px;
+    margin-bottom: 16px;
+  }
+
+  form .row label {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    font-size: 1rem;
+    gap: 4px;
+  }
+
+  form .column {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    margin-bottom: 16px;
+  }
+
+  form .column label {
+    display: flex;
+    flex-direction: column;
+    font-size: 1rem;
+    gap: 4px;
+  }
+
+  form input {
+    padding: 8px;
+    border-radius: 4px;
+    border: 1px solid #ccc;
+    font-size: 0.7rem;
+  }
+  
+  form button {
+    margin-top: 8px;
+    padding: 10px 24px;
+    border-radius: 6px;
+    border: none;
+    background: #2d7be5;
+    color: #fff;
+    font-weight: bold;
+    cursor: pointer;
+    font-size: 1rem;
+  }
+
+  .light-gold {
+    width: 70%;
+    border-radius: 8px;
+    padding: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: background-color 0.3s, box-shadow 0.3s;
+  }
+
+  a {
+    color: $accent-b-dark;
+    font-size: 1.2rem;
+    font-weight: $regular;
+    font-family: $heading;
+    background-color: transparent;
+    cursor: pointer;
+  }
+
+  .light-gold.gold-button {
+    background-color: $tertiary;
+    box-shadow: 0 0 20px 10px rgba($accent-b-dark, 35%);
+    border: 2px solid $accent-b-dark;
+    margin: 20px 0 30px;
+  }
+
+  .gold-button {
+    background-color: $accent-b-light;
+  }
+
+  .gold-button:hover {
+    box-shadow: 0 0 25px 15px rgba($accent-b-light, 40%);
+  }
+
+  @media (min-width: 1024px) {
+  .modal {
+    padding: 0;
+    background: rgba(20, 20, 20, 0.5);
+    z-index: 99;
+  }
+
+  .block-title {
+    width: 100%;
+    max-width: 400px;
+    background: $tertiary;
+    border-radius: 16px;
+    box-shadow: 0 8px 40px 0 rgba(0,0,0,0.30);
+  }
+
+  .content-block {
+    margin-top: 0;
+  }
+}
+
+</style>

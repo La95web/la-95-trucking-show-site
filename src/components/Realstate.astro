@@ -1,0 +1,213 @@
+---
+import room from "../assets/image/room1.png";
+import bad1 from "../assets/image/bad1.png";
+---
+<h2>habitaciones disponibles</h2>
+<div class="underline"></div>
+<section>
+ <img src={room.src} alt="">
+  </div>
+  <div>
+    <div class="content">
+      <p> <strong>$800/mo</strong></p>
+      <div class="flex1">
+        <div class="flex-content"> 
+          <i class="ph ph-bed"></i>
+          <p>1bd 1ba</p>
+        </div>
+        <div class="flex-content">
+          <i class="ph ph-wifi-high"></i>
+          <p>Wifi</p>
+        </div>
+        <div class="flex-content">
+          <i class="ph ph-letter-circle-p"></i>
+          <p>Estacionamiento</p>
+        </div>
+        <div class="flex-content"> 
+          <i class="ph ph-couch"></i>
+          <p>Amoblado</p>
+        </div>
+      </div>
+      <p>Sunny room in shared apartment Sunny room in shared apartment</p>
+      <div class="flex">
+        <p><b>San francisco, CA</b></p>
+        <a href="" class="light-gold gold-button" target="_blank">contactar</a>
+      </div>
+    </div>
+  </div>
+</section>
+<section>
+ <img src={room.src} alt="">
+  </div>
+  <div>
+    <div class="content">
+      <p> <strong>$800/mo</strong></p>
+      <div class="flex1">
+        <div class="flex-content"> 
+          <i class="ph ph-bed"></i>
+          <p>1bd 1ba</p>
+        </div>
+        <div class="flex-content">
+          <i class="ph ph-wifi-high"></i>
+          <p>Wifi</p>
+        </div>
+        <div class="flex-content">
+          <i class="ph ph-letter-circle-p"></i>
+          <p>Estacionamiento</p>
+        </div>
+        <div class="flex-content"> 
+          <i class="ph ph-couch"></i>
+          <p>Amoblado</p>
+        </div>
+      </div>
+      <p>Sunny room in shared apartment Sunny room in shared apartment</p>
+      <div class="flex">
+        <p><b>San francisco, CA</b></p>
+        <a href="" class="light-gold gold-button" target="_blank">contactar</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style lang="scss">
+  @use "../assets/sass/index" as *;
+
+  body {
+    background-color: $primary;
+  }
+
+  .flex-content {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    i{
+      color: white;
+      font-size: 1.5rem;
+    }
+  }
+
+  strong {
+    font-size: 1.5rem;
+  }
+
+  h2 {
+    padding-top: 100px;
+  }
+
+  .underline {
+    margin-bottom: 20px;
+  }
+
+  section {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    padding-top: 40px;
+    box-shadow: 0 0 20px 10px rgba($accent-b-dark, 5%);
+    max-width: 350px;
+    width: 90%;            
+    margin: 40px auto; 
+  }
+
+  img {
+    width: 300px;
+    height: auto;
+    border-radius: 10px;
+  }
+
+  .flex {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+  }
+
+  .light-gold {
+    width: 35%;
+    border-radius: 8px;
+    padding: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: background-color 0.3s, box-shadow 0.3s;
+  }
+
+ .content {
+    width: 100%;
+    max-width: 300px;
+  }
+
+  a {
+    color: $accent-b-dark;
+    font-size: 1.2rem;
+    font-weight: $regular;
+    font-family: $heading;
+    background-color: transparent;
+    cursor: pointer;
+  }
+
+  .light-gold.gold-button {
+    background-color: $tertiary;
+    box-shadow: 0 0 20px 10px rgba($accent-b-dark, 5%);
+    border: 2px solid $accent-b-dark;
+    margin: 30px 0 30px;
+  }
+
+  .gold-button {
+    background-color: $accent-b-light;
+  }
+
+  .gold-button:hover {
+    box-shadow: 0 0 25px 15px rgba($accent-b-light, 10%);
+  }
+
+  .flex1 {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 20px;
+    margin-top: 10px;
+    p{
+      margin: 0
+    }
+  }
+
+  @media (min-width: 1024px) {
+    section {
+      flex-direction: row;
+      justify-content: start;
+      padding: 40px;
+      gap: 40px;
+      max-width: 80%;
+    }
+
+    img {
+      width: 400px;
+    }
+
+    .flex {
+      width: 100%;
+    }
+
+    strong {
+      font-size: 2rem;
+    }
+
+    .flex1 p {
+      margin: 20px 0;
+    }
+
+    .content {
+      width: 100%;
+      max-width: 1400px;
+    }
+
+    h2 {
+    padding-top: 160px;
+  }
+  }
+
+  
+</style>

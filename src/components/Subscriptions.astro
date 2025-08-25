@@ -1,12 +1,12 @@
 ---
-import imageA from '../assets/image/business1.jpg';
-import imageB from '../assets/image/business2.jpg';
-import imageC from '../assets/image/business3.jpg';
-import imageD from '../assets/image/business4.jpg';
-import imageE from '../assets/image/business5.jpg';
-import imageF from '../assets/image/business6.jpg';
-import imageG from '../assets/image/business7.jpg';
-import imageH from '../assets/image/business8.jpg';
+import imageA from '../assets/image/empresa1.png';
+import imageB from '../assets/image/empresa2.png';
+import imageC from '../assets/image/empresa3.png';
+import imageD from '../assets/image/empresa1.png';
+import imageE from '../assets/image/empresa2.png';
+import imageF from '../assets/image/empresa3.png';
+import imageG from '../assets/image/empresa1.png';
+import imageH from '../assets/image/empresa2.png';
 const {title, Team1, Team2} = Astro.props;
 ---
 
@@ -19,19 +19,19 @@ const {title, Team1, Team2} = Astro.props;
     </div>
     <div class="content-block">
       <i class="ph ph-truck"></i>
-      <p>Lorem, ipsum.</p>
+      <p>Mecanica general</p>
     </div>
     <div class="content-block">
       <i class="ph ph-tire"></i>
-      <p>Lorem ipsum dolor sit.</p>
+      <p>Gomeras</p>
     </div>
     <div class="content-block">
       <i class="ph ph-building"></i>
-      <p>Seguros medicos</p>
+      <p>Firma de abogados</p>
     </div>
     <div class="content-block">
       <i class="ph ph-wrench"></i>
-      <p>Lorem, ipsum.</p>
+      <p>lorem4</p>
     </div>
     <div class="content-block">
       <i class="ph ph-scales"></i>
@@ -51,41 +51,6 @@ const {title, Team1, Team2} = Astro.props;
     </div>
   </div>
 </section>
-
-<section> 
-  <h2>Empresas donde podras usar tu cupon.</h2>
-  <div class="section-content">
-    <div class="content-box">
-      <img src={imageA.src} class="modal-img" alt="#">
-    </div>
-    <div class="content-box">
-      <img src={imageB.src} class="modal-img" alt="#">
-    </div>
-    <div class="content-box">
-      <img src={imageC.src} class="modal-img" alt="#">
-    </div>
-    <div class="content-box">
-      <img src={imageD.src} class="modal-img" alt="#">
-    </div>
-    <div class="content-box">
-      <img src={imageE.src} class="modal-img" alt="#">
-    </div>
-    <div class="content-box">
-      <img src={imageF.src} class="modal-img" alt="#">
-    </div>
-    <div class="content-box">
-      <img src={imageG.src} class="modal-img" alt="#">
-    </div>
-    <div class="content-box">
-      <img src={imageH.src} class="modal-img" alt="#">
-    </div>
-  </div>
-  <div id="imgModal" class="modal">
-    <span class="close">&times;</span>
-    <img class="modal-content" id="modalImg" />
-  </div>
-</section>
-
 <section>
   <h2>Llena el formulario y suscríbete ahora.!!</h2>
   <form class="subscription-form">
@@ -94,8 +59,8 @@ const {title, Team1, Team2} = Astro.props;
       <input type="text" name="apellido" placeholder="Apellido" required />
     </div>
     <div class="form-group">
-      <input type="email" name="email" placeholder="Email" required />
-      <input type="tel" name="telefono" placeholder="Teléfono" required />
+      <input type="email" name="email" placeholder="Email" required pattern="^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$" title="Please enter a valid email address (example@domain.com)"/>
+      <input type="tel" name="telefono" placeholder="Teléfono" required pattern="[0-10}" minlength="10" maxlength="10"/>
     </div>
     <div class="form-group checkbox-group">
       <input type="checkbox" id="terminos" name="terminos" required />
@@ -109,35 +74,92 @@ const {title, Team1, Team2} = Astro.props;
     </div>
   </form>
 </section>
-
-<script>
-  document.addEventListener('DOMContentLoaded', function () {
-    const modal = document.getElementById('imgModal');
-    const modalImg = document.getElementById('modalImg');
-    const closeBtn = document.querySelector('.modal .close');
-    document.querySelectorAll('.modal-img').forEach(img => {
-      img.addEventListener('click', function () {
-        modal.style.display = 'flex';
-        modalImg.src = this.src;
-      });
-    });
-    closeBtn.addEventListener('click', function () {
-      modal.style.display = 'none';
-    });
-    modal.addEventListener('click', function (e) {
-      if (e.target === modal) modal.style.display = 'none';
-    });
-  });
-</script>
-
+<section class="top-companies"> 
+  <h2>Empresas afiliadas</h2>
+  <div class="section-content rows">
+    <div class="background-block">
+      <div>  
+        <div class="content-box">
+          <img src={imageA.src} alt="#">
+          <a href="">Lorem ipsum dolor sit.</a>
+        </div>
+        <div class="content-box">
+          <img src={imageB.src} alt="#">
+          <a href="">Lorem ipsum dolor sit.</a>
+        </div>
+      </div>
+      <div> 
+        <div class="content-box">
+          <img src={imageC.src} alt="#">
+          <a href="">Lorem ipsum dolor sit.</a>
+        </div>
+        <div class="content-box">
+          <img src={imageD.src} alt="#">
+          <a href="">Lorem ipsum dolor sit.</a>
+        </div>
+      </div>
+    </div>
+    <div class="background-block">
+      <div>  
+        <div class="content-box">
+          <img src={imageA.src} alt="#">
+          <a href="">Lorem ipsum dolor sit.</a>
+        </div>
+        <div class="content-box">
+          <img src={imageB.src} alt="#">
+          <a href="">Lorem ipsum dolor sit.</a>
+        </div>
+      </div>
+      <div> 
+        <div class="content-box">
+          <img src={imageC.src} alt="#">
+          <a href="">Lorem ipsum dolor sit.</a>
+        </div>
+        <div class="content-box">
+          <img src={imageD.src} alt="#">
+          <a href="">Lorem ipsum dolor sit.</a>
+        </div>
+      </div>
+    </div>
+    <div class="background-block">
+      <div> 
+        <div class="content-box">
+          <img src={imageE.src} alt="#">
+          <a href="">Lorem ipsum dolor sit.</a>
+        </div>
+        <div class="content-box">
+          <img src={imageF.src} class="modal-img" alt="#">
+          <a href="">Lorem ipsum dolor sit.</a>
+        </div>
+      </div>
+      <div>
+        <div class="content-box">
+          <img src={imageG.src} class="modal-img" alt="#">
+          <a href="">Lorem ipsum dolor sit.</a>
+        </div>
+        <div class="content-box">
+          <img src={imageH.src} class="modal-img" alt="#">
+          <a href="">Lorem ipsum dolor sit.</a>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div id="imgModal" class="modal">
+    <span class="close">&times;</span>
+    <img class="modal-content" id="modalImg" />
+  </div>
+</section>
 
 <style lang="scss">
   @use "../assets/sass/index" as *;
 
   section {
     text-align: center;
-    padding: 50px 0;
     background-color: $primary;
+  }
+
+  .top-companies {
+    padding: 50px 0;
   }
 
   .section-content {
@@ -149,7 +171,6 @@ const {title, Team1, Team2} = Astro.props;
     background-color: $primary;
     padding-top: 70px;
     padding-bottom: 70px;
-    margin: 0 5%;
   }
 
   .content-block {
@@ -178,58 +199,53 @@ const {title, Team1, Team2} = Astro.props;
     font-size: 2rem;
   }
 
-  .content-block i {
-    color: $accent-b-light;
-    font-size: 2rem;
-  }
 
   .content-box {
     display: flex;
     justify-content: center;
     align-items: center;
-    gap: 20px;
+    margin: 10px auto;
+    gap: 10px;
   }
 
   .content-box img {
-    width: 160px;
-    height: 160px;
+    width: 75px;
+    height: 75px;
     object-fit: cover;
-    border-radius: 0%;
-    border: 5px solid $tertiary;
     display: block;
     margin: 0 auto;
     cursor: pointer;
   }
-  //modal img
-  .modal {
-    display: none;
-    position: fixed;
-    z-index: 9999;
-    left: 0;
-    top: 0;
-    width: 100vw;
-    height: 100vh;
-    background: rgba(0,0,0,0.7);
+
+  .background-block {
+    display: flex;
     justify-content: center;
     align-items: center;
+    gap: 50px;
   }
 
-  .modal-content {
-    max-width: 80vw;
-    max-height: 80vh;
-    border-radius: 16px;
-    box-shadow: 0 2px 24px rgba(0,0,0,0.2);
+  .rows {
+    position: relative;
+    background-image: url('../assets/image/truckersMovil.png');
+    width: 100%;
+    background-size: cover;
+    background-position: center;
+    gap: 20px;
+    z-index: 1;
   }
 
-  .close {
+  .rows::before {
+    content: "";
     position: absolute;
-    top: 40px;
-    right: 60px;
-    color: #fff;
-    font-size: 3rem;
-    font-weight: bold;
-    cursor: pointer;
-    z-index: 10000;
+    inset: 0;
+    background: rgba(0,0,0,0.75); 
+    z-index: 0;
+    border-radius: inherit;
+  }
+
+  .rows > * {
+    position: relative;
+    z-index: 1;
   }
 
   // form styles
@@ -306,8 +322,17 @@ const {title, Team1, Team2} = Astro.props;
 
   a {
     color: $accent-b-light;
-    text-decoration: underline;
-    font-size: 0.9em;
+    font-size: 0.7em;
+  }
+
+  a:hover {
+    color: white;
+  }
+
+  @media (max-width: 768px) {
+   .background-block {
+      width: 50%;
+    }
   }
 
   @media (min-width: 1024px) {
@@ -315,14 +340,40 @@ const {title, Team1, Team2} = Astro.props;
     .content-block {
       flex-direction: row;
       align-items: left;
-      justify-content: left;
-      width: 350px;      
-      height: 70px;        
-    } 
+      justify-content: left; 
+      width: 300px;
+      height: 80px;
+      padding: 20px;
+    }
 
     .content-box img {
-      width: 220px;
-      height: 220px;
+      width: 100px;
+      height: 100px;
+    }
+
+    .content-box a {
+      font-size: 1.2rem;
+    }
+
+    .content-box {
+     margin: 20px auto;
+    }
+
+    .background-block {
+      flex-direction: row;
+      flex-wrap: wrap;
+      justify-content: center;
+      align-items: center;
+      width: 30%;
+    }
+
+    .rows {
+      position: relative;
+      background-image: url('../assets/image/truckers.png');
+      width: 100%;
+      min-height: 800px;
+      background-size: cover;
+      background-position: center;
     }
   }
 </style>
