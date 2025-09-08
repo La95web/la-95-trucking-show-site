@@ -4,13 +4,17 @@ import Footer from "../components/Footer.astro";
 import Realstate from "../components/Realstate.astro";
 import room1 from "../assets/image/room1.png";
 import room2 from "../assets/image/bad1.png";
+import ModalRealstate from "../components/modalRealstate.astro";
 ---
 
 <SpanishLayout title="Rentas - La 95 Trucking Show">
 
   <Realstate images={[room1.src, room2.src]} />
+  <ModalRealstate />
   <Footer />
 </SpanishLayout>
 <script>
   import "../scripts/mainMenu.js"
+  import "../scripts/modal.js"
+  import "../scripts/saveData/Realstate.js"
 </script>

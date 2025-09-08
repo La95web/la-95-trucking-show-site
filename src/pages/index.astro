@@ -10,11 +10,13 @@ import truck1 from "../assets/image/camion.webp";
 import truck2 from "../assets/image/truck2.webp";
 import truck3 from "../assets/image/truck3.webp";
 import VisionSection from "../components/VisionSection.astro";
+import ModalDescuentos from "../components/ModalDescuentos.astro";
 ---
 
 <SpanishLayout title="la 95 trucking show">
   <HomeSlider images={[truck1.src, truck2.src, truck3.src]} />
   <Subscriptions />
+  <ModalDescuentos></ModalDescuentos>
   <VisionSection
   titleA="nuestra razón de ser"
   titleB="mision"
@@ -42,4 +44,5 @@ import VisionSection from "../components/VisionSection.astro";
 </SpanishLayout>
 <script>
 	import "../scripts/home.js";
+  import "../scripts/modal.js"
 </script>
