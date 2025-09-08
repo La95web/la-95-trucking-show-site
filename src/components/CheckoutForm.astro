@@ -1,0 +1,78 @@
+---
+---
+
+<section>
+  <h2>Suscríbete ahora</h2>
+  <div class="underline"></div>
+  <div class="section-content">
+    <div>
+    <p>Suscripción mensual</p>
+    <p><strong></strong>$4.99</p>
+    <a class="btn mensual" target="_blank" href="https://square.link/u/cAc7dYQt?src=embed" >SUSCRIBIRME AHORA</a>
+    </div>
+    <div>
+      <p>Suscripción anual</p>
+      <p><strong></strong>$48.99</p>
+      <a class="btn anual" target="_blank" href="https://square.link/u/cAc7dYQt?src=embed" >SUSCRIBIRME AHORA</a>
+    </div>
+  </div>
+</section>
+
+<style lang="scss">
+  @use '../assets/sass/index' as *;
+
+  .section-content {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+
+    div {
+      background-color: $tertiary;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      padding: 20px;
+      margin: 10px;
+      text-align: center;
+      width: 300px;
+
+      p {
+        font-size: 1.2rem;
+        color: $secondary;
+        margin: 10px 0;
+
+        strong {
+          font-size: 1.5rem;
+          color: $accent-b-dark;
+        }
+      }
+
+      .btn {
+        display: inline-block;
+        padding: 10px 20px;
+        font-size: 1rem;
+        color: #fff;
+        background-color: $accent-b-dark;
+        border-radius: 5px;
+        text-decoration: none;
+        transition: background-color 0.3s;
+
+        &:hover {
+          background-color: red;
+        }
+      }
+    }
+  }
+
+  @media (min-width: 1024px) {
+    section {
+      background-color: $primary;
+      text-align: center;
+    }   
+
+    .underline {
+      margin: 0 auto;
+    }
+  }
+
+</style>
