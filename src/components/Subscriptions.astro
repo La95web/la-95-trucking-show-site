@@ -7,11 +7,14 @@ import imageE from '../assets/image/empresa2.png';
 import imageF from '../assets/image/empresa3.png';
 import imageG from '../assets/image/empresa1.png';
 import imageH from '../assets/image/empresa2.png';
+import CheckoutForm from './CheckoutForm.astro';
 const {title, Team1, Team2} = Astro.props;
 ---
 
 <section>
-  <h2>Suscríbete ahora y podras tener los siguientes beneficios.</h2>
+  <h2>Suscríbete y disfruta de descuentos</h2>
+  <p>Aquí podras usar tus descuentos</p>
+  <div class="underline"></div>
   <div class="section-content"> 
     <div class="content-block">
       <i class="ph ph-shield-plus"></i>
@@ -51,29 +54,7 @@ const {title, Team1, Team2} = Astro.props;
     </div>
   </div>
 </section>
-<section>
-  <h2>Llena el formulario y suscríbete ahora.!!</h2>
-  <form class="subscription-form">
-    <div class="form-group">
-      <input type="text" name="nombre" placeholder="Nombre" required />
-      <input type="text" name="apellido" placeholder="Apellido" required />
-    </div>
-    <div class="form-group">
-      <input type="email" name="email" placeholder="Email" required pattern="^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$" title="Please enter a valid email address (example@domain.com)"/>
-      <input type="tel" name="telefono" placeholder="Teléfono" required pattern="[0-10}" minlength="10" maxlength="10"/>
-    </div>
-    <div class="form-group checkbox-group">
-      <input type="checkbox" id="terminos" name="terminos" required />
-      <label for="terminos">
-      <a href="/terminos" target="_blank">Acepto los términos y condiciones</a>
-      </label>
-    </div>
-    <div class="form-group button-group">
-      <button type="submit" class="btn mensual">Suscripción mensual $5</button>
-      <button type="submit" class="btn anual">Suscripción anual $45 (ahorra un 25%)</button>
-    </div>
-  </form>
-</section>
+<CheckoutForm />
 <section class="top-companies"> 
   <h2>Empresas afiliadas</h2>
   <div class="section-content rows">
@@ -149,6 +130,7 @@ const {title, Team1, Team2} = Astro.props;
     <img class="modal-content" id="modalImg" />
   </div>
 </section>
+<script type="module" src="/home/louis39/projects/la-95-trucking-show-site/src/scripts/square-subscription/submitSubscription.js"></script>
 
 <style lang="scss">
   @use "../assets/sass/index" as *;
@@ -336,6 +318,10 @@ const {title, Team1, Team2} = Astro.props;
   }
 
   @media (min-width: 1024px) {
+
+    .underline {
+      margin: 0 auto;
+    }
 
     .content-block {
       flex-direction: row;
