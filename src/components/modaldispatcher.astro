@@ -21,18 +21,18 @@ const { title, guest1, description1 } = Astro.props;
     <form  id="contact-form">
       <div class="row">
         <label>
-          <input type="text" name="nombre" placeholder="Nombre" required />
+          <input type="text" name="name" placeholder="Nombre" required />
         </label>
         <label>
-          <input type="text" name="apellido" placeholder="Apellido" required />
+          <input type="text" name="lastName" placeholder="Apellido" required />
         </label>
       </div>
       <div class="column">
         <label>
-          <input type="email" name="email" placeholder="Email" required pattern="^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$" title="Please enter a valid email address (example@domain.com)" />
+          <input type="email" name="email" placeholder="Email" required title="Please enter a valid email address (example@domain.com)" />
         </label>
         <label>
-          <input type="tel" name="telefono" placeholder="Teléfono" required pattern="[0-10}" minlength="10" maxlength="10" />
+          <input type="text" name="phone" placeholder="Teléfono" required minlength="10" maxlength="10" />
         </label>
       </div>
        <button type="submit" class="light-gold gold-button">Contactar empleador</button>
@@ -56,39 +56,54 @@ const { title, guest1, description1 } = Astro.props;
       <p><strong>Conocimientos en area logistica</strong></p>
       <p><strong>Cualidades:</strong> Responsable, puntual y con actitud proactiva.</p>
     </div>
-    <form  id="contact-form">
+    <form  id="contact-form-b">
       <div class="row">
         <label>
-          <input type="text" name="nombre" placeholder="Nombre" required />
+          <input type="text" name="name" placeholder="Nombre" required />
         </label>
         <label>
-          <input type="text" name="apellido" placeholder="Apellido" required />
+          <input type="text" name="lastName" placeholder="Apellido" required />
         </label>
       </div>
       <div class="column">
         <label>
-          <input type="email" name="email" placeholder="Email" required pattern="^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$" title="Please enter a valid email address (example@domain.com)" />
+          <input type="email" name="email" placeholder="Email" required title="Please enter a valid email address (example@domain.com)" />
         </label>
         <label>
-          <input type="tel" name="telefono" placeholder="Teléfono" required pattern="[0-10}" minlength="10" maxlength="10" />
+          <input type="text" name="phone" placeholder="Teléfono" required minlength="10" maxlength="10" />
         </label>
       </div>
        <button type="submit" class="light-gold gold-button">Contactar empleador</button>
     </form>
   </div>
 </div>
+
 <script>
-  document.addEventListener('DOMContentLoaded', function () {
+   document.addEventListener('DOMContentLoaded', function () {
     const form = document.getElementById('contact-form');
     form.addEventListener('submit', function (e) {
       e.preventDefault();
       if (form.checkValidity()) {
-        const nombre = form.nombre.value;
-        const apellido = form.apellido.value;
-        const email = form.email.value;
-        const telefono = form.telefono.value;
-        const mensaje = `Hola, mi nombre es ${nombre} ${apellido}, escribo desde la 95 trucking show. Estoy interesado en la vacante de dispatcher.`;
+        const name = form.name.value;
+        const lastName = form.lastName.value;
+        const mensaje = `Hola, mi nombre es ${name} ${lastName}, escribo desde la 95 trucking show. Estoy interesado en la vacante de chofer.`;
         const url = `https://wa.me/+12015984639?text=${encodeURIComponent(mensaje)}`;
+        window.open(url, '_blank');
+      } else {
+        form.reportValidity();
+      }
+    });
+  });
+
+   document.addEventListener('DOMContentLoaded', function () {
+    const form = document.getElementById('contact-form-b');
+    form.addEventListener('submit', function (e) {
+      e.preventDefault();
+      if (form.checkValidity()) {
+        const name = form.name.value;
+        const lastName = form.lastName.value;
+        const mensaje = `Hola, mi nombre es ${name} ${lastName}, escribo desde la 95 trucking show. Estoy interesado en la vacante de chofer.`;
+        const url = `https://wa.me/+584245684667?text=${encodeURIComponent(mensaje)}`;
         window.open(url, '_blank');
       } else {
         form.reportValidity();
