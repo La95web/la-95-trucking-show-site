@@ -1,6 +1,5 @@
 ---
 import room from "../assets/image/room1.png";
-import bad1 from "../assets/image/bad1.png";
 ---
 <h2>habitaciones disponibles</h2>
 <div class="underline"></div>
@@ -31,7 +30,9 @@ import bad1 from "../assets/image/bad1.png";
       <p>Sunny room in shared apartment Sunny room in shared apartment</p>
       <div class="flex">
         <p><b>San francisco, CA</b></p>
-        <a href="" class="light-gold gold-button" target="_blank">contactar</a>
+        <div class="light-gold gold-button">
+        <button class="openModal" data-modal="modalB">contactar</button>
+        </div>
       </div>
     </div>
   </div>
@@ -63,7 +64,9 @@ import bad1 from "../assets/image/bad1.png";
       <p>Sunny room in shared apartment Sunny room in shared apartment</p>
       <div class="flex">
         <p><b>San francisco, CA</b></p>
-        <a href="" class="light-gold gold-button" target="_blank">contactar</a>
+        <div class="light-gold gold-button">
+        <button class="openModal" data-modal="modalB">contactar</button>
+        </div>
       </div>
     </div>
   </div>
@@ -139,20 +142,30 @@ import bad1 from "../assets/image/bad1.png";
     max-width: 300px;
   }
 
-  a {
-    color: $accent-b-dark;
-    font-size: 1.2rem;
-    font-weight: $regular;
-    font-family: $heading;
-    background-color: transparent;
-    cursor: pointer;
+   .light-gold {
+    width: 40%;
+    border-radius: 8px;
+    padding: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: background-color 0.3s, box-shadow 0.3s;
+
+    button, #openModal {
+      color: $accent-b-dark;
+      font-size: 1.2rem;
+      font-weight: $regular;
+      font-family: $heading;
+      background-color: transparent;
+      cursor: pointer;
+    }
   }
 
   .light-gold.gold-button {
     background-color: $tertiary;
-    box-shadow: 0 0 20px 10px rgba($accent-b-dark, 5%);
+    box-shadow: 0 0 20px 10px rgba($accent-b-dark, 35%);
     border: 2px solid $accent-b-dark;
-    margin: 30px 0 30px;
+    margin: 20px 0 30px;
   }
 
   .gold-button {
@@ -160,7 +173,7 @@ import bad1 from "../assets/image/bad1.png";
   }
 
   .gold-button:hover {
-    box-shadow: 0 0 25px 15px rgba($accent-b-light, 10%);
+    box-shadow: 0 0 25px 15px rgba($accent-b-light, 40%);
   }
 
   .flex1 {
