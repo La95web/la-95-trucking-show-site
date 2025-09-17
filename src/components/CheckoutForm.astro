@@ -1,19 +1,27 @@
 ---
+const {sub1, yearly, monthly, button} = Astro.props;
 ---
 
 <section>
-  <h2>Suscríbete ahora</h2>
+  <h2>{sub1}</h2>
   <div class="underline"></div>
   <div class="section-content">
     <div>
-    <p>Suscripción mensual</p>
-    <p><strong></strong>$4.99</p>
-    <a class="btn mensual" target="_blank" href="https://square.link/u/cAc7dYQt?src=embed" >SUSCRIBIRME AHORA</a>
+      <p>{yearly}</p>
+      <p><strong>$4.99</strong></p>
+       <div class="light-gold gold-button">
+          <button class="openModal" data-modal="modalA">{button}</button>
+        </div>
     </div>
     <div>
-      <p>Suscripción anual</p>
-      <p><strong></strong>$48.99</p>
-      <a class="btn anual" target="_blank" href="https://square.link/u/cAc7dYQt?src=embed" >SUSCRIBIRME AHORA</a>
+      <p>{monthly}</p>
+      <header>
+        <p><strong>$48.99</strong></p>
+        <span>59.88</span>
+      </header>
+      <div class="light-gold gold-button">
+        <button class="openModal" data-modal="modalB">{button}</button>
+      </div>
     </div>
   </div>
 </section>
@@ -21,16 +29,41 @@
 <style lang="scss">
   @use '../assets/sass/index' as *;
 
-  .section-content {
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-    justify-content: center;
+    section {
+      padding: 30px 0;
+      background-image: url("../assets/image/Pentagonos.png");
+      background-repeat:repeat;
+      background-position: cover;
+    }   
+
+    header {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 10px;
+    }
+
+    span {
+      text-decoration: line-through;
+      color: grey;
+      font-size: 1.2rem;
+    }
+
+    .section-content {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: center;
+      margin-top: 20px;
 
     div {
-      background-color: $tertiary;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      background-color: $primary;
       border-radius: 10px;
-      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.9);
       padding: 20px;
       margin: 10px;
       text-align: center;
@@ -46,29 +79,45 @@
           color: $accent-b-dark;
         }
       }
+    }
 
-      .btn {
-        display: inline-block;
-        padding: 10px 20px;
-        font-size: 1rem;
-        color: #fff;
-        background-color: $accent-b-dark;
-        border-radius: 5px;
-        text-decoration: none;
-        transition: background-color 0.3s;
-
-        &:hover {
-          background-color: red;
-        }
+    .light-gold {
+      width: 70%;
+      border-radius: 8px;
+      padding: 10px;
+      transition: background-color 0.3s, box-shadow 0.3s;
+  
+      button, #openModal {
+        color: black;
+        font-size: 1.2rem;
+        font-weight: $regular;
+        font-family: $heading;
+        background-color: transparent;
+        cursor: pointer;
       }
+    }
+  
+    .light-gold.gold-button {
+      background-color: $accent-b-dark;
+      box-shadow: 0 0 20px 10px rgba($accent-b-dark, 20%);
+      border: 2px solid $accent-b-dark;
+      margin: 20px 0 30px;
+    }
+  
+    .gold-button {
+      background-color: $accent-b-light;
+    }
+  
+    .gold-button:hover {
+      box-shadow: 0 0 25px 15px rgba($accent-b-light, 30%);
     }
   }
 
   @media (min-width: 1024px) {
-    section {
-      background-color: $primary;
+
+    h2 {
       text-align: center;
-    }   
+    }
 
     .underline {
       margin: 0 auto;

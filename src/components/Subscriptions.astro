@@ -8,56 +8,72 @@ import imageF from '../assets/image/empresa3.png';
 import imageG from '../assets/image/empresa1.png';
 import imageH from '../assets/image/empresa2.png';
 import CheckoutForm from './CheckoutForm.astro';
-const {title, Team1, Team2} = Astro.props;
+import Modalterms from './Modalterms.astro';
+const {title1, title2, text1, cupon1, text2, cupon2, text3, cupon3, text4, cupon4, subA, yearly, monthly, button} = Astro.props;
 ---
 
-<section>
-  <h2>Suscríbete y disfruta de descuentos</h2>
-  <p>Aquí podras usar tus descuentos</p>
+<section class="back-img">
+  <h2>{title1}</h2>
   <div class="underline"></div>
   <div class="section-content"> 
     <div class="content-block">
       <i class="ph ph-shield-plus"></i>
-      <p>Seguros medicos</p>
+      <p>{text1}</p>
+      <p><strong>{cupon1}</strong></p>
     </div>
     <div class="content-block">
       <i class="ph ph-truck"></i>
-      <p>Mecanica general</p>
+      <p>{text2}</p>
+      <p><strong>{cupon2}</strong></p>
     </div>
     <div class="content-block">
       <i class="ph ph-tire"></i>
-      <p>Gomeras</p>
+      <p>{text3}</p>
+      <p><strong>{cupon3}</strong></p>
     </div>
     <div class="content-block">
       <i class="ph ph-building"></i>
-      <p>Firma de abogados</p>
+      <p>{text4}</p>
+      <p><strong>{cupon4}</strong></p>
     </div>
     <div class="content-block">
       <i class="ph ph-wrench"></i>
       <p>lorem4</p>
+      <p><strong>Obten un descuento de $100</strong></p>
     </div>
     <div class="content-block">
       <i class="ph ph-scales"></i>
       <p>Lorem ipsum dolor sit.</p>
+      <p><strong>Obten un descuento de $100</strong></p>
     </div>
     <div class="content-block">
       <i class="ph ph-scales"></i>
       <p>Lorem ipsum dolor sit.</p>
+      <p><strong>Obten un descuento de $100</strong></p>
     </div>
     <div class="content-block">
       <i class="ph ph-scales"></i>
       <p>Lorem ipsum dolor sit.</p>
+      <p><strong>Obten un descuento de $100</strong></p>
     </div>
     <div class="content-block">
       <i class="ph ph-scales"></i>
       <p>Lorem ipsum dolor sit.</p>
+      <p><strong>Obten un descuento de $100</strong></p>
     </div>
   </div>
 </section>
-<CheckoutForm />
-<section class="top-companies"> 
-  <h2>Empresas afiliadas</h2>
-  <div class="section-content rows">
+<CheckoutForm
+const sub1={subA}
+const yearly={yearly}
+const monthly={monthly}
+const button={button}
+/>
+<Modalterms />
+<section class="top-companies rows"> 
+  <h2>{title2}</h2>
+  <div class="underline"></div>
+  <div class="section-content">
     <div class="background-block">
       <div>  
         <div class="content-box">
@@ -125,19 +141,23 @@ const {title, Team1, Team2} = Astro.props;
       </div>
     </div>
   </div>
-  <div id="imgModal" class="modal">
-    <span class="close">&times;</span>
-    <img class="modal-content" id="modalImg" />
-  </div>
 </section>
-<script type="module" src="/home/louis39/projects/la-95-trucking-show-site/src/scripts/square-subscription/submitSubscription.js"></script>
 
 <style lang="scss">
   @use "../assets/sass/index" as *;
 
+  .back-img {
+    background-image: url("../assets/image/Pentagonos.png");
+    background-repeat:repeat;
+    background-position: cover;
+  }
+
+  h2 {
+    text-align: left;
+  }
+
   section {
     text-align: center;
-    background-color: $primary;
   }
 
   .top-companies {
@@ -150,12 +170,13 @@ const {title, Team1, Team2} = Astro.props;
     justify-content: center;
     align-items: center;
     gap: 20px;
-    background-color: $primary;
+    background-color: transparent;
     padding-top: 70px;
     padding-bottom: 70px;
   }
 
   .content-block {
+    position: relative;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -164,16 +185,24 @@ const {title, Team1, Team2} = Astro.props;
     font-weight: $regular;
     font-family: $heading;
     border: 2px solid $accent-b-light;
-    background-color: $tertiary;
+    background-color: $primary;
     border-radius: 8px;
     width: 180px;      
-    height: 180px;        
+    height: 230px;        
     box-sizing: border-box;
     padding: 16px;
     gap: 10px;
     text-align: center;  
     overflow: hidden;   
     transition: box-shadow 0.2s;
+    cursor: pointer;
+    p {
+      margin: 5px 0;
+    }
+    strong {
+      color: $accent-b-dark;
+      font-size: 1.2rem;
+    }
   }
 
   .content-block i {
@@ -230,78 +259,6 @@ const {title, Team1, Team2} = Astro.props;
     z-index: 1;
   }
 
-  // form styles
- .subscription-form {
-    max-width: 800px;
-    margin: 30px auto 0 auto;
-    background: $tertiary;
-    padding: 30px 20px;
-    border-radius: 12px;
-    box-shadow: 0 2px 12px rgba(0,0,0,0.08);
-    display: flex;
-    flex-direction: column;
-    gap: 18px;
-  }
-
-  .form-group {
-    display: flex;
-    gap: 16px;
-    flex-wrap: wrap;
-    justify-content: center;
-  }
-
-  .form-group input[type="text"],
-  .form-group input[type="email"],
-  .form-group input[type="tel"] {
-    flex: 1 1 180px;
-    padding: 10px;
-    border-radius: 6px;
-    border: 1px solid $accent-b-light;
-    font-size: 1rem;
-    background: #fff;
-  }
-
-  .checkbox-group {
-    align-items: center;
-    gap: 8px;
-    justify-content: flex-start;
-  }
-
-  .checkbox-group label {
-    font-size: 0.95rem;
-  }
-
-  .button-group {
-    display: flex;
-    gap: 16px;
-    justify-content: center;
-  }
-
-  .btn {
-    padding: 12px 24px;
-    border-radius: 8px;
-    border: none;
-    font-size: 1rem;
-    font-weight: bold;
-    cursor: pointer;
-    background: $accent-b-light;
-    color: #fff;
-    transition: background 0.2s;
-  }
-
-  .btn.mensual {
-    background: $accent-c-light;
-    padding: 12px 80px;
-  }
-
-  .btn.anual {
-    background: $primary;
-  }
-
-  .btn:hover {
-    filter: brightness(0.95);
-  }
-
   a {
     color: $accent-b-light;
     font-size: 0.7em;
@@ -318,6 +275,33 @@ const {title, Team1, Team2} = Astro.props;
   }
 
   @media (min-width: 1024px) {
+
+    h2 {
+      text-align: center;
+    }
+
+    .content-block:hover strong {
+      left: 50%;
+      transform: translate(-50%, -50%);
+    }
+
+    .content-block {
+      position: relative;
+    }
+
+    .content-block strong {
+      position: absolute;
+      top: 50%;
+      left: -100%;
+      transform: translateY(-50%);
+      background-color: #ffd700;
+      padding: 8px 12px;
+      border-radius: 4px;
+      white-space: nowrap;
+      transition: left 0.4s ease;
+      font-weight: bold;
+      color: #333;
+    }
 
     .underline {
       margin: 0 auto;

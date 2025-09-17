@@ -4,6 +4,7 @@ const {title, Team1, Team2} = Astro.props;
 
 <section>
   <h2>Selecciona tu área de especialización</h2>
+  <div class="underline"></div>
   <div class="section-content"> 
     <a href="/chofer/" class="content-block">
       <i class="ph ph-road-horizon"></i>
@@ -31,7 +32,7 @@ const {title, Team1, Team2} = Astro.props;
 <style lang="scss">
     @use "../assets/sass/index" as *;
  section {
-    text-align: center;
+    text-align: left;
     padding: 50px 0;
     background-color: $primary;
   }
@@ -83,6 +84,11 @@ const {title, Team1, Team2} = Astro.props;
   }
 
     @media (min-width: 1024px) {
+
+      h2, .underline {
+        text-align: center;
+        margin: 0 auto;
+      } 
 
     .content-block {
       flex-direction: row;
