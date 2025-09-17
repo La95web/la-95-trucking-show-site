@@ -10,6 +10,7 @@ import truck1 from "../assets/image/camion.webp";
 import truck2 from "../assets/image/truck2.webp";
 import truck3 from "../assets/image/truck3.webp";
 import VisionSection from "../components/VisionSection.astro";
+import ModalJobindex from "../components/modalJobindex.astro";
 ---
 
 <SpanishLayout title="la 95 trucking show">
@@ -40,9 +41,10 @@ import VisionSection from "../components/VisionSection.astro";
   textB="Convertirnos en el referente principal para los camioneros de habla hispana, creando un espacio donde se compartan conocimientos, anécdotas y noticias del sector. Aspiramos a influir positivamente en la industria del transporte y mejorar la calidad de vida de los conductores a través de contenido valioso y auténtico."
   textC="Nuestros valores son el respeto por la labor de los camioneros, la autenticidad en las historias, el compromiso con contenido relevante, la unidad para fomentar la solidaridad y la pasión por la industria del transporte."/>
   <SecondarySection
-  title="Mira nuestros ultimos podcasts"
-  paragraph="SuscrÍbete a nuestro canal de youtube y no te pierdas ningun episodio."
-  button="Podcast" />
+  title="Eres chofer y estás buscando trabajo?"
+  paragraph="En LA 95 TRUCKING SHOW queremos ayudarte a conectar con empresas que valoran tu experiencia. Llena el formulario y da el primer paso hacia tu próxima oportunidad laboral.."
+  button="Aplicar aqui" />
+  <ModalJobindex />
   <Newsletter
   titleA="Recibe notificaciones y avisos"
   textB="¡Mantente al día! Suscríbete para recibir las últimas novedades y eventos directamente en tu dispositivo. Confirma tu interés y no te pierdas ninguna noticia importante. Activa las notificaciones ahora."
@@ -58,5 +60,6 @@ import VisionSection from "../components/VisionSection.astro";
 </SpanishLayout>
 <script>
 	import "../scripts/home.js";
-  import "../scripts/modal.js"
+  import "../scripts/modal.js";
+  import "../scripts/saveData/Drivers.js"
 </script>
