@@ -10,13 +10,27 @@ import truck1 from "../assets/image/camion.webp";
 import truck2 from "../assets/image/truck2.webp";
 import truck3 from "../assets/image/truck3.webp";
 import VisionSection from "../components/VisionSection.astro";
-import ModalDescuentos from "../components/ModalDescuentos.astro";
 ---
 
 <SpanishLayout title="la 95 trucking show">
   <HomeSlider images={[truck1.src, truck2.src, truck3.src]} />
-  <Subscriptions />
-  <ModalDescuentos></ModalDescuentos>
+  <Subscriptions 
+  title1="Suscríbete y disfruta de descuentos exclusivos"
+  title2="Planes de suscripción"
+  text1="Seguros medicos"
+  cupon1="Obten un descuento de $120"
+  text2="Mecanica general"
+  cupon2="Obten un descuento de $20"
+  text3="Gomeras"
+  cupon3="Obten un descuento de $300"
+  text4="Firma de abogados"
+  cupon4="Obten un descuento de $80"
+  titleA="Empresas afiiliadas"
+  subA="Suscríbete ahora"
+  yearly="Suscripción anual"
+  monthly="Suscripción mensual"
+  button="suscribirse ahora"
+  />
   <VisionSection
   titleA="nuestra razón de ser"
   titleB="mision"
