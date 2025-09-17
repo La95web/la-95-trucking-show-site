@@ -7,8 +7,8 @@ const {title, paragraph, button} = Astro.props;
       <h2>{title}</h2>
       <div class="underline"></div>
       <p>{paragraph}</p>
-      <div class="light-button red-button">
-        <a href="/en/contact/">{button}</a>
+      <div class="light-button red-button"> 
+        <button class="openModal" data-modal="modalC" type="submit">{button}</button>
       </div>
     </div>
   </div>
@@ -16,6 +16,13 @@ const {title, paragraph, button} = Astro.props;
 
 <style lang="scss">
   @use "../assets/sass/index" as *;
+
+  button {
+    background-color: transparent;
+    color: white;
+    font-size: 1.2rem;
+    cursor: pointer;
+  }
 
   .podcasts-container P {
     text-align: left;
