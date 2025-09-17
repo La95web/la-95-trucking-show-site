@@ -10,22 +10,24 @@ document.querySelectorAll('#contact-form, #contact-form-b').forEach(form => {
       phone: formData.get('phone')
     };
 
-    fetch('http://localhost:3000/userDispatch', {
+    const API_URL = `${import.meta.env.PUBLIC_JOB_BASE_URL}/userDispatch`;
+
+    fetch(API_URL, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(data)
     })
-      .then(response => {
-        if (!response.ok) throw new Error('Error en la respuesta del servidor');
-        return response.json();
-      })
-      .then(result => {
-        console.log('Registro exitoso:', result);
-        form.reset();
-      })
-      .catch(error => {
-        console.error('Error al enviar datos:', error);
-        alert('Hubo un problema al enviar tu información. Intenta de nuevo.');
-      });
+    .then(response => {
+      if (!response.ok) throw new Error('Error en la respuesta del servidor');
+      return response.json();
+    })
+    .then(result => {
+      console.log('Registro exitoso:', result);
+      form.reset();
+    })
+    .catch(error => {
+      console.error('Error al enviar datos:', error);
+      alert('Hubo un problema al enviar tu información. Intenta de nuevo.');
+    });
   });
 });

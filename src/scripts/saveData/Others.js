@@ -10,7 +10,9 @@ document.querySelectorAll('#contact-form, #contact-form-b').forEach(form => {
       phone: formData.get('phone')
     };
 
-    fetch('http://localhost:3000/userOther', {
+    const API_URL = `${import.meta.env.PUBLIC_JOB_BASE_URL}/userOther`;
+
+    fetch(API_URL, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(data)
