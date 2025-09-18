@@ -11,6 +11,9 @@ import truck2 from "../assets/image/truck2.webp";
 import truck3 from "../assets/image/truck3.webp";
 import VisionSection from "../components/VisionSection.astro";
 import ModalJobindex from "../components/modalJobindex.astro";
+import TruckSale from "../components/TruckSale.astro";
+import Sale1 from "../assets/image/trucksale.jpg"
+import Modaltrucksale from "../components/modaltrucksale.astro";
 ---
 
 <SpanishLayout title="la 95 trucking show">
@@ -45,6 +48,13 @@ import ModalJobindex from "../components/modalJobindex.astro";
   paragraph="En LA 95 TRUCKING SHOW queremos ayudarte a conectar con empresas que valoran tu experiencia. Llena el formulario y da el primer paso hacia tu próxima oportunidad laboral.."
   button="Aplicar aqui" />
   <ModalJobindex />
+  <TruckSale
+  description1="este es una breve description la cual debemos probar ahora mismo"
+  button="ver mas"
+  image1={Sale1}
+  image2={Sale1}
+  />
+  <Modaltrucksale />
   <Newsletter
   titleA="Recibe notificaciones y avisos"
   textB="¡Mantente al día! Suscríbete para recibir las últimas novedades y eventos directamente en tu dispositivo. Confirma tu interés y no te pierdas ninguna noticia importante. Activa las notificaciones ahora."
