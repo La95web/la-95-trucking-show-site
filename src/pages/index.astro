@@ -20,7 +20,7 @@ import Modaltrucksale from "../components/modaltrucksale.astro";
   <HomeSlider images={[truck1.src, truck2.src, truck3.src]} />
   <Subscriptions 
   title1="Suscríbete y disfruta de descuentos exclusivos"
-  title2="Planes de suscripción"
+  title2="Empresas afiiliadas"
   text1="Seguros medicos"
   cupon1="Obten un descuento de $120"
   text2="Mecanica general"
@@ -47,14 +47,38 @@ import Modaltrucksale from "../components/modaltrucksale.astro";
   title="Eres chofer y estás buscando trabajo?"
   paragraph="En LA 95 TRUCKING SHOW queremos ayudarte a conectar con empresas que valoran tu experiencia. Llena el formulario y da el primer paso hacia tu próxima oportunidad laboral.."
   button="Aplicar aqui" />
-  <ModalJobindex />
-  <TruckSale
-  description1="este es una breve description la cual debemos probar ahora mismo"
-  button="ver mas"
-  image1={Sale1}
-  image2={Sale1}
+  <ModalJobindex
+  title="Llena el formulario aquí:"
+  paragraph="¡Gracias por tu registro! Nos pondremos en contacto contigo."
+  button="Enviar"
+  name="nombre"
+  lastname="apellido"
+  phone="número de teléfono"
   />
-  <Modaltrucksale />
+  <TruckSale
+  title="CAMION EN VENTA -15,000"
+  paragraph="RELIABLE - WELL MAINTAINED - READY TO DRYVE 🔥"
+  paragraph2="Dont´s miss out on this great opportunity to own a reliable trucker! contac us today"
+  button="Ver más"
+  image={Sale1}
+  />
+  <Modaltrucksale
+  title="detalles"
+  paragraph1="Año del camión:"
+  year="2015"
+  millas="Millas:"
+  km="940,000"
+  paragraph2="Transmisión:"
+  paragraph3="Cummins 13 speed manual"
+  type1="color del exterior:"
+  color1="blanco"
+  type2="color del interior:"
+  color2="negro"
+  name="nombre"
+  lastname="apellido"
+  phone="numero de teléfono"
+  button="Contactar al vendedor"
+  />
   <Newsletter
   titleA="Recibe notificaciones y avisos"
   textB="¡Mantente al día! Suscríbete para recibir las últimas novedades y eventos directamente en tu dispositivo. Confirma tu interés y no te pierdas ninguna noticia importante. Activa las notificaciones ahora."
@@ -71,5 +95,6 @@ import Modaltrucksale from "../components/modaltrucksale.astro";
 <script>
 	import "../scripts/home.js";
   import "../scripts/modal.js";
-  import "../scripts/saveData/Drivers.js"
+  import "../scripts/saveData/Drivers.js";
+  import "../scripts/saveData/TruckBuyer.js"
 </script>

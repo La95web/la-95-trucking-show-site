@@ -10,6 +10,11 @@ import VisionSection from "../../components/VisionSection.astro";
 import truck1 from "../../assets/image/camion.webp";
 import truck2 from "../../assets/image/truck2.webp";
 import truck3 from "../../assets/image/camion.webp";
+import Sale1 from "../../assets/image/trucksale.jpg";
+import img from '../../assets/image/trucksale.jpg';     
+import ModalJobindex from "../../components/modalJobindex.astro";
+import TruckSale from "../../components/TruckSale.astro";
+import Modaltrucksale from "../../components/modaltrucksale.astro";
 ---
 
 <EnglishLayout title="la 95 trucking show">
@@ -38,10 +43,43 @@ import truck3 from "../../assets/image/camion.webp";
   textA="To be the leading podcast in the trucking community, providing relevant information, entertainment, and a platform for truck drivers to express themselves. We aim to give a voice to those who traverse the roads, sharing their experiences, challenges, and successes while strengthening the sense of community and mutual support."
   textB="To become the main reference for Spanish-speaking truck drivers, creating a space where knowledge, anecdotes, and news from the sector are shared. We aspire to positively influence the transportation industry and improve the quality of life for drivers through valuable and authentic content."
   textC="Our values are respect for the work of truckers, authenticity in stories, commitment to relevant content, unity to foster solidarity, and passion for the transportation industry."/>  
-  <SecondarySection 
-  title="Check out our latest podcasts"
-  paragraph="Subscribe to our YouTube channel and don’t miss a single episode."
-  button="Go" />
+   <SecondarySection
+  title="You are a driver looking for a job?"
+  paragraph="In LA 95 TRUCKING SHOW we want to help you connect with companies that value your experience. Fill out the form and take the first step towards your next job opportunity.."
+  button="Apply Here" />
+  <ModalJobindex
+  title="Fill out the form here:"
+  paragraph="Thank you for your registration! We will contact you."
+  button="Send"
+  name="Name"
+  lastname="Last Name"
+  phone="Phone Number"
+  />
+  <TruckSale
+  title="TRUCKER FOR SALE -15,000"
+  paragraph="RELIABLE - WELL MAINTAINED - READY TO DRYVE 🔥"
+  paragraph2="Dont´s miss out on this great opportunity to own a reliable trucker! contac us today"
+  button="see more"
+  image={img}
+  image1={Sale1}
+  />
+  <Modaltrucksale
+  title="DETAILS"
+  paragraph1="Truck Year:"
+  year="2015"
+  millas="Miles:"
+  km="940,000"
+  paragraph2="Transmission:"
+  paragraph3="Cummins 13 speed manual"
+  type1="Exterior Color:"
+  color1="White"
+  type2="Interior Color:"
+  color2="Black"
+  name="Name"
+  lastname="Last Name"
+  phone="Phone Number"
+  button="Contact Seller"
+  />
   <Newsletter
   titleA="Receive notifications and alerts"
   textB="Stay up to date! Subscribe to receive the latest news and events directly on your device. Confirm your interest and don't miss any important news. Activate notifications now."
@@ -59,4 +97,6 @@ import truck3 from "../../assets/image/camion.webp";
 <script>
 	import "../../scripts/home.js";
   import "../../scripts/Radio.js"
+  import "../../scripts/modal.js";
+  import "../../scripts/saveData/Drivers.js"
 </script>
