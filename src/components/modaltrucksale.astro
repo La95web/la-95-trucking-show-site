@@ -1,5 +1,7 @@
 ---
-const { title, guest1, description1 } = Astro.props;
+const { title, paragraph1, year, millas, km, paragraph2, paragraph3, type1, color1, type2, color2,
+  name, lastname, phone, button
+ } = Astro.props;
 ---
 
 <div id="modalD" class="modal">
@@ -10,36 +12,36 @@ const { title, guest1, description1 } = Astro.props;
     </div>
   </div>
   <div class="block-title"> 
-     <h4>DETAILS</h4>
+     <h4>{title}</h4>
       <div class="datos-camion">
         <div class="fila">
-          <div class="etiqueta">Año del camión:</div>
-          <div class="valor">2015</div>
+          <div class="etiqueta">{paragraph1}</div>
+          <div class="valor">{year}</div>
         </div>
         <div class="fila">
-          <div class="etiqueta">Millas:</div>
-          <div class="valor">940.000</div>
+          <div class="etiqueta">{millas}</div>
+          <div class="valor">{km}</div>
         </div>
         <div class="fila">
-          <div class="etiqueta">Transmisión:</div>
-          <div class="valor">Cummins 13 speed manual</div>
+          <div class="etiqueta">{paragraph2}</div>
+          <div class="valor">{paragraph3}</div>
         </div>
         <div class="fila">
-          <div class="etiqueta">Color exterior:</div>
-          <div class="valor">White</div>
+          <div class="etiqueta">{type1}</div>
+          <div class="valor">{color1}</div>
         </div>
         <div class="fila">
-          <div class="etiqueta">Color interior:</div>
-          <div class="valor">Black</div>
+          <div class="etiqueta">{type2}</div>
+          <div class="valor">{color2}</div>
         </div>
       </div>
-    <form  id="contact-form">
+    <form  id="contact-form-d">
       <div class="row">
         <label>
-          <input type="text" name="name" placeholder="Nombre" required />
+          <input type="text" name="name" placeholder={name} required />
         </label>
         <label>
-          <input type="text" name="lastName" placeholder="Apellido" required />
+          <input type="text" name="lastName" placeholder={lastname} required />
         </label>
       </div>
       <div class="column">
@@ -47,17 +49,17 @@ const { title, guest1, description1 } = Astro.props;
           <input type="email" name="email" placeholder="Email" required title="Please enter a valid email address (example@domain.com)" />
         </label>
         <label>
-          <input type="text" name="phone" placeholder="Teléfono" required minlength="10" maxlength="10" />
+          <input type="text" name="phone" placeholder={phone} required minlength="10" maxlength="10" />
         </label>
       </div>
-       <button type="submit" class="light-gold gold-button">Contactar vendedor</button>
+       <button type="submit" class="light-gold gold-button">{button}</button>
     </form>
   </div>
 </div>
 
 <script>
    document.addEventListener('DOMContentLoaded', function () {
-    const form = document.getElementById('contact-form');
+    const form = document.getElementById('contact-form-d');
     form.addEventListener('submit', function (e) {
       e.preventDefault();
       if (form.checkValidity()) {

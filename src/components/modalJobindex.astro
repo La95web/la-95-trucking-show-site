@@ -1,5 +1,5 @@
 ---
-const { title, guest1, description1 } = Astro.props;
+const { title, paragraph, button, name, lastname, phone } = Astro.props;
 ---
 
 <div id="modalC" class="modal">
@@ -11,15 +11,15 @@ const { title, guest1, description1 } = Astro.props;
   </div>
   <div class="block-title"> 
     <div class="content-block">
-      <p><strong>Llena el formulario aqui:</strong></p>
+      <p><strong>{title}</strong></p>
     </div>
     <form  id="contact-form-c">
       <div class="row">
         <label>
-          <input type="text" name="name" placeholder="Nombre" required />
+          <input type="text" name="name" placeholder={name} required />
         </label>
         <label>
-          <input type="text" name="lastName" placeholder="Apellido" required />
+          <input type="text" name="lastName" placeholder={lastname} required />
         </label>
       </div>
       <div class="column">
@@ -27,12 +27,12 @@ const { title, guest1, description1 } = Astro.props;
           <input type="email" name="email" placeholder="Email" required title="Please enter a valid email address (example@domain.com)" />
         </label>
         <label>
-          <input type="text" name="phone" placeholder="Teléfono" required minlength="10" maxlength="10" />
+          <input type="text" name="phone" placeholder={phone} required minlength="10" maxlength="10" />
         </label>
       </div>
-       <button type="submit" class="light-gold gold-button">Enviar</button>
+       <button type="submit" class="light-gold gold-button">{button}</button>
         <p id="successMessage" style="display: none; color: white; font-weight: bold;">
-          ¡Gracias por tu registro! Nos pondremos en contacto contigo.
+          {paragraph}
         </p>
     </form>
   </div>

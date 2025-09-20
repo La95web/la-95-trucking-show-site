@@ -1,40 +1,16 @@
 ---
-import img from '../assets/image/trucksale.jpg';
-const {button } = Astro.props;
+const {title, paragraph, paragraph2, image, button } = Astro.props;
 ---
 
 <section>
   <div class="card-flexbox">
     <div class="card-content"> 
-      <h3>TRUCKER FOR SALE -15,000</h3>
-      <p>RELIABLE - WELL MAINTAINED - READY TO DRYVE 🔥</p>
-      <img src={img.src} alt="truck">
-      <!-- <h4>DETAILS</h4>
-      <div class="datos-camion">
-        <div class="fila">
-          <div class="etiqueta">Año del camión:</div>
-          <div class="valor">2015</div>
-        </div>
-        <div class="fila">
-          <div class="etiqueta">Millas:</div>
-          <div class="valor">940.000</div>
-        </div>
-        <div class="fila">
-          <div class="etiqueta">Transmisión:</div>
-          <div class="valor">Cummins 13 speed manual</div>
-        </div>
-        <div class="fila">
-          <div class="etiqueta">Color exterior:</div>
-          <div class="valor">White</div>
-        </div>
-        <div class="fila">
-          <div class="etiqueta">Color interior:</div>
-          <div class="valor">Black</div>
-        </div>
-      </div> -->
-      <p>Dont´s miss out on this great opportunity to own a reliable trucker! contac us today</p>
+      <h3>{title}</h3>
+      <p>{paragraph}</p>
+      <img src={image.src} alt="truck">
+      <p>{paragraph2}</p>
       <div class="light-button red-button">
-        <button class="openModal" data-modal="modalD">Ver más</button>
+        <button class="openModal" data-modal="modalD">{button}</button>
       </div>
     </div>
   </div>
@@ -55,6 +31,7 @@ const {button } = Astro.props;
     justify-content: center;
     align-items: center;
     padding: 50px 0;
+    gap: 55px;
   }
 
   .card-content {

@@ -1,37 +1,38 @@
 ---
 import room from "../assets/image/room1.png";
+const { title, paragraph1, paragraph2, paragraph3, paragraph4, paragraph5, paragraph6, paragraph7, button } = Astro.props;
 ---
-<h2>habitaciones disponibles</h2>
+<h2>{title}</h2>
 <div class="underline"></div>
 <section>
  <img src={room.src} alt="">
   </div>
   <div>
     <div class="content">
-      <p> <strong>$800/mo</strong></p>
+      <p> <strong>{paragraph1}</strong></p>
       <div class="flex1">
         <div class="flex-content"> 
           <i class="ph ph-bed"></i>
-          <p>1bd 1ba</p>
+          <p>{paragraph2}</p>
         </div>
         <div class="flex-content">
           <i class="ph ph-wifi-high"></i>
-          <p>Wifi</p>
+          <p>{paragraph3}</p>
         </div>
         <div class="flex-content">
           <i class="ph ph-letter-circle-p"></i>
-          <p>Estacionamiento</p>
+          <p>{paragraph4}</p>
         </div>
         <div class="flex-content"> 
           <i class="ph ph-couch"></i>
-          <p>Amoblado</p>
+          <p>{paragraph5}</p>
         </div>
       </div>
-      <p>Sunny room in shared apartment Sunny room in shared apartment</p>
+      <p>{paragraph6}</p>
       <div class="flex">
-        <p><b>San francisco, CA</b></p>
+        <p><b>{paragraph7}</b></p>
         <div class="light-gold gold-button">
-        <button class="openModal" data-modal="modalB">contactar</button>
+        <button class="openModal" data-modal="modalB">{button}</button>
         </div>
       </div>
     </div>
@@ -42,30 +43,30 @@ import room from "../assets/image/room1.png";
   </div>
   <div>
     <div class="content">
-      <p> <strong>$800/mo</strong></p>
+      <p> <strong>{paragraph1}</strong></p>
       <div class="flex1">
         <div class="flex-content"> 
           <i class="ph ph-bed"></i>
-          <p>1bd 1ba</p>
+          <p>{paragraph2}</p>
         </div>
         <div class="flex-content">
           <i class="ph ph-wifi-high"></i>
-          <p>Wifi</p>
+          <p>{paragraph3}</p>
         </div>
         <div class="flex-content">
           <i class="ph ph-letter-circle-p"></i>
-          <p>Estacionamiento</p>
+          <p>{paragraph4}</p>
         </div>
         <div class="flex-content"> 
           <i class="ph ph-couch"></i>
-          <p>Amoblado</p>
+          <p>{paragraph5}</p>
         </div>
       </div>
-      <p>Sunny room in shared apartment Sunny room in shared apartment</p>
+      <p>{paragraph6}</p>
       <div class="flex">
-        <p><b>San francisco, CA</b></p>
+        <p><b>{paragraph7}</b></p>
         <div class="light-gold gold-button">
-        <button class="openModal" data-modal="modalB">contactar</button>
+        <button class="openModal" data-modal="modalB">{button}</button>
         </div>
       </div>
     </div>
