@@ -1,0 +1,153 @@
+---
+const { title1, title2, title3, video1, post1, post2, post3, post4, post5, post6, post7, post8 } = Astro.props; 
+
+
+---
+
+<section>
+  <div>
+    <h2>{title1}</h2>
+    <div class="underline"></div>
+    <div class="video-gallery">
+      <video controls width="300" preload="none" poster="/src/assets/image/estudio1.jpg">
+        <source src={video1} type="video/mp4" />
+      </video>
+      <video controls width="300" preload="none" poster="/src/assets/image/estudio1.jpg">
+        <source src={video1} type="video/mp4" />
+      </video>
+      <video controls width="300" preload="none" poster="/src/assets/image/estudio1.jpg">
+        <source src={video1} type="video/mp4" />
+      </video>
+    </div>
+  </div>
+  <h2>{title2}</h2>
+  <div class="underline"></div>
+  <div id="carouselimg" class="carouselimg">
+    <div id="carousel-track" class="carousel-track">
+      <img src={post1.src} alt="Imagen" />
+      <img src={post2.src} alt="Imagen" />
+      <img src={post3.src} alt="Imagen" />
+      <img src={post4.src} alt="Imagen" />
+      <img src={post5.src} alt="Imagen" />
+      <img src={post6.src} alt="Imagen" />
+      <img src={post7.src} alt="Imagen" />
+      <img src={post8.src} alt="Imagen" />
+    </div>
+  </div>
+</section>
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const track = document.getElementById('carousel-track');
+    const carousel = document.getElementById('carouselimg');
+
+    // Duplicar contenido para efecto infinito
+    track.innerHTML += track.innerHTML;
+
+    let position = 0;
+    const speed = 1.4; // Ajusta la velocidad
+
+    function moverCarrusel() {
+      position -= speed;
+      if (Math.abs(position) >= track.scrollWidth / 2) {
+        position = 0; // Reinicia sin parpadeo
+      }
+      track.style.transform = `translateX(${position}px)`;
+      requestAnimationFrame(moverCarrusel);
+    }
+
+    moverCarrusel();
+  });
+</script>
+
+<style lang="scss">
+  @use '../assets/sass/index' as *;
+
+  section {
+    padding: 40px 30px;
+    background-image: url('../assets/image/Pentagonos.png');
+  }
+
+  h2 {
+    margin: 100px 0 0;
+  }
+
+  .underline {
+    margin: 0;
+  }
+
+  .video-gallery {
+    display: flex;
+    gap: 16px;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin: 10px;
+  }
+
+  video {
+    width: 300px;
+    border-radius: 8px;
+    box-shadow: 0 4px 16px rgba(0,0,0,0.12);
+    background: #000;
+    margin: 30px 0 0;
+  }
+
+  .carouselimg {
+    overflow: hidden;
+    width: 100%;
+    padding: 1rem;
+
+    .carousel-track {
+      display: flex;
+      gap: 2rem;
+      width: max-content;
+      will-change: transform;
+
+      img {
+        width: 400px;
+        object-fit: cover;
+        border-radius: 8px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        flex-shrink: 0;
+      }
+    }
+  }
+
+  
+  @media (min-width: 1024px) {
+    section {
+      padding: 80px 100px;
+    }
+    h2 {
+      text-align: center;
+       margin: 50px 0 0;
+    }
+
+    .underline {
+      margin: 0 auto;
+    }
+
+    video {
+      width: 400px;
+    }
+
+    .arrow {
+    display: block;
+    cursor: pointer;
+    }
+
+    figure {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .gallery-container {
+      max-width: 400px;
+      text-align: center;
+      align-items: center;
+      justify-content: center;
+    }
+  }
+</style>
