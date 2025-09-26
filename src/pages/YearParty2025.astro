@@ -1,0 +1,141 @@
+---
+import SpanishLayout from "../layouts/SpanishLayout.astro";
+import Footer from "../components/Footer.astro";
+import Media from "../components/Media.astro";
+import Video1 from "../assets/image/videoEstudio1.mp4";
+import img1 from "../assets/image/Gallery20.jpg";
+import img2 from "../assets/image/Gallery20.jpg";
+import img3 from "../assets/image/Gallery20.jpg";
+import img4 from "../assets/image/Gallery20.jpg";
+import img5 from "../assets/image/Gallery20.jpg";
+import img6 from "../assets/image/Gallery20.jpg";
+import img7 from "../assets/image/Gallery20.jpg";
+import img8 from "../assets/image/Gallery20.jpg";
+import Left from "../assets/image/left.png";
+import Right from "../assets/image/right.png";
+import Gallery1 from "../assets/image/gallery1.webp";
+import Gallery2 from "../assets/image/gallery2.webp";
+import Gallery3 from "../assets/image/gallery3.webp";
+const images = [
+  Gallery1, Gallery2, Gallery3
+];
+---
+
+<SpanishLayout title="Sotball 2024">
+  <Media 
+  title1="Videos"
+  video1={Video1}
+  title2="Imagenes destacadas"
+  post1={img1}
+  post2={img2}
+  post3={img3}
+  post4={img4}
+  post5={img5}
+  post6={img6}
+  post7={img7}
+  post8={img8}
+  />
+  <figure>
+    <div class="arrow left-arrow" id="leftArrow"><img src={Left.src} alt="Left"></div>
+    <div class="arrow right-arrow" id="rightArrow"><img src={Right.src} alt="right"></div>
+    <div class="gallery-container">
+      <h2>Galeria</h2>
+      <div class="underline"></div>
+      <div class="gallery-slider" id="gallerySlider">
+        {images.map((image, index) => (
+          <img src={image.src} alt={`Imagen ${index + 1}`} />
+        ))}
+      </div>
+      <div class="gallery-dots" id="galleryDots">
+        {images.map((_, index) => (
+          <span class="dot" data-index={index}></span>
+        ))}
+      </div>
+    </div>
+  </figure>
+  <Footer />
+</SpanishLayout>
+<script>
+  import "../scripts/mainMenu.js";
+  import "../scripts/Gallery.js"
+</script>
+
+<style lang="scss">
+  @use '../assets/sass/index' as *;
+
+  .gallery-container {
+    position: relative;
+    width: auto;
+    max-width: 600px;
+    overflow: hidden;
+  }
+
+  .gallery-slider {
+    display: flex;
+    transition: transform 0.5s ease;
+  }
+
+  .gallery-slider img {
+    padding-top: 20px;
+    width: 100%;
+    height: 550px;
+    object-fit: contain;
+    aspect-ratio: 3 / 2;
+    flex-shrink: 0;
+  }
+
+  .gallery-dots {
+    text-align: center;
+    margin-top: 10px;
+  }
+
+  .gallery-dots .dot {
+    display: inline-block;
+    width: 29px;
+    height: 10px;
+    margin: 5px;
+    background-color: $tertiary;
+    border: 2px solid $accent-b-light;
+    border-radius: 10%;
+    cursor: pointer;
+  }
+
+  .gallery-dots .dot.active {
+    background-color: $accent-b-light;
+    box-shadow: 0 0 25px 15px rgba($accent-b-light, 25%);
+  }
+
+  .left-arrow, .right-arrow {
+    position: absolute;
+    display: flex;
+    align-items: center;
+    font-size: 50px;
+    z-index: 10;
+    display: none;
+  }
+
+  .left-arrow {
+    left: 10%;
+  }
+
+  .right-arrow {
+    right: 10%;
+  }
+
+  @media (min-width: 600px) { 
+    h2 {
+      text-align: center;
+    }
+
+    .underline {
+      margin: 0 auto;
+    } 
+
+    figure {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
+  }
+</style>
