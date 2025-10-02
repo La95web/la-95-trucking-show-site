@@ -1,11 +1,7 @@
 ---
 import SpanishLayout from "../layouts/SpanishLayout.astro";
 import Footer from "../components/Footer.astro";
-import Media from "../components/Media.astro";
 import Video1 from "../assets/image/softballMedia25-01.mp4";
-import posterA from "../assets/image/softball25-10.jpg";
-import posterB from "../assets/image/softball25-11.jpg";
-import posterC from "../assets/image/softball25-12.jpg";
 import img1 from "../assets/image/softball25-01.jpg";
 import img2 from "../assets/image/softball25-02.jpg";
 import img3 from "../assets/image/softball25-03.jpg";
@@ -16,31 +12,54 @@ import img7 from "../assets/image/softball25-07.jpg";
 import img8 from "../assets/image/softball25-08.jpg";
 import Left from "../assets/image/left.png";
 import Right from "../assets/image/right.png";
-import Gallery1 from "../assets/image/gallery1.webp";
-import Gallery2 from "../assets/image/gallery2.webp";
-import Gallery3 from "../assets/image/gallery3.webp";
+import Gallery1 from "../assets/image/softball25-09.jpg";
+import Gallery2 from "../assets/image/softball25-10.jpg";
+import Gallery3 from "../assets/image/softball25-11.jpg";
+import Gallery4 from "../assets/image/softball25-12.jpg";
+import Gallery5 from "../assets/image/softball25-17.jpg";
+import Gallery6 from "../assets/image/softball25-14.jpg";
+import Gallery7 from "../assets/image/softball25-15.jpg";
+import Gallery8 from "../assets/image/softball25-16.jpg";
+import Gallery9 from "../assets/image/softball25-17.jpg"; 
+import Gallery10 from "../assets/image/softball25-18.jpg";
+import Gallery11 from "../assets/image/softball25-21.jpg";
 const images = [
-  Gallery1, Gallery2, Gallery3
+  Gallery1, Gallery2, Gallery3, Gallery4, Gallery5, Gallery6, Gallery7, Gallery8, Gallery9, Gallery10, Gallery11
 ];
 ---
 
 <SpanishLayout title="Sotball 2025">
-  <Media 
-  title1="Videos"
-  video1={Video1}
-  title2="Imagenes destacadas"
-  post1={img1}
-  post2={img2}
-  post3={img3}
-  post4={img4}
-  post5={img5}
-  post6={img6}
-  post7={img7}
-  post8={img8}
-  poster1={posterA}
-  poster2={posterB}
-  poster3={posterC}
-  />
+  <section>
+  <div>
+    <h2>Videos</h2>
+    <div class="underline"></div>
+    <div class="video-gallery">
+      <video controls width="300" preload="none" poster="/src/assets/image/softball25-18.jpg">
+        <source src={Video1} type="video/mp4" />
+      </video>
+      <video controls width="300" preload="none" poster="/src/assets/image/softball25-02.jpg">
+        <source src={Video1} type="video/mp4" />
+      </video>
+      <video controls width="300" preload="none" poster="/src/assets/image/softball25-10.jpg">
+        <source src={Video1} type="video/mp4" />
+      </video>
+    </div>
+  </div>
+  <h2>Imagenes destacadas</h2>
+  <div class="underline"></div>
+  <div id="carouselimg" class="carouselimg">
+    <div id="carousel-track" class="carousel-track">
+      <img src={img1.src} alt="Imagen" />
+      <img src={img2.src} alt="Imagen" />
+      <img src={img3.src} alt="Imagen" />
+      <img src={img4.src} alt="Imagen" />
+      <img src={img5.src} alt="Imagen" />
+      <img src={img6.src} alt="Imagen" />
+      <img src={img7.src} alt="Imagen" />
+      <img src={img8.src} alt="Imagen" />
+    </div>
+  </div>
+</section>
   <figure>
     <div class="arrow left-arrow" id="leftArrow"><img src={Left.src} alt="Left"></div>
     <div class="arrow right-arrow" id="rightArrow"><img src={Right.src} alt="right"></div>
@@ -62,6 +81,27 @@ const images = [
   <Footer />
 </SpanishLayout>
 <script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const track = document.getElementById('carousel-track');
+    const carousel = document.getElementById('carouselimg');
+
+    // Duplicar contenido para efecto infinito
+    track.innerHTML += track.innerHTML;
+
+    let position = 0;
+    const speed = 1.4; // Ajusta la velocidad
+
+    function moverCarrusel() {
+      position -= speed;
+      if (Math.abs(position) >= track.scrollWidth / 2) {
+        position = 0; // Reinicia sin parpadeo
+      }
+      track.style.transform = `translateX(${position}px)`;
+      requestAnimationFrame(moverCarrusel);
+    }
+
+    moverCarrusel();
+  });
   import "../scripts/mainMenu.js";
   import "../scripts/Gallery.js"
 </script>
@@ -69,6 +109,59 @@ const images = [
 <style lang="scss">
   @use '../assets/sass/index' as *;
 
+  //video and image carousel
+  section {
+    padding: 40px 30px;
+    background-image: url('../assets/image/Pentagonos.png');
+  }
+
+  h2 {
+    margin: 100px 0 0;
+  }
+
+  .underline {
+    margin: 0;
+  }
+
+  .video-gallery {
+    display: flex;
+    gap: 16px;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin: 10px;
+  }
+
+  video {
+    width: 300px;
+    height: 400px;
+    border-radius: 8px;
+    box-shadow: 0 4px 16px rgba(0,0,0,0.12);
+    background: #000;
+    margin: 30px 0 0;
+  }
+
+  .carouselimg {
+    overflow: hidden;
+    width: 100%;
+    padding: 1rem;
+
+    .carousel-track {
+      display: flex;
+      gap: 2rem;
+      width: max-content;
+      will-change: transform;
+
+      img {
+        width: 400px;
+        height: 500px;
+        object-fit: cover;
+        border-radius: 8px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        flex-shrink: 0;
+      }
+    }
+  }
+  //end video and image carousel
   .gallery-container {
     position: relative;
     width: auto;
@@ -129,13 +222,26 @@ const images = [
   }
 
   @media (min-width: 600px) { 
+    section {
+      padding: 80px 100px;
+    }
     h2 {
       text-align: center;
+       margin: 50px 0 0;
     }
 
     .underline {
       margin: 0 auto;
-    } 
+    }
+
+    video {
+      width: 400px;
+    }
+
+    .arrow {
+    display: block;
+    cursor: pointer;
+    }
 
     figure {
       display: flex;
