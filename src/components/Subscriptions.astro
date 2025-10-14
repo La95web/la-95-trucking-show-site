@@ -1,12 +1,4 @@
 ---
-import imageA from '../assets/image/empresa1.png';
-import imageB from '../assets/image/empresa2.png';
-import imageC from '../assets/image/empresa3.png';
-import imageD from '../assets/image/empresa1.png';
-import imageE from '../assets/image/empresa2.png';
-import imageF from '../assets/image/empresa3.png';
-import imageG from '../assets/image/empresa1.png';
-import imageH from '../assets/image/empresa2.png';
 import CheckoutForm from './CheckoutForm.astro';
 import Modalterms from './Modalterms.astro';
 const {title1, title2, text1, cupon1, text2, cupon2, text3, cupon3, text4, cupon4, subA, yearly, monthly, button} = Astro.props;
@@ -70,7 +62,7 @@ const monthly={monthly}
 const button={button}
 />
 <Modalterms />
-<section class="top-companies rows"> 
+<!-- <section class="top-companies rows"> 
   <h2>{title2}</h2>
   <div class="underline"></div>
   <div class="section-content">
@@ -141,7 +133,7 @@ const button={button}
       </div>
     </div>
   </div>
-</section>
+</section> -->
 
 <style lang="scss">
   @use "../assets/sass/index" as *;
