@@ -5,23 +5,12 @@ import SpanishLayout from "../layouts/SpanishLayout.astro";
 import Newsletter from "../components/Newsletter.astro";
 import Whatsapp from "../components/Whatsapp.astro";
 import Footer from "../components/Footer.astro";
-import SecondarySection from "../components/SecondarySection.astro";
 import truck1 from "../assets/image/truck2.webp";
 import truck2 from "../assets/image/Misionteam.webp";
 import truck3 from "../assets/image/truck3.webp";
 import VisionSection from "../components/VisionSection.astro";
-import ModalJobindex from "../components/modalJobindex.astro";
-import TruckSale from "../components/TruckSale.astro";
-import Sale1 from "../assets/image/trucksale.jpg"
-import Modaltrucksale from "../components/modaltrucksale.astro";
 import imageA from '../assets/image/empresa1.png';
 import imageB from '../assets/image/empresa2.png';
-import imageC from '../assets/image/empresa3.png';
-import imageD from '../assets/image/empresa1.png';
-import imageE from '../assets/image/empresa2.png';
-import imageF from '../assets/image/empresa3.png';
-import imageG from '../assets/image/empresa1.png';
-import imageH from '../assets/image/empresa2.png';
 ---
 
 <SpanishLayout title="la 95 trucking show">
@@ -43,6 +32,12 @@ import imageH from '../assets/image/empresa2.png';
   monthly="Suscripción mensual"
   button="suscribirse ahora"
   />
+  <Newsletter />
+  <Whatsapp
+  titleA="únete a nuestro grupo de whatsapp"
+  textA="📢 ¡Atención camioneros! 🚛💨"
+  textB="Los invitamos a formar parte de nuestro grupo de WhatsApp de la 95 Trucking Show. Un espacio donde compartiremos información, novedades, rutas, eventos y todo lo relacionado con nuestra pasión por los camiones."
+  button="ÚNETE" />
   <VisionSection
   titleA="nuestra razón de ser"
   titleB="mision"
@@ -51,56 +46,10 @@ import imageH from '../assets/image/empresa2.png';
   textA="Ser el podcast líder en la comunidad camionera, brindando información relevante, entretenimiento y un espacio de expresión para los conductores de camiones. Buscamos dar voz a quienes recorren las carreteras, compartiendo sus experiencias, desafíos y éxitos, mientras fortalecemos el sentido de comunidad y apoyo mutuo."
   textB="Convertirnos en el referente principal para los camioneros de habla hispana, creando un espacio donde se compartan conocimientos, anécdotas y noticias del sector. Aspiramos a influir positivamente en la industria del transporte y mejorar la calidad de vida de los conductores a través de contenido valioso y auténtico."
   textC="Nuestros valores son el respeto por la labor de los camioneros, la autenticidad en las historias, el compromiso con contenido relevante, la unidad para fomentar la solidaridad y la pasión por la industria del transporte."/>
-  <!-- <SecondarySection
-  title="Eres chofer y estás buscando trabajo?"
-  paragraph="En LA 95 TRUCKING SHOW queremos ayudarte a conectar con empresas que valoran tu experiencia. Llena el formulario y da el primer paso hacia tu próxima oportunidad laboral.."
-  button="Aplicar aqui" />
-  <ModalJobindex
-  title="Llena el formulario aquí:"
-  paragraph="¡Gracias por tu registro! Nos pondremos en contacto contigo."
-  button="Enviar"
-  name="nombre"
-  lastname="apellido"
-  phone="número de teléfono"
-  /> -->
-  <!-- <TruckSale
-  title="CAMION EN VENTA -15,000"
-  paragraph="RELIABLE - WELL MAINTAINED - READY TO DRYVE 🔥"
-  paragraph2="Dont´s miss out on this great opportunity to own a reliable trucker! contac us today"
-  button="Ver más"
-  image={Sale1}
-  /> -->
-  <!-- <Modaltrucksale
-  title="detalles"
-  paragraph1="Año del camión:"
-  year="2015"
-  millas="Millas:"
-  km="940,000"
-  paragraph2="Transmisión:"
-  paragraph3="Cummins 13 speed manual"
-  type1="color del exterior:"
-  color1="blanco"
-  type2="color del interior:"
-  color2="negro"
-  name="nombre"
-  lastname="apellido"
-  phone="numero de teléfono"
-  button="Contactar al vendedor"
-  /> -->
-  <Newsletter
-  titleA="Recibe notificaciones y avisos"
-  textB="¡Mantente al día! Suscríbete para recibir las últimas novedades y eventos directamente en tu dispositivo. Confirma tu interés y no te pierdas ninguna noticia importante. Activa las notificaciones ahora."
-  label="Tu email:"
-  formMessage="¡Gracias por suscribirte!"
-  button="enviar" />
-  <Whatsapp
-  titleA="únete a nuestro grupo de whatsapp"
-  textA="📢 ¡Atención camioneros! 🚛💨"
-  textB="Los invitamos a formar parte de nuestro grupo de WhatsApp de la 95 Trucking Show. Un espacio donde compartiremos información, novedades, rutas, eventos y todo lo relacionado con nuestra pasión por los camiones."
-  button="ÚNETE" />
   <section class="top-companies rows"> 
   <h2>Empresas afiliadas</h2>
   <div class="underline"></div>
+  <p>En las siguientes empresas en donde podras hacer uso de los descuentos</p>
   <div class="section-content">
     <div class="background-block">
       <div>  
@@ -110,17 +59,17 @@ import imageH from '../assets/image/empresa2.png';
         </div>
         <div class="content-box">
           <img src={imageB.src} alt="#">
-          <a href="">ride tire</a>
+          <a href="">ride tire located in pensilvania</a>
         </div>
       </div>
       <div>  
         <div class="content-box">
           <img src={imageA.src} alt="#">
-          <a href="">adrians motor in new jersey</a>
+          <a href="">ride tire located in pensilvania</a>
         </div>
         <div class="content-box">
           <img src={imageB.src} alt="#">
-          <a href="">ride tire</a>
+          <a href="">ride tire located in pensilvania</a>
         </div>
       </div>
     </div>
@@ -132,7 +81,7 @@ import imageH from '../assets/image/empresa2.png';
         </div>
         <div class="content-box">
           <img src={imageB.src} alt="#">
-          <a href="">ride tire</a>
+          <a href="">ride tire located in pensilvania</a>
         </div>
       </div>
       <div>  
@@ -142,7 +91,7 @@ import imageH from '../assets/image/empresa2.png';
         </div>
         <div class="content-box">
           <img src={imageB.src} alt="#">
-          <a href="">ride tire</a>
+          <a href="">ride tire located in pensilvania</a>
         </div>
       </div>
     </div>
@@ -154,7 +103,7 @@ import imageH from '../assets/image/empresa2.png';
         </div>
         <div class="content-box">
           <img src={imageB.src} alt="#">
-          <a href="">ride tire texas</a>
+          <a href="">ride tire located in pensilvania</a>
         </div>
       </div>
       <div>  
@@ -164,7 +113,7 @@ import imageH from '../assets/image/empresa2.png';
         </div>
         <div class="content-box">
           <img src={imageB.src} alt="#">
-          <a href="">ride tire in pensilvania</a>
+          <a href="">ride tire located in pensilvania</a>
         </div>
       </div>
     </div>
@@ -189,8 +138,14 @@ import imageH from '../assets/image/empresa2.png';
     align-items: center;
     gap: 20px;
     background-color: transparent;
-    padding-top: 70px;
-    padding-bottom: 70px;
+  }
+
+  h2 {
+    text-align: left;
+  }
+  p{
+    text-align: left;
+    margin: 10px 5%;
   }
 
   .content-box {
@@ -200,6 +155,8 @@ import imageH from '../assets/image/empresa2.png';
   }
 
   .content-box img {
+    width: 100px;
+    height: 100px;
     object-fit: cover;
     display: block;
     cursor: pointer;
@@ -217,7 +174,6 @@ import imageH from '../assets/image/empresa2.png';
     width: 100%;
     background-size: cover;
     background-position: center;
-    gap: 20px;
     z-index: 1;
   }
 
@@ -225,7 +181,7 @@ import imageH from '../assets/image/empresa2.png';
     content: "";
     position: absolute;
     inset: 0;
-    background: rgba(0,0,0,0.75); 
+    background: rgba(0,0,0,0.85); 
     z-index: 0;
     border-radius: inherit;
   }
@@ -248,7 +204,7 @@ import imageH from '../assets/image/empresa2.png';
   section {
     display: block;
     text-align: center;
-    padding: 50px 20px;
+    padding: 30px 20px;
   }
 
   @media (max-width: 768px) {
@@ -258,8 +214,14 @@ import imageH from '../assets/image/empresa2.png';
   }
 
   @media (min-width: 1024px) {
+    .section-content {
+      margin: 70px 0;
+    }
+    section {
+     padding: 30px 0;
+    }
 
-    h2 {
+    h2, p {
       text-align: center;
     }
 
@@ -267,18 +229,9 @@ import imageH from '../assets/image/empresa2.png';
       margin: 0 auto;
     }
 
-    .content-box img {
-      width: 100px;
-      height: 100px;
-    }
-
     .content-box a {
       font-size: 1.2rem;
     }
-
-    // .content-box {
-    //   margin: 20px auto;
-    // }
 
     .background-block {
       flex-direction: row;
