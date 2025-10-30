@@ -1,4 +1,4 @@
-document.querySelectorAll('#contact-form, #contact-form-b, #contact-form-c').forEach(form => {
+document.querySelectorAll('#contact-form, #contact-form-b').forEach(form => {
   form.addEventListener('submit', (e) => {
     e.preventDefault();
 

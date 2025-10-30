@@ -1,6 +1,6 @@
 document.addEventListener('DOMContentLoaded', () => {
   const searchInput = document.getElementById('site-search');
-  const newsItems = document.getElementsByClassName('news-item');
+  const newsItems = document.getElementsByClassName('search');
   const noData = document.getElementById('result');
 
   searchInput.addEventListener('input', function() {
@@ -21,31 +21,9 @@ document.addEventListener('DOMContentLoaded', () => {
       }
       noData.style.display = 'none';
     } else {
-      noData.style.display = found ? 'none' : 'block'
+      noData.style.display = found ? 'none' : 'flex'
     }
   });
-});
-
-document.addEventListener('DOMContentLoaded', () => {
-  const paragraphs = document.querySelectorAll('p'); 
-
-  function truncateText(paragraph, wordCount) {
-    const text = paragraph.textContent;
-    const words = text.split(' ');
-
-    if (words.length > wordCount) {
-      const truncatedText = words.slice(0, wordCount).join(' ') + '...';
-      paragraph.textContent = truncatedText;
-    }
-  }
-
-  function adjustTruncation() {
-    const wordCount = window.innerWidth >= 1024 ? 30 : 8;
-    paragraphs.forEach(paragraph => truncateText(paragraph, wordCount));
-  }
-
-  adjustTruncation();
-  window.addEventListener('resize', adjustTruncation);
 });
 
 // button load more
@@ -78,3 +56,52 @@ document.addEventListener('DOMContentLoaded', () => {
 
   showItems(itemsToShow);
 });
+// see more functionality
+    (function () {
+      const el = document.getElementById('lead-paragraph');
+      if (!el) return;
+      const full = el.textContent.trim();
+      const MAX = 174;
+      const mq = window.matchMedia('(max-width: 1023px)');
+      let expanded = false;
+
+      function escapeHtml(str) {
+        return str
+          .replace(/&/g, '&amp;')
+          .replace(/</g, '&lt;')
+          .replace(/>/g, '&gt;');
+      }
+
+      function renderTruncated() {
+        if (full.length <= MAX || !mq.matches) {
+          el.textContent = full;
+          return;
+        }
+        const part = full.slice(0, MAX).trim();
+        el.innerHTML = `${escapeHtml(part)}&hellip; <button class="read-toggle" aria-expanded="false">ver más</button>`;
+        attachHandler();
+      }
+
+      function renderFull() {
+        el.innerHTML = `${escapeHtml(full)} <button class="read-toggle" aria-expanded="true">ver menos</button>`;
+        attachHandler();
+      }
+
+      function attachHandler() {
+        const btn = el.querySelector('.read-toggle');
+        if (!btn) return;
+        btn.addEventListener('click', () => {
+          expanded = !expanded;
+          if (expanded) renderFull();
+          else renderTruncated();
+        }, { once: false });
+      }
+
+      // Inicializa y reactiva en resize
+      renderTruncated();
+      window.addEventListener('resize', () => {
+        // si se cambia de escritorio a móvil/deshacer
+        expanded = false;
+        renderTruncated();
+      });
+    })();
