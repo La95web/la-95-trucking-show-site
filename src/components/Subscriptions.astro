@@ -61,79 +61,9 @@ const yearly={yearly}
 const monthly={monthly}
 const button={button}
 />
-<Modalterms />
-<!-- <section class="top-companies rows"> 
-  <h2>{title2}</h2>
-  <div class="underline"></div>
-  <div class="section-content">
-    <div class="background-block">
-      <div>  
-        <div class="content-box">
-          <img src={imageA.src} alt="#">
-          <a href="">Lorem ipsum dolor sit.</a>
-        </div>
-        <div class="content-box">
-          <img src={imageB.src} alt="#">
-          <a href="">Lorem ipsum dolor sit.</a>
-        </div>
-      </div>
-      <div> 
-        <div class="content-box">
-          <img src={imageC.src} alt="#">
-          <a href="">Lorem ipsum dolor sit.</a>
-        </div>
-        <div class="content-box">
-          <img src={imageD.src} alt="#">
-          <a href="">Lorem ipsum dolor sit.</a>
-        </div>
-      </div>
-    </div>
-    <div class="background-block">
-      <div>  
-        <div class="content-box">
-          <img src={imageA.src} alt="#">
-          <a href="">Lorem ipsum dolor sit.</a>
-        </div>
-        <div class="content-box">
-          <img src={imageB.src} alt="#">
-          <a href="">Lorem ipsum dolor sit.</a>
-        </div>
-      </div>
-      <div> 
-        <div class="content-box">
-          <img src={imageC.src} alt="#">
-          <a href="">Lorem ipsum dolor sit.</a>
-        </div>
-        <div class="content-box">
-          <img src={imageD.src} alt="#">
-          <a href="">Lorem ipsum dolor sit.</a>
-        </div>
-      </div>
-    </div>
-    <div class="background-block">
-      <div> 
-        <div class="content-box">
-          <img src={imageE.src} alt="#">
-          <a href="">Lorem ipsum dolor sit.</a>
-        </div>
-        <div class="content-box">
-          <img src={imageF.src} class="modal-img" alt="#">
-          <a href="">Lorem ipsum dolor sit.</a>
-        </div>
-      </div>
-      <div>
-        <div class="content-box">
-          <img src={imageG.src} class="modal-img" alt="#">
-          <a href="">Lorem ipsum dolor sit.</a>
-        </div>
-        <div class="content-box">
-          <img src={imageH.src} class="modal-img" alt="#">
-          <a href="">Lorem ipsum dolor sit.</a>
-        </div>
-      </div>
-    </div>
-  </div>
-</section> -->
+<Modalterms
+subscription1="https://github.com/louis17782/Landing-pageMusic"
+subscription2="https://square.link/u/cAc7dYQt?src=embed" />
 
 <style lang="scss">
   @use "../assets/sass/index" as *;
@@ -202,70 +132,6 @@ const button={button}
     font-size: 2rem;
   }
 
-
-  .content-box {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin: 10px auto;
-    gap: 10px;
-  }
-
-  .content-box img {
-    width: 75px;
-    height: 75px;
-    object-fit: cover;
-    display: block;
-    margin: 0 auto;
-    cursor: pointer;
-  }
-
-  .background-block {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 50px;
-  }
-
-  .rows {
-    position: relative;
-    background-image: url('../assets/image/truckersMovil.png');
-    width: 100%;
-    background-size: cover;
-    background-position: center;
-    gap: 20px;
-    z-index: 1;
-  }
-
-  .rows::before {
-    content: "";
-    position: absolute;
-    inset: 0;
-    background: rgba(0,0,0,0.75); 
-    z-index: 0;
-    border-radius: inherit;
-  }
-
-  .rows > * {
-    position: relative;
-    z-index: 1;
-  }
-
-  a {
-    color: $accent-b-light;
-    font-size: 0.7em;
-  }
-
-  a:hover {
-    color: white;
-  }
-
-  @media (max-width: 768px) {
-   .background-block {
-      width: 50%;
-    }
-  }
-
   @media (min-width: 1024px) {
 
     h2 {
@@ -306,36 +172,6 @@ const button={button}
       width: 300px;
       height: 80px;
       padding: 20px;
-    }
-
-    .content-box img {
-      width: 100px;
-      height: 100px;
-    }
-
-    .content-box a {
-      font-size: 1.2rem;
-    }
-
-    .content-box {
-     margin: 20px auto;
-    }
-
-    .background-block {
-      flex-direction: row;
-      flex-wrap: wrap;
-      justify-content: center;
-      align-items: center;
-      width: 30%;
-    }
-
-    .rows {
-      position: relative;
-      background-image: url('../assets/image/truckers.png');
-      width: 100%;
-      min-height: 800px;
-      background-size: cover;
-      background-position: center;
     }
   }
 </style>

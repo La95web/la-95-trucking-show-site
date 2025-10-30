@@ -18,34 +18,38 @@ const articles = await fetch(import.meta.env.PUBLIC_API_BASE_URL.concat('news'),
     </ul>
   </nav>
   <div class="section-input">
-    <input type="search" id="site-search" name="" class="search-input" placeholder="Search...">
+    <input type="search" id="site-search" class="search-input" placeholder="Search...">
   </div>
 </div>
 
-<div class="podcasts-container" id="dynamic-content">
+<div class="podcasts-container">
   <div>
     <h2>{title}</h2>
     <div class="underline"></div>
     <p>{paragraph}</p>
   </div>
-  <div id="content-noticias" class="content-item">
-    {articles.length > 0 ? (
-      articles.filter((article) => article.language === 'spanish').map((article) => (
-        <a class="section-content-tips news-item">
-          <article>
-            <h4>{article.title}</h4>
-            <div class="underlineNews"></div>
-            <p>{article.content}</p>
-            <span>{formatDate(article.uploaded_at, language)}</span>
-          </article>
-          <div class="image">
-            <img src={article.thumbnail_url} alt="news" />
-          </div>
-        </a>
-      ))
-    ) : (
-      <div id="result"><h3>No results found.</h3></div>
+  <div id="content-noticias">
+    {articles.length > 0 && (
+      articles
+        .filter((article) => article.language === 'spanish')
+        .map((article) => (
+          <a class="section-content-tips news-item">
+            <article>
+              <h4>{article.title}</h4>
+              <div class="underlineNews"></div>
+              <p>{article.content}</p>
+              <span>{formatDate(article.uploaded_at, language)}</span>
+            </article>
+            <div class="image">
+              <img src={article.thumbnail_url} alt="news" />
+            </div>
+          </a>
+        ))
     )}
+
+    <!-- Siempre visible, oculto por defecto -->
+    <div id="result" style="display: none;"><h3>No results found.</h3></div>
+
     <div class="section-center">
       <div class="light-gold gold-button">
         <button id="load-more">{button}</button>
@@ -53,6 +57,7 @@ const articles = await fetch(import.meta.env.PUBLIC_API_BASE_URL.concat('news'),
     </div>
   </div>
 </div>
+
 
 <style lang="scss">
   @use "../assets/sass/index" as *;
@@ -64,7 +69,6 @@ const articles = await fetch(import.meta.env.PUBLIC_API_BASE_URL.concat('news'),
   }
 
   #result {
-    display: none;
     text-align: center;
     align-items: center;
     padding-top: 50px;

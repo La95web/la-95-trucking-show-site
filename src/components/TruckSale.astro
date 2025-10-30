@@ -1,28 +1,91 @@
 ---
 const {title, paragraph, paragraph2, image, button } = Astro.props;
 ---
-
-<section>
-  <div class="card-flexbox">
-    <div class="card-content"> 
-      <h3>{title}</h3>
-      <p>{paragraph}</p>
-      <img src={image.src} alt="truck">
-      <p>{paragraph2}</p>
-      <div class="light-button red-button">
-        <button class="openModal" data-modal="modalD">{button}</button>
+<article>
+  <h2>Pública tus artículos aquí</h2>
+  <div class="underline"></div>
+  <p>¿Tienes algo para vender? Publica tu artículo con nosotros.</p>
+  <button class="openModal" data-modal="modalC">{button}</button>
+</article>
+<div class="background">
+  <h2>Articulos publicados</h2>
+  <div class="underline"></div>
+  <section>
+    <div class="card-flexbox">
+      <div class="card-content"> 
+        <h3>{title}</h3>
+        <p>{paragraph}</p>
+        <img src={image.src} alt="truck">
+        <p>{paragraph2}</p>
+        <div class="light-button red-button">
+          <button class="openModal" data-modal="modalD">{button}</button>
+        </div>
       </div>
     </div>
-  </div>
-</section>
+      <div class="card-flexbox">
+      <div class="card-content"> 
+        <h3>{title}</h3>
+        <p>{paragraph}</p>
+        <img src={image.src} alt="truck">
+        <p>{paragraph2}</p>
+        <div class="light-button red-button">
+          <button class="openModal" data-modal="modalD">{button}</button>
+        </div>
+      </div>
+    </div>
+      <div class="card-flexbox">
+      <div class="card-content"> 
+        <h3>{title}</h3>
+        <p>{paragraph}</p>
+        <img src={image.src} alt="truck">
+        <p>{paragraph2}</p>
+        <div class="light-button red-button">
+          <button class="openModal" data-modal="modalD">{button}</button>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
 
 <style lang="scss" >
   @use '../assets/sass/index' as *;
+  // section
+    article {
+      display: block;
+      padding: 50px 0;
+      background-color: $accent-b-dark;
+      width: 100%;
+    .underline{
+      background-color: $primary;
+    }
+    h2 ,p{
+      color: $primary;
+    }
+    p{
+      margin: 15px 5%;
+    }
+    button {
+      border: 2px solid $primary;
+      border-radius: 8px;
+      background-color: transparent;
+      text-align: center;
+      color: $primary;
+      font-size: 1.5rem;
+      font-family: $heading;
+      font-weight: $regular;
+      cursor: pointer;
+      width: 130px;
+      margin: 0 5%;
+    } 
+  }
+  //end
 
   section {
-    background-image: url("../assets/image/Pentagonos.png");
-    background-repeat:repeat;
-    background-position: cover;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 40px;
   }
 
   .card-flexbox {
@@ -89,6 +152,46 @@ const {title, paragraph, paragraph2, image, button } = Astro.props;
     color: white;
     background-color: $accent-c-dark;
     font-size: 1.2rem ;
+  }
+
+  @media (min-width: 1024px) {
+    article {
+      display: block;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 50px 50px;
+      background-image: url("../assets/image/arrowDesk.png");
+      background-position: center;
+      background-repeat: no-repeat;
+      background-size: cover;
+      width: 100%;
+      height: auto;
+      .underline{
+        margin: 0 auto;
+      }
+      button {
+        border: 2px solid $primary;
+        border-radius: 8px;
+        background-color: transparent;
+        text-align: center;
+        color: $primary;
+        font-size: 1.5rem;
+        font-family: $heading;
+        font-weight: $regular;
+        cursor: pointer;
+        width: 130px;
+      } 
+    }
+    .background,
+     h2,
+     .underline{
+      margin: 0 auto;
+      text-align: center;
+    }
+    .background > h2 {
+      padding-top: 50px;
+    }
   }
 
 </style>
