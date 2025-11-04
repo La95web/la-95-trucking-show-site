@@ -1,5 +1,11 @@
 ---
-const {title, paragraph, paragraph2, image, button } = Astro.props;
+const {title, language = "es", paragraph2, button } = Astro.props;
+const marketplace = await fetch(import.meta.env.PUBLIC_API_BASE_URL.concat('marketplaces'), {
+  method: 'GET',
+  headers: {
+    'Accept': 'application/json',
+  },
+}).then((response) => response.json());
 ---
 <article>
   <h2>Pública tus artículos aquí</h2>
@@ -7,44 +13,27 @@ const {title, paragraph, paragraph2, image, button } = Astro.props;
   <p>¿Tienes algo para vender? Publica tu artículo con nosotros.</p>
   <button class="openModal" data-modal="modalC">{button}</button>
 </article>
+
 <div class="background">
-  <h2>Articulos publicados</h2>
+  <h2>Artículos publicados</h2>
   <div class="underline"></div>
-  <section>
-    <div class="card-flexbox">
-      <div class="card-content"> 
-        <h3>{title}</h3>
-        <p>{paragraph}</p>
-        <img src={image.src} alt="truck">
-        <p>{paragraph2}</p>
-        <div class="light-button red-button">
-          <button class="openModal" data-modal="modalD">{button}</button>
+ <section>
+  {marketplace.length > 0 &&
+    marketplace
+      .filter((marketplace) => marketplace.language === 'spanish')
+      .map((marketplace) => (
+        <div class="card-content">
+          <h3>{marketplace.title}</h3>
+          <p>{marketplace.content}</p>
+          <img src={marketplace.thumbnail_url} alt="truck" />
+          <p class="content-height">{marketplace.paragraphs}</p>
+          <div class="light-button red-button">
+            <button class="openModal" data-modal="modalD">{button}</button>
+          </div>
         </div>
-      </div>
-    </div>
-      <div class="card-flexbox">
-      <div class="card-content"> 
-        <h3>{title}</h3>
-        <p>{paragraph}</p>
-        <img src={image.src} alt="truck">
-        <p>{paragraph2}</p>
-        <div class="light-button red-button">
-          <button class="openModal" data-modal="modalD">{button}</button>
-        </div>
-      </div>
-    </div>
-      <div class="card-flexbox">
-      <div class="card-content"> 
-        <h3>{title}</h3>
-        <p>{paragraph}</p>
-        <img src={image.src} alt="truck">
-        <p>{paragraph2}</p>
-        <div class="light-button red-button">
-          <button class="openModal" data-modal="modalD">{button}</button>
-        </div>
-      </div>
-    </div>
-  </section>
+      ))
+  }
+</section>
 </div>
 
 <style lang="scss" >
@@ -85,73 +74,53 @@ const {title, paragraph, paragraph2, image, button } = Astro.props;
     flex-wrap: wrap;
     justify-content: center;
     align-items: center;
-    gap: 40px;
-  }
-
-  .card-flexbox {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    align-items: center;
-    padding: 50px 0;
-    gap: 55px;
   }
 
   .card-content {
     display: flex;
     flex-direction: column;
+    justify-content: left;
+    text-align: left;
     background-color: $primary;
     width: 350px;
+    height: 510px;
+    padding: 1rem;
+    margin: 2rem;
     border-radius: 8px;
-    p {
-     margin: 0 5%;
-     color: white;
+    overflow: hidden;
+
+    h3 {
+      color: $accent-b-dark;
+      margin: 0;
     }
-  }
+    p {
+      margin: 5px 0;
+    }
 
-  h3 {
-    color: $accent-b-dark;
-  }
+    .content-height {
+      height: 300px;
+    }
 
-  h4 {
-    margin: 10px 5%;
-    color: white;
-  }
+    img {
+      width: 100%;
+    }
 
-  section img {
-    width: 100%;
-    padding: 25px 0;
-    object-fit: cover;
-  }
+    .light-button{
+      margin: 0;
+    }
 
-  .datos-camion {
-    max-width: 500px;
-    margin: 0 5%;
-  }
-
-  .fila {
-    display: flex;
-    justify-content: space-between;
-    margin-bottom: 8px;
-  }
-
-  .etiqueta {
-    font-weight: bold;
-    width: 45%;
-    color: white;
-  }
-
-  .valor {
-    width: 50%;
-    color: white;
-  }
-
-  button {
-    justify-content: right;
-    align-items: left;
-    color: white;
-    background-color: $accent-c-dark;
-    font-size: 1.2rem ;
+    button {
+      width: 100%;
+      padding: 0.5rem;
+      font-size: 1.2rem;
+      background-color: $accent-c-dark;
+      color: white;
+      border: none;
+      border-radius: 6px;
+      font-family: $heading;
+      font-weight: $regular;
+      cursor: pointer;
+    }
   }
 
   @media (min-width: 1024px) {
@@ -170,18 +139,6 @@ const {title, paragraph, paragraph2, image, button } = Astro.props;
       .underline{
         margin: 0 auto;
       }
-      button {
-        border: 2px solid $primary;
-        border-radius: 8px;
-        background-color: transparent;
-        text-align: center;
-        color: $primary;
-        font-size: 1.5rem;
-        font-family: $heading;
-        font-weight: $regular;
-        cursor: pointer;
-        width: 130px;
-      } 
     }
     .background,
      h2,
