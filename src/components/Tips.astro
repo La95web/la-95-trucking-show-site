@@ -31,20 +31,20 @@ const articles = await fetch(import.meta.env.PUBLIC_API_BASE_URL.concat('tips'),
   <div id="content-tips">
     {articles.length > 0 &&
       articles
-        .filter((article) => article.language === 'spanish')
-        .map((article) => (
-          <div class="search">
-            <h4>{article.title}</h4>
-            <div class="underline"></div>
-            <span>{formatDate(article.uploaded_at, language)}</span>
-            <figure>
-              <img src={article.thumbnail_url} alt="tip" />
-              <div>
-                <p class="lead-paragraph">{article.content}</p>
-              </div>
-            </figure>
-          </div>
-        ))
+      .filter((article) => article.language === 'spanish')
+      .map((article) => (
+        <div class="search">
+          <h4>{article.title}</h4>
+          <div class="underline"></div>
+          <span>{formatDate(article.uploaded_at, language)}</span>
+          <figure>
+            <img src={article.thumbnail_url} alt="tip" />
+            <div>
+              <p class="lead-paragraph">{article.content}</p>
+            </div>
+          </figure>
+        </div>
+      ))
     }
     <div id="result" style="display: none;">
       <h3>No results found.</h3>
