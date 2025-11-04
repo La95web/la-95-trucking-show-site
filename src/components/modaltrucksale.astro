@@ -11,50 +11,29 @@ const { title, paragraph1, year, millas, km, paragraph2, paragraph3, type1, colo
       <div class="line2"></div>
     </div>
   </div>
-  <div class="block-title"> 
-     <h4>{title}</h4>
-      <div class="datos-camion">
-        <div class="fila">
-          <div class="etiqueta">{paragraph1}</div>
-          <div class="valor">{year}</div>
+  <section>
+    <p>Tus datos están protegidos. Esta plataforma cumple con estándares de seguridad y privacidad.</p>
+      <form  id="contact-form-d">
+        <div class="row">
+          <label>
+            <input type="text" name="name" placeholder={name} required />
+          </label>
+          <label>
+            <input type="text" name="lastName" placeholder={lastname} required />
+          </label>
         </div>
-        <div class="fila">
-          <div class="etiqueta">{millas}</div>
-          <div class="valor">{km}</div>
+        <div class="column">
+          <label>
+            <input type="email" name="email" placeholder="Email" required title="Please enter a valid email address (example@domain.com)" />
+          </label>
+          <label>
+            <input type="text" name="phone" placeholder={phone} required minlength="10" maxlength="10" />
+          </label>
         </div>
-        <div class="fila">
-          <div class="etiqueta">{paragraph2}</div>
-          <div class="valor">{paragraph3}</div>
-        </div>
-        <div class="fila">
-          <div class="etiqueta">{type1}</div>
-          <div class="valor">{color1}</div>
-        </div>
-        <div class="fila">
-          <div class="etiqueta">{type2}</div>
-          <div class="valor">{color2}</div>
-        </div>
-      </div>
-    <form  id="contact-form-d">
-      <div class="row">
-        <label>
-          <input type="text" name="name" placeholder={name} required />
-        </label>
-        <label>
-          <input type="text" name="lastName" placeholder={lastname} required />
-        </label>
-      </div>
-      <div class="column">
-        <label>
-          <input type="email" name="email" placeholder="Email" required title="Please enter a valid email address (example@domain.com)" />
-        </label>
-        <label>
-          <input type="text" name="phone" placeholder={phone} required minlength="10" maxlength="10" />
-        </label>
-      </div>
-       <button type="submit" class="light-gold gold-button">{button}</button>
-    </form>
-  </div>
+        <button type="submit" class="light-gold gold-button">{button}</button>
+      </form>
+    </div>
+  </section>
 </div>
 
 <script>
@@ -78,9 +57,8 @@ const { title, paragraph1, year, millas, km, paragraph2, paragraph3, type1, colo
 <style lang="scss">
   @use "../assets/sass/index" as *;
 
-
   .modal {
-    display: none;
+    display: flex;
     flex-direction: column; 
     justify-content: center;
     align-items: center;
@@ -93,6 +71,16 @@ const { title, paragraph1, year, millas, km, paragraph2, paragraph3, type1, colo
     overflow: none;
     backdrop-filter: blur(10px);
     background-color: rgba($tertiary, 0.85);
+  }
+
+  section {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    p{
+      margin: 0 5%;
+    }
   }
 
   //rombo
@@ -146,7 +134,6 @@ const { title, paragraph1, year, millas, km, paragraph2, paragraph3, type1, colo
     transform: rotate(90deg);
   }
   //end rombo
-
   .content-block {
    margin-top: 120px;
    width: 100%;
@@ -162,7 +149,7 @@ const { title, paragraph1, year, millas, km, paragraph2, paragraph3, type1, colo
   form {
     width: 100%;
     max-width: 500px;
-    padding: 20px;
+    padding: 0px 20px;
   }
 
   form .row {
@@ -233,9 +220,8 @@ const { title, paragraph1, year, millas, km, paragraph2, paragraph3, type1, colo
 
   .light-gold.gold-button {
     background-color: $tertiary;
-    box-shadow: 0 0 20px 10px rgba($accent-b-dark, 35%);
+    box-shadow: 0 0 20px 10px rgba($accent-b-dark, 10%);
     border: 2px solid $accent-b-dark;
-    margin: 20px 0 30px;
   }
 
   .gold-button {
@@ -243,29 +229,7 @@ const { title, paragraph1, year, millas, km, paragraph2, paragraph3, type1, colo
   }
 
   .gold-button:hover {
-    box-shadow: 0 0 25px 15px rgba($accent-b-light, 40%);
-  }
-
-    .datos-camion {
-    max-width: 500px;
-    margin: 0 5%;
-  }
-
-  .fila {
-    display: flex;
-    justify-content: space-between;
-    margin-bottom: 8px;
-  }
-
-  .etiqueta {
-    font-weight: bold;
-    width: 45%;
-    color: white;
-  }
-
-  .valor {
-    width: 50%;
-    color: white;
+    box-shadow: 0 0 25px 15px rgba($accent-b-light, 15%);
   }
 
   h4 {
@@ -275,23 +239,21 @@ const { title, paragraph1, year, millas, km, paragraph2, paragraph3, type1, colo
   }
 
   @media (min-width: 1024px) {
+
+  section {
+    padding: 20px 0;
+    background-color: $primary;
+    width: 400px;
+    gap: 1rem;
+  }
   .modal {
     padding: 0;
     background: rgba(20, 20, 20, 0.5);
     z-index: 99;
   }
 
-  .block-title {
-    width: 100%;
-    max-width: 400px;
-    background: $tertiary;
-    border-radius: 16px;
-    box-shadow: 0 8px 40px 0 rgba(0,0,0,0.30);
-  }
-
   .content-block {
     margin-top: 0;
   }
 }
-
 </style>
