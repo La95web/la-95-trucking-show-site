@@ -1,6 +1,6 @@
 ---
 import Video1 from "../assets/image/softballMedia25-01.mp4";
-const { title, language = 'es', paragraph, button, navNews, navTips, link1, link2 } = Astro.props;
+const { title, language = 'es', paragraph, button, navTips, link2 } = Astro.props;
 import formatDate from "../scripts/formatDate";
 
 const articles = await fetch(import.meta.env.PUBLIC_API_BASE_URL.concat('tips'), {
@@ -14,7 +14,6 @@ const articles = await fetch(import.meta.env.PUBLIC_API_BASE_URL.concat('tips'),
 <div class="section">
   <nav>
     <ul>
-      <li><a href={link1}>{navNews}</a></li>
       <li><a href={link2}>{navTips}</a></li>
     </ul>
   </nav>
@@ -46,9 +45,9 @@ const articles = await fetch(import.meta.env.PUBLIC_API_BASE_URL.concat('tips'),
         </div>
       ))
     }
-    <div id="result" style="display: none;">
-      <h3>No results found.</h3>
-    </div>
+  <div id="result" style="display: none;">
+    <h3>No result found.</h3>
+  </div>
   </div>
   <div class="section-center">
     <div class="light-gold gold-button">
@@ -214,7 +213,7 @@ const articles = await fetch(import.meta.env.PUBLIC_API_BASE_URL.concat('tips'),
     border: none;
     width: 100%;
     height: 60px;
-    background-image: url("../assets/image/lupa.png");
+    background-image: url("../assets/image/blacklupa.png");
     justify-content: center;
     align-items: center;
     background-repeat: no-repeat;

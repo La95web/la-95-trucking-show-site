@@ -1,7 +1,5 @@
 ---
-const { title, paragraph1, year, millas, km, paragraph2, paragraph3, type1, color1, type2, color2,
-  name, lastname, phone, button
- } = Astro.props;
+const {paragraph, name, lastname, phone, button } = Astro.props;
 ---
 
 <div id="modalD" class="modal">
@@ -12,7 +10,7 @@ const { title, paragraph1, year, millas, km, paragraph2, paragraph3, type1, colo
     </div>
   </div>
   <section>
-    <p>Tus datos están protegidos. Esta plataforma cumple con estándares de seguridad y privacidad.</p>
+    <p>{paragraph}</p>
       <form  id="contact-form-d">
         <div class="row">
           <label>
@@ -58,7 +56,7 @@ const { title, paragraph1, year, millas, km, paragraph2, paragraph3, type1, colo
   @use "../assets/sass/index" as *;
 
   .modal {
-    display: flex;
+    display: none;
     flex-direction: column; 
     justify-content: center;
     align-items: center;

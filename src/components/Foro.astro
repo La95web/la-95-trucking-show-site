@@ -1,13 +1,11 @@
 ---
-const {titleA, textB, label, button, formMessage} = Astro.props;
+const {title, paragraph, strongA, button} = Astro.props;
 ---
 
 <section>
-  <h2>La Voz del Camionero</h2>
-  <p>¿Tienes ideas para nuevos episodios, tips para la vida en carretera o preguntas que quieres compartir con otros camioneros? 🚛  
-  Este es tu espacio para expresarte.  
-  Haz clic en el botón y <strong> participa</strong>. ¡Tu voz cuenta!.</p>
-  <a href="/commentForm">Únete aquí</a>
+  <h2>{title}</h2>
+  <p>{paragraph} <strong>{strongA}</strong></p>
+  <a href="/commentForm">{button}</a>
 </section>
   
 <style lang="scss">

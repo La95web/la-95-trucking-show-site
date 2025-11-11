@@ -1,7 +1,7 @@
 ---
 import CheckoutForm from './CheckoutForm.astro';
 import Modalterms from './Modalterms.astro';
-const {title1, title2, text1, cupon1, text2, cupon2, text3, cupon3, text4, cupon4, subA, yearly, monthly, button} = Astro.props;
+const {title1, titleC, text1, cupon1, text2, cupon2, text3, cupon3, text4, cupon4, title, paragraph, paragraphC, yearly, monthly, button, buttonC, anchor} = Astro.props;
 ---
 
 <section class="back-img">
@@ -56,10 +56,15 @@ const {title1, title2, text1, cupon1, text2, cupon2, text3, cupon3, text4, cupon
   </div>
 </section>
 <CheckoutForm
-const sub1={subA}
+cosnt titleC={titleC}
+const title={title}
+const paragraphC={paragraphC}
+const paragraph={paragraph}
 const yearly={yearly}
 const monthly={monthly}
 const button={button}
+const buttonC={buttonC}
+const anchor={anchor}
 />
 <Modalterms
 subscription1="https://github.com/louis17782/Landing-pageMusic"

@@ -1,11 +1,11 @@
 ---
-const {sub1, yearly, monthly, button} = Astro.props;
+const {title, titleC, paragraph, paragraphC, yearly, monthly, button, buttonC, anchor} = Astro.props;
 ---
 
 <section>
-  <h2>{sub1}</h2>
+  <h2>{title}</h2>
   <div class="underline"></div>
-  <p>Si eres un usuario regular, elige la suscripción que mejor se adapta a ti.</p>
+  <p>{paragraph}</p>
   <div class="section-content">
     <div>
       <p>{monthly}</p>
@@ -26,10 +26,10 @@ const {sub1, yearly, monthly, button} = Astro.props;
     </div>
 </section>
 <div class="user-tier">
-  <h2>Si eres dueño de empresa</h2>
+  <h2>{titleC}</h2>
   <div class="underline"></div>
-  <p>Elije esta opcion para convertirte en patrocinador y disfruta de los beneficios de la suscripción.</p>
-  <a class="light-gold" href="/Afiliate">Afiliate aquí</a>
+  <p>{paragraphC}</p>
+  <a class="light-gold" href={anchor}>{buttonC}</a>
 </div>
 
 <style lang="scss">
