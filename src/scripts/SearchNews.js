@@ -29,7 +29,7 @@ document.addEventListener('DOMContentLoaded', () => {
 // button load more
 
 document.addEventListener('DOMContentLoaded', () => {
-  let itemsToShow = 2;
+  let itemsToShow = 9;
   const loadMoreButton = document.getElementById('load-more');
   const contentItems = document.querySelectorAll('.section-content-tips');
 
@@ -50,7 +50,7 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   loadMoreButton.addEventListener('click', () => {
-    itemsToShow += 2;
+    itemsToShow += 9;
     showItems(itemsToShow);
   });
 
