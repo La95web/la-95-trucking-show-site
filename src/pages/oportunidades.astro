@@ -13,35 +13,42 @@ import Modaltrucksale from "../components/modaltrucksale.astro";
 
 <SpanishLayout title="la 95 trucking show">
   <HeaderBanner 
-  titleUs="Empleos"
-  Team1={Team1}
-  Team2={Team2}/>
+    titleUs="Empleos"
+    Team1={Team1}
+    Team2={Team2}
+  />
   <Category
-  title="Selecciona tu área de especialización"
-  tag1="Chofer"
-  tag2="Owner operator"
-  tag3="Rentas de habitaciones"
-  tag4="Dispatcher"
-  tag5="Otros"
+    title="Selecciona tu área de especialización"
+    tag1="Chofer"
+    tag2="Owner operator"
+    tag3="Rentas de habitaciones"
+    tag4="Dispatcher"
+    tag5="Otros"
   />
   <ModalMarket
-  title="Llena el formulario para contactarnos"
-  button="Contactar aquí"
-  name="nombre"
-  lastname="apellido"
+    title="Llena el formulario para contactarnos"
+    name="Nombre"
+    lastname="Apellido"
+    button="Contactar aquí"
   />
   <TruckSale
-  button="Ver más"
+    title="Pública tus artículos aquí"
+    title2="Artículos publicados"
+    paragraph="¿Tienes algo para vender? Publica tu artículo con nosotros."
+    button="Ver más"
+    result="Producto no encontrado"
   />
  <Modaltrucksale
-  name="nombre"
-  lastname="apellido"
-  phone="numero de teléfono"
-  button="Contactar al vendedor"
+    paragraph="Tus datos están protegidos. Esta plataforma cumple con estándares de seguridad y privacidad."
+    name="nombre"
+    lastname="apellido"
+    phone="numero de teléfono"
+    button="Contactar al vendedor"
   />
   <Footer />
 </SpanishLayout>
 <script>
   import "../scripts/home.js";
-  import "../scripts/modal"
+  import "../scripts/modal";
+  import "../scripts/SearchNews"
 </script>

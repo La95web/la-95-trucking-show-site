@@ -2,7 +2,7 @@
 import HomeSlider from "../components/HomeSlider.astro";
 import Subscriptions from "../components/Subscriptions.astro";
 import SpanishLayout from "../layouts/SpanishLayout.astro";
-import Newsletter from "../components/Newsletter.astro";
+import Foro from "../components/Foro.astro";
 import Whatsapp from "../components/Whatsapp.astro";
 import Footer from "../components/Footer.astro";
 import truck1 from "../assets/image/truck2.webp";
@@ -16,109 +16,120 @@ import imageB from '../assets/image/empresa2.png';
 <SpanishLayout title="la 95 trucking show">
   <HomeSlider images={[truck1.src, truck2.src, truck3.src]} />
   <Subscriptions 
-  title1="Suscríbete y disfruta de descuentos exclusivos"
-  title2="Empresas afiiliadas"
-  text1="Seguros medicos"
-  cupon1="Obten un descuento de $120"
-  text2="Mecanica general"
-  cupon2="Obten un descuento de $20"
-  text3="Gomeras"
-  cupon3="Obten un descuento de $300"
-  text4="Firma de abogados"
-  cupon4="Obten un descuento de $80"
-  titleA="Empresas afiiliadas"
-  subA="Suscríbete ahora"
-  yearly="Suscripción anual"
-  monthly="Suscripción mensual"
-  button="suscribirse ahora"
+    title1="Suscríbete y disfruta de descuentos exclusivos"
+    title2="Empresas afiiliadas"
+    titleC="Si eres dueño de empresa"
+    paragraphC="Elije esta opcion para convertirte en patrocinador y disfruta de los beneficios de la suscripción."
+    text1="Seguros medicos"
+    cupon1="Obten un descuento de $120"
+    text2="Mecanica general"
+    cupon2="Obten un descuento de $20"
+    text3="Gomeras"
+    cupon3="Obten un descuento de $300"
+    text4="Firma de abogados"
+    cupon4="Obten un descuento de $80"
+    titleA="Empresas afiiliadas"
+    title="Suscríbete ahora"
+    paragraph="Si eres un usuario regular, elige la suscripción que mejor se adapta a ti."
+    yearly="Suscripción anual"
+    monthly="Suscripción mensual"
+    button="suscribirse ahora"
+    buttonC="Afiliate aquí"
+    anchor="/Afiliate"
   />
-  <Newsletter />
+  <Foro 
+    title="La Voz del Camionero"
+    paragraph="¿Tienes ideas para nuevos episodios, tips para la vida en carretera o preguntas que quieres compartir con otros camioneros? 🚛 Este es tu espacio para expresarte. Haz clic en el botón y"
+    strongA="participa"
+    button="Únete al foro"
+  />
   <Whatsapp
-  titleA="únete a nuestro grupo de whatsapp"
-  textA="📢 ¡Atención camioneros! 🚛💨"
-  textB="Los invitamos a formar parte de nuestro grupo de WhatsApp de la 95 Trucking Show. Un espacio donde compartiremos información, novedades, rutas, eventos y todo lo relacionado con nuestra pasión por los camiones."
-  button="ÚNETE" />
+    titleA="únete a nuestro grupo de whatsapp"
+    textA="📢 ¡Atención camioneros! 🚛💨"
+    textB="Los invitamos a formar parte de nuestro grupo de WhatsApp de la 95 Trucking Show. Un espacio donde compartiremos información, novedades, rutas, eventos y todo lo relacionado con nuestra pasión por los camiones."
+    button="ÚNETE" 
+  />
   <VisionSection
-  titleA="nuestra razón de ser"
-  titleB="mision"
-  titleC="vision"
-  titleD="valores"
-  textA="Ser el podcast líder en la comunidad camionera, brindando información relevante, entretenimiento y un espacio de expresión para los conductores de camiones. Buscamos dar voz a quienes recorren las carreteras, compartiendo sus experiencias, desafíos y éxitos, mientras fortalecemos el sentido de comunidad y apoyo mutuo."
-  textB="Convertirnos en el referente principal para los camioneros de habla hispana, creando un espacio donde se compartan conocimientos, anécdotas y noticias del sector. Aspiramos a influir positivamente en la industria del transporte y mejorar la calidad de vida de los conductores a través de contenido valioso y auténtico."
-  textC="Nuestros valores son el respeto por la labor de los camioneros, la autenticidad en las historias, el compromiso con contenido relevante, la unidad para fomentar la solidaridad y la pasión por la industria del transporte."/>
-  <section class="top-companies rows"> 
-  <h2>Empresas afiliadas</h2>
-  <div class="underline"></div>
-  <p>En las siguientes empresas en donde podras hacer uso de los descuentos</p>
-  <div class="section-content">
-    <div class="background-block">
-      <div>  
-        <div class="content-box">
-          <img src={imageA.src} alt="#">
-          <a href="">adrians motor in new jersey</a>
+    titleA="nuestra razón de ser"
+    titleB="mision"
+    titleC="vision"
+    titleD="valores"
+    textA="Ser el podcast líder en la comunidad camionera, brindando información relevante, entretenimiento y un espacio de expresión para los conductores de camiones. Buscamos dar voz a quienes recorren las carreteras, compartiendo sus experiencias, desafíos y éxitos, mientras fortalecemos el sentido de comunidad y apoyo mutuo."
+    textB="Convertirnos en el referente principal para los camioneros de habla hispana, creando un espacio donde se compartan conocimientos, anécdotas y noticias del sector. Aspiramos a influir positivamente en la industria del transporte y mejorar la calidad de vida de los conductores a través de contenido valioso y auténtico."
+    textC="Nuestros valores son el respeto por la labor de los camioneros, la autenticidad en las historias, el compromiso con contenido relevante, la unidad para fomentar la solidaridad y la pasión por la industria del transporte."/>
+    <section class="top-companies rows"> 
+    <h2>Empresas afiliadas</h2>
+    <div class="underline"></div>
+    <p>En las siguientes empresas en donde podras hacer uso de los descuentos</p>
+    <div class="section-content">
+      <div class="background-block">
+        <div>  
+          <div class="content-box">
+            <img src={imageA.src} alt="#">
+            <a href="">adrians motor in new jersey</a>
+          </div>
+          <div class="content-box">
+            <img src={imageB.src} alt="#">
+            <a href="">ride tire located in pensilvania</a>
+          </div>
         </div>
-        <div class="content-box">
-          <img src={imageB.src} alt="#">
-          <a href="">ride tire located in pensilvania</a>
+        <div>  
+          <div class="content-box">
+            <img src={imageA.src} alt="#">
+            <a href="">ride tire located in pensilvania</a>
+          </div>
+          <div class="content-box">
+            <img src={imageB.src} alt="#">
+            <a href="">ride tire located in pensilvania</a>
+          </div>
         </div>
       </div>
+      <div class="background-block">
       <div>  
-        <div class="content-box">
-          <img src={imageA.src} alt="#">
-          <a href="">ride tire located in pensilvania</a>
+          <div class="content-box">
+            <img src={imageA.src} alt="#">
+            <a href="">adrians motor in new jersey</a>
+          </div>
+          <div class="content-box">
+            <img src={imageB.src} alt="#">
+            <a href="">ride tire located in pensilvania</a>
+          </div>
         </div>
-        <div class="content-box">
-          <img src={imageB.src} alt="#">
-          <a href="">ride tire located in pensilvania</a>
+        <div>  
+          <div class="content-box">
+            <img src={imageA.src} alt="#">
+            <a href="">adrians motor in new jersey</a>
+          </div>
+          <div class="content-box">
+            <img src={imageB.src} alt="#">
+            <a href="">ride tire located in pensilvania</a>
+          </div>
+        </div>
+      </div>
+      <div class="background-block">
+        <div>  
+          <div class="content-box">
+            <img src={imageA.src} alt="#">
+            <a href="">adrians motor in new jersey</a>
+          </div>
+          <div class="content-box">
+            <img src={imageB.src} alt="#">
+            <a href="">ride tire located in pensilvania</a>
+          </div>
+        </div>
+        <div>  
+          <div class="content-box">
+            <img src={imageA.src} alt="#">
+            <a href="">adrians motor in new jersey</a>
+          </div>
+          <div class="content-box">
+            <img src={imageB.src} alt="#">
+            <a href="">ride tire located in pensilvania</a>
+          </div>
         </div>
       </div>
     </div>
-    <div class="background-block">
-     <div>  
-        <div class="content-box">
-          <img src={imageA.src} alt="#">
-          <a href="">adrians motor in new jersey</a>
-        </div>
-        <div class="content-box">
-          <img src={imageB.src} alt="#">
-          <a href="">ride tire located in pensilvania</a>
-        </div>
-      </div>
-      <div>  
-        <div class="content-box">
-          <img src={imageA.src} alt="#">
-          <a href="">adrians motor in new jersey</a>
-        </div>
-        <div class="content-box">
-          <img src={imageB.src} alt="#">
-          <a href="">ride tire located in pensilvania</a>
-        </div>
-      </div>
-    </div>
-    <div class="background-block">
-       <div>  
-        <div class="content-box">
-          <img src={imageA.src} alt="#">
-          <a href="">adrians motor in new jersey</a>
-        </div>
-        <div class="content-box">
-          <img src={imageB.src} alt="#">
-          <a href="">ride tire located in pensilvania</a>
-        </div>
-      </div>
-      <div>  
-        <div class="content-box">
-          <img src={imageA.src} alt="#">
-          <a href="">adrians motor in new jersey</a>
-        </div>
-        <div class="content-box">
-          <img src={imageB.src} alt="#">
-          <a href="">ride tire located in pensilvania</a>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
+  </section>
   <Footer />
 </SpanishLayout>
 <script>
