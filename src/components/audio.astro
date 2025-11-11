@@ -10,22 +10,18 @@ const audios = await fetch(import.meta.env.PUBLIC_API_BASE_URL.concat('audios'),
 <div class="search-bar section">
   <input type="search" id="searchInput" placeholder="Buscar episodio..." />
 </div>
+<div id="noResults" style="text-align: center; margin-top: 1rem;"> <h3>No se encontraron resultados.</h3> </div>
 
 <div class="podcast-container">
   <section id="podcastList">
-    {audios.length > 0 ? (
-      audios.map((audio) => (
-        <div class="podcastList">
-          <p><strong></strong>{audio.title}</p>
-          <audio src={audio.main_audio_url} controls></audio>
-        </div>
-      ))
-    ) : (
-      <div id="noResults" style="text-align: center; margin-top: 1rem;">
-        <h3>No se encontraron resultados.</h3>
+    {audios.length > 0 && audios.map((audio) => (
+      <div class="podcastList" key={audio.id}>
+        <p><strong>{audio.title}</strong></p>
+        <audio src={audio.main_audio_url} controls></audio>
       </div>
-    )}
+    ))}
   </section>
+</div>
 
   <div class="pagination">
     <button class="light-button yellow-button" id="toggleBtn">Siguiente »</button>
