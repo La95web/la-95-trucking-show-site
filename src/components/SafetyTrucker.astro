@@ -1,6 +1,6 @@
 ---
 import Video1 from "../assets/image/softballMedia25-01.mp4";
-const { title, language = 'es', paragraph, button, navTips, link2 } = Astro.props;
+const { title, language = 'es', paragraph, button, navTips1, navTips2, navTips3, navTips4, link1, link2, link3, link4 } = Astro.props;
 import formatDate from "../scripts/formatDate";
 
 const articles = await fetch(import.meta.env.PUBLIC_API_BASE_URL.concat('tips'), {
@@ -14,7 +14,10 @@ const articles = await fetch(import.meta.env.PUBLIC_API_BASE_URL.concat('tips'),
 <div class="section">
   <nav>
     <ul>
-      <li><a href={link2}>{navTips}</a></li>
+      <li><a href={link1}>{navTips1}</a></li>
+      <li><a href={link2}>{navTips2}</a></li>
+      <li><a href={link3}>{navTips3}</a></li>
+      <li><a href={link4}>{navTips4}</a></li>
     </ul>
   </nav>
   <div class="section-input">
@@ -88,7 +91,7 @@ const articles = await fetch(import.meta.env.PUBLIC_API_BASE_URL.concat('tips'),
 
 <style lang="scss">
   @use "../assets/sass/index" as *;
-  // start new styles
+   // start new styles
   header {
     padding-top: 50px;
     margin: 0 5%;
@@ -195,6 +198,7 @@ const articles = await fetch(import.meta.env.PUBLIC_API_BASE_URL.concat('tips'),
     display: flex;
     justify-content: space-around;
     margin: 20px;
+    padding: 0;
   }
 
   a {
@@ -331,6 +335,7 @@ const articles = await fetch(import.meta.env.PUBLIC_API_BASE_URL.concat('tips'),
       align-items: center;
       text-align: center;
       justify-content: space-between;
+      background-color: $primary;
 
       h2 {
         font-size: 3rem;
@@ -344,7 +349,7 @@ const articles = await fetch(import.meta.env.PUBLIC_API_BASE_URL.concat('tips'),
     }
 
     ul {
-      gap: 250px;
+      gap: 50px;
       margin: 0;
     }
 

@@ -15,8 +15,8 @@ const audios = await fetch(import.meta.env.PUBLIC_API_BASE_URL.concat('audios'),
 <div class="podcast-container">
   <section id="podcastList">
     {audios.length > 0 && audios.map((audio) => (
-      <div class="podcastList" key={audio.id}>
-        <p><strong>{audio.title}</strong></p>
+      <div class="podcastList">
+        <p>{audio.title}</p>
         <audio src={audio.main_audio_url} controls></audio>
       </div>
     ))}
@@ -144,6 +144,7 @@ const audios = await fetch(import.meta.env.PUBLIC_API_BASE_URL.concat('audios'),
 
   p{
     color: $accent-b-dark;
+    font-size: 1rem;
   }
 
   .podcast-container {
