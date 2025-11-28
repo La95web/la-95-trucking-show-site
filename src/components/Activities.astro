@@ -1,0 +1,343 @@
+---
+const {title1, title2, title3, title4, text1, text2, text3, text4, text5, text6, text7, text8,
+image1, image2, image3, image4, image5, image6, image7, image8} = Astro.props
+---
+<div class="top"></div> 
+<section class="backimg"> 
+  <div class="center"> 
+    <h2>{title1}</h2>
+    <div class="underlineshort"></div>
+  </div>
+  <div class="flexbox">
+    <div class="card">
+      <div> 
+        <a href="/softball2024"><img src={image1.src} alt="Card Image" class="card-image">
+        <div class="gradient">
+          <h3 class="card-title">{text1}</h3></a>
+        </div>
+      </div>
+    </div>
+    <div class="card">
+      <div> 
+        <a href="/softball2025"><img src={image2.src} alt="Card Image" class="card-image">
+        <div class="gradient">
+          <h3 class="card-title">{text2}</h3></a>
+        </div>
+      </div>
+    </div>
+  </div>   
+</section>
+
+<section class="backimg-secondary"> 
+  <div class="center"> 
+    <h2>{title2}</h2>
+    <div class="underlineshort"></div>
+  </div>
+  <div class="flexbox">
+    <div class="card">
+      <div> 
+        <a href="/basketball2025"><img src={image3.src} alt="Card Image" class="card-image">
+        <div class="gradient">
+          <h3 class="card-title">{text3}</h3></a>
+        </div>
+      </div>
+    </div>
+ </div>
+</section>
+
+<section class="backimg-tertiary"> 
+  <div class="center"> 
+    <h2>{title3}</h2>
+    <div class="underlineshort"></div>
+  </div>
+  <div class="flexbox">
+    <div class="card">
+      <div> 
+        <a href="/YearParty2025"><img src={image5.src} alt="Card Image" class="card-image">
+        <div class="gradient">
+          <h3 class="card-title">{text5}</h3></a>
+        </div>
+      </div>
+    </div>
+ </div>
+</section>
+
+<section class="backimg-quaternary"> 
+  <div class="center"> 
+    <h2>{title4}</h2>
+    <div class="underlineshort"></div>
+  </div>
+  <div class="flexbox">
+    <div class="card">
+      <div> 
+        <a href="/StudioPodcast2024"><img src={image7.src} alt="Card Image" class="card-image">
+        <div class="gradient">
+          <h3 class="card-title">{text7}</h3></a>
+        </div>
+      </div>
+    </div>
+    <div class="card">
+      <div> 
+        <a href="/StudioPodcast2025"><img src={image8.src} alt="Card Image" class="card-image">
+        <div class="gradient">
+          <h3 class="card-title">{text8}</h3></a>
+        </div>
+     </div>
+    </div>   
+ </div>
+</section>
+
+<style lang="scss">
+  @use '../assets/sass/index' as *;
+
+  .backimg {
+    position: relative;
+    background-image: url('../assets/image/stadium.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    z-index: 0;
+  }
+
+  .backimg-secondary {
+    position: relative;
+    background-image: url('../assets/image/cancha.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    z-index: 0;
+  }
+
+  .backimg-tertiary {
+    position: relative;
+    background-image: url('../assets/image/party.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    z-index: 0;
+  }
+
+  .backimg-quaternary {
+    position: relative;
+    background-image: url('../assets/image/Misionteam2.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    z-index: 0;
+  }
+
+  .backimg-secondary::after, 
+  .backimg-tertiary::after,
+  .backimg-quaternary::after,
+  .backimg::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    z-index: 1;
+    pointer-events: none;
+  }
+
+  .backimg-secondary > *, 
+  .backimg-tertiary > *,
+  .backimg-quaternary > *,
+  .backimg > * {
+    position: relative;
+    z-index: 2;
+  }
+
+  section {
+    background-color: $primary;
+  }
+
+  .top {
+    height: 0;
+    background-color: $primary;
+  }
+  
+  .flexbox {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .card {
+    position: relative;
+    width: 385px;
+    margin: 0 5%;
+    border-radius: 8px;
+    overflow: hidden;
+    margin-top: 30px;
+    margin-bottom: 30px;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .card-image {
+    width: 100%;
+    height: 260px;
+    object-fit: cover;
+  }
+
+  .gradient {
+    position: absolute;
+    bottom: 0;
+    top: 210px;
+    left: 0;
+    width: 362px;
+    height: 50px;
+    background: linear-gradient(to right, rgba(32, 35, 39) 0%,
+    rgba(32, 35, 39, 0.2) 50%,
+    rgba(52, 55, 61, 0.1 )100%);
+    display: flex;
+    align-items: left;
+    justify-content: left;
+  }
+
+  .card-title {
+    color: white;
+    font-size: 2rem;
+    margin-top: 6px;
+    font-weight: $regular;
+    font-family: $heading;
+  }
+
+  .card-title:hover {
+    color: $accent-b-dark;
+  }
+
+  h2 {
+    padding-top: 40px;
+  }
+
+  .underlineshort {
+    width: 120px;
+    height: 2px;
+    background-color: $accent-b-dark;
+    margin: 0 5%;
+  }
+
+  .card-content {
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    height: 50%; 
+  }
+
+  .card-description {
+    margin-top: 0;
+    padding-right: 70px;
+    min-height: 60px; 
+    flex: 1; 
+  }
+
+  .small-image {
+    position: absolute;
+    top: 320px;
+    left: 60%;
+    width: 40%;
+    height: 150px;
+    background-image: url('../assets/image/Frame2.svg');
+    background-size: cover;
+    background-position: center;
+  }
+
+  .light-gold {
+    width: 40%;
+    border-radius: 8px;
+    padding: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: background-color 0.3s, box-shadow 0.3s;
+
+    button, #openModal {
+      color: $accent-b-dark;
+      font-size: 1.2rem;
+      font-weight: $regular;
+      font-family: $heading;
+      background-color: transparent;
+      cursor: pointer;
+    }
+  }
+
+  .light-gold.gold-button {
+    background-color: $tertiary;
+    box-shadow: 0 0 20px 10px rgba($accent-b-dark, 35%);
+    border: 2px solid $accent-b-dark;
+    margin: 20px 0 30px;
+  }
+
+  .gold-button {
+    background-color: $accent-b-light;
+  }
+
+  .gold-button:hover {
+    box-shadow: 0 0 25px 15px rgba($accent-b-light, 40%);
+  }
+
+  @media (min-width: 1024px) {
+    .top {
+      height: 70px;
+    }
+
+    .flexbox {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      align-items: center;
+      flex-direction: row;
+    }
+
+    h2 {
+      font-size: 3rem;
+      text-align: center;
+    }
+
+    .center {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding-bottom: 20px;
+    }
+
+    .card {
+      margin: 0 2%;
+      margin-bottom: 30px;
+    }
+
+    .card-description {
+      padding-right: 30%;
+      min-height: 100px;
+    }
+
+    .small-image {
+      top: 355px;
+      left: 60%;
+      width: 30%;
+    }
+
+    .underlineshort {
+      width: 10%;
+      height: 2px;
+      background-color: $accent-b-dark;
+      margin: 0 5%;
+    }
+    
+    .light-gold {
+      width: 145px; 
+      height: 40px;
+      border-radius: 8px;
+      padding: 20px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      transition: background-color 0.3s, box-shadow 0.3s;
+    }
+  }
+</style>

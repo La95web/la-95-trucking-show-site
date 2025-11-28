@@ -27,39 +27,57 @@ const {title, text, name, email, textarea, send, formMessage } = Astro.props;
 </section>
 
 <script>
-  const form = document.getElementById("contact-form");
-  const formMessage = form.dataset.formMessage;
-  const name = document.getElementById("name");
-  const email = document.getElementById("email");
-  const message = document.getElementById("message");
+  const form = document.getElementById('contact-form');
 
-  form.addEventListener("submit", (event) => {
-    event.preventDefault();
-    
-    fetch(import.meta.env.PUBLIC_API_BASE_URL.concat("contact_submissions/"), {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({
-        contact_submission: {
-          name: name.value,
-          email: email.value,
-          message: message.value,
-        }
-      }),
-    })
-      .then((response) => response.json())
-      .then((data) => {
-        if (data.error) throw new Error(data.error);
-        
-        form.reset();
-        alert(formMessage);
-      })
-      .catch((error) => {
-        alert(error.message);
+  form.addEventListener('submit', async (e) => {
+    e.preventDefault();
+
+    const name = form.name.value;
+    const email = form.email.value;
+    const message = form.message.value;
+
+    try {
+      const response = await fetch('http://localhost:3000/send-email', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          name: name,
+          email: email,
+          message: message,
+          subject: `Nuevo mensaje de ${name}`,
+          text: `Nombre: ${name}\nEmail: ${email}\n\nMensaje:\n${message}`,
+        })
       });
 
+      const result = await response.text();
+      if (response.ok) {
+        const confirmation = document.createElement('div');
+        confirmation.innerHTML = `
+        <div id="confirmation-message" style="
+          background-color: #ffcc4d;
+          color: #202327;
+          padding: 15px;
+          margin-top: 20px;
+          border: 1px solid #dd2e44;
+          border-radius: 8px;
+          font-family: Arial, sans-serif;
+          animation: fadeIn 0.5s ease-in-out;
+          ">
+          ✅ ¡Tu mensaje ha sido enviado con éxito, nos pondremos en contacto contigo!
+        </div>
+        `;
+        form.parentElement.appendChild(confirmation);
+        setTimeout(() => {
+          confirmation.remove();
+        }, 5000);
+        form.reset();
+      } else {
+        alert('❌ Error al enviar el mensaje: ' + result);
+      }
+    } catch (err) {
+      console.error('Error:', err);
+      alert('⚠️ Hubo un problema al enviar el mensaje');
+    }
   });
 </script>
     

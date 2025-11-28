@@ -1,0 +1,127 @@
+---
+const {sub1, yearly, monthly, button} = Astro.props;
+---
+
+<section>
+  <h2>{sub1}</h2>
+  <div class="underline"></div>
+  <div class="section-content">
+    <div>
+      <p>{yearly}</p>
+      <p><strong>$4.99</strong></p>
+       <div class="light-gold gold-button">
+          <button class="openModal" data-modal="modalA">{button}</button>
+        </div>
+    </div>
+    <div>
+      <p>{monthly}</p>
+      <header>
+        <p><strong>$48.99</strong></p>
+        <span>59.88</span>
+      </header>
+      <div class="light-gold gold-button">
+        <button class="openModal" data-modal="modalB">{button}</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style lang="scss">
+  @use '../assets/sass/index' as *;
+
+    section {
+      padding: 30px 0;
+      background-image: url("../assets/image/Pentagonos.png");
+      background-repeat:repeat;
+      background-position: cover;
+    }   
+
+    header {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 10px;
+    }
+
+    span {
+      text-decoration: line-through;
+      color: grey;
+      font-size: 1.2rem;
+    }
+
+    .section-content {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: center;
+      margin-top: 20px;
+
+    div {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      background-color: $primary;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.9);
+      padding: 20px;
+      margin: 10px;
+      text-align: center;
+      width: 300px;
+
+      p {
+        font-size: 1.2rem;
+        color: $secondary;
+        margin: 10px 0;
+
+        strong {
+          font-size: 1.5rem;
+          color: $accent-b-dark;
+        }
+      }
+    }
+
+    .light-gold {
+      width: 70%;
+      border-radius: 8px;
+      padding: 10px;
+      transition: background-color 0.3s, box-shadow 0.3s;
+  
+      button, #openModal {
+        color: black;
+        font-size: 1.2rem;
+        font-weight: $regular;
+        font-family: $heading;
+        background-color: transparent;
+        cursor: pointer;
+      }
+    }
+  
+    .light-gold.gold-button {
+      background-color: $accent-b-dark;
+      box-shadow: 0 0 20px 10px rgba($accent-b-dark, 20%);
+      border: 2px solid $accent-b-dark;
+      margin: 20px 0 30px;
+    }
+  
+    .gold-button {
+      background-color: $accent-b-light;
+    }
+  
+    .gold-button:hover {
+      box-shadow: 0 0 25px 15px rgba($accent-b-light, 30%);
+    }
+  }
+
+  @media (min-width: 1024px) {
+
+    h2 {
+      text-align: center;
+    }
+
+    .underline {
+      margin: 0 auto;
+    }
+  }
+
+</style>

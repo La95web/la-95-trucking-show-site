@@ -1,0 +1,109 @@
+---
+const {title, tag1, tag2, tag3, tag4, tag5} = Astro.props;
+---
+
+<section>
+  <h2>{title}</h2>
+  <div class="underline"></div>
+  <div class="section-content"> 
+    <a href="/chofer/" class="content-block">
+      <i class="ph ph-road-horizon"></i>
+      <p>{tag1}</p>
+    </a>
+    <a href="/owneroperator/" class="content-block">
+      <i class="ph ph-truck-trailer"></i>
+      <p>{tag2}</p>
+    </a>
+    <a href="/rentas/" class="content-block">
+      <i class="ph ph-building"></i>
+      <p>{tag3}</p>
+    </a>
+    <a href="/dispatcher/" class="content-block">
+      <i class="ph ph-note"></i>
+      <p>{tag4}</p>
+    </a>
+    <a href="/otros/" class="content-block">
+      <i class="ph ph-bag-simple"></i>
+      <p>{tag5}</p>
+    </a>
+  </div>
+</section>
+
+<style lang="scss">
+    @use "../assets/sass/index" as *;
+ section {
+    text-align: left;
+    padding: 50px 0;
+    background-color: $primary;
+  }
+
+  .section-content {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    background-color: $primary;
+    padding-top: 70px;
+    padding-bottom: 70px;
+    margin: 0 5%;
+  }
+
+  .content-block {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.1rem;
+    font-weight: $regular;
+    font-family: $heading;
+    border: 2px solid $accent-b-dark;
+    background-color: $tertiary;
+    border-radius: 8px;
+    width: 180px;
+    height: 180px;
+    box-sizing: border-box;
+    padding: 16px;
+    gap: 10px;
+    text-align: center;
+    overflow: hidden;
+    box-shadow: 0 4px 16px rgba(0,0,0,0.10); 
+    transition: box-shadow 0.2s, transform 0.2s;
+    text-decoration: none;
+    color: inherit;
+  }
+
+  .content-block:hover {
+    background-color: transparent;
+    box-shadow: 0 0 20px 10px rgba($accent-b-light, 35%); 
+  }
+
+  .content-block i {
+    color: $accent-b-light;
+    font-size: 2rem;
+  }
+
+    @media (min-width: 1024px) {
+
+      h2, .underline {
+        text-align: center;
+        margin: 0 auto;
+      } 
+
+    .content-block {
+      flex-direction: row;
+      align-items: center;
+      justify-content: flex-start;
+      width: 350px;
+      height: 70px;
+      padding: 0 24px;
+      gap: 18px;
+      text-align: left;
+    }
+
+    .content-box img {
+      width: 220px;
+      height: 220px;
+    }
+  }
+</style>

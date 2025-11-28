@@ -1,0 +1,28 @@
+---
+import SpanishLayout from "../layouts/SpanishLayout.astro";
+import HeaderBanner from "../components/HeaderBanner.astro";
+import Team1 from "../assets/image/headerMovil.jpg";
+import Team2 from "../assets/image/headerDesktop.jpg";
+import Footer from "../components/Footer.astro";
+import Category from "../components/category.astro";
+---
+
+
+<SpanishLayout title="la 95 trucking show">
+  <HeaderBanner 
+  titleUs="Empleos"
+  Team1={Team1}
+  Team2={Team2}/>
+  <Category
+  title="Selecciona tu área de especialización"
+  tag1="Chofer"
+  tag2="Owner operator"
+  tag3="Rentas de habitaciones"
+  tag4="Dispatcher"
+  tag5="Otros"
+  />
+  <Footer />
+</SpanishLayout>
+<script>
+  import "../scripts/home.js";
+</script>

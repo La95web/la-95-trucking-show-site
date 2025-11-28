@@ -1,0 +1,94 @@
+---
+const {title, paragraph, paragraph2, image, button } = Astro.props;
+---
+
+<section>
+  <div class="card-flexbox">
+    <div class="card-content"> 
+      <h3>{title}</h3>
+      <p>{paragraph}</p>
+      <img src={image.src} alt="truck">
+      <p>{paragraph2}</p>
+      <div class="light-button red-button">
+        <button class="openModal" data-modal="modalD">{button}</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style lang="scss" >
+  @use '../assets/sass/index' as *;
+
+  section {
+    background-image: url("../assets/image/Pentagonos.png");
+    background-repeat:repeat;
+    background-position: cover;
+  }
+
+  .card-flexbox {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    padding: 50px 0;
+    gap: 55px;
+  }
+
+  .card-content {
+    display: flex;
+    flex-direction: column;
+    background-color: $primary;
+    width: 350px;
+    border-radius: 8px;
+    p {
+     margin: 0 5%;
+     color: white;
+    }
+  }
+
+  h3 {
+    color: $accent-b-dark;
+  }
+
+  h4 {
+    margin: 10px 5%;
+    color: white;
+  }
+
+  section img {
+    width: 100%;
+    padding: 25px 0;
+    object-fit: cover;
+  }
+
+  .datos-camion {
+    max-width: 500px;
+    margin: 0 5%;
+  }
+
+  .fila {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 8px;
+  }
+
+  .etiqueta {
+    font-weight: bold;
+    width: 45%;
+    color: white;
+  }
+
+  .valor {
+    width: 50%;
+    color: white;
+  }
+
+  button {
+    justify-content: right;
+    align-items: left;
+    color: white;
+    background-color: $accent-c-dark;
+    font-size: 1.2rem ;
+  }
+
+</style>
