@@ -1,6 +1,7 @@
 ---
 import Play from "../assets/image/Youtube.png";
 import PlayContent from "../assets/image/play.png";
+import Audio from "./audio.astro";
 
 const podcasts = await fetch(import.meta.env.PUBLIC_API_BASE_URL.concat('podcasts'), {
   method: 'GET',
@@ -9,17 +10,12 @@ const podcasts = await fetch(import.meta.env.PUBLIC_API_BASE_URL.concat('podcast
   },
 }).then((response) => response.json());
 ---
-
 <div class="section">
-  <div class="section-input">
-    <input type="search" id="site-search" name="search" class="search-input" placeholder="Search...">
-  </div>
-</div>
-
+<Audio></Audio>
 <section>
   {podcasts.length > 0 ? (
     podcasts.filter((podcast) => podcast.language === 'spanish').map((podcast) => (
-      <figure class="news-item">
+      <figure>
         <div class="section-image">
           <div class="gradient">
             <img src={Play.src} alt="logo" />
@@ -55,34 +51,6 @@ const podcasts = await fetch(import.meta.env.PUBLIC_API_BASE_URL.concat('podcast
     text-align: center;
     align-items: center;
     padding-top: 50px;
-  }
-
-  input {
-    background-color: $accent-b-dark;
-    border: none;
-    width: 100%;
-    height: 60px;
-    background-image: url("../assets/image/lupa.png");
-    justify-content: center;
-    align-items: center;
-    background-repeat: no-repeat;
-    background-position: calc(100% - 5%) center;
-    padding-left: 5%;
-    padding-right: 5%;
-  }
-
-  input::placeholder { 
-    width: 85%;
-    border-bottom: 1px solid #000;
-    padding-bottom: 10px;
-    font-family: $text;
-    font-weight: $regular;
-    font-size: 1rem; 
-  }
-
-  input[type="search"]::-webkit-search-cancel-button{
-    -webkit-appearance: none;
-    appearance: none;
   }
 
   figure {
@@ -167,24 +135,6 @@ const podcasts = await fetch(import.meta.env.PUBLIC_API_BASE_URL.concat('podcast
       flex-wrap: wrap;
       justify-content: center;
       align-items: center;
-    }
-
-    .section {
-      background-image: url('../assets/image/Intersect.svg');
-      background-repeat: no-repeat;
-      background-size: contain;
-      background-position: right;
-      justify-content: left;  
-      background-color: $accent-b-dark;
-    }
-
-    input {
-      width: 50%;
-      background-position: calc(100% - 40%) center;
-    }
-
-    input::placeholder {
-      width: 60%;
     }
   } 
 </style>

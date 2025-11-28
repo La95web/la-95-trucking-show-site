@@ -1,0 +1,50 @@
+---
+const subscriptors = await fetch(import.meta.env.PUBLIC_API_BASE_URL.concat('/v1/subscriptors/${qrId}'), {
+  method: 'GET',
+  headers: {
+    'Accept': 'application/json',
+  },
+}).then((response) => response.json());
+---
+
+<div class="podcast-container">
+  <section id="podcastList">
+    {subscriptors.length > 0 && subscriptors.map((subscriptor) => (
+      <div class="podcastList">
+         <p><strong>ID:</strong> ${subscriptor.id}</p>
+            <p><strong>Nombre:</strong> ${subscriptor.full_name}</p>
+            <p><strong>Email:</strong> ${subscriptor.email}</p>
+            <p><strong>QR ID:</strong> ${subscriptor.qr_id}</p>
+            <p><strong>Status:</strong> ${subscriptor.status}</p>
+        <p>{}</p>
+      </div>
+    ))}
+  </section>
+</div>
+
+<style lang="scss">
+  .podcast-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 2rem;
+  }
+
+  #podcastList {
+    width: 100%;
+    max-width: 800px;
+  }
+
+  .podcastList {
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 1rem;
+    margin-bottom: 1rem;
+
+    p {
+      margin: 0.5rem 0;
+    }
+  }
+
+</style>

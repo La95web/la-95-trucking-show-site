@@ -1,0 +1,285 @@
+---
+import EnglishLayout from "../../layouts/EnglishLayout.astro";
+import Footer from "../../components/Footer.astro";
+import img from "../../assets/image/graficas.png"
+import Modalterms from "../../components/Modalterms.astro";
+---
+
+<EnglishLayout title="Afiliate aquí">
+  <div class="underground">
+    <section>
+      <h2>Join here</h2>
+      <div class="underline"></div>
+      <p>If you're a business owner, choose the subscription that best suits you.</p>
+      <div class="section-content">
+        <div>
+          <p>Monthly Subscription</p>
+          <p><strong>$4.99</strong></p>
+          <div class="light-gold gold-button">
+            <button class="openModal" data-modal="modalA">I want to subscribe</button>
+          </div>
+        </div>
+        <div>
+          <p>Annual Subscription</p>
+          <header>
+            <p><strong>$48.99</strong></p>
+            <span>59.88</span>
+          </header>
+          <div class="light-gold gold-button">
+            <button class="openModal" data-modal="modalB">I want to subscribe</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div class="info-content">
+      <h2>Benefits</h2>
+      <div class="underline"></div>
+      <figure>
+        <ul>
+          <li><i class="ph ph-check"></i>Exclusive discounts at events</li>
+          <li><i class="ph ph-check"></i>Early access to promotions</li>
+          <li><i class="ph ph-check"></i>Premium content for truckers</li>
+          <li><i class="ph ph-check"></i>Personalized technical support</li>
+          <li><i class="ph ph-check"></i>Participation in monthly giveaways</li>
+        </ul>
+        <img src={img.src} alt="#" />
+      </figure>
+    </div>
+
+    <div class="info-content">
+      <h2>Steps to become an affiliate</h2>
+      <div class="underline"></div>
+      <div class="step-content">
+        <ul>
+          <li><i class="ph ph-dot-outline"></i>Click the “I want to subscribe” button</li>
+          <li><i class="ph ph-dot-outline"></i>Read and accept the terms and conditions</li>
+          <li><i class="ph ph-dot-outline"></i>Access the payment gateway</li>
+          <li><i class="ph ph-dot-outline"></i>Complete the payment form</li>
+          <li><i class="ph ph-dot-outline"></i>Receive an email with your activation QR</li>
+          <li><i class="ph ph-dot-outline"></i>With the QR, go to the affiliated business location</li>
+          <li><i class="ph ph-dot-outline"></i>The staff will scan your QR to verify your information</li>
+          <li><i class="ph ph-dot-outline"></i>If your membership is active, you'll receive the applicable discounts</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <Modalterms
+  term1="Lorem, ipsum dolor sit amet consectetur adipisicing elit. Saepe, dolorum! Lorem, ipsum dolor sit amet consectetur adipisicing elit. Saepe, dolorum!"
+  term2="Lorem, ipsum dolor sit amet consectetur adipisicing elit. Saepe, dolorum! Lorem, ipsum dolor sit amet consectetur adipisicing elit. Saepe, dolorum!"
+  term3="Lorem, ipsum dolor sit amet consectetur adipisicing elit. Saepe, dolorum! Lorem, ipsum dolor sit amet consectetur adipisicing elit. Saepe, dolorum!"
+  term4="Lorem, ipsum dolor sit amet consectetur adipisicing elit. Saepe, dolorum! Lorem, ipsum dolor sit amet consectetur adipisicing elit. Saepe, dolorum!"
+  term5="Lorem, ipsum dolor sit amet consectetur adipisicing elit. Saepe, dolorum! Lorem, ipsum dolor sit amet consectetur adipisicing elit. Saepe, dolorum!"
+  term6="Lorem, ipsum dolor sit amet consectetur adipisicing elit. Saepe, dolorum! Lorem, ipsum dolor sit amet consectetur adipisicing elit. Saepe, dolorum!"
+  term7="Lorem, ipsum dolor sit amet consectetur adipisicing elit. Saepe, dolorum! Lorem, ipsum dolor sit amet consectetur adipisicing elit. Saepe, dolorum!"
+  term8="Lorem, ipsum dolor sit amet consectetur adipisicing elit. Saepe, dolorum! Lorem, ipsum dolor sit amet consectetur adipisicing elit. Saepe, dolorum!"
+  term9="Lorem, ipsum dolor sit amet consectetur adipisicing elit. Saepe, dolorum! Lorem, ipsum dolor sit amet consectetur adipisicing elit. Saepe, dolorum!"
+  term10="Lorem, ipsum dolor sit amet consectetur adipisicing elit. Saepe, dolorum! Lorem, ipsum dolor sit amet consectetur adipisicing elit. Saepe, dolorum!"
+  cond1="Lorem, ipsum dolor sit amet consectetur adipisicing elit. Saepe, dolorum! Lorem, ipsum dolor sit amet consectetur adipisicing elit. Saepe, dolorum!"
+  cond2="Lorem, ipsum dolor sit amet consectetur adipisicing elit. Saepe, dolorum! Lorem, ipsum dolor sit amet consectetur adipisicing elit. Saepe, dolorum!"
+  cond3="Lorem, ipsum dolor sit amet consectetur adipisicing elit. Saepe, dolorum! Lorem, ipsum dolor sit amet consectetur adipisicing elit. Saepe, dolorum!"
+  cond4="Lorem, ipsum dolor sit amet consectetur adipisicing elit. Saepe, dolorum! Lorem, ipsum dolor sit amet consectetur adipisicing elit. Saepe, dolorum!"
+  cond5="Lorem, ipsum dolor sit amet consectetur adipisicing elit. Saepe, dolorum! Lorem, ipsum dolor sit amet consectetur adipisicing elit. Saepe, dolorum!"
+  cond6="Lorem, ipsum dolor sit amet consectetur adipisicing elit. Saepe, dolorum! Lorem, ipsum dolor sit amet consectetur adipisicing elit. Saepe, dolorum!"
+  cond7="Lorem, ipsum dolor sit amet consectetur adipisicing elit. Saepe, dolorum! Lorem, ipsum dolor sit amet consectetur adipisicing elit. Saepe, dolorum!"
+  cond8="Lorem, ipsum dolor sit amet consectetur adipisicing elit. Saepe, dolorum! Lorem, ipsum dolor sit amet consectetur adipisicing elit. Saepe, dolorum!"
+  cond9="Lorem, ipsum dolor sit amet consectetur adipisicing elit. Saepe, dolorum! Lorem, ipsum dolor sit amet consectetur adipisicing elit. Saepe, dolorum!"
+  cond10="Lorem, ipsum dolor sit amet consectetur adipisicing elit. Saepe, dolorum! Lorem, ipsum dolor sit amet consectetur adipisicing elit. Saepe, dolorum!"
+  subscription1="https://square.link/u/cAc7dYQt?src=embed"
+  subscription2="https://github.com/louis17782/Landing-pageMusic"
+  />
+  <Footer />
+</EnglishLayout>
+<script>
+  import "../../scripts/mainMenu.js"
+  import "../../scripts/modal.js"
+</script>
+<style lang="scss">
+  @use '../../assets/sass/index' as *;
+
+    .underground {
+      padding: 70px 0;
+      background-image: url("../../assets/image/Pentagonos.png");
+      background-repeat:repeat;
+      background-position: cover;
+      background-attachment: fixed;
+      p{
+        margin: 10px 5%; 
+      }
+    } 
+
+    header {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 10px;
+    }
+
+    span {
+      text-decoration: line-through;
+      color: grey;
+      font-size: 1.2rem;
+    }
+
+    .section-content {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: center;
+      margin-top: 20px;
+
+    div {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      background-color: $primary;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.9);
+      padding: 20px;
+      margin: 10px;
+      text-align: center;
+      width: 300px;
+
+      p {
+        font-size: 1.2rem;
+        color: $secondary;
+        margin: 10px 0;
+
+        strong {
+          font-size: 1.5rem;
+          color: $accent-b-dark;
+        }
+      }
+    }
+
+    .light-gold {
+      width: 70%;
+      border-radius: 8px;
+      padding: 10px;
+      transition: background-color 0.3s, box-shadow 0.3s;
+  
+      button, #openModal {
+        color: black;
+        font-size: 1.2rem;
+        font-weight: $regular;
+        font-family: $heading;
+        background-color: transparent;
+        cursor: pointer;
+      }
+    }
+  
+    .light-gold.gold-button {
+      background-color: $accent-b-dark;
+      box-shadow: 0 0 20px 10px rgba($accent-b-dark, 20%);
+      border: 2px solid $accent-b-dark;
+      margin: 20px 0 30px;
+    }
+  
+    .gold-button {
+      background-color: $accent-b-light;
+    }
+  
+    .gold-button:hover {
+      box-shadow: 0 0 25px 15px rgba($accent-b-light, 30%);
+    }
+  }
+
+  //beneficios flex
+
+  figure, .step-content {
+    display: flex;
+    margin: 20px 5%;
+    border: 2px solid $accent-b-light;
+    border-radius: 8px;
+    img {
+      display: none;
+    }
+  }
+
+  ul{
+    font-family: $text;
+    font-size: 1.2rem;
+    line-height: 2.5;
+    font-weight: $regular;
+    color: white;
+    padding: 0;
+  }
+
+  i{
+    color: $accent-b-dark;
+    margin: 10px;
+  }
+
+  li {
+    margin: 10px;
+  }
+
+  ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+
+    li {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      margin-bottom: 12px;
+      font-family: $text;
+      font-size: 16px;
+      line-height: 1.5;
+      color: white;
+
+      i {
+        font-size: 20px;
+        color: #FFCC4D;
+        flex-shrink: 0;
+        margin-top: 4px;
+      }
+
+      span {
+        display: block;
+        flex: 1;
+      }
+    }
+  }
+
+  .info-content {
+    padding-top: 50px;
+  }
+
+
+  @media (min-width: 1024px) {
+
+    section {
+      padding-top: 50px;
+    }
+
+    figure, 
+    .step-content {
+      justify-content: space-between;
+      width: 50%;
+      img {
+        display: block;
+        width: 300px;
+        min-width: 50px;
+        object-fit: contain;
+      }
+    }
+
+    .info-content {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
+
+    h2, p {
+      text-align: center;
+    }
+
+    .underline {
+      margin: 0 auto;
+    }
+  }
+</style>

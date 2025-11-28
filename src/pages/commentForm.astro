@@ -1,0 +1,96 @@
+---
+import SpanishLayout from "../layouts/SpanishLayout.astro";
+import Footer from "../components/Footer.astro";
+---
+
+<SpanishLayout title="Comentarios">
+  <section> 
+    <h2>Suscríbete y participa</h2>
+    <div class="underline"></div>
+    <form id="comment-form">
+      <input type="text" name="name" placeholder="Tu nombre" required />
+      <input type="email" name="email" placeholder="Tu correo" required />
+      <textarea name="comment" placeholder="Escribe tu comentario..." required></textarea>
+      <button type="submit">Enviar</button>
+    </form>
+    <div id="comments-container">
+      <!-- Aquí se mostrarán los comentarios en tiempo real -->
+    </div>
+  </section>
+  <Footer />
+</SpanishLayout>
+<script>
+  import "../scripts/mainMenu.js";
+  import "../scripts/saveData/CommentForm.js"
+</script>
+
+<style lang="scss">
+  @use "../assets/sass/index" as *;
+
+  section {
+    position: relative;
+    padding-top: 150px;
+    min-height: 100vh;
+    background-image: 
+      url("../assets/image/foropage.svg"),
+      url("../assets/image/Pentagonos.png");
+    background-repeat: no-repeat, repeat; 
+    background-attachment: fixed, fixed;
+  }
+  h2 {
+    text-align: center;
+    margin-bottom: 10px;
+  }
+  .underline {
+    margin: 0 auto;
+  }
+  form {
+    display: flex;
+    flex-direction: column;
+    max-width: 600px;
+    margin: 10px auto;
+    padding: 20px;
+    background-color: $primary;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+
+    input, textarea {
+      margin-bottom: 15px;
+      padding: 10px;
+      border-radius: 4px;
+      font-size: 16px;
+      width: 100%;
+      box-sizing: border-box;
+    }
+
+    button {
+      padding: 10px;
+      background-color: $accent-b-dark;
+      color: black;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      font-size: 16px;
+
+      &:hover {
+        background-color: $accent-b-light;
+      }
+    }
+  }
+
+  #comments-container {
+    max-width: 600px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: $primary;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+   @media (min-width: 1024px) {
+    section {
+      background-position: left 130px bottom, center; 
+      background-size: 90%, auto, auto; 
+    }
+   }
+
+</style>

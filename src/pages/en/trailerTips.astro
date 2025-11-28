@@ -1,0 +1,32 @@
+---
+import Team2 from "../../assets/image/tipDesk.webp";
+import Footer from "../../components/Footer.astro";
+import TrailerTipsEn from "../../components/TrailerTips.astro";
+import HeaderNews from "../../components/HeaderNews.astro";
+import EnglishLayout from "../../layouts/EnglishLayout.astro";
+---
+
+<EnglishLayout title="la 95 trucking show">
+  <HeaderNews 
+  titleA="tips"
+  titleB="camioneros"
+  Team2={Team2}/>
+  <TrailerTipsEn
+  link1="/trailers/"
+  link2="/tractors/"
+  link3="/documents/"
+  link4="/safety/"
+  navTips1="trailers"
+  navTips2="tractors"
+  navTips3="documentos"
+  navTips4="safety"
+  title="trailers"
+  language="en"
+  paragraph="Here you will find suggestions for maintaining your trailer’s mechanics and essential tips for the road. Discover how to optimize your journey and keep your vehicle in perfect condition!"
+  button="see more" />
+  <Footer />
+</EnglishLayout>
+<script>
+  import "../../scripts/mainMenu.js";
+  import "../../scripts/SearchNews.js"
+</script>

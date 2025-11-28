@@ -1,21 +1,10 @@
 ---
 const {titleA, titleB, titleC, titleD, textA, textB, textC} = Astro.props;
-import imagesvision from "../assets/image/MisionteamMovil.jpg";
 ---
 
-<section>
-  <div class="flex">
-    <h2>{titleA}</h2>
-    <div class="underline"></div> 
-  </div>
-</section>
-
 <div class="podcasts-container">
-  <figure>
-    <div>
-      <img src={imagesvision.src} alt="team">
-    </div>
-  </figure>
+ <h2>{titleA}</h2>
+ <div class="underline"></div>
   <div class="section-center">
     <div class="end-line">
       <h3>{titleB}</h3>
@@ -42,25 +31,37 @@ import imagesvision from "../assets/image/MisionteamMovil.jpg";
   @use "../assets/sass/index" as *;
 
   .podcasts-container {
-    display: flex;
-    flex-direction: column;
+    background-image: url('../assets/image/black-truck.webp');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    height: 1200px;
+    position: relative;
   }
     
   .podcasts-container P {
     margin: 0 5%;
-    color: $primary;
+    color: white;
     padding-top: 20px;
   }
 
   .section-center {
-    background-color: $accent-b-dark;
+    position: absolute;
+    background-color: rgba($primary, 0.85);
+    margin: 0 5%;
+    width: 60%;
+    min-width: 90%;
+    top: 130px;
+    padding: 0;
+    border-radius: 8px;
+    padding-bottom: 20px;
   }
 
   h3 {
     font-size: 2rem;
     font-weight: $regular;
     font-family: $heading;
-    color: $primary;
+    color: white;
     margin: 0 5%;
     margin-top: 20px;
   }
@@ -70,7 +71,7 @@ import imagesvision from "../assets/image/MisionteamMovil.jpg";
   }
   
   .section-center i {
-    color: $primary;
+    color: $accent-b-dark;
     font-size: 34px;
     margin-right: 20px;
     margin-top: 25px; 
@@ -81,51 +82,22 @@ import imagesvision from "../assets/image/MisionteamMovil.jpg";
     justify-content: space-between;
   }
 
-  .blackline{
-    width: 85%;
+  .blackline {
+    width: 90%;
     height: 2px;
-    background-color: $primary;
+    background-color: $accent-b-dark;
     margin-top: 0px;
     margin-left: 20px;
   }
 
-  figure {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin: 0;
-    background-color: $primary;
-  }
+  @media (min-width: 1024px) {
 
-  figure img {
-  display: block;
-  margin-top: 20px;
-  width: 100%;
-  height: 100%;
-  object-fit: contain;
-}
-
-
-  .flex {
-    background-color: $primary;
-  }
-
-  @media only screen and (min-width: 1030px) {
-    
     .podcasts-container {
-      display: flex;
-      flex-direction: row;
+      height: 758px;
     }
 
-    figure {
-      display: flex;
-      margin: 0;
-    }
-
-    figure img {
-      margin: 0;
-      width: 648px;
-      height: 560px;
+    .section-center {
+      min-width: 70%;
     }
 
     h3 {
@@ -136,11 +108,13 @@ import imagesvision from "../assets/image/MisionteamMovil.jpg";
     p {
       font-size: 1.25rem;
     }
-
     .blackline {
-      margin-left: 35px;
-      min-width: 90%;
-    }
+      width: 90%;
+      height: 2px;
+      background-color: $accent-b-dark;
+      margin-top: 0px;
+      margin-left: 55px;
+      }
 
     .section {
       display: flex;

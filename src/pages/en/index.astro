@@ -1,102 +1,273 @@
 ---
 import HomeSlider from "../../components/HomeSlider.astro";
 import EnglishLayout from "../../layouts/EnglishLayout.astro";
-import Newsletter from "../../components/Newsletter.astro";
+import Foro from "../../components/Foro.astro";
 import Whatsapp from "../../components/Whatsapp.astro";
 import Footer from "../../components/Footer.astro";
-import SecondarySection from "../../components/SecondarySection.astro";
 import Subscriptions from "../../components/Subscriptions.astro";
 import VisionSection from "../../components/VisionSection.astro";
-import truck1 from "../../assets/image/camion.webp";
-import truck2 from "../../assets/image/truck2.webp";
-import truck3 from "../../assets/image/camion.webp";
-import Sale1 from "../../assets/image/trucksale.jpg";
-import img from '../../assets/image/trucksale.jpg';     
-import ModalJobindex from "../../components/modalJobindex.astro";
-import TruckSale from "../../components/TruckSale.astro";
-import Modaltrucksale from "../../components/modaltrucksale.astro";
+import truck1 from "../../assets/image/truck2.webp";
+import truck2 from "../../assets/image/Misionteam.webp";
+import truck3 from "../../assets/image/truck3.webp";
+import imageA from '../../assets/image/empresa1.png';
 ---
 
 <EnglishLayout title="la 95 trucking show">
   <HomeSlider images={[truck1.src, truck2.src, truck3.src]} />
   <Subscriptions
-  title1="Subscribe and enjoy exclusive discounts"
-  title2="Affiliated Companies"
-  text1="Medical Insurance"
-  cupon1="Get a $120 discount"
-  text2="General Mechanics"
-  cupon2="Get a $20 discount"
-  text3="Tire Shops"
-  cupon3="Get a $300 discount"
-  text4="Law Firms"
-  cupon4="Get a $80 discount"
-  subA="Subscribe now"
-  yearly="Annual Subscription"
-  monthly="Monthly Subscription"
-  button="subscribe now"
+    title1="Subscribe and enjoy exclusive discounts"
+    title2="Affiliated companies"
+    titleC="If you're a business owner"
+    paragraphC="Choose this option to become a sponsor and enjoy the benefits of the subscription."
+    text1="Medical insurance"
+    cupon1="Get a $120 discount"
+    text2="General mechanics"
+    cupon2="Get a $20 discount"
+    text3="Tire shops"
+    cupon3="Get a $300 discount"
+    text4="Law firm"
+    cupon4="Get an $80 discount"
+    titleA="Affiliated companies"
+    title="Subscribe now"
+    paragraph="If you're a regular user, choose the subscription that best suits you."
+    yearly="Annual subscription"
+    monthly="Monthly subscription"
+    button="Subscribe now"
+    buttonC="Join here"
+    anchor="/en/Afiliated"
   />
   <VisionSection
-  titleA="our reason for being"
-  titleB="mission"
-  titleC="vision"
-  titleD="values"
-  textA="To be the leading podcast in the trucking community, providing relevant information, entertainment, and a platform for truck drivers to express themselves. We aim to give a voice to those who traverse the roads, sharing their experiences, challenges, and successes while strengthening the sense of community and mutual support."
-  textB="To become the main reference for Spanish-speaking truck drivers, creating a space where knowledge, anecdotes, and news from the sector are shared. We aspire to positively influence the transportation industry and improve the quality of life for drivers through valuable and authentic content."
-  textC="Our values are respect for the work of truckers, authenticity in stories, commitment to relevant content, unity to foster solidarity, and passion for the transportation industry."/>  
-   <SecondarySection
-  title="You are a driver looking for a job?"
-  paragraph="In LA 95 TRUCKING SHOW we want to help you connect with companies that value your experience. Fill out the form and take the first step towards your next job opportunity.."
-  button="Apply Here" />
-  <ModalJobindex
-  title="Fill out the form here:"
-  paragraph="Thank you for your registration! We will contact you."
-  button="Send"
-  name="Name"
-  lastname="Last Name"
-  phone="Phone Number"
+    titleA="our reason for being"
+    titleB="mission"
+    titleC="vision"
+    titleD="values"
+    textA="To be the leading podcast in the trucking community, providing relevant information, entertainment, and a platform for truck drivers to express themselves. We aim to give a voice to those who traverse the roads, sharing their experiences, challenges, and successes while strengthening the sense of community and mutual support."
+    textB="To become the main reference for Spanish-speaking truck drivers, creating a space where knowledge, anecdotes, and news from the sector are shared. We aspire to positively influence the transportation industry and improve the quality of life for drivers through valuable and authentic content."
+    textC="Our values are respect for the work of truckers, authenticity in stories, commitment to relevant content, unity to foster solidarity, and passion for the transportation industry."
+  />  
+  <Foro
+    title="The Trucker's Voice"
+    paragraph="Do you have ideas for new episodes, tips for life on the road, or questions you'd like to share with other truckers? 🚛 This is your space to express yourself. Click the button and"
+    strongA="join in"
+    button="Join the forum"
   />
-  <TruckSale
-  title="TRUCKER FOR SALE -15,000"
-  paragraph="RELIABLE - WELL MAINTAINED - READY TO DRYVE 🔥"
-  paragraph2="Dont´s miss out on this great opportunity to own a reliable trucker! contac us today"
-  button="see more"
-  image={img}
-  image1={Sale1}
-  />
-  <Modaltrucksale
-  title="DETAILS"
-  paragraph1="Truck Year:"
-  year="2015"
-  millas="Miles:"
-  km="940,000"
-  paragraph2="Transmission:"
-  paragraph3="Cummins 13 speed manual"
-  type1="Exterior Color:"
-  color1="White"
-  type2="Interior Color:"
-  color2="Black"
-  name="Name"
-  lastname="Last Name"
-  phone="Phone Number"
-  button="Contact Seller"
-  />
-  <Newsletter
-  titleA="Receive notifications and alerts"
-  textB="Stay up to date! Subscribe to receive the latest news and events directly on your device. Confirm your interest and don't miss any important news. Activate notifications now."
-  label="Your email:"
-  formMessage="Thank you for subscribing!"
-  button="send" />
   <Whatsapp
-  titleA="join our WhatsApp group"
-  textA="📢 Attention truckers! 🚛💨"
-  textB="We invite you to join our WhatsApp group of the 95 Trucking Show. A space where we will share information, news, routes, events, and everything related to our passion for trucks."
-  button="JOIN" />
+    titleA="join our WhatsApp group"
+    textA="📢 Attention truckers! 🚛💨"
+    textB="We invite you to join our WhatsApp group of the 95 Trucking Show. A space where we will share information, news, routes, events, and everything related to our passion for trucks."
+    button="JOIN" 
+  />
+  <VisionSection
+    titleA="our purpose"
+    titleB="mission"
+    titleC="vision"
+    titleD="values"
+    textA="To be the leading podcast in the trucking community, providing relevant information, entertainment, and a space for truck drivers to express themselves. We aim to give voice to those who travel the roads, sharing their experiences, challenges, and successes, while strengthening the sense of community and mutual support."
+    textB="To become the main reference for Spanish-speaking truckers, creating a space to share knowledge, stories, and industry news. We aspire to positively influence the transportation industry and improve drivers' quality of life through valuable and authentic content."
+    textC="Our values are respect for the work of truckers, authenticity in storytelling, commitment to relevant content, unity to foster solidarity, and passion for the transportation industry."
+  />
+  <section class="top-companies rows"> 
+    <h2>partner companies</h2>
+    <div class="underline"></div>
+    <p>The following companies offer discounts you can use</p>
+    <div class="section-content">
+      <div class="background-block">
+        <div>  
+          <div class="content-box">
+            <img src={imageA.src} alt="#">
+            <a href="">adrians motor in new jersey</a>
+          </div>
+          <div class="content-box">
+            <img src={imageA.src} alt="#">
+            <a href="">ride tire located in pensilvania</a>
+          </div>
+        </div>
+        <div>  
+          <div class="content-box">
+            <img src={imageA.src} alt="#">
+            <a href="">ride tire located in pensilvania</a>
+          </div>
+          <div class="content-box">
+            <img src={imageA.src} alt="#">
+            <a href="">ride tire located in pensilvania</a>
+          </div>
+        </div>
+      </div>
+      <div class="background-block">
+      <div>  
+          <div class="content-box">
+            <img src={imageA.src} alt="#">
+            <a href="">adrians motor in new jersey</a>
+          </div>
+          <div class="content-box">
+            <img src={imageA.src} alt="#">
+            <a href="">ride tire located in pensilvania</a>
+          </div>
+        </div>
+        <div>  
+          <div class="content-box">
+            <img src={imageA.src} alt="#">
+            <a href="">adrians motor in new jersey</a>
+          </div>
+          <div class="content-box">
+            <img src={imageA.src} alt="#">
+            <a href="">ride tire located in pensilvania</a>
+          </div>
+        </div>
+      </div>
+      <div class="background-block">
+        <div>  
+          <div class="content-box">
+            <img src={imageA.src} alt="#">
+            <a href="">adrians motor in new jersey</a>
+          </div>
+          <div class="content-box">
+            <img src={imageA.src} alt="#">
+            <a href="">ride tire located in pensilvania</a>
+          </div>
+        </div>
+        <div>  
+          <div class="content-box">
+            <img src={imageA.src} alt="#">
+            <a href="">adrians motor in new jersey</a>
+          </div>
+          <div class="content-box">
+            <img src={imageA.src} alt="#">
+            <a href="">ride tire located in pensilvania</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
   <Footer />
-</EnglishLayout>
-
+</SpanishLayout>
 <script>
 	import "../../scripts/home.js";
-  import "../../scripts/Radio.js"
   import "../../scripts/modal.js";
-  import "../../scripts/saveData/Drivers.js"
+  import "../../scripts/saveData/Drivers.js";
+  import "../../scripts/saveData/TruckBuyer.js"
 </script>
+
+<style lang="scss">
+  @use "../../assets/sass/index" as *;
+
+  .section-content {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    background-color: transparent;
+  }
+
+  h2 {
+    text-align: left;
+  }
+  p{
+    text-align: left;
+    margin: 10px 5%;
+  }
+
+  .content-box {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .content-box img {
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+    display: block;
+    cursor: pointer;
+  }
+
+  .background-block {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .rows {
+    position: relative;
+    background-image: url('../../assets/image/truckersMovil.png');
+    width: 100%;
+    background-size: cover;
+    background-position: center;
+    z-index: 1;
+  }
+
+  .rows::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: rgba(0,0,0,0.85); 
+    z-index: 0;
+    border-radius: inherit;
+  }
+
+  .rows > * {
+    position: relative;
+    z-index: 1;
+  }
+
+  a {
+    color: $accent-b-light;
+    font-size: 0.7em;
+  }
+
+  a:hover {
+    color: white;
+  }
+
+
+  section {
+    display: block;
+    text-align: center;
+    padding: 30px 20px;
+  }
+
+  @media (max-width: 768px) {
+  .background-block {
+      width: 50%;
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .section-content {
+      margin: 70px 0;
+    }
+    section {
+     padding: 30px 0;
+    }
+
+    h2, p {
+      text-align: center;
+    }
+
+    .underline {
+      margin: 0 auto;
+    }
+
+    .content-box a {
+      font-size: 1.2rem;
+    }
+
+    .background-block {
+      flex-direction: row;
+      flex-wrap: wrap;
+      justify-content: center;
+      align-items: center;
+      width: 30%;
+    }
+
+    .rows {
+      position: relative;
+      background-image: url('../../assets/image/truckers.png');
+      width: 100%;
+      min-height: 800px;
+      background-size: cover;
+      background-position: center;
+    }
+  }
+</style>

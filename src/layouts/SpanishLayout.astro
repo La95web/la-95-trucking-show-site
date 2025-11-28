@@ -219,6 +219,56 @@ const {title} = Astro.props;
     left: 25%;
   }
 
+  //comment form
+
+  .comment {
+
+    &:last-child {
+      border-bottom: none;
+    }
+
+    strong {
+      display: block;
+      font-size: 18px;
+      margin-bottom: 5px;
+      color: white;
+    }
+
+    em {
+      font-size: 14px;
+      color: white;
+      margin-bottom: 10px;
+      display: block;
+    }
+
+    p {
+      font-size: 16px;
+      line-height: 1.5;
+      color: white;
+    }
+  }
+  //reactions
+    .reactions {
+      display: flex;
+      gap: 5px;
+      padding-bottom:20px ;
+      span {
+        color: white;
+      }
+    }
+
+  .reaction {
+    background: none;
+    border: none;
+    font-size: 18px;
+    cursor: pointer;
+    transition: transform 0.2s ease;
+  }
+
+  .reaction:hover {
+    transform: scale(1.2);
+  }
+
   @media (min-width: 1024px) {
 
     .cart-item {

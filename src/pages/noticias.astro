@@ -2,8 +2,7 @@
 export const prerender = false;
 
 import SpanishLayout from "../layouts/SpanishLayout.astro";
-import Team1 from "../assets/image/noticiasimg.webp";
-import Team2 from "../assets/image/truckerDesktop.webp";
+import Team2 from "../assets/image/tipDesk.webp";
 import Footer from "../components/Footer.astro";
 import AllNews from "../components/AllNews.astro";
 import HeaderNews from "../components/HeaderNews.astro";
@@ -12,15 +11,12 @@ const ShowContent = true;
 
 <SpanishLayout title="la 95 trucking show">
   <HeaderNews
-  titleA="noticias &"
-  titleB="tips"
-  Team1={Team1}
+  titleA="tips"
+  titleB="camioneros"
   Team2={Team2}/>
   <AllNews
-  link1="/noticias/"
   link2="/tips/"
-  navNews="noticas"
-  navTips="tips"
+  navTips="tips para camioneros"
   title="noticias"
   paragraph="Mantente informado con las noticias de última hora, cubriendo eventos globales, avances tecnológicos y más, todo en un solo lugar. Nuestro equipo te trae información precisa y oportuna al instante."
   button="ver más" />

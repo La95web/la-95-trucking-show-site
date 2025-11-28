@@ -1,0 +1,27 @@
+---
+export const prerender = false;
+
+import AudioForm from "../../components/forms/audio-form/Audioform";
+import AudioListItem from "../../components/lists/list-items/audios-list-item/AudiosListItem";
+import AdminDashboard from "../../layouts/AdminDashboard.astro";
+
+const audios = await fetch(import.meta.env.PUBLIC_API_BASE_URL.concat('audios'), {
+  method: 'GET',
+  headers: {
+    'Accept': 'application/json',
+  },
+}).then((response) => response.json());
+
+const reversedAudios = audios.reverse();
+---
+<AdminDashboard title="audiospodcast">
+  <h1>Subir audios</h1>
+  <h2>Nueva publicación</h2>
+  <AudioForm client:load />
+  <h2>Lista de audios publicados</h2>
+  <ul>
+    {reversedAudios.map((audio) => (
+      <AudioListItem audio={audio} client:load />
+    ))}
+  </ul>
+</AdminDashboard>

@@ -4,25 +4,51 @@ import Team1 from "../../assets/image/headerMovil.jpg";
 import Team2 from "../../assets/image/headerDesktop.jpg";
 import Footer from "../../components/Footer.astro";
 import CategoryEn from "../../components/categoryEn.astro";
+import ModalMarket from "../../components/modalMarket.astro";
+import TruckSale from "../../components/TruckSale.astro";
+import Modaltrucksale from "../../components/modaltrucksale.astro";
 import EnglishLayout from "../../layouts/EnglishLayout.astro";
 ---
 
 
 <EnglishLayout title="la 95 trucking show">
   <HeaderBanner 
-  titleUs="career"
-  Team1={Team1}
-  Team2={Team2}/>
+    titleUs="career"
+    Team1={Team1}
+    Team2={Team2}
+  />
   <CategoryEn
-  title="Select your area of expertise"
-  tag1="Driver"
-  tag2="Owner operator"
-  tag3="Rooms for rent"
-  tag4="Dispatcher"
-  tag5="Others"
+    title="Select your area of expertise"
+    tag1="Driver"
+    tag2="Owner operator"
+    tag3="Rooms for rent"
+    tag4="Dispatcher"
+    tag5="Others"
+  />
+  <ModalMarket
+    title="Fill out the form to contact us"
+    button="Contact here"
+    name="first name"
+    lastname="last name"
+  />
+  <TruckSale
+    title="Post your items here"
+    title2="Published items"
+    paragraph="Do you have something to sell? Post your item with us."
+    button="See more"
+    result="No results found."
+  />
+  <Modaltrucksale
+    paragraph="Your data is protected. This platform complies with security and privacy standards."
+    name="first name"
+    lastname="last name"
+    phone="phone number"
+    button="Contact the seller"
   />
   <Footer />
 </EnglishLayout>
 <script>
-    import "../../scripts/home.js";
+  import "../../scripts/home.js";
+  import "../../scripts/modal";
+  import "../../scripts/SearchNews"
 </script>

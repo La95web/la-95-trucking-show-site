@@ -1,0 +1,27 @@
+---
+export const prerender = false;
+
+import MarketplaceForm from "../../components/forms/market-form/Marketplaceform";
+import MarketplaceListitem from "../../components/lists/list-items/marketplace-list-item/MarketplaceListitem";
+import AdminDashboard from "../../layouts/AdminDashboard.astro";
+
+const marketplaces = await fetch(import.meta.env.PUBLIC_API_BASE_URL.concat('marketplaces'), {
+  method: 'GET',
+  headers: {
+    'Accept': 'application/json',
+  },
+}).then((response) => response.json());
+
+const reversedMarketplaces = marketplaces.reverse();
+---
+<AdminDashboard title="marketplace">
+  <h1>Marketplace</h1>
+  <h2>Nueva publicación</h2>
+  <MarketplaceForm client:load />
+  <h2>Lista de articulos publicados</h2>
+  <ul>
+    {reversedMarketplaces.map((marketplace) => (
+      <MarketplaceListitem marketplace={marketplace} client:load />
+    ))}
+  </ul>
+</AdminDashboard>

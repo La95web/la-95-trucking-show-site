@@ -27,14 +27,19 @@ const {title, tag1, tag2, tag3, tag4, tag5} = Astro.props;
       <p>{tag5}</p>
     </a>
   </div>
+
 </section>
 
 <style lang="scss">
     @use "../assets/sass/index" as *;
+
  section {
     text-align: left;
     padding: 50px 0;
-    background-color: $primary;
+    background-image: url("../assets//image/oppMovil.png");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size:cover;
   }
 
   .section-content {
@@ -43,7 +48,6 @@ const {title, tag1, tag2, tag3, tag4, tag5} = Astro.props;
     justify-content: center;
     align-items: center;
     gap: 20px;
-    background-color: $primary;
     padding-top: 70px;
     padding-bottom: 70px;
     margin: 0 5%;
@@ -74,8 +78,10 @@ const {title, tag1, tag2, tag3, tag4, tag5} = Astro.props;
   }
 
   .content-block:hover {
-    background-color: transparent;
     box-shadow: 0 0 20px 10px rgba($accent-b-light, 35%); 
+    p:hover{
+      color:$accent-b-light;
+    }
   }
 
   .content-block i {
@@ -84,6 +90,14 @@ const {title, tag1, tag2, tag3, tag4, tag5} = Astro.props;
   }
 
     @media (min-width: 1024px) {
+      section {
+        text-align: left;
+        padding: 50px 0;
+        background-image: url("../assets//image/oppDesk.png");
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+      }
 
       h2, .underline {
         text-align: center;
