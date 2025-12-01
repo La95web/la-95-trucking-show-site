@@ -1,0 +1,31 @@
+---
+import SpanishLayout from "../layouts/SpanishLayout.astro";
+import Footer from "../components/Footer.astro";
+import Drivers from "../components/Drivers.astro";
+import Modal from "../components/modaljobs.astro";
+import Job1 from "../assets/image/truckdriver.webp";
+import Job2 from "../assets/image/driver2.webp";
+---
+
+<SpanishLayout title="Empleo para choferes">
+  
+  <Drivers
+  title = "Empleo para choferes" 
+  guest2="Empresa B"
+  image2={Job2}
+  description2="Únete a nuestro equipo en los puertos de Newwark"
+  button="ver más"
+
+  guest1="Empresa A"
+  image1={Job1}
+  description1="Estamos contratando. Se requiere un año de experiencia con licencia de conducir comercial CDL CLASE A"
+  button="ver más"
+  />
+  <Modal />
+  <Footer />
+</SpanishLayout>
+<script>
+  import "../scripts/mainMenu.js"
+  import "../scripts/modal.js"
+  import "../scripts/saveData/Drivers.js"
+</script>

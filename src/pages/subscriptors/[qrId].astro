@@ -1,0 +1,107 @@
+---
+import logo from "../../assets/image/logo.webp";
+export const prerender = false;
+
+const { qrId } = Astro.params;
+
+const subscriptor = await fetch(
+  `${import.meta.env.PUBLIC_API_BASE_URL}/subscriptors/${qrId}`,
+  {
+    headers: { Accept: "application/json" },
+  }
+).then((res) => res.json());
+---
+
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Subscriptor {qrId}</title>
+  </head>
+  <body>
+    <div class="card">
+      <h1>Datos del Suscriptor</h1>
+
+      {subscriptor.error ? (
+        <p style="color:red;">{subscriptor.error}</p>
+      ) : (
+        <>
+          <p><strong>ID:</strong> {subscriptor.id}</p>
+          <p><strong>Nombre:</strong> {subscriptor.full_name}</p>
+          <p><strong>Email:</strong> {subscriptor.email}</p>
+          <p><strong>QR ID:</strong> {subscriptor.qr_id}</p>
+          <p><strong>Status:</strong> {subscriptor.status}</p>
+          <p><strong>Creado:</strong> {new Date(subscriptor.created_at).toLocaleString()}</p>
+        </>
+      )}
+      <img src={logo.src} alt="#">
+    </div>
+  </body>
+</html>
+ <style>
+          :root { box-sizing: border-box; }
+      *, *::before, *::after { box-sizing: inherit; }
+
+      html, body {
+        height: 100%;
+        margin: 0;
+      }
+
+      body {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-family: Arial, sans-serif;
+        background-color: #f4f4f4;
+        min-height: 100vh;
+      }
+
+      .card {
+        background: #fff;
+        border: 1px solid #ddd;
+        border-radius: 12px;
+        padding: 20px;
+        width: 100%;
+        max-width: 680px; /* ancho máximo en escritorio */
+        box-shadow: 0 6px 18px rgba(0,0,0,0.08);
+        margin: 0 auto;
+      }
+
+      h1 {
+        color: #007BFF;
+        margin: 0 0 12px 0;
+        font-size: 3.5rem;
+      }
+
+      p {
+        margin: 1.5rem 0;
+        line-height: 1.4;
+        font-size: 2.5rem;
+        word-break: break-word;
+      }
+
+      img {
+        display: block;
+        margin: 20px auto 0;
+        max-width: 150px;
+        height: auto;
+      }
+
+      /* Ajustes para pantallas grandes */
+      @media (min-width: 1024px) {
+        .card {
+          padding: 28px;
+        }
+
+        h1 {
+          font-size: 2.75rem;
+        }
+
+      p {
+        margin: 1.5rem 0;
+        line-height: 1.4;
+        font-size: 1.5rem;
+        word-break: break-word;
+      }
+      }
+    </style>

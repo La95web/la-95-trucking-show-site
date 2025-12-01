@@ -1,0 +1,280 @@
+---
+import SpanishLayout from "../layouts/SpanishLayout.astro";
+import Footer from "../components/Footer.astro";
+import img from "../assets/image/graficas.png"
+import Modalterms from "../components/ModalTermsOwner.astro";
+---
+
+<SpanishLayout title="Afiliate aquí">
+  <div class="underground">
+    <section>
+      <h2>Afíliate aquí</h2>
+      <div class="underline"></div>
+      <p>Si eres dueño de una empresa, elige la suscripción que mejor se adapte a ti.</p>
+      <div class="section-content">
+      <div>
+        <p>Suscripción Mensual</p>
+        <p><strong>$4.99</strong></p>
+        <div class="light-gold gold-button">
+            <button class="openModal" data-modal="modalA">Me quiero suscribir</button>
+          </div>
+      </div>
+      <div>
+        <p>Suscripción Anual</p>
+        <header>
+          <p><strong>$48.99</strong></p>
+          <span>59.88</span>
+        </header>
+        <div class="light-gold gold-button">
+          <button class="openModal" data-modal="modalB">Me quiero suscribir</button>
+        </div>
+      </div>
+    </section>
+    <div class="info-content">
+      <h2>beneficios</h2>
+      <div class="underline"></div>
+      <figure>
+        <ul>
+          <li><i class="ph ph-check"></i>Descuentos exclusivos en eventos </li>
+          <li><i class="ph ph-check"></i>Acceso anticipado a promociones</li>
+          <li><i class="ph ph-check"></i>Contenido premium para camioneros</li>
+          <li><i class="ph ph-check"></i>Soporte técnico personalizado</li>
+          <li><i class="ph ph-check"></i>Participación en sorteos mensuales</li>
+        </ul>
+        <img src={img.src}" alt="#" />
+      </figure>
+    </div>
+    <div class="info-content">
+      <h2>pasos para convertirte en afiliado</h2>
+      <div class="underline"></div>
+      <div class="step-content">
+        <ul>
+          <li><i class="ph ph-dot-outline"></i>Haz clic en el botón “Me quiero suscribir</li>
+          <li><i class="ph ph-dot-outline"></i>Lee y acepta los términos y condiciones</li>
+          <li><i class="ph ph-dot-outline"></i>Accede a la pasarela de pagos</li>
+          <li><i class="ph ph-dot-outline"></i>Completa el formulario de pago</li>
+          <li><i class="ph ph-dot-outline"></i>Recibe un correo electrónico con tu QR de activación</li>
+          <li><i class="ph ph-dot-outline"></i>Con qr dirigete al establecimiento de las empresas que estan afiliadas</li>
+          <li><i class="ph ph-dot-outline"></i>El encargado escaneará tu QR para verificar tu información</li>
+          <li><i class="ph ph-dot-outline"></i>Si tu afiliación está vigente, recibirás los descuentos correspondientes</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <Modalterms
+  term1="Lorem, ipsum dolor sit amet consectetur adipisicing elit. Saepe, dolorum! Lorem, ipsum dolor sit amet consectetur adipisicing elit. Saepe, dolorum!"
+  term2="Lorem, ipsum dolor sit amet consectetur adipisicing elit. Saepe, dolorum! Lorem, ipsum dolor sit amet consectetur adipisicing elit. Saepe, dolorum!"
+  term3="Lorem, ipsum dolor sit amet consectetur adipisicing elit. Saepe, dolorum! Lorem, ipsum dolor sit amet consectetur adipisicing elit. Saepe, dolorum!"
+  term4="Lorem, ipsum dolor sit amet consectetur adipisicing elit. Saepe, dolorum! Lorem, ipsum dolor sit amet consectetur adipisicing elit. Saepe, dolorum!"
+  term5="Lorem, ipsum dolor sit amet consectetur adipisicing elit. Saepe, dolorum! Lorem, ipsum dolor sit amet consectetur adipisicing elit. Saepe, dolorum!"
+  term6="Lorem, ipsum dolor sit amet consectetur adipisicing elit. Saepe, dolorum! Lorem, ipsum dolor sit amet consectetur adipisicing elit. Saepe, dolorum!"
+  term7="Lorem, ipsum dolor sit amet consectetur adipisicing elit. Saepe, dolorum! Lorem, ipsum dolor sit amet consectetur adipisicing elit. Saepe, dolorum!"
+  term8="Lorem, ipsum dolor sit amet consectetur adipisicing elit. Saepe, dolorum! Lorem, ipsum dolor sit amet consectetur adipisicing elit. Saepe, dolorum!"
+  term9="Lorem, ipsum dolor sit amet consectetur adipisicing elit. Saepe, dolorum! Lorem, ipsum dolor sit amet consectetur adipisicing elit. Saepe, dolorum!"
+  term10="Lorem, ipsum dolor sit amet consectetur adipisicing elit. Saepe, dolorum! Lorem, ipsum dolor sit amet consectetur adipisicing elit. Saepe, dolorum!"
+  cond1="Lorem, ipsum dolor sit amet consectetur adipisicing elit. Saepe, dolorum! Lorem, ipsum dolor sit amet consectetur adipisicing elit. Saepe, dolorum!"
+  cond2="Lorem, ipsum dolor sit amet consectetur adipisicing elit. Saepe, dolorum! Lorem, ipsum dolor sit amet consectetur adipisicing elit. Saepe, dolorum!"
+  cond3="Lorem, ipsum dolor sit amet consectetur adipisicing elit. Saepe, dolorum! Lorem, ipsum dolor sit amet consectetur adipisicing elit. Saepe, dolorum!"
+  cond4="Lorem, ipsum dolor sit amet consectetur adipisicing elit. Saepe, dolorum! Lorem, ipsum dolor sit amet consectetur adipisicing elit. Saepe, dolorum!"
+  cond5="Lorem, ipsum dolor sit amet consectetur adipisicing elit. Saepe, dolorum! Lorem, ipsum dolor sit amet consectetur adipisicing elit. Saepe, dolorum!"
+  cond6="Lorem, ipsum dolor sit amet consectetur adipisicing elit. Saepe, dolorum! Lorem, ipsum dolor sit amet consectetur adipisicing elit. Saepe, dolorum!"
+  cond7="Lorem, ipsum dolor sit amet consectetur adipisicing elit. Saepe, dolorum! Lorem, ipsum dolor sit amet consectetur adipisicing elit. Saepe, dolorum!"
+  cond8="Lorem, ipsum dolor sit amet consectetur adipisicing elit. Saepe, dolorum! Lorem, ipsum dolor sit amet consectetur adipisicing elit. Saepe, dolorum!"
+  cond9="Lorem, ipsum dolor sit amet consectetur adipisicing elit. Saepe, dolorum! Lorem, ipsum dolor sit amet consectetur adipisicing elit. Saepe, dolorum!"
+  cond10="Lorem, ipsum dolor sit amet consectetur adipisicing elit. Saepe, dolorum! Lorem, ipsum dolor sit amet consectetur adipisicing elit. Saepe, dolorum!"
+  />
+  <Footer />
+</SpanishLayout>
+<script>
+  import "../scripts/mainMenu.js"
+  import "../scripts/modal.js"
+</script>
+<style lang="scss">
+  @use '../assets/sass/index' as *;
+
+    .underground {
+      padding: 70px 0;
+      background-image: url("../assets/image/Pentagonos.png");
+      background-repeat:repeat;
+      background-position: cover;
+      background-attachment: fixed;
+      p{
+        margin: 10px 5%; 
+      }
+    } 
+
+    header {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 10px;
+    }
+
+    span {
+      text-decoration: line-through;
+      color: grey;
+      font-size: 1.2rem;
+    }
+
+    .section-content {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: center;
+      margin-top: 20px;
+
+    div {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      background-color: $primary;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.9);
+      padding: 20px;
+      margin: 10px;
+      text-align: center;
+      width: 300px;
+
+      p {
+        font-size: 1.2rem;
+        color: $secondary;
+        margin: 10px 0;
+
+        strong {
+          font-size: 1.5rem;
+          color: $accent-b-dark;
+        }
+      }
+    }
+
+    .light-gold {
+      width: 70%;
+      border-radius: 8px;
+      padding: 10px;
+      transition: background-color 0.3s, box-shadow 0.3s;
+  
+      button, #openModal {
+        color: black;
+        font-size: 1.2rem;
+        font-weight: $regular;
+        font-family: $heading;
+        background-color: transparent;
+        cursor: pointer;
+      }
+    }
+  
+    .light-gold.gold-button {
+      background-color: $accent-b-dark;
+      box-shadow: 0 0 20px 10px rgba($accent-b-dark, 20%);
+      border: 2px solid $accent-b-dark;
+      margin: 20px 0 30px;
+    }
+  
+    .gold-button {
+      background-color: $accent-b-light;
+    }
+  
+    .gold-button:hover {
+      box-shadow: 0 0 25px 15px rgba($accent-b-light, 30%);
+    }
+  }
+
+  //beneficios flex
+
+  figure, .step-content {
+    display: flex;
+    margin: 20px 5%;
+    border: 2px solid $accent-b-light;
+    border-radius: 8px;
+    img {
+      display: none;
+    }
+  }
+
+  ul{
+    font-family: $text;
+    font-size: 1.2rem;
+    line-height: 2.5;
+    font-weight: $regular;
+    color: white;
+    padding: 0;
+  }
+
+  i{
+    color: $accent-b-dark;
+    margin: 10px;
+  }
+
+  li {
+    margin: 10px;
+  }
+
+  ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+
+    li {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      margin-bottom: 12px;
+      font-family: $text;
+      font-size: 16px;
+      line-height: 1.5;
+      color: white;
+
+      i {
+        font-size: 20px;
+        color: #FFCC4D;
+        flex-shrink: 0;
+        margin-top: 4px;
+      }
+
+      span {
+        display: block;
+        flex: 1;
+      }
+    }
+  }
+
+  .info-content {
+    padding-top: 50px;
+  }
+
+
+  @media (min-width: 1024px) {
+
+    section {
+      padding-top: 50px;
+    }
+
+    figure, 
+    .step-content {
+      justify-content: space-between;
+      width: 50%;
+      img {
+        display: block;
+        width: 300px;
+        min-width: 50px;
+        object-fit: contain;
+      }
+    }
+
+    .info-content {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
+
+    h2, p {
+      text-align: center;
+    }
+
+    .underline {
+      margin: 0 auto;
+    }
+  }
+</style>

@@ -1,0 +1,236 @@
+---
+const audios = await fetch(import.meta.env.PUBLIC_API_BASE_URL.concat('audios'), {
+  method: 'GET',
+  headers: {
+    'Accept': 'application/json',
+  },
+}).then((response) => response.json());
+---
+
+<div class="search-bar section">
+  <input type="search" id="searchInput" placeholder="Buscar episodio..." />
+</div>
+<div id="noResults" style="text-align: center; margin-top: 1rem;"> <h3>No se encontraron resultados.</h3> </div>
+
+<div class="podcast-container">
+  <section id="podcastList">
+    {audios.length > 0 && audios.map((audio) => (
+      <div class="podcastList">
+        <p>{audio.title}</p>
+        <audio src={audio.main_audio_url} controls></audio>
+      </div>
+    ))}
+  </section>
+</div>
+
+  <div class="pagination">
+    <button class="light-button yellow-button" id="toggleBtn">Siguiente »</button>
+    <span id="pageInfo"></span>
+  </div>
+</div>
+
+<script>
+  const ITEMS_PER_PAGE = 6;
+  let currentPage = 1;
+  let filteredItems = [];
+
+  const podcastList = document.getElementById("podcastList");
+  const searchInput = document.getElementById("searchInput");
+  const podcastItems = Array.from(podcastList.getElementsByClassName("podcastList"));
+  const toggleBtn = document.getElementById("toggleBtn");
+  const pageInfo = document.getElementById("pageInfo");
+
+  filteredItems = podcastItems;
+
+  function render() {
+    const totalPages = Math.ceil(filteredItems.length / ITEMS_PER_PAGE);
+    currentPage = Math.min(currentPage, totalPages || 1);
+
+    podcastItems.forEach(item => item.style.display = "none");
+
+    const startIndex = (currentPage - 1) * ITEMS_PER_PAGE;
+    const endIndex = startIndex + ITEMS_PER_PAGE;
+
+    filteredItems.slice(startIndex, endIndex).forEach(item => {
+      item.style.display = "block";
+    });
+
+    const noResults = document.getElementById("noResults");
+    noResults.style.display = filteredItems.length === 0 ? "block" : "none";
+
+    pageInfo.textContent = `Página ${currentPage} de ${totalPages}`;
+
+    // Cambiar texto del botón según la página
+    if (currentPage < totalPages) {
+      toggleBtn.textContent = "Siguiente »";
+    } else if (currentPage === totalPages && totalPages > 1) {
+      toggleBtn.textContent = "« Anterior";
+    } else {
+      toggleBtn.style.display = "none"; // Oculta si solo hay una página
+    }
+  }
+
+  toggleBtn.addEventListener("click", () => {
+    const totalPages = Math.ceil(filteredItems.length / ITEMS_PER_PAGE);
+
+    if (currentPage < totalPages) {
+      currentPage++;
+    } else if (currentPage === totalPages && totalPages > 1) {
+      currentPage--;
+    }
+
+  render();
+  });
+
+  searchInput.addEventListener("input", () => {
+    const query = searchInput.value.toLowerCase();
+
+    filteredItems = podcastItems.filter(item => {
+      const title = item.querySelector("p").textContent.toLowerCase();
+      return title.includes(query);
+    });
+
+    currentPage = 1;
+    toggleBtn.style.display = "inline-block"; // Asegura que reaparezca tras búsqueda
+    render();
+  });
+
+  render();
+  
+</script>
+
+<style lang="scss">
+  @use "../assets/sass/index" as *;
+   
+  input {
+    background-color: $accent-b-dark;
+    border: none;
+    width: 100%;
+    height: 60px;
+    background-image: url("../assets/image/blacklupa.png");
+    justify-content: center;
+    align-items: center;
+    background-repeat: no-repeat;
+    background-position: calc(100% - 5%) center;
+    padding-left: 5%;
+    padding-right: 5%;
+  }
+
+  input::placeholder { 
+    width: 85%;
+    border-bottom: 1px solid #000;
+    padding-bottom: 10px;
+    font-family: $text;
+    font-weight: $regular;
+    font-size: 1rem; 
+  }
+
+  input[type="search"]::-webkit-search-cancel-button{
+    -webkit-appearance: none;
+    appearance: none;
+  }
+
+  section {
+    gap: 2rem;
+  }
+
+  .podcastList{
+    background-color: $tertiary;
+    padding: 1rem;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.9);
+    width: 350px;
+  }
+
+  p{
+    color: $accent-b-dark;
+    font-size: 1rem;
+  }
+
+  .podcast-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 0 auto;
+    padding: 2rem;
+  }
+
+  #podcastList {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  audio {
+    width: 100%;
+    outline: none;
+  }
+
+  .pagination {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 2rem;
+  }
+
+  button {
+    border: none;
+  }
+  
+  .light-button.yellow-button {
+    background-color: $accent-b-dark;
+    box-shadow: 0 0 20px 10px rgba($accent-b-dark, 0%);
+  }
+  
+  .yellow-button {
+    background-color: $accent-c-light;
+  }
+  
+  .light-button:hover {
+    background-color: $accent-b-light;
+    box-shadow: 0 0 25px 15px rgba($accent-b-light, 0%);
+  }
+
+  .pagination button:hover:not(:disabled) {
+    background-color: $accent-b-light;
+  }
+
+  .pagination button:disabled {
+    background-color: transparent;
+    cursor: not-allowed;
+    color: $primary;
+  }
+
+  #pageInfo {
+    font-size: 1rem;
+    color: white;
+  }
+
+  span{
+    margin: 0 20px;
+  }
+
+  @media (min-width: 1024px){
+    .section {
+      background-image: url('../assets/image/Intersect.svg');
+      background-repeat: no-repeat;
+      background-size: contain;
+      background-position: right;
+      justify-content: left;  
+      background-color: $accent-b-dark;
+    }
+    input {
+      width: 50%;
+      background-position: calc(100% - 40%) center;
+    }
+
+    input::placeholder {
+      width: 60%;
+    }
+
+    .podcastList{
+      width: 450px;
+    }
+  }
+</style>

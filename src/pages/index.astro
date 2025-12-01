@@ -1,50 +1,264 @@
 ---
 import HomeSlider from "../components/HomeSlider.astro";
-import Radio from "../components/Radio.astro";
-import PrimarySection from "../components/PrimarySection.astro";
+import Subscriptions from "../components/Subscriptions.astro";
 import SpanishLayout from "../layouts/SpanishLayout.astro";
-import Carousel from "../components/Carousel.astro";
-import Magazine from "../components/Magazine.astro";
-import Newsletter from "../components/Newsletter.astro";
+import Foro from "../components/Foro.astro";
 import Whatsapp from "../components/Whatsapp.astro";
 import Footer from "../components/Footer.astro";
-import SecondarySection from "../components/SecondarySection.astro";
-import truck1 from "../assets/image/camion.webp";
-import truck2 from "../assets/image/truck2.webp";
+import truck1 from "../assets/image/truck2.webp";
+import truck2 from "../assets/image/Misionteam.webp";
 import truck3 from "../assets/image/truck3.webp";
+import VisionSection from "../components/VisionSection.astro";
+import imageA from '../assets/image/empresa1.png';
+import imageB from '../assets/image/empresa2.png';
 ---
 
 <SpanishLayout title="la 95 trucking show">
   <HomeSlider images={[truck1.src, truck2.src, truck3.src]} />
-  <Radio />
-  <PrimarySection 
-  title="EL PODCAST MÁS DURO"
-  paragraph="¡Bienvenidos a La 95 Trucking Show, el podcast hecho por y para camioneros! 🚛✨ Aquí hablamos de la vida en la carretera, anécdotas inolvidables, consejos útiles y todo lo que mueve el mundo del transporte. Si te apasiona la ruta, las historias de carretera y quieres ser parte de esta gran comunidad sobre ruedas, este es tu espacio. ¡Ajusta el cinturón, enciende el motor y acompáñanos en este viaje! No olvides suscribirte y compartir con otros compañeros de ruta." 
-  button="ver más"/>
-  <SecondarySection
-  title="Conviértete en patrocinador"
-  paragraph="Únase a La 95 Trucking Show y aumente la visibilidad de su marca ante una audiencia comprometida. Aproveche nuestras recomendaciones auténticas y el formato de contenido en crecimiento para generar credibilidad y confianza. Explore una alianza de patrocinio con nosotros para impulsar su marca a nuevos horizontes."
-  button="contáctanos" /> 
-  <Carousel />
-  <Magazine 
-  titleA="Descargar nuestra revista"
-  textA="¡Descubre un mundo de conocimiento e inspiración! Descarga nuestra revista y sumérgete en artículos exclusivos, tendencias actuales y consejos que transformarán tu visión. ¡No te lo pierdas, el siguiente nivel está a un clic de distancia!"
-  textB="Muy pronto!"
-  button="descargar"/>
-  <Newsletter
-  titleA="Recibe notificaciones y avisos"
-  textB="¡Mantente al día! Suscríbete para recibir las últimas novedades y eventos directamente en tu dispositivo. Confirma tu interés y no te pierdas ninguna noticia importante. Activa las notificaciones ahora."
-  label="Tu email:"
-  formMessage="¡Gracias por suscribirte!"
-  button="enviar" />
+  <Subscriptions 
+    title1="Suscríbete y disfruta de descuentos exclusivos"
+    title2="Empresas afiiliadas"
+    titleC="Si eres dueño de empresa"
+    paragraphC="Elije esta opcion para convertirte en patrocinador y disfruta de los beneficios de la suscripción."
+    text1="Seguros medicos"
+    cupon1="Obten un descuento de $120"
+    text2="Mecanica general"
+    cupon2="Obten un descuento de $20"
+    text3="Gomeras"
+    cupon3="Obten un descuento de $300"
+    text4="Firma de abogados"
+    cupon4="Obten un descuento de $80"
+    titleA="Empresas afiiliadas"
+    title="Suscríbete ahora"
+    paragraph="Si eres un usuario regular, elige la suscripción que mejor se adapta a ti."
+    yearly="Suscripción anual"
+    monthly="Suscripción mensual"
+    button="suscribirse ahora"
+    buttonC="Afiliate aquí"
+    anchor="/Afiliate"
+  />
+  <Foro 
+    title="La Voz del Camionero"
+    paragraph="¿Tienes ideas para nuevos episodios, tips para la vida en carretera o preguntas que quieres compartir con otros camioneros? 🚛 Este es tu espacio para expresarte. Haz clic en el botón y"
+    strongA="participa"
+    button="Únete al foro"
+  />
   <Whatsapp
-  titleA="únete a nuestro grupo de whatsapp"
-  textA="📢 ¡Atención camioneros! 🚛💨"
-  textB="Los invitamos a formar parte de nuestro grupo de WhatsApp de la 95 Trucking Show. Un espacio donde compartiremos información, novedades, rutas, eventos y todo lo relacionado con nuestra pasión por los camiones."
-  button="ÚNETE" />
+    titleA="únete a nuestro grupo de whatsapp"
+    textA="📢 ¡Atención camioneros! 🚛💨"
+    textB="Los invitamos a formar parte de nuestro grupo de WhatsApp de la 95 Trucking Show. Un espacio donde compartiremos información, novedades, rutas, eventos y todo lo relacionado con nuestra pasión por los camiones."
+    button="ÚNETE" 
+  />
+  <VisionSection
+    titleA="nuestra razón de ser"
+    titleB="mision"
+    titleC="vision"
+    titleD="valores"
+    textA="Ser el podcast líder en la comunidad camionera, brindando información relevante, entretenimiento y un espacio de expresión para los conductores de camiones. Buscamos dar voz a quienes recorren las carreteras, compartiendo sus experiencias, desafíos y éxitos, mientras fortalecemos el sentido de comunidad y apoyo mutuo."
+    textB="Convertirnos en el referente principal para los camioneros de habla hispana, creando un espacio donde se compartan conocimientos, anécdotas y noticias del sector. Aspiramos a influir positivamente en la industria del transporte y mejorar la calidad de vida de los conductores a través de contenido valioso y auténtico."
+    textC="Nuestros valores son el respeto por la labor de los camioneros, la autenticidad en las historias, el compromiso con contenido relevante, la unidad para fomentar la solidaridad y la pasión por la industria del transporte."/>
+    <section class="top-companies rows"> 
+    <h2>Empresas afiliadas</h2>
+    <div class="underline"></div>
+    <p>En las siguientes empresas en donde podras hacer uso de los descuentos</p>
+    <div class="section-content">
+      <div class="background-block">
+        <div>  
+          <div class="content-box">
+            <img src={imageA.src} alt="#">
+            <a href="">adrians motor in new jersey</a>
+          </div>
+          <div class="content-box">
+            <img src={imageB.src} alt="#">
+            <a href="">ride tire located in pensilvania</a>
+          </div>
+        </div>
+        <div>  
+          <div class="content-box">
+            <img src={imageA.src} alt="#">
+            <a href="">ride tire located in pensilvania</a>
+          </div>
+          <div class="content-box">
+            <img src={imageB.src} alt="#">
+            <a href="">ride tire located in pensilvania</a>
+          </div>
+        </div>
+      </div>
+      <div class="background-block">
+      <div>  
+          <div class="content-box">
+            <img src={imageA.src} alt="#">
+            <a href="">adrians motor in new jersey</a>
+          </div>
+          <div class="content-box">
+            <img src={imageB.src} alt="#">
+            <a href="">ride tire located in pensilvania</a>
+          </div>
+        </div>
+        <div>  
+          <div class="content-box">
+            <img src={imageA.src} alt="#">
+            <a href="">adrians motor in new jersey</a>
+          </div>
+          <div class="content-box">
+            <img src={imageB.src} alt="#">
+            <a href="">ride tire located in pensilvania</a>
+          </div>
+        </div>
+      </div>
+      <div class="background-block">
+        <div>  
+          <div class="content-box">
+            <img src={imageA.src} alt="#">
+            <a href="">adrians motor in new jersey</a>
+          </div>
+          <div class="content-box">
+            <img src={imageB.src} alt="#">
+            <a href="">ride tire located in pensilvania</a>
+          </div>
+        </div>
+        <div>  
+          <div class="content-box">
+            <img src={imageA.src} alt="#">
+            <a href="">adrians motor in new jersey</a>
+          </div>
+          <div class="content-box">
+            <img src={imageB.src} alt="#">
+            <a href="">ride tire located in pensilvania</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
   <Footer />
 </SpanishLayout>
 <script>
 	import "../scripts/home.js";
-  import "../scripts/Radio.js"
+  import "../scripts/modal.js";
+  import "../scripts/saveData/Drivers.js";
+  import "../scripts/saveData/TruckBuyer.js"
 </script>
+
+<style lang="scss">
+  @use "../assets/sass/index" as *;
+
+  .section-content {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    background-color: transparent;
+  }
+
+  h2 {
+    text-align: left;
+  }
+  p{
+    text-align: left;
+    margin: 10px 5%;
+  }
+
+  .content-box {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .content-box img {
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+    display: block;
+    cursor: pointer;
+  }
+
+  .background-block {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .rows {
+    position: relative;
+    background-image: url('../assets/image/truckersMovil.png');
+    width: 100%;
+    background-size: cover;
+    background-position: center;
+    z-index: 1;
+  }
+
+  .rows::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: rgba(0,0,0,0.85); 
+    z-index: 0;
+    border-radius: inherit;
+  }
+
+  .rows > * {
+    position: relative;
+    z-index: 1;
+  }
+
+  a {
+    color: $accent-b-light;
+    font-size: 0.7em;
+  }
+
+  a:hover {
+    color: white;
+  }
+
+
+  section {
+    display: block;
+    text-align: center;
+    padding: 30px 20px;
+  }
+
+  @media (max-width: 768px) {
+  .background-block {
+      width: 50%;
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .section-content {
+      margin: 70px 0;
+    }
+    section {
+     padding: 30px 0;
+    }
+
+    h2, p {
+      text-align: center;
+    }
+
+    .underline {
+      margin: 0 auto;
+    }
+
+    .content-box a {
+      font-size: 1.2rem;
+    }
+
+    .background-block {
+      flex-direction: row;
+      flex-wrap: wrap;
+      justify-content: center;
+      align-items: center;
+      width: 30%;
+    }
+
+    .rows {
+      position: relative;
+      background-image: url('../assets/image/truckers.png');
+      width: 100%;
+      min-height: 800px;
+      background-size: cover;
+      background-position: center;
+    }
+  }
+</style>

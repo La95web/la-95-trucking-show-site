@@ -1,0 +1,192 @@
+---
+const {title, titleC, paragraph, paragraphC, yearly, monthly, button, buttonC, anchor} = Astro.props;
+---
+
+<section>
+  <h2>{title}</h2>
+  <div class="underline"></div>
+  <p>{paragraph}</p>
+  <div class="section-content">
+    <div>
+      <p>{monthly}</p>
+      <p><strong>$4.99</strong></p>
+       <div class="light-gold gold-button">
+          <button class="openModal" data-modal="modalA">{button}</button>
+        </div>
+    </div>
+    <div>
+      <p>{yearly}</p>
+      <header>
+        <p><strong>$48.99</strong></p>
+        <span>59.88</span>
+      </header>
+      <div class="light-gold gold-button">
+        <button class="openModal" data-modal="modalB">{button}</button>
+      </div>
+    </div>
+</section>
+<div class="user-tier">
+  <h2>{titleC}</h2>
+  <div class="underline"></div>
+  <p>{paragraphC}</p>
+  <a class="light-gold" href={anchor}>{buttonC}</a>
+</div>
+
+<style lang="scss">
+  @use '../assets/sass/index' as *;
+
+    section {
+      padding: 30px 0;
+      background-image: url("../assets/image/Pentagonos.png");
+      background-repeat:repeat;
+      background-position: cover;
+      p{
+        margin: 10px 5%; 
+      }
+    } 
+
+    header {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 10px;
+    }
+
+    span {
+      text-decoration: line-through;
+      color: grey;
+      font-size: 1.2rem;
+    }
+
+    .section-content {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: center;
+      margin-top: 20px;
+
+    div {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      background-color: $primary;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.9);
+      padding: 20px;
+      margin: 10px;
+      text-align: center;
+      width: 300px;
+
+      p {
+        font-size: 1.2rem;
+        color: $secondary;
+        margin: 10px 0;
+
+        strong {
+          font-size: 1.5rem;
+          color: $accent-b-dark;
+        }
+      }
+    }
+
+    .light-gold {
+      width: 70%;
+      border-radius: 8px;
+      padding: 10px;
+      transition: background-color 0.3s, box-shadow 0.3s;
+  
+      button, #openModal {
+        color: black;
+        font-size: 1.2rem;
+        font-weight: $regular;
+        font-family: $heading;
+        background-color: transparent;
+        cursor: pointer;
+      }
+    }
+  
+    .light-gold.gold-button {
+      background-color: $accent-b-dark;
+      box-shadow: 0 0 20px 10px rgba($accent-b-dark, 20%);
+      border: 2px solid $accent-b-dark;
+      margin: 20px 0 30px;
+    }
+  
+    .gold-button {
+      background-color: $accent-b-light;
+    }
+  
+    .gold-button:hover {
+      box-shadow: 0 0 25px 15px rgba($accent-b-light, 30%);
+    }
+  }
+
+  .user-tier {
+    position: relative;
+    display: block;
+    text-align: center;
+    padding: 70px 50px;
+    background-color: $accent-c-dark;
+    background-image: url("../assets/image/Redfire.svg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: bottom calc(0% - 0px);
+    width: 100%;
+    height: auto;
+    z-index: 2;
+   
+    p, h2{
+       color: white;
+       position: relative;
+       z-index: 2;
+    }
+    a{
+      position: relative;
+      display: inline-block;
+      margin-top: 20px;
+      border: 2px solid $accent-b-dark;
+      border-radius: 8px;
+      background-color: transparent;
+      text-align: center;
+      color: $accent-b-dark;
+      cursor: pointer;
+      width: 130px;
+      height: auto;
+      z-index: 2;
+      transition: box-shadow 0.3s ease-in-out;
+    }
+    a:hover{
+      box-shadow: 0 0 25px 15px rgba($accent-b-light, 10%);
+    }
+    .underline{
+      position: relative;
+      z-index: 2;
+      margin: 0 auto;
+    }
+  }
+
+  .user-tier::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: rgba(0,0,0,0.65); 
+    z-index:1;
+  }
+
+
+  @media (min-width: 1024px) {
+
+    h2, p {
+      text-align: center;
+    }
+
+    .underline {
+      margin: 0 auto;
+    }
+    .user-tier{
+      background-image: url("../assets/image/redfiredesk.svg");
+    }
+  }
+
+</style>

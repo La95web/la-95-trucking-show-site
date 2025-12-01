@@ -1,0 +1,180 @@
+---
+import CheckoutForm from './CheckoutForm.astro';
+import Modalterms from './Modalterms.astro';
+const {title1, titleC, text1, cupon1, text2, cupon2, text3, cupon3, text4, cupon4, title, paragraph, paragraphC, yearly, monthly, button, buttonC, anchor} = Astro.props;
+---
+
+<section class="back-img">
+  <h2>{title1}</h2>
+  <div class="underline"></div>
+  <div class="section-content"> 
+    <div class="content-block">
+      <i class="ph ph-shield-plus"></i>
+      <p>{text1}</p>
+      <p><strong>{cupon1}</strong></p>
+    </div>
+    <div class="content-block">
+      <i class="ph ph-truck"></i>
+      <p>{text2}</p>
+      <p><strong>{cupon2}</strong></p>
+    </div>
+    <div class="content-block">
+      <i class="ph ph-tire"></i>
+      <p>{text3}</p>
+      <p><strong>{cupon3}</strong></p>
+    </div>
+    <div class="content-block">
+      <i class="ph ph-building"></i>
+      <p>{text4}</p>
+      <p><strong>{cupon4}</strong></p>
+    </div>
+    <div class="content-block">
+      <i class="ph ph-wrench"></i>
+      <p>lorem4</p>
+      <p><strong>Obten un descuento de $100</strong></p>
+    </div>
+    <div class="content-block">
+      <i class="ph ph-scales"></i>
+      <p>Lorem ipsum dolor sit.</p>
+      <p><strong>Obten un descuento de $100</strong></p>
+    </div>
+    <div class="content-block">
+      <i class="ph ph-scales"></i>
+      <p>Lorem ipsum dolor sit.</p>
+      <p><strong>Obten un descuento de $100</strong></p>
+    </div>
+    <div class="content-block">
+      <i class="ph ph-scales"></i>
+      <p>Lorem ipsum dolor sit.</p>
+      <p><strong>Obten un descuento de $100</strong></p>
+    </div>
+    <div class="content-block">
+      <i class="ph ph-scales"></i>
+      <p>Lorem ipsum dolor sit.</p>
+      <p><strong>Obten un descuento de $100</strong></p>
+    </div>
+  </div>
+</section>
+<CheckoutForm
+cosnt titleC={titleC}
+const title={title}
+const paragraphC={paragraphC}
+const paragraph={paragraph}
+const yearly={yearly}
+const monthly={monthly}
+const button={button}
+const buttonC={buttonC}
+const anchor={anchor}
+/>
+<Modalterms/>
+
+<style lang="scss">
+  @use "../assets/sass/index" as *;
+
+  .back-img {
+    background-image: url("../assets/image/Pentagonos.png");
+    background-repeat:repeat;
+    background-position: cover;
+  }
+
+  h2 {
+    text-align: left;
+  }
+
+  section {
+    text-align: center;
+  }
+
+  .top-companies {
+    padding: 50px 0;
+  }
+
+  .section-content {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    background-color: transparent;
+    padding-top: 70px;
+    padding-bottom: 70px;
+  }
+
+  .content-block {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.1rem;
+    font-weight: $regular;
+    font-family: $heading;
+    border: 2px solid $accent-b-light;
+    background-color: $primary;
+    border-radius: 8px;
+    width: 180px;      
+    height: 230px;        
+    box-sizing: border-box;
+    padding: 16px;
+    gap: 10px;
+    text-align: center;  
+    overflow: hidden;   
+    transition: box-shadow 0.2s;
+    cursor: pointer;
+    p {
+      margin: 5px 0;
+    }
+    strong {
+      color: $accent-b-dark;
+      font-size: 1.2rem;
+    }
+  }
+
+  .content-block i {
+    color: $accent-b-light;
+    font-size: 2rem;
+  }
+
+  @media (min-width: 1024px) {
+
+    h2 {
+      text-align: center;
+    }
+
+    .content-block:hover strong {
+      left: 50%;
+      transform: translate(-50%, -50%);
+    }
+
+    .content-block {
+      position: relative;
+    }
+
+    .content-block strong {
+      position: absolute;
+      top: 50%;
+      left: -100%;
+      transform: translateY(-50%);
+      background-color: #ffd700;
+      padding: 8px 12px;
+      border-radius: 4px;
+      white-space: nowrap;
+      transition: left 0.4s ease;
+      font-weight: bold;
+      color: #333;
+    }
+
+    .underline {
+      margin: 0 auto;
+    }
+
+    .content-block {
+      flex-direction: row;
+      align-items: left;
+      justify-content: left; 
+      width: 300px;
+      height: 80px;
+      padding: 20px;
+    }
+  }
+</style>

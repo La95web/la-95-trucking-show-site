@@ -1,10 +1,9 @@
 ---
-const {titleA, titleB, Team1, Team2} = Astro.props;
+const {titleA, titleB, Team2} = Astro.props;
 ---
 
 <header>
   <div class="content-header">
-    <img src={Team1.src} alt="image" class="movil-image">
     <img src={Team2.src} alt="desktop image" class="desktop-image">
     <h1>
        <span>{titleA}</span>
@@ -67,7 +66,7 @@ const {titleA, titleB, Team1, Team2} = Astro.props;
     header {
     position: relative;
     width: 100%;
-    aspect-ratio: 1440 / 700;
+    aspect-ratio: 1240 / 700;
     overoflow-x: hidden;
     overflow: hidden;
     }
