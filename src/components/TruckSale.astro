@@ -49,19 +49,18 @@ const marketplace = await fetch(import.meta.env.PUBLIC_API_BASE_URL.concat('mark
         <h3>{result}</h3>
       </div>
     )}
+    </section>
     <div class="section-center">
       <div class="light-gold gold-button">
         <button id="load-more">{button}</button>
       </div>
     </div>
-  </section>
 </div>
 
 <style lang="scss" >
   @use '../assets/sass/index' as *;
-  // section
-  section {
-    min-height: 50dvh;
+  span{
+    display: none;
   }
 
   input {
