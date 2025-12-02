@@ -24,6 +24,9 @@ import Gallery7 from "../assets/image/softball24-15.jpg";
 import Gallery8 from "../assets/image/softball24-16.jpg";
 import Gallery9 from "../assets/image/softball24-17.jpg";
 import Gallery10 from "../assets/image/softball24-18.jpg";
+import poster from "../assets/image/softball24-18.jpg";
+import poster2 from "../assets/image/softball24-02.jpg";
+import poster3 from "../assets/image/softball24-10.jpg";
 const images = [
   Gallery1, Gallery2, Gallery3, Gallery4, Gallery5, Gallery6, Gallery7, Gallery8, Gallery9, Gallery10
 ];
@@ -35,13 +38,13 @@ const images = [
       <h2>Videos</h2>
       <div class="underline"></div>
       <div class="video-gallery">
-        <video controls width="300" preload="none" poster="/src/assets/image/softball24-18.jpg">
+        <video controls width="300" preload="none" poster={poster.src}>
           <source src={Video1} type="video/mp4" />
         </video>
-        <video controls width="300" preload="none" poster="/src/assets/image/softball24-02.jpg">
+        <video controls width="300" preload="none" poster={poster2.src}>
           <source src={Video2} type="video/mp4" />
         </video>
-        <video controls width="300" preload="none" poster="/src/assets/image/softball24-10.jpg">
+        <video controls width="300" preload="none" poster= {poster3.src}>
           <source src={Video3} type="video/mp4" />
         </video>
       </div>
