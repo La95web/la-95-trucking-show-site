@@ -15,6 +15,9 @@ import Right from "../assets/image/right.png";
 import Gallery1 from "../assets/image/gallery1.webp";
 import Gallery2 from "../assets/image/gallery2.webp";
 import Gallery3 from "../assets/image/gallery3.webp";
+import poster from "../assets/image/Gallery67.jpg";
+import poster2 from "../assets/image/Gallery70.jpg";
+import poster3 from "../assets/image/Gallery73.jpg";
 const images = [
   Gallery1, Gallery2, Gallery3
 ];
@@ -26,13 +29,13 @@ const images = [
       <h2>Videos</h2>
       <div class="underline"></div>
       <div class="video-gallery">
-        <video controls width="300" preload="none" poster="/src/assets/image/Gallery67.jpg">
+        <video controls width="300" preload="none" poster={poster.src}>
           <source src={Video1} type="video/mp4" />
         </video>
-        <video controls width="300" preload="none" poster="/src/assets/image/Gallery70.jpg">
+        <video controls width="300" preload="none" poster={poster2.src}>
           <source src={Video1} type="video/mp4" />
         </video>
-        <video controls width="300" preload="none" poster="/src/assets/image/Gallery73.jpg">
+        <video controls width="300" preload="none" poster={poster3.src}>
           <source src={Video1} type="video/mp4" />
         </video>
       </div>

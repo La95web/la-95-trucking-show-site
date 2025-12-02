@@ -34,6 +34,9 @@ import Gallery18 from "../assets/image/basket26.jpg";
 import Gallery19 from "../assets/image/basket27.jpg";
 import Gallery20 from "../assets/image/basket28.jpg";
 import Gallery21 from "../assets/image/basket29.jpg";
+import poster from "../assets/image/basket1.jpg";
+import poster2 from "../assets/image/basket7.jpg";
+import poster3 from "../assets/image/basket19.jpg";
 const images = [
   Gallery1, Gallery2, Gallery3, Gallery4, Gallery5, Gallery6, Gallery7, Gallery8, Gallery10, Gallery11, Gallery12,
   Gallery13, Gallery14, Gallery15, Gallery16, Gallery17, Gallery18, Gallery19, Gallery20, Gallery21
@@ -46,13 +49,13 @@ const images = [
       <h2>Videos</h2>
       <div class="underline"></div>
       <div class="video-gallery">
-        <video controls width="300" preload="none" poster="/src/assets/image/basket1.jpg">
+        <video controls width="300" preload="none" poster={poster.src}>
           <source src={Video1} type="video/mp4" />
         </video>
-        <video controls width="300" preload="none" poster="/src/assets/image/basket7.jpg">
+        <video controls width="300" preload="none" poster={poster2.src}>
           <source src={Video2} type="video/mp4" />
         </video>
-        <video controls width="300" preload="none" poster="/src/assets/image/basket19.jpg">
+        <video controls width="300" preload="none" poster={poster3.src}>
           <source src={Video3} type="video/mp4" />
         </video>
       </div>
