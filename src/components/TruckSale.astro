@@ -1,5 +1,7 @@
 ---
-const {title, title2, language = "es", paragraph, button, result } = Astro.props;
+const {title, title2, language = 'es', paragraph, button, result } = Astro.props;
+import formatDate from "../scripts/formatDate";
+
 const marketplace = await fetch(import.meta.env.PUBLIC_API_BASE_URL.concat('marketplaces'), {
   method: 'GET',
   headers: {
@@ -7,12 +9,14 @@ const marketplace = await fetch(import.meta.env.PUBLIC_API_BASE_URL.concat('mark
   },
 }).then((response) => response.json());
 ---
+
 <article>
   <h2>{title}</h2>
   <div class="underline"></div>
   <p>{paragraph}</p>
   <button class="openModal" data-modal="modalC">{button}</button>
 </article>
+
 <div class="section">
   <div class="section-input">
     <input type="search" id="site-search" name="search" class="search-input" placeholder="Search...">
@@ -23,27 +27,28 @@ const marketplace = await fetch(import.meta.env.PUBLIC_API_BASE_URL.concat('mark
   <h2>{title2}</h2>
   <div class="underline"></div>
   <section>
-    {marketplace.length > 0 &&
+    {marketplace.length > 0 ? (
       marketplace
-      .filter((marketplace) => marketplace.language === 'spanish')
-      .map((marketplace) => (
-        <div class="card-content section-content-tips search">
-          <h3>{marketplace.title}</h3>
-          <p>{marketplace.content}</p>
-          <div class="image-box">
-            <img src={marketplace.thumbnail_url} alt="truck" />
+        .filter((m) => ['spanish', 'es'].includes(m.language?.toLowerCase()))
+        .map((m) => (
+          <div class="card-content section-content-tips search">
+            <h3>{m.title}</h3>
+            <span>{formatDate(m.uploaded_at, language)}</span>
+            <p>{m.content}</p>
+            <div class="image-box">
+              <img src={m.thumbnail_url} alt="truck" />
+            </div>
+            <p class="content-height">{m.paragraphs}</p>
+            <div class="light-button red-button">
+              <button class="openModal" data-modal="modalD">{button}</button>
+            </div>
           </div>
-          <p class="content-height">{marketplace.paragraphs}</p>
-          <div class="light-button red-button">
-            <button class="openModal" data-modal="modalD">{button}</button>
-          </div>
-        </div>
-      ))
-    }
-    <div id="result" style="display: none;">
-      <h3>{result}</h3>
-    </div>
-    </div>
+        ))
+    ) : (
+      <div id="result" style="text-align:center; margin-top:1rem;">
+        <h3>{result}</h3>
+      </div>
+    )}
     <div class="section-center">
       <div class="light-gold gold-button">
         <button id="load-more">{button}</button>
