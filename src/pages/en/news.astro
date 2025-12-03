@@ -1,0 +1,34 @@
+---
+export const prerender = false;
+
+import SpanishLayout from "../../layouts/SpanishLayout.astro";
+import Team2 from "../../assets/image/tipDesk.webp";
+import Footer from "../../components/Footer.astro";
+import Allnews from "../../components/Allnews.astro";
+import HeaderNews from "../../components/HeaderNews.astro";
+---
+
+<SpanishLayout title="la 95 trucking show">
+  <HeaderNews 
+  titleA="tips"
+  titleB="camioneros"
+  Team2={Team2}/>
+  <Allnews
+  link1="/trailers/"
+  link2="/tractors/"
+  link3="/documents/"
+  link4="/safety/"
+  navTips1="trailers"
+  navTips2="tractors"
+  navTips3="documents"
+  navTips4="safety"
+  title="news"
+  language="en"
+  paragraph="Here you can find the latest news and updates from the world of transportation and logistics. Stay informed about trends, regulations, and important events affecting truckers and the industry as a whole."
+  button="ver más" />
+  <Footer />
+</SpanishLayout>
+<script>
+  import "../scripts/mainMenu.js";
+  import "../scripts/SearchNews.js"
+</script>

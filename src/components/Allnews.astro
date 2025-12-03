@@ -1,9 +1,9 @@
 ---
 import Video1 from "../assets/image/softballMedia25-01.mp4";
-const { title, language = 'es', paragraph, button, navTips1, navTips2, navTips3, navTips4, navTips5, link1, link2, link3, link4, link5} = Astro.props;
+const { title, language = 'es', paragraph, button, navTips1, navTips2, navTips3, navTips4, navTips5, link1, link2, link3, link4, link5 } = Astro.props;
 import formatDate from "../scripts/formatDate";
 
-const articles = await fetch(import.meta.env.PUBLIC_API_BASE_URL.concat('doctips'), {
+const articles = await fetch(import.meta.env.PUBLIC_API_BASE_URL.concat('news'), {
   method: 'GET',
   headers: {
     'Accept': 'application/json',
@@ -34,14 +34,13 @@ const articles = await fetch(import.meta.env.PUBLIC_API_BASE_URL.concat('doctips
   <div id="content-tips">
     {articles.length > 0 &&
       articles
-      .filter((article) => article.language === 'spanish')
-      .map((article) => (
+       .filter((article) => article.language === 'spanish').map((article) => (
         <div class="search">
           <h4>{article.title}</h4>
           <div class="underline"></div>
           <span>{formatDate(article.uploaded_at, language)}</span>
           <figure>
-            <img src={article.thumbnail_url} alt="tip" />
+            <img src={article.thumbnail_url} alt="news" />
             <div>
               <p class="lead-paragraph">{article.content}</p>
             </div>

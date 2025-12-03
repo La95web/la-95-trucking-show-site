@@ -59,7 +59,9 @@ const ArticleForm = ({ article = null, onCancel = null }) => {
         Type:<br />
         <select name="type" value={formState.type} onChange={handleDataChange}>
           <option value="News">News</option>
-          <option value="Tip">Tip</option>
+          <option value="Tip">TipsTrailers</option>
+          <option value="Trailer">TipsTractors</option>
+          <option value="Doctip">DocTips</option>
         </select>
         <br />
       </label>
