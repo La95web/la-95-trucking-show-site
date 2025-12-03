@@ -38,7 +38,7 @@ const {title, text, name, email, textarea, send, formMessage } = Astro.props;
     const message = form.message.value;
 
     try {
-      const response = await fetch('http://localhost:3000/v1/contacts', {
+      const response = await fetch('https://la-95-trucking-show-api-production.up.railway.app/v1/contacts', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
