@@ -60,6 +60,11 @@ ul {
   padding: 0;
 }
 
+li img {
+  max-width: 100px;
+  border-radius: 8px;
+}
+
 @media (min-width: 1024px) {
   .list-item {
     flex-direction: row;
@@ -77,4 +82,3 @@ ul {
     }
   }
 }
-
