@@ -50,10 +50,14 @@ const { title, paragraph, button, navTips1, navTips2, navTips3, navTips4, navTip
   .section {
     display: flex;
     flex-direction: column;
+    background-color: $primary;
   }
 
-  .title-content >p {
-    margin: 20px 5%;
+  .title-content {
+   padding-top: 50px;
+    p{
+       margin: 20px 5%;
+    }
   }
 
   figure {
@@ -87,23 +91,26 @@ const { title, paragraph, button, navTips1, navTips2, navTips3, navTips4, navTip
 
   .light-gold {
     display: flex;
-    flex-direction: column;
     justify-content: center;
     align-items: center;
-    width: 145px;
-    height: 40px;
+    width: 155px;
     border-radius: 8px;
-    padding: 20px;
+    padding: 12px 20px;
     transition: background-color 0.3s, box-shadow 0.3s;
   }
 
-   button{
+  button{
     color: $accent-b-dark;
-    font-size: 1.5rem;
     font-weight: $regular;
     font-family: $heading;
-    background-color: $tertiary;
     cursor: pointer;
+    -webkit-appearance: none;
+    appearance: none;
+    background-color: $tertiary;
+    font-size: 1.5rem;
+    line-height: 1;
+    white-space: nowrap;
+    border: none;
   }
 
   .light-gold.gold-button {
@@ -168,6 +175,10 @@ const { title, paragraph, button, navTips1, navTips2, navTips3, navTips4, navTip
     }
   }
 
+  a{
+    font-size: 1.2rem;
+  }
+
   @media (min-width: 1025px) {
     figure {
       justify-content: space-between;
@@ -181,11 +192,10 @@ const { title, paragraph, button, navTips1, navTips2, navTips3, navTips4, navTip
     }
 
     .section {
-      flex-direction: row;
+      flex-direction: column;
       align-items: center;
       text-align: center;
       justify-content: space-between;
-      background-color: $primary;
 
       h2 {
         font-size: 3rem;
@@ -193,14 +203,15 @@ const { title, paragraph, button, navTips1, navTips2, navTips3, navTips4, navTip
       p {
         font-size: 1.25rem;
       }
-      a {
-        font-size: 2rem;
-      }
     }
 
     ul {
       gap: 50px;
       margin: 0;
+    }
+
+    a{
+      font-size: 2.5rem;
     }
 
     nav {

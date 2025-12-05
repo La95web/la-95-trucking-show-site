@@ -15,8 +15,6 @@ const AudioListItem = ({ audio }) => {
     <li className={styles['list-item']}>
         {audio.title}
         <div>
-          <h3>{audio.title}</h3>
-          <p>{audio.id}</p>
           <p>{new Date(audio.uploaded_at).toLocaleDateString(undefined, {
             year: 'numeric',
             month: 'long',

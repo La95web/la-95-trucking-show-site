@@ -1,4 +1,4 @@
-document.getElementsByClassName('traffic-light')[0].addEventListener('click', () => {
+document.getElementsByClassName('menuOpen')[0].addEventListener('click', () => {
     document.getElementsByClassName('navlinks')[0].classList.toggle('expanded');
     document.getElementById('close-menu').classList.toggle('show');
     document.getElementsByClassName('blur-background')[0].classList.toggle('active');

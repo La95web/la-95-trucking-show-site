@@ -128,6 +128,7 @@ const articles = await fetch(import.meta.env.PUBLIC_API_BASE_URL.concat('doctips
     }
     h2{
       margin: 0;
+      padding-top: 50px;
     }
   }
   
@@ -193,17 +194,18 @@ const articles = await fetch(import.meta.env.PUBLIC_API_BASE_URL.concat('doctips
   .section {
     display: flex;
     flex-direction: column;
+    background-color: $primary;
   }
 
   ul {
     display: flex;
     justify-content: space-around;
-    margin: 20px;
     padding: 0;
   }
 
   a {
     color: $secondary;
+    font-size: 1.2rem;
   }
 
   li:hover {
@@ -287,25 +289,28 @@ const articles = await fetch(import.meta.env.PUBLIC_API_BASE_URL.concat('doctips
     padding: 30px;
   }
 
-  .light-gold {
+   .light-gold {
     display: flex;
-    flex-direction: column;
     justify-content: center;
     align-items: center;
-    width: 145px;
-    height: 40px;
+    width: 155px;
     border-radius: 8px;
-    padding: 20px;
+    padding: 12px 20px;
     transition: background-color 0.3s, box-shadow 0.3s;
   }
 
-   button{
+  button{
     color: $accent-b-dark;
-    font-size: 1.5rem;
     font-weight: $regular;
     font-family: $heading;
-    background-color: $tertiary;
     cursor: pointer;
+    -webkit-appearance: none;
+    appearance: none;
+    background-color: $tertiary;
+    font-size: 1.5rem;
+    line-height: 1;
+    white-space: nowrap;
+    border: none;
   }
 
   .light-gold.gold-button {

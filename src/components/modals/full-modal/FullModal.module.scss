@@ -3,8 +3,8 @@
 .backdrop {
   @include center-contents;
 
-  background-color: rgba(0, 0, 0, 0.5);
-  position: fixed;
+  background-color:transparent;
+  position:absolute;
   top: 0;
   left: 0;;
   width: 100%;
@@ -13,8 +13,20 @@
 }
 
 .modal {
-  background-color: $tertiary;
+  background-color: $primary;
   width: 90%;
-  height: 90%;
+  height: 100%;
   padding: 10px;
+}
+
+@media (min-width: 1024px) {
+  .modal {
+    width: 100%;
+    height: 80%;
+  }
+
+  .backdrop {
+    @include center-contents;
+    position: fixed;
+  }
 }

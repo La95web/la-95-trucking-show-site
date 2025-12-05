@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import styles from './Audioform.module.scss';
 import create from '../../../scripts/api/create';
 import update from '../../../scripts/api/update';
 
@@ -34,7 +35,7 @@ const AudioForm = ({ audio = null, onCancel = null }) => {
     };
 
   return (
-    <form onSubmit={handleSubmit}>
+    <form className={styles.form} onSubmit={handleSubmit}>
       <label>
         Title:<br />
         <input type="text" name="title" value={formState.title} onChange={handleDataChange} /><br />

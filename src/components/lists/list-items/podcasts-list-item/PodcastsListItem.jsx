@@ -2,6 +2,7 @@ import destroy from "../../../../scripts/api/destroy";
 import useModal from "../../../../scripts/hooks/useModal";
 import PodcastForm from "../../../forms/podcast-form/PodcastForm";
 import FullModal from "../../../modals/full-modal/FullModal";
+import styles from "../podcasts-list-item/PodcastList.module.scss";
 
 const PodcastsListItem = ({ podcast }) => {
   const { isModalOpen, openModal, closeModal } = useModal();
@@ -10,7 +11,7 @@ const PodcastsListItem = ({ podcast }) => {
     .catch((error) => alert(error));
 
   return (
-    <li>
+    <li className={styles['list-item']}>
       <h2>{podcast.title}</h2>
       <p>{new Date(podcast.uploaded_at).toLocaleDateString(undefined, {
         year: 'numeric',
