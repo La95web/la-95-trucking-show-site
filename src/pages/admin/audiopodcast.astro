@@ -15,8 +15,10 @@ const audios = await fetch(import.meta.env.PUBLIC_API_BASE_URL.concat('audios'),
 const reversedAudios = audios.reverse();
 ---
 <AdminDashboard title="audiospodcast">
-  <h1>Subir audios</h1>
-  <h2>Nueva publicación</h2>
+  <article>
+    <h1>Subir audios</h1>
+    <h2>Nueva publicación</h2>
+  </article>
   <AudioForm client:load />
   <h2>Lista de audios publicados</h2>
   <ul>
@@ -25,3 +27,19 @@ const reversedAudios = audios.reverse();
     ))}
   </ul>
 </AdminDashboard>
+<style lang="scss">
+  @import '../../assets/sass/index';
+  h1, h2 {
+    color: $accent-b-dark;
+  }
+
+  article{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    margin: 50px 0;
+  }
+
+</style>

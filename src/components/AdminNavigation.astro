@@ -1,53 +1,242 @@
-<nav>
-  <ul>
-    <li>
-      <a href="/admin">Admin</a>
-    </li>
-    <li>
-      <a href="/admin/podcasts">Podcasts</a>
-    </li>
-    <li>
-      <a href="/admin/audiopodcast">AudioPodcast</a>
-    </li>
-    <li>
-      <a href="/admin/articles">Articles</a>
-    </li>
-    <li>
-      <a href="/admin/products">Products</a>
-    </li>
-    <li>
-      <a href="/admin/marketplace">MarketPlace</a>
-    </li>
-  </ul>
-</nav>
+---
+import logo from '../assets/image/logo.webp';
+import logo2 from '../assets/image/logoDesktop.webp';
+---
+<div class="blur-background tire">     
+  <nav>
+    <a class="nav-logo" href="/">
+      <img src={logo.src} alt="logo">
+    </a>
+    <div class="close-menu-container">
+      <button id="close-menu" type="button" class="close-menu"></button>
+      <div class="rombo">
+        <div class="line2"></div>
+      </div>
+    </div> 
+    <div class="nav-container">
+      <ul class="navlinks"> 
+        <li><a class="navdesk" href="/admin"><img src={logo2.src} alt="loguito"></a></li>
+        <li><a href="/admin" data-astro-prefetch rel="noreferrer">admin</a></li>
+        <li><a href="/admin/podcasts" data-astro-prefetch rel="noreferrer">podcast</a></li>
+        <li><a href="/admin/audiopodcast" data-astro-prefetch rel="noreferrer">audiopodcast</a></li>
+        <li><a href="/admin/articles" data-astro-prefetch rel="noreferrer">articles</a></li>
+        <li><a href="/admin/products" rel="noreferrer">products</a></li>
+        <li><a href="/admin/marketplace" rel="noreferrer">marketplace</a></li>
+      </ul>
+    </div>
+  </nav>
+</div>
+
+<script>
+  document.getElementsByClassName('traffic-light')[0].addEventListener('click', () => {
+    document.getElementsByClassName('navlinks')[0].classList.toggle('expanded');
+    document.getElementById('close-menu').classList.toggle('show');
+    document.getElementsByClassName('blur-background')[0].classList.toggle('active');
+    console.log('Menu toggled');
+  });
+
+  document.getElementById('close-menu').addEventListener('click', () => {
+    document.getElementsByClassName('navlinks')[0].classList.remove('expanded');
+    document.getElementById('close-menu').classList.remove('show');
+    document.getElementsByClassName('blur-background')[0].classList.remove('active');
+    console.log('Menu closed');
+  });
+</script>
 
 <style lang="scss">
   @use '../assets/sass/index' as *;
 
-  nav {
-    background-color: $primary;
+  .blur-background {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    backdrop-filter: blur(10px);
+    background-color: rgba($tertiary, 0.85);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    z-index: -1;
+    pointer-events: none;
+  }
+
+  .tire {
+    background-image: url('../assets/image/Tiremark.webp');
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover;
+  }
+
+  .blur-background.active {
+    opacity: 1;
+    z-index: 99;
+    pointer-events: auto;
+  }
+
+  .navlinks {
+    justify-content: center;
+    padding: 0;
+    transition: transform 0.5s ease, opacity 0.9s ease;
+  }
+
+  .content, i {
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    font-size: 1.5rem;
     color: $secondary;
+  }
+
+  .content li {
+    display: inline-block;
+  }
+
+  .navlinks a {
+    display: block;
+    text-align: center;
+    padding: 10px 0;
+    text-decoration: none;
+    font-size: 2rem;
+    font-weight: $regular;
+    font-family: $heading;
+    text-transform: uppercase;
+    color: $secondary;
+  }
+
+  li:hover {
+    text-decoration:underline;
+    text-decoration-color: $accent-b-light;
+    text-underline-offset: 13px;
+    text-decoration-thickness: 3px;
+  }
+
+  // start button style
+  .close-menu-container {
+    position: fixed;
+    top: 30px;
+    right: 5%;
+    z-index: 1;
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: 10px 0;
   }
 
-  ul {
+  /* Botón para cerrar menú */
+  #close-menu {
+    position: absolute;
+    width: 60px;
+    height: 60px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    z-index: 2; 
+  }
+
+  /* Rombito de fondo */
+  .rombo {
+    width: 35px;
+    height: 35px;
+    background-color: #34373D;
+    transform: rotate(45deg); 
+    box-shadow: 0 0 10px 5px rgba($primary, 70%);
+    border-radius: 4px;
     display: flex;
-    justify-content: space-around;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .line2 {
+    width: 29px;
+    height: 4px;
+    background-color: #E03F53; 
+    position: relative;
+    box-shadow: 0 0 10px 5px rgba(221, 46, 68, 35%);
+  }
+
+  .line2::before {
+    content: "";
+    position: absolute;
+    width: 29px;
+    height: 4px;
+    background-color: #E03F53;
+    box-shadow: 0 0 10px 5px rgba(221, 46, 68, 35%);
+    transform: rotate(90deg);
+  }
+
+  .nav-logo { 
+    display: flex; 
+    justify-content: center; 
+    align-items: center; 
     width: 100%;
-    max-width: 800px;
-    list-style: none;
+    margin-top: 3rem;
   }
 
-  a {
-    text-decoration: none;
-    color: $secondary;
-    font-size: 1.5rem;
-    font-weight: $bold;
+  .nav-logo img {
+    width: 160px;
+    height: auto;
   }
 
-  a:hover {
-    color: $accent-b-light;
+  .nav-desktop img {
+    display: none;
   }
+
+  .navdesk > img {
+    display: none;
+  }
+
+  @media (min-width: 1025px) {
+
+    .nav-container {
+      background-color: $tertiary;
+      position: static;
+      z-index: 99;
+      width: 100%;
+    }
+
+    .navlinks {
+      display: flex;
+      flex-direction: row;
+      height: 75px;
+      margin: 0 5%;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .navlinks a {
+      color: $secondary;
+    }
+
+    .close-menu-container {
+      display: none;
+    }
+
+    .blur-background {
+      position: static; 
+      top: auto; 
+      left: auto; 
+      width: auto; 
+      height: auto; 
+      backdrop-filter: none;
+      background-color: transparent; 
+      opacity: 1; 
+      transition: none; 
+      z-index: auto; 
+      pointer-events: all; 
+    }
+
+    .nav-logo {
+      display: none;
+    }
+
+    .navdesk img {
+      display: block;
+      width: 60px;
+      margin-right: 70px;
+    }
+
+    li{
+      text-decoration: none;
+      list-style: none;
+    }
+  }
+</style>

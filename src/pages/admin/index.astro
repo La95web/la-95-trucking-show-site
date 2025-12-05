@@ -2,13 +2,31 @@
 import AdminDashboard from '../../layouts/AdminDashboard.astro';
 ---
 <AdminDashboard title="Admin Dashboard">
-  <h1>Admin Dashboard</h1>
-  <p id="greetings"></p>
+  <section>
+    <h1>Welcome to Admin Dashboard</h1>
+    <p id="greetings"></p>
+  </section>
 
   <script>
     const displayGreet = document.getElementById("greetings");
 
     const user = JSON.parse(sessionStorage.getItem("user"));
-    displayGreet.textContent = `Welcome ${user.email}`;
+    displayGreet.textContent = `Hello ${user.email}`;
   </script>
 </AdminDashboard>
+<style lang="scss">
+  @import '../../assets/sass/index';
+  h1, h2 {
+    color: $accent-b-dark;
+  }
+
+  section{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    margin: 50px 0;
+  }
+
+</style>

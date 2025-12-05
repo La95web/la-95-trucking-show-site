@@ -1,4 +1,4 @@
-<button id="traffic-light" type="button" class="traffic-light">
+<div id="traffic-light" class="traffic-light">
     <div class="light red">
       <div class="glow red" />
     </div>
@@ -8,10 +8,30 @@
     <div class="light green">
       <div class="glow green" />
     </div>
+</div>
+<button class="menuOpen" type="button">
+  <i class="ph ph-list"></i>
 </button>
 
 <style lang="scss">
   @use '../assets/sass/index' as *;
+
+  //boton secondario
+  i {
+    font-size: 3.5rem;
+    color: white;
+    background-color: $tertiary;
+  }
+
+  .menuOpen {
+    position: fixed;
+    top: 45px;
+    right: 5%;
+    background-color: transparent;
+    cursor: pointer;
+    z-index: 20;
+  }
+  //end boton secondario
     
   .traffic-light {
     position: fixed;
@@ -96,6 +116,9 @@
   @media (min-width: 1025px) {
 
     .traffic-light {
+      display: none;
+    }
+    .menuOpen {
       display: none;
     }
   }

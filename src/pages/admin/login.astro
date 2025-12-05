@@ -33,3 +33,73 @@
       .catch((error) => errorDisplay.textContent = error.message);  
   });
 </script>
+
+<style lang="scss">
+  @use '../../assets/sass/index' as *;
+
+  #login-form {
+    width: 50%;
+    margin: 15rem auto;
+    padding: 2rem;
+    background: #ffffff;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+
+  #login-form label {
+    display: flex;
+    flex-direction: column;
+    font-size: 1.1rem;
+    font-weight: bold;
+    color: #202327;
+  }
+
+  #login-form input {
+    padding: 0.9rem;
+    font-size: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    transition: border-color 0.3s ease;
+  }
+
+  #login-form input:focus {
+    border-color: #ffcc4d;
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(255, 204, 77, 0.3);
+  }
+
+  #login-form button {
+    padding: 0.9rem;
+    font-size: 1.1rem;
+    font-weight: bold;
+    background: $accent-b-dark;
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+  }
+
+  #login-form button:hover {
+    background: #ffcc4d;
+    color: #202327;
+    transform: translateY(-2px);
+  }
+
+  #error-message {
+    color: #dd2e44;
+    font-size: 0.9rem;
+    margin-top: -0.5rem;
+  }
+
+  @media (min-width: 1024px) {
+    #login-form {
+      width: 50%;
+      margin: 5rem auto;
+      padding: 1.5rem;
+    }
+  }
+
+</style>
