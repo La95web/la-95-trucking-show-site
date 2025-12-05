@@ -1,0 +1,22 @@
+---
+export const prerender = false;
+
+import SpanishLayout from "../layouts/SpanishLayout.astro";
+import Team1 from "../assets/image/truckerMovilB.webp";
+import Team2 from "../assets/image/truckerDesktopA.webp";
+import Footer from "../components/Footer.astro";
+import Audiopages from "../components/audio.astro";
+import HeaderNews from "../components/HeaderNews.astro";
+---
+
+<SpanishLayout title="la 95 trucking show">
+  <HeaderNews 
+  titleB="audios"
+  Team1={Team1}
+  Team2={Team2}/>
+  <Audiopages />
+  <Footer />
+</SpanishLayout>
+<script>
+  import "../scripts/mainMenu.js";
+</script>
