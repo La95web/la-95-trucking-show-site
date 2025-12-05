@@ -6,9 +6,16 @@ const audios = await fetch(import.meta.env.PUBLIC_API_BASE_URL.concat('audios'),
   },
 }).then((response) => response.json());
 ---
-
-<div class="search-bar section">
-  <input type="search" id="searchInput" placeholder="Buscar episodio..." />
+<div class="section">
+  <nav>
+    <ul>
+      <li><a href="/audio/">audios</a></li>
+       <li><a href="/podcast/">podcast</a></li>
+    </ul>
+  </nav>
+  <div class="search-bar section">
+    <input type="search" id="searchInput" placeholder="Buscar episodio..." />
+  </div>
 </div>
 <div id="noResults" style="text-align: center; margin-top: 1rem;"> <h3>No se encontraron resultados.</h3> </div>
 
@@ -101,7 +108,31 @@ const audios = await fetch(import.meta.env.PUBLIC_API_BASE_URL.concat('audios'),
 
 <style lang="scss">
   @use "../assets/sass/index" as *;
-   
+
+  .section {
+    display: flex;
+    flex-direction: column;
+    background-color: $primary;
+  }
+
+  ul {
+    display: flex;
+    justify-content: space-around;
+    padding: 0;
+  }
+
+  a {
+    color: $secondary;
+    font-size: 2rem;
+  }
+
+  li:hover {
+    text-decoration:underline;
+    text-decoration-color: $accent-b-light;
+    text-underline-offset: 13px;
+    text-decoration-thickness: 3px;
+  }
+
   input {
     background-color: $accent-b-dark;
     border: none;
@@ -116,13 +147,13 @@ const audios = await fetch(import.meta.env.PUBLIC_API_BASE_URL.concat('audios'),
     padding-right: 5%;
   }
 
-  input::placeholder { 
+  input::placeholder {
     width: 85%;
     border-bottom: 1px solid #000;
     padding-bottom: 10px;
     font-family: $text;
     font-weight: $regular;
-    font-size: 1rem; 
+    font-size: 1rem;
   }
 
   input[type="search"]::-webkit-search-cancel-button{
@@ -212,25 +243,40 @@ const audios = await fetch(import.meta.env.PUBLIC_API_BASE_URL.concat('audios'),
   }
 
   @media (min-width: 1024px){
-    .section {
-      background-image: url('../assets/image/Intersect.svg');
-      background-repeat: no-repeat;
-      background-size: contain;
-      background-position: right;
-      justify-content: left;  
-      background-color: $accent-b-dark;
-    }
-    input {
-      width: 50%;
-      background-position: calc(100% - 40%) center;
+   .section {
+      flex-direction: row;
+      align-items: center;
+      text-align: center;
+      justify-content: space-between;
+      background-color: $primary;
+      width: 100%;
+
+      h2 {
+        font-size: 3rem;
+      }
+      p {
+        font-size: 1.25rem;
+      }
+      a {
+        font-size: 2rem;
+      }
     }
 
-    input::placeholder {
-      width: 60%;
+    ul {
+      gap: 150px;
+      margin: 0;
     }
 
-    .podcastList{
-      width: 450px;
+    nav {
+      margin: 0 15%;
+    }
+
+    .section-input {
+      width: 472px;
+    }
+
+    .light-gold {
+      width: 178px;
     }
   }
 </style>
