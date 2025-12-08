@@ -1,15 +1,17 @@
-<form id="login-form">
-  <label>
-    <span>Email</span>
-    <input id="email" type="email" name="email" required />
-  </label>
-  <label>
-    <span>Password</span>
-    <input id="password" type="text" name="password" required />
-  </label>
-  <button type="submit">Log In</button>
-  <small id="error-message"></small>
-</form>
+<section>
+  <form id="login-form">
+    <label>
+      <span>Email</span>
+      <input id="email" type="email" name="email" required />
+    </label>
+    <label>
+      <span>Password</span>
+      <input id="password" type="text" name="password" required />
+    </label>
+    <button type="submit">Log In</button>
+    <small id="error-message"></small>
+  </form>
+</section>
 
 <script>
   import loginUser from "../../scripts/api/login";
@@ -36,9 +38,27 @@
 
 <style lang="scss">
   @use '../../assets/sass/index' as *;
+  body {
+    background-color: $tertiary;
+    font-size: 16px;
+    margin: 0;
+    padding: 0;
+  }
+  
+  * {
+    box-sizing: border-box;
+  }
+
+  section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 2rem;
+  }
 
   #login-form {
-    width: 50%;
+    width: 60%;
     margin: 15rem auto;
     padding: 2rem;
     background: #ffffff;
