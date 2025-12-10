@@ -1,7 +1,7 @@
 ---
 import HomeSlider from "../../components/HomeSlider.astro";
 import EnglishLayout from "../../layouts/EnglishLayout.astro";
-import Foro from "../../components/Foro.astro";
+import Foro from "../../components/ForoEnglish.astro";
 import Whatsapp from "../../components/Whatsapp.astro";
 import Footer from "../../components/Footer.astro";
 import Subscriptions from "../../components/Subscriptions.astro";
@@ -10,6 +10,8 @@ import truck1 from "../../assets/image/truck2.webp";
 import truck2 from "../../assets/image/Misionteam.webp";
 import truck3 from "../../assets/image/truck3.webp";
 import imageA from '../../assets/image/empresa1.png';
+import ModalCompanies from "../../components/modalCompanies.astro";
+import Modalterms from "../../components/Modalterms.astro";
 ---
 
 <EnglishLayout title="la 95 trucking show">
@@ -19,32 +21,59 @@ import imageA from '../../assets/image/empresa1.png';
     title2="Affiliated companies"
     titleC="If you're a business owner"
     paragraphC="Choose this option to become a sponsor and enjoy the benefits of the subscription."
-    text1="Medical insurance"
-    cupon1="Get a $120 discount"
-    text2="General mechanics"
-    cupon2="Get a $20 discount"
-    text3="Tire shops"
-    cupon3="Get a $300 discount"
-    text4="Law firm"
-    cupon4="Get an $80 discount"
+    title1="Subscribe and enjoy exclusive discounts"
+    text1="Medical insurance. Company discounts."
+    text2="General mechanics. Company discounts."
     titleA="Affiliated companies"
     title="Subscribe now"
     paragraph="If you're a regular user, choose the subscription that best suits you."
     yearly="Annual subscription"
     monthly="Monthly subscription"
     button="Subscribe now"
+    buttonB="See more"
     buttonC="Join here"
     anchor="/en/Afiliated"
+    save="save"
   />
-  <VisionSection
-    titleA="our reason for being"
-    titleB="mission"
-    titleC="vision"
-    titleD="values"
-    textA="To be the leading podcast in the trucking community, providing relevant information, entertainment, and a platform for truck drivers to express themselves. We aim to give a voice to those who traverse the roads, sharing their experiences, challenges, and successes while strengthening the sense of community and mutual support."
-    textB="To become the main reference for Spanish-speaking truck drivers, creating a space where knowledge, anecdotes, and news from the sector are shared. We aspire to positively influence the transportation industry and improve the quality of life for drivers through valuable and authentic content."
-    textC="Our values are respect for the work of truckers, authenticity in stories, commitment to relevant content, unity to foster solidarity, and passion for the transportation industry."
-  />  
+  <ModalCompanies
+    h2="Service discount per company"
+    button="close"
+    cell1="companies"
+    cell2="discounts"
+  /> 
+  <Modalterms
+    titleh2="TERMS AND CONDITIONS (U.S.) FOR SUBSCRIPTION SERVICE"
+    title1="1. Acceptance of the Terms"
+    term1="By registering, accessing, or paying for our services, you agree to comply with these Terms and Conditions, subject to the laws of the United States and the state where the company operates."
+    title2="2. Description of the Service"
+    term2="We offer subscription services that provide access to exclusive discounts on services related to the transportation industry."
+    title3="3. Subscription, Payments, and Billing"
+    term3="The user authorizes a recurring monthly charge. Payments are processed automatically until the subscription is canceled. No refunds are offered except as required by law."
+    title4="4. Automatic Renewal"
+    term4="The subscription is automatically renewed in accordance with the FTC Negative Option Rule. The user may cancel at any time."
+    title5="5. Cancellation"
+    term5="Cancellation stops future charges but does not reverse charges already processed. Access will continue until the end of the paid period."
+    title6="6. Modifications"
+    term6="The company may modify prices or service content, providing prior notice."
+    title7="7. Permitted Use"
+    term7="The user must not share access or reproduce content without permission. All material is protected by the Copyright Act of 1976."
+    title8="8. Intellectual Property"
+    term8="The content is owned by the company and is protected by U.S. copyright and trademark laws."
+    title9="9. Limitation of Liability"
+    term9="We do not guarantee continuous availability of the service and are not liable for indirect damages. The maximum liability will not exceed the amount paid in the last 30 days."
+    title10="10. Privacy and Data Handling"
+    term10="The company complies with laws such as the CCPA, COPPA, and FTC guidelines."
+    title11="11. E‑Commerce Law"
+    term11="All transactions comply with the E‑SIGN Act, allowing valid electronic contracts."
+    title12="12. Termination of Service"
+    term12="The company may suspend or terminate access for fraud, abuse, or violations of these terms."
+    title13="13. Governing Law and Disputes"
+    term13="This agreement is governed by the laws of the United States and the state in which the company is located. Disputes may be resolved through arbitration under the Federal Arbitration Act."
+    title14="14. Contact"
+    term14="Email: La95truckingshow@gmail.com"
+    buttonAnualLink="accept and subscribe"
+    buttonMensualLink="accept and subscribe"
+  />
   <Foro
     title="The Trucker's Voice"
     paragraph="Do you have ideas for new episodes, tips for life on the road, or questions you'd like to share with other truckers? 🚛 This is your space to express yourself. Click the button and"
