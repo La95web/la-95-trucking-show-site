@@ -27,8 +27,11 @@ const reversedAudios = audios.reverse();
     ))}
   </ul>
 </AdminDashboard>
+<script>
+  import "../../scripts/mainMenu.js"
+</script>
 <style lang="scss">
-  @import '../../assets/sass/index';
+   @use "../../assets/sass/index" as *;
   h1, h2 {
     color: $accent-b-dark;
   }

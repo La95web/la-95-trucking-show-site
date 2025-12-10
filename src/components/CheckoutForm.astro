@@ -1,5 +1,5 @@
 ---
-const {title, titleC, paragraph, paragraphC, yearly, monthly, button, buttonC, anchor} = Astro.props;
+const {title, titleC, paragraph, paragraphC, yearly, monthly, button, buttonC, anchor, save} = Astro.props;
 ---
 
 <section>
@@ -9,7 +9,7 @@ const {title, titleC, paragraph, paragraphC, yearly, monthly, button, buttonC, a
   <div class="section-content">
     <div>
       <p>{monthly}</p>
-      <p><strong>$4.99</strong></p>
+      <p><strong>$6.99</strong></p>
        <div class="light-gold gold-button">
           <button class="openModal" data-modal="modalA">{button}</button>
         </div>
@@ -17,8 +17,8 @@ const {title, titleC, paragraph, paragraphC, yearly, monthly, button, buttonC, a
     <div>
       <p>{yearly}</p>
       <header>
-        <p><strong>$48.99</strong></p>
-        <span>59.88</span>
+        <p><strong>$70</strong></p>
+        <span>{save} $14</span>
       </header>
       <div class="light-gold gold-button">
         <button class="openModal" data-modal="modalB">{button}</button>

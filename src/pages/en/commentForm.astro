@@ -1,39 +1,39 @@
 ---
-import SpanishLayout from "../layouts/SpanishLayout.astro";
-import Footer from "../components/Footer.astro";
+import EnglishLayout from "../../layouts/EnglishLayout.astro";
+import Footer from "../../components/Footer.astro";
 ---
 
-<SpanishLayout title="Comentarios">
+<EnglishLayout title="Comentarios">
   <section> 
-    <h2>Escribe una opinion, sugerencias, información</h2>
+    <h2>Write an opinion, suggestions, information</h2>
     <div class="underline"></div>
     <form id="comment-form">
       <input type="text" name="name" placeholder="Tu nombre" required />
       <input type="email" name="email" placeholder="Tu correo" required />
       <textarea name="comment" placeholder="Escribe tu comentario..." required></textarea>
-      <button type="submit">Enviar</button>
+      <button type="submit">Send</button>
     </form>
     <div id="comments-container">
       <!-- Aquí se mostrarán los comentarios en tiempo real -->
     </div>
   </section>
   <Footer />
-</SpanishLayout>
+</EnglishLayout>
 <script>
-  import "../scripts/mainMenu.js";
-  import "../scripts/saveData/CommentForm.js"
+  import "../../scripts/mainMenu.js";
+  import "../../scripts/saveData/CommentForm"
 </script>
 
 <style lang="scss">
-  @use "../assets/sass/index" as *;
+  @use "../../assets/sass/index" as *;
 
   section {
     position: relative;
     padding-top: 150px;
     min-height: 100vh;
     background-image: 
-      url("../assets/image/foropage.svg"),
-      url("../assets/image/Pentagonos.png");
+      url("../../assets/image/foropage.svg"),
+      url("../../assets/image/Pentagonos.png");
     background-repeat: no-repeat, repeat; 
     background-attachment: fixed, fixed;
   }
@@ -92,5 +92,4 @@ import Footer from "../components/Footer.astro";
       background-size: 90%, auto, auto; 
     }
    }
-
 </style>

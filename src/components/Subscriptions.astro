@@ -1,10 +1,9 @@
 ---
 import CheckoutForm from './CheckoutForm.astro';
-import Modalterms from './Modalterms.astro';
 import image1 from '../assets/image/seguromedico.jpg';
 import image2 from '../assets/image/mecanic.jpg';
 const {title1, title, text1, text2, button, buttonB, titleC, paragraph, 
-paragraphC, yearly, monthly, buttonC, anchor} = Astro.props;
+paragraphC, yearly, monthly, buttonC, anchor, save} = Astro.props;
 ---
 <section>
   <div class="center"> 
@@ -18,7 +17,7 @@ paragraphC, yearly, monthly, buttonC, anchor} = Astro.props;
         <div class="card-content">
           <p class="card-description">{text1}</p>
           <div class="light-gold gold-button">
-            <button class="#" data-modal="#">{buttonB}</button>
+            <button class="openModal" data-modal="modalC">{buttonB}</button>
           </div>
         </div>
       </div>
@@ -34,6 +33,39 @@ paragraphC, yearly, monthly, buttonC, anchor} = Astro.props;
         </div>
      </div>
     </div>  
+    <div class="card">
+      <div> 
+        <img src={image2.src} alt="Card Image" class="card-image">
+        <div class="card-content">
+          <p class="card-description">{text2}</p>
+          <div class="light-gold gold-button">
+            <button class="#" data-modal="#">{buttonB}</button>
+          </div>
+        </div>
+     </div>
+    </div>  
+    <div class="card">
+      <div> 
+        <img src={image2.src} alt="Card Image" class="card-image">
+        <div class="card-content">
+          <p class="card-description">{text2}</p>
+          <div class="light-gold gold-button">
+            <button class="#" data-modal="#">{buttonB}</button>
+          </div>
+        </div>
+     </div>
+    </div>  
+    <div class="card">
+      <div> 
+        <img src={image2.src} alt="Card Image" class="card-image">
+        <div class="card-content">
+          <p class="card-description">{text2}</p>
+          <div class="light-gold gold-button">
+            <button class="#" data-modal="#">{buttonB}</button>
+          </div>
+        </div>
+     </div>
+    </div>    
   </div>
 </section>
 <CheckoutForm
@@ -46,8 +78,8 @@ const monthly={monthly}
 const button={button}
 const buttonC={buttonC}
 const anchor={anchor}
+const save={save}
 />
-<Modalterms/>
 
 <style lang="scss">
   @use '../assets/sass/index' as *;
@@ -148,12 +180,13 @@ const anchor={anchor}
       justify-content: center;
       align-items: center;
       flex-direction: row;
+      margin: 50px 5%;
     }
 
     h2 {
       font-size: 3rem;
       text-align: center;
-      padding-top: 150px;
+      padding-top: 40px;
     }
 
     .center {
@@ -165,14 +198,8 @@ const anchor={anchor}
     }
 
     .card {
-      height: 500px;
       margin: 0 2%;
       margin-bottom: 30px;
-    }
-
-    .card-description {
-      padding-right: 30%;
-      min-height: 100px;
     }
 
     .small-image {

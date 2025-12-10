@@ -24,25 +24,28 @@ const podcasts = await fetch(import.meta.env.PUBLIC_API_BASE_URL.concat('podcast
 
 <section>
   {podcasts.length > 0 ? (
-    podcasts.filter((podcast) => podcast.language === 'spanish').map((podcast) => (
-      <figure class="search">
-        <div class="section-image">
-          <div class="gradient">
-            <img src={Play.src} alt="logo" />
+    podcasts
+      .filter((podcast) => podcast.language === 'spanish')
+      .sort((a, b) => new Date(b.uploaded_at).getTime() - new Date(a.uploaded_at).getTime())
+      .map((podcast) => (
+        <figure class="search">
+          <div class="section-image">
+            <div class="gradient">
+              <img src={Play.src} alt="logo" />
+            </div>
+            <a href={podcast.video_url} target="_blank">
+              <img src={podcast.thumbnail} alt="imagen" class="radio" />
+            </a>
           </div>
-          <a href={podcast.video_url} target="_blank">
-            <img src={podcast.thumbnail} alt="imagen" class="radio" />
-          </a>
-        </div>
-        <div class="content-card">
-          <img src={PlayContent.src} alt="play" />
-          <div class="text-container">
-            <p>{podcast.title}</p>
-            <p class="flush">{new Date(podcast.uploaded_at).toLocaleDateString()}</p>
+          <div class="content-card">
+            <img src={PlayContent.src} alt="play" />
+            <div class="text-container">
+              <p>{podcast.title}</p>
+              <p class="flush">{new Date(podcast.uploaded_at).toLocaleDateString()}</p>
+            </div>
           </div>
-        </div>
-      </figure>
-    ))
+        </figure>
+      ))
   ) : (
     <div id="result"><h3>No results found.</h3></div>
   )}
@@ -51,7 +54,7 @@ const podcasts = await fetch(import.meta.env.PUBLIC_API_BASE_URL.concat('podcast
     <div class="light-gold gold-button">
       <button id="load-more">mostrar mae</button>
     </div>
-  </div>
+</div>
 
 <style lang="scss">
   @use "../assets//sass/index" as*;
