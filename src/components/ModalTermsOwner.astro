@@ -1,6 +1,7 @@
 ---
-const { term1, term2, term3, term4, term5, term6, term7, term8, term9, term10,
-  cond1, cond2, cond3, cond4, cond5, cond6, cond7, cond8, cond9, cond10, subscription1, subscription2
+const {titleh2, term1, term2, term3, term4, term5, term6, term7, term8, term9, term10, title1, title2, title3, title4,
+  title5, title6, title7, title8, title9, title10, title11, title12, title13, title14,
+  term11, term12, term13, term14, buttonAnualLink, buttonMensualLink
  } = Astro.props;
 ---
 
@@ -8,42 +9,82 @@ const { term1, term2, term3, term4, term5, term6, term7, term8, term9, term10,
   <div class="close-menu-container">
   </div> 
   <div class="content-block">
-    <h2>Terminos y condiciones</h2>
+    <h2>{titleh2}</h2>
     <div class="underline"></div>
-    <ol>
-      <li>{term1}</li>
-      <li>{term2}</li>
-      <li>{term3}</li>
-      <li>{term4}</li>
-      <li>{term5}</li>
-      <li>{term6}</li>
-      <li>{term7}</li>
-      <li>{term8}</li>
-      <li>{term9}</li>
-      <li>{term10}</li>
-    </ol>
-    <a class="btn anual" target="_blank" href="#">aceptar y comprar</a>
+    <section>
+      <ul>
+        <p>{title1}</p>
+        <li>{term1}</li>
+        <p>{title2}</p>
+        <li>{term2}</li>
+        <p>{title3}</p>
+        <li>{term3}</li>
+        <p>{title4}</p>
+        <li>{term4}</li>
+        <p>{title5}</p>
+        <li>{term5}</li>
+        <p>{title6}</p>
+        <li>{term6}</li>
+        <p>{title7}</p>
+        <li>{term7}</li>
+        <p>{title8}</p>
+        <li>{term8}</li>
+        <p>{title9}</p>
+        <li>{term9}</li>
+        <p>{title10}</p>
+        <li>{term10}</li>
+        <p>{title11}</p>
+        <li>{term11}</li>
+        <p>{title12}</p>
+        <li>{term12}</li>
+        <p>{title13}</p>
+        <li>{term13}</li>
+        <p>{title14}</p>
+        <li>{term14}</li>
+      </ul>
+    </section>
+    <a class="btn anual" target="_blank" href="#">{buttonAnualLink}</a>
   </div>
 </div>
 <div id="modalB" class="modal">
   <div class="close-menu-container">
   </div> 
   <div class="content-block">
-    <h2>Terminos y condiciones</h2>
+    <h2>{titleh2}</h2>
     <div class="underline"></div>
-    <ol>
-      <li>{cond1}</li>
-      <li>{cond2}</li>
-      <li>{cond3}</li>
-      <li>{cond4}</li>
-      <li>{cond5}</li>
-      <li>{cond6}</li>
-      <li>{cond7}</li>
-      <li>{cond8}</li>
-      <li>{cond9}</li>
-      <li>{cond10}</li>
-    </ol>
-    <a class="btn mensual" target="_blank" href="#" >aceptar y comprar</a>
+  <section>
+   <ul>
+      <p>{title1}</p>
+      <li>{term1}</li>
+      <p>{title2}</p>
+      <li>{term2}</li>
+      <p>{title3}</p>
+      <li>{term3}</li>
+      <p>{title4}</p>
+      <li>{term4}</li>
+      <p>{title5}</p>
+      <li>{term5}</li>
+      <p>{title6}</p>
+      <li>{term6}</li>
+      <p>{title7}</p>
+      <li>{term7}</li>
+      <p>{title8}</p>
+      <li>{term8}</li>
+      <p>{title9}</p>
+      <li>{term9}</li>
+      <p>{title10}</p>
+      <li>{term10}</li>
+      <p>{title11}</p>
+      <li>{term11}</li>
+      <p>{title12}</p>
+      <li>{term12}</li>
+      <p>{title13}</p>
+      <li>{term13}</li>
+      <p>{title14}</p>
+      <li>{term14}</li>
+    </ul>
+  </section>
+    <a class="btn mensual" target="_blank" href="#" >{buttonMensualLink}</a>
   </div>
 </div>
 <style lang="scss">
@@ -78,12 +119,15 @@ const { term1, term2, term3, term4, term5, term6, term7, term8, term9, term10,
     padding: 20px;
     border-radius: 8px;
     width: 90%;
-    overflow-y: auto;
     background-color: rgba(20, 20, 20, 0.9);
   }
 
+  section{
+    overflow-y: auto;
+    max-height: 60vh;
+  }
+
   li {
-    list-style-type: decimal;
     color: white;
     margin: 10px 0;
     line-height: 1.2rem;
