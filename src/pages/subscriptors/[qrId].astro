@@ -13,25 +13,24 @@ const subscriptor = await fetch(
 ---
 
 <!DOCTYPE html>
-<html lang="es">
+<html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <title>Subscriptor {qrId}</title>
+    <title>Subscriber {qrId}</title>
   </head>
   <body>
     <div class="card">
-      <h1>Datos del Suscriptor</h1>
+      <h1>Subscriber Information</h1>
 
       {subscriptor.error ? (
         <p style="color:red;">{subscriptor.error}</p>
       ) : (
         <>
-          <p><strong>ID:</strong> {subscriptor.id}</p>
-          <p><strong>Nombre:</strong> {subscriptor.full_name}</p>
+          <p><strong>Name:</strong> {subscriptor.full_name}</p>
           <p><strong>Email:</strong> {subscriptor.email}</p>
           <p><strong>QR ID:</strong> {subscriptor.qr_id}</p>
           <p><strong>Status:</strong> {subscriptor.status}</p>
-          <p><strong>Creado:</strong> {new Date(subscriptor.created_at).toLocaleString()}</p>
+          <p><strong>Created:</strong> {new Date(subscriptor.created_at).toLocaleString()}</p>
         </>
       )}
       <img src={logo.src} alt="#">
@@ -52,7 +51,7 @@ const subscriptor = await fetch(
         justify-content: center;
         align-items: center;
         font-family: Arial, sans-serif;
-        background-color: #f4f4f4;
+        background-color: #34373d;
         min-height: 100vh;
       }
 
