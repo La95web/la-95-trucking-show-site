@@ -35,6 +35,7 @@ const articles = await fetch(import.meta.env.PUBLIC_API_BASE_URL.concat('trailer
     {articles.length > 0 &&
       articles
       .filter((article) => article.language === 'spanish')
+      .sort((a, b) => new Date(b.uploaded_at).getTime() - new Date(a.uploaded_at).getTime())
       .map((article) => (
         <div class="search">
           <h4>{article.title}</h4>
