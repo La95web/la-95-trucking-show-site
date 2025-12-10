@@ -14,8 +14,11 @@ import AdminDashboard from '../../layouts/AdminDashboard.astro';
     displayGreet.textContent = `Hello ${user.email}`;
   </script>
 </AdminDashboard>
+<script>
+  import "../../scripts/mainMenu.js"
+</script>
 <style lang="scss">
-  @import '../../assets/sass/index';
+   @use "../../assets/sass/index" as *;
   h1, h2 {
     color: $accent-b-dark;
   }

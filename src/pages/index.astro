@@ -11,6 +11,8 @@ import truck3 from "../assets/image/truck3.webp";
 import VisionSection from "../components/VisionSection.astro";
 import imageA from '../assets/image/empresa1.png';
 import imageB from '../assets/image/empresa2.png';
+import ModalCompanies from "../components/modalCompanies.astro";
+import Modalterms from "../components/Modalterms.astro";
 ---
 
 <SpanishLayout title="la 95 trucking show">
@@ -22,9 +24,6 @@ import imageB from '../assets/image/empresa2.png';
     paragraphC="Elije esta opcion para convertirte en patrocinador y disfruta de los beneficios de la suscripción."
     text1="Seguros medicos. Descuentos por empresa."
     text2="Mecanica general. Descuentos por empresa."
-    text3="Gomeras"
-    cupon3="Obten un descuento de $300"
-    text4="Firma de abogados"
     titleA="Empresas afiiliadas"
     title="Suscríbete ahora"
     paragraph="Si eres un usuario regular, elige la suscripción que mejor se adapta a ti."
@@ -34,6 +33,46 @@ import imageB from '../assets/image/empresa2.png';
     buttonB="Ver más"
     buttonC="Afiliate aquí"
     anchor="/Afiliate"
+    save="ahorras"
+  />
+  <ModalCompanies
+    h2="Descuento de servicio por compañia"
+    button="cerrar"
+    cell1="compañias"
+    cell2="descuentos"
+  />
+  <Modalterms
+    titleh2="TÉRMINOS Y CONDICIONES (EE. UU.) PARA SERVICIO DE SUSCRIPCIÓN"
+    title1="1. Aceptación de los Términos"
+    term1="Al registrarse, acceder o pagar por nuestros servicios, usted acepta cumplir con estos Términos y Condiciones, sujetos a las leyes de los Estados Unidos y del estado donde opera la empresa."
+    title2="2. Descripción del Servicio"
+    term2="Ofrecemos servicios de suscripción que proporcionan acceso a descuentos exclusivos en servicios relacionados con la industria del transporte."
+    title3="3. Suscripción, Pagos y Facturación"
+    term3="El usuario autoriza un cargo recurrente mensual. Los pagos se procesan automáticamente hasta que se cancele la suscripción. No se ofrecen reembolsos salvo requerimiento legal.".
+    title4="4. Renovación Automática"
+    term4="La suscripción se renueva automáticamente según la FTC Negative Option Rule. El usuario puede cancelar en cualquier momento."
+    title5="5. Cancelacíon"
+    term5="La cancelación detiene futuros cargos pero no elimina los ya procesados. El acceso continuará hasta finalizar el periodo pagado."
+    title6="6.Modificaciones"
+    term6="La empresa puede modificar precios o contenido del servicio, notificándolo previamente."
+    title7="7. Uso Permitido"
+    term7="El usuario no debe compartir acceso ni reproducir contenido sin permiso. Todo el material está protegido por Copyright Act of 1976."
+    title8="8. Propiedad Intelectua"
+    term8="Los contenidos son propiedad de la empresa y están protegidos por leyes de derechos de autor y marcas registradas de EE. UU."
+    title9="9. Limitación de Responsabilidad"
+    term9="No garantizamos disponibilidad continua del servicio ni somos responsables por daños indirectos. La responsabilidad máxima no excederá lo pagado en los últimos 30 días."
+    title10="10. Privacidad y Manejo de Datos"
+    term10="La empresa cumple con leyes como CCPA, COPPA y lineamientos de la FTC."
+    title11="11. Ley de Comercio Electrónico"
+    term11="Todas las transacciones cumplen con E-SIGN Act, permitiendo contratos electrónicos válidos."
+    title12="12. Terminación del Servicio"
+    term12="La empresa puede suspender o cancelar el acceso por fraude, abuso o violaciones de estos términos."
+    title13="13. Ley Aplicable y Disputas"
+    term13="Regido por las leyes de EE. UU. y del estado de la empresa. Disputas pueden resolverse mediante arbitraje bajo la Federal Arbitration Act."
+    title14="14. Contacto"
+    term14="Correo: La95truckingshow@gmail.com"
+    buttonAnualLink="aceptar y suscribirse"
+    buttonMensualLink="aceptar y suscribirse"
   />
   <Foro 
     title="La Voz del Camionero"

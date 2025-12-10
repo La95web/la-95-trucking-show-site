@@ -1,0 +1,97 @@
+---
+const {title, paragraph, strongA, button} = Astro.props;
+---
+
+<section>
+  <h2>{title}</h2>
+  <p>{paragraph} <strong>{strongA}</strong></p>
+  <a href="/en/commentForm">{button}</a>
+</section>
+  
+<style lang="scss">
+  @use "../assets/sass/index" as *;
+
+  section {
+    display: block;
+    text-align: center;
+    padding: 50px 50px;
+    background-color: $accent-b-dark;
+    background-image: url("../assets/image/firedesk.svg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    width: 100%;
+    height: auto;
+   
+    a {
+      display: inline-block;
+      margin-top: 20px;
+      border: 2px solid $primary;
+      border-radius: 8px;
+      background-color: transparent;
+      text-align: center;
+      color: $primary;
+      font-size: 1.5rem;
+      font-family: $heading;
+      font-weight: $regular;
+      cursor: pointer;
+      width: 130px;
+      height: auto;
+    }
+  }
+
+  h2 {
+    font-size: 2rem;
+    font-weight: $regular;
+    font-family: $heading;
+    color: $primary;
+    text-align: center;
+  }
+
+  p {
+    color: $primary;
+  }
+
+  .underline-black {
+    width: 270px;
+    height: 2px;
+    background-color: $primary;
+    margin-top: 0px;
+    border-radius: 2px;
+    margin: auto; 
+  }
+
+  .button-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 30px;
+  }
+ 
+  button {
+    border: 2px solid $primary;
+    border-radius: 8px;
+    background-color: transparent;
+    text-align: center;
+    color: $primary;
+    font-size: 1.5rem;
+    font-family: $heading;
+    font-weight: $regular;
+    cursor: pointer;
+    width: 130px;
+  }
+
+  @media (min-width: 1024px) {
+
+    h2 {
+      font-size: 3rem;
+    }
+    p{
+      font-size: 1.5rem;
+    }
+    button {
+      font-size: 2rem;
+    }
+  }
+</style>

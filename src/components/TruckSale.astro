@@ -30,6 +30,7 @@ const marketplace = await fetch(import.meta.env.PUBLIC_API_BASE_URL.concat('mark
     {marketplace.length > 0 ? (
       marketplace
         .filter((m) => ['spanish', 'es'].includes(m.language?.toLowerCase()))
+        .sort((a, b) => new Date(b.uploaded_at).getTime() - new Date(a.uploaded_at).getTime())
         .map((m) => (
           <div class="card-content section-content-tips search">
             <h3>{m.title}</h3>
