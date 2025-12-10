@@ -84,6 +84,7 @@ const {h2, button, cell1, cell2} = Astro.props;
     text-align: center;
     font-family: Arial, sans-serif;
     color: white;
+    font-size: 0.7rem;
   }
 
   .header .cell {
@@ -134,8 +135,8 @@ const {h2, button, cell1, cell2} = Astro.props;
     padding: 20px;
     border-radius: 8px;
     width: 90%;
-    overflow-y: auto;
     background-color: rgba(20, 20, 20, 0.9);
+    overflow: hidden;
   }
 
   li {
@@ -159,7 +160,7 @@ const {h2, button, cell1, cell2} = Astro.props;
     align-items: center;
     width: 155px;
     border-radius: 8px;
-    padding: 12px 20px;
+    padding: 0;
     transition: background-color 0.3s, box-shadow 0.3s;
   }
 
@@ -181,7 +182,7 @@ const {h2, button, cell1, cell2} = Astro.props;
     background-color: $tertiary;
     box-shadow: 0 0 20px 10px rgba($accent-b-dark, 35%);
     border: 2px solid $accent-b-dark;
-    margin: 20px 0 30px;
+    margin: 20px 0 0;
   }
 
   .gold-button {
@@ -201,7 +202,6 @@ const {h2, button, cell1, cell2} = Astro.props;
 
   .content-block {
     width: 40%;
-    overflow: hidden;
   }
 
   h2{
@@ -210,6 +210,9 @@ const {h2, button, cell1, cell2} = Astro.props;
 
   .section-center{
     padding: 0;
+  }
+  .cell{
+    font-size: 1rem;
   }
 }
 </style>
