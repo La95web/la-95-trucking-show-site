@@ -13,25 +13,57 @@ const  MultigalleryList = ({ multigallery }) => {
 
   return (
     <li className={styles['list-item']}>
-        {multigallery.thumbnail_url && <img src={multigallery.thumbnail_url} alt="Multimedia's thumbnail" className={styles.image} />}
-        <div>
-          <p>{new Date(multigallery.uploaded_at).toLocaleDateString(undefined, {
-            year: 'numeric',
-            month: 'long',
-            day: 'numeric',
-          })}</p>
-        </div>
-        <div>
-          {/* <a href={`/admin/articles/${article.id}`} className={styles.link}>Ver Secciones</a><br /> */}
-          <button onClick={openModal}>Editar</button><br />
-          <button onClick={handleDestroy}>Eliminar</button><br />
-        </div>
-        {isModalOpen &&
-          <FullModal title={"Editar Articulo"} onClose={closeModal}>
-            <MultigalleryForm multigallery={multigallery} onCancel={closeModal} />
-          </FullModal>
-        }
-      </li>
+
+  {/* POSTER */}
+  {/* POSTER */}
+  {multigallery.poster && (
+    <div className={styles.section}>
+      <p>Poster</p>
+      <img
+        src={multigallery.poster}
+        alt="Poster image"
+        className={styles.image}
+      />
+    </div>
+  )}
+
+  {/* GALLERY */}
+  {Array.isArray(multigallery.gallery) && multigallery.gallery.length > 0 && (
+    <div className={styles.section}>
+      <p>Galería</p>
+      {multigallery.gallery.map((img, index) => (
+        <img key={index} src={img} alt="Gallery image" className={styles.image} />
+      ))}
+    </div>
+  )}
+
+  {/* THUMBNAILS */}
+  {Array.isArray(multigallery.thumbnails) && multigallery.thumbnails.length > 0 && (
+    <div className={styles.section}>
+      <p>Destacadas</p>
+      {multigallery.thumbnails.map((img, index) => (
+        <img key={index} src={img} alt="Thumbnail image" className={styles.image} />
+      ))}
+    </div>
+  )}
+
+  <div>
+    <p>{new Date(multigallery.uploaded_at).toLocaleDateString()}</p>
+  </div>
+
+  <div>
+    <button onClick={openModal}>Editar</button><br />
+    <button onClick={handleDestroy}>Eliminar</button><br />
+  </div>
+
+  {isModalOpen && (
+    <FullModal title={"Editar Multimedia"} onClose={closeModal}>
+      <MultigalleryForm multigallery={multigallery} onCancel={closeModal} />
+    </FullModal>
+  )}
+
+</li>
+
   );
 };
 

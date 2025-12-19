@@ -1,11 +1,11 @@
 import { useState } from "react";
-import styles from './MultigalleryForm.module.scss';
+import styles from './Baketball2025Form.module.scss';
 import create from "../../../scripts/api/create";
 import update from "../../../scripts/api/update";
 
-const MultigalleryForm = ({ multigallery = null, onCancel = null }) => {
-  const [formState, setFormState] = useState(multigallery ? {
-    uploaded_at: multigallery.uploaded_at,
+const Basketball2025Form = ({ basketball2025 = null, onCancel = null }) => {
+  const [formState, setFormState] = useState(basketball2025 ? {
+    uploaded_at: basketball2025.uploaded_at,
     video: [],
     thumbnail: [],
     gallery: []
@@ -26,38 +26,38 @@ const MultigalleryForm = ({ multigallery = null, onCancel = null }) => {
     event.preventDefault();
 
     const formData = new FormData();
-    formData.append('multigallery[uploaded_at]', formState.uploaded_at);
+    formData.append('basketball2025[uploaded_at]', formState.uploaded_at);
 
     if (formState.video && formState.video.length > 0) {
       Array.from(formState.video).forEach((file) => {
-        formData.append('multigallery[video][]', file);
+        formData.append('basketball2025[video][]', file);
       });
     }
 
     if (formState.poster && formState.poster.length > 0) {
       Array.from(formState.poster).forEach((file) => {
-        formData.append('multigallery[poster]', file);
+        formData.append('basketball2025[poster]', file);
       });
     }
 
     if (formState.thumbnail && formState.thumbnail.length > 0) {
       Array.from(formState.thumbnail).forEach((file) => {
-        formData.append('multigallery[thumbnail][]', file);
+        formData.append('basketball2025[thumbnail][]', file);
       });
     }
 
     if (formState.gallery && formState.gallery.length > 0) {
       Array.from(formState.gallery).forEach((file) => {
-        formData.append('multigallery[gallery][]', file);
+        formData.append('basketball2025[gallery][]', file);
       });
     }
 
-    if (multigallery) {
-      update(`multigallerys/${multigallery.id}/`, formData)
+    if (basketball2025) {
+      update(`basketball2025s/${basketball2025.id}/`, formData)
         .then(() => window.location.reload())
         .catch((error) => alert(error));
     } else {
-      create('multigallerys/', formData)
+      create('basketball2025s/', formData)
         .then(() => window.location.reload())
         .catch((error) => alert(error));
     }
@@ -93,4 +93,4 @@ const MultigalleryForm = ({ multigallery = null, onCancel = null }) => {
   );
 };
 
-export default MultigalleryForm;
+export default Basketball2025Form;

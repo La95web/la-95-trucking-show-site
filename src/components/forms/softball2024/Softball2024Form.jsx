@@ -1,11 +1,11 @@
 import { useState } from "react";
-import styles from './MultigalleryForm.module.scss';
+import styles from './Softball2024Form.module.scss';
 import create from "../../../scripts/api/create";
 import update from "../../../scripts/api/update";
 
-const MultigalleryForm = ({ multigallery = null, onCancel = null }) => {
-  const [formState, setFormState] = useState(multigallery ? {
-    uploaded_at: multigallery.uploaded_at,
+const Softball2024Form = ({ softball2024 = null, onCancel = null }) => {
+  const [formState, setFormState] = useState(softball2024 ? {
+    uploaded_at: softball2024.uploaded_at,
     video: [],
     thumbnail: [],
     gallery: []
@@ -26,38 +26,38 @@ const MultigalleryForm = ({ multigallery = null, onCancel = null }) => {
     event.preventDefault();
 
     const formData = new FormData();
-    formData.append('multigallery[uploaded_at]', formState.uploaded_at);
+    formData.append('softball2024[uploaded_at]', formState.uploaded_at);
 
     if (formState.video && formState.video.length > 0) {
       Array.from(formState.video).forEach((file) => {
-        formData.append('multigallery[video][]', file);
+        formData.append('softball2024[video][]', file);
       });
     }
 
     if (formState.poster && formState.poster.length > 0) {
       Array.from(formState.poster).forEach((file) => {
-        formData.append('multigallery[poster]', file);
+        formData.append('softball2024[poster]', file);
       });
     }
 
     if (formState.thumbnail && formState.thumbnail.length > 0) {
       Array.from(formState.thumbnail).forEach((file) => {
-        formData.append('multigallery[thumbnail][]', file);
+        formData.append('softball2024[thumbnail][]', file);
       });
     }
 
     if (formState.gallery && formState.gallery.length > 0) {
       Array.from(formState.gallery).forEach((file) => {
-        formData.append('multigallery[gallery][]', file);
+        formData.append('softball2024[gallery][]', file);
       });
     }
 
-    if (multigallery) {
-      update(`multigallerys/${multigallery.id}/`, formData)
+    if (softball2024) {
+      update(`softball2024s/${softball2024.id}/`, formData)
         .then(() => window.location.reload())
         .catch((error) => alert(error));
     } else {
-      create('multigallerys/', formData)
+      create('softball2024s/', formData)
         .then(() => window.location.reload())
         .catch((error) => alert(error));
     }
@@ -93,4 +93,4 @@ const MultigalleryForm = ({ multigallery = null, onCancel = null }) => {
   );
 };
 
-export default MultigalleryForm;
+export default Softball2024Form;
