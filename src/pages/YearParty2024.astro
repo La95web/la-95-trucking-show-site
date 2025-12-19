@@ -1,90 +1,79 @@
 ---
 import SpanishLayout from "../layouts/SpanishLayout.astro";
 import Footer from "../components/Footer.astro";
-import Video1 from "../assets/image/videoEstudio1.mp4";
-import img1 from "../assets/image/Gallery20.jpg";
-import img2 from "../assets/image/Gallery21.jpg";
-import img3 from "../assets/image/Gallery22.jpg";
-import img4 from "../assets/image/Gallery65.jpg";
-import img5 from "../assets/image/Gallery78.jpg";
-import img6 from "../assets/image/Gallery17.jpg";
-import img7 from "../assets/image/Gallery18.jpg";
-import img8 from "../assets/image/Gallery22.jpg";
 import Left from "../assets/image/left.png";
 import Right from "../assets/image/right.png";
-import Gallery7 from "../assets/image/Gallery27.jpg";
-import Gallery9 from "../assets/image/Gallery67.jpg";
-import Gallery10 from "../assets/image/Gallery68.jpg";
-import Gallery11 from "../assets/image/Gallery69.jpg";
-import Gallery12 from "../assets/image/Gallery70.jpg";
-import Gallery13 from "../assets/image/Gallery71.jpg";
-import Gallery14 from "../assets/image/Gallery72.jpg";
-import Gallery15 from "../assets/image/Gallery73.jpg";
-import Gallery16 from "../assets/image/Gallery74.jpg";
-import Gallery17 from "../assets/image/Gallery75.jpg";
-import Gallery18 from "../assets/image/Gallery76.jpg";
-import Gallery19 from "../assets/image/Gallery77.jpg";
-const images = [ Gallery7, Gallery9, Gallery10, Gallery11, Gallery12, Gallery13, Gallery14,
- Gallery15, Gallery16, Gallery17, Gallery18, Gallery19
-];
+
+const party2024s = await fetch(import.meta.env.PUBLIC_API_BASE_URL.concat('party2024s'),
+  {
+    method: 'GET',
+    headers: { Accept: 'application/json' },
+  }
+).then((response) => response.json());
+const sorted = party2024s
+  .slice()
+  .sort((a, b) => new Date(b.uploaded_at).getTime() - new Date(a.uploaded_at).getTime());
 ---
 
-<SpanishLayout title="Year Party 2025">
+<SpanishLayout title="party 2024">
   <section>
-    <div>
-      <h2>Videos</h2>
-      <div class="underline"></div>
-      <div class="video-gallery">
-        <video controls width="300" preload="none" poster={Gallery17.src}>
-          <source src={Video1} type="video/mp4" />
-        </video>
-        <video controls width="300" preload="none" poster={Gallery18.src}>
-          <source src={Video1} type="video/mp4" />
-        </video>
-        <video controls width="300" preload="none" poster={Gallery19.src}>
-          <source src={Video1} type="video/mp4" />
-        </video>
-      </div>
-    </div>
-    <h2>Imagenes destacadas</h2>
+    <h2>Videos</h2>
     <div class="underline"></div>
-    <div id="carouselimg" class="carouselimg">
-      <div id="carousel-track" class="carousel-track">
-        <img src={img1.src} alt="Imagen" />
-        <img src={img2.src} alt="Imagen" />
-        <img src={img3.src} alt="Imagen" />
-        <img src={img4.src} alt="Imagen" />
-        <img src={img5.src} alt="Imagen" />
-        <img src={img6.src} alt="Imagen" />
-        <img src={img7.src} alt="Imagen" />
-        <img src={img8.src} alt="Imagen" />
+    <div class="flex-section">
+      {sorted.map((party2024) =>
+        party2024.videos?.length > 0 && (
+          <div class="video-gallery">
+            <video controls width="300" preload="none" poster={party2024.poster}>
+              <source src={party2024.videos[0]} type="video/mp4" />
+            </video>
+          </div>
+        )
+      )}
+    </div>
+    <h2>Imágenes destacadas</h2>
+    <div class="underline"></div>
+    <div class="carouselimg">
+      <div id="carousel-track">
+        {sorted.map((party2024) =>
+          party2024.thumbnails?.length > 0 &&
+            party2024.thumbnails.map((thumb) => (
+              <img src={thumb} alt="Imagen destacada" />
+            ))
+        )}
       </div>
     </div>
+    <figure>
+      <div class="arrow left-arrow" id="leftArrow">
+        <img src={Left.src} alt="Left" />
+      </div>
+      <div class="arrow right-arrow" id="rightArrow">
+        <img src={Right.src} alt="Right" />
+      </div>
+      <div class="gallery-container">
+        <h2>Galería</h2>
+        <div class="underline"></div>
+        <div class="gallery-slider" id="gallerySlider">
+          {sorted.map((party2024) =>
+            party2024.gallery?.length > 0 &&
+              party2024.gallery.map((img, index) => (
+                <img src={img} alt={`Imagen ${index + 1}`} />
+              ))
+          )}
+        </div>
+        <div class="gallery-dots" id="galleryDots">
+          {sorted.map((_, index) => (
+            <span class="dot" data-index={index}></span>
+          ))}
+        </div>
+      </div>
+    </figure>
   </section>
-  <figure>
-    <div class="arrow left-arrow" id="leftArrow"><img src={Left.src} alt="Left"></div>
-    <div class="arrow right-arrow" id="rightArrow"><img src={Right.src} alt="right"></div>
-    <div class="gallery-container">
-      <h2>Galeria</h2>
-      <div class="underline"></div>
-      <div class="gallery-slider" id="gallerySlider">
-        {images.map((image, index) => (
-          <img src={image.src} alt={`Imagen ${index + 1}`} />
-        ))}
-      </div>
-      <div class="gallery-dots" id="galleryDots">
-        {images.map((_, index) => (
-          <span class="dot" data-index={index}></span>
-        ))}
-      </div>
-    </div>
-  </figure>
   <Footer />
 </SpanishLayout>
+
 <script>
   document.addEventListener('DOMContentLoaded', () => {
     const track = document.getElementById('carousel-track');
-    const carousel = document.getElementById('carouselimg');
 
     // Duplicar contenido para efecto infinito
     track.innerHTML += track.innerHTML;
@@ -109,6 +98,35 @@ const images = [ Gallery7, Gallery9, Gallery10, Gallery11, Gallery12, Gallery13,
 
 <style lang="scss">
   @use '../assets/sass/index' as *;
+
+  .flex-section {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+  }
+
+    .carouselimg {
+    width: 100%;
+    overflow-x: auto;
+    overflow-y: hidden;
+    padding: 10px 0;
+  }
+
+  #carousel-track {
+    display: flex;
+    gap: 20px;
+  }
+
+  #carousel-track img {
+    width: 400px;
+    height: 500px;
+    object-fit: cover;
+    border-radius: 10px;
+    flex-shrink: 0; 
+    background: #f0f0f0;
+  }
+
 
   //video and image carousel
   section {
