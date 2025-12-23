@@ -38,7 +38,7 @@ const { title, paragraph, button, name, lastname, phone } = Astro.props;
       if (form.checkValidity()) {
         const name = form.name.value;
         const lastName = form.lastName.value;
-        const mensaje = `Hola, mi nombre es ${name} ${lastName}, escribo desde la 95 trucking show. Quiero publicar un articulo en tu sitio.`;
+        const mensaje = `Hola, mi nombre es ${name} ${lastName}, escribo desde la web de la 95 trucking show. Quiero publicar un articulo en tu sitio.`;
         const url = `https://wa.me/+12015984639?text=${encodeURIComponent(mensaje)}`;
         window.open(url, '_blank');
       } else {
