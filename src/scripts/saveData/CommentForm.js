@@ -28,21 +28,21 @@ document.querySelector('#comment-form').addEventListener('submit', async (e) => 
   }
 });
 
-function mostrarComentario({ id, name, content, createdAt, likes, hearts, fires }) {
+function mostrarComentario({ id, name, content, createdAt, likes= 0, hearts=0, fires=0 }) {
   const container = document.getElementById('comments-container');
   const date = new Date(createdAt).toLocaleString('es-VE', {
     dateStyle: 'medium',
     timeStyle: 'short'
   });
-    const div = document.createElement('div');
+  const div = document.createElement('div');
   div.classList.add('comment');
   div.innerHTML = `
     <strong>${name}:</strong> <em>${date}</em>
     <p>${content}</p>
     <div class="reactions" data-id="${id}">
-      <button class="reaction" data-type="like">👍 <span>0</span></button>
-      <button class="reaction" data-type="heart">❤️ <span>0</span></button>
-      <button class="reaction" data-type="fire">🔥 <span>0</span></button>
+      <button class="reaction" data-type="like">👍 <span>${likes}</span></button>
+      <button class="reaction" data-type="heart">❤️ <span>${hearts}</span></button>
+      <button class="reaction" data-type="fire">🔥 <span>${fires}</span></button>
     </div>
   `;
   container.prepend(div);
