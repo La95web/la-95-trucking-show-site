@@ -28,7 +28,7 @@ document.querySelector('#comment-form').addEventListener('submit', async (e) => 
   }
 });
 
-function mostrarComentario({ name, content, createdAt }) {
+function mostrarComentario({ id, name, content, createdAt, likes, hearts, fires }) {
   const container = document.getElementById('comments-container');
   const date = new Date(createdAt).toLocaleString('es-VE', {
     dateStyle: 'medium',
@@ -39,7 +39,7 @@ function mostrarComentario({ name, content, createdAt }) {
   div.innerHTML = `
     <strong>${name}:</strong> <em>${date}</em>
     <p>${content}</p>
-    <div class="reactions">
+    <div class="reactions" data-id="${id}">
       <button class="reaction" data-type="like">👍 <span>0</span></button>
       <button class="reaction" data-type="heart">❤️ <span>0</span></button>
       <button class="reaction" data-type="fire">🔥 <span>0</span></button>
@@ -47,11 +47,33 @@ function mostrarComentario({ name, content, createdAt }) {
   `;
   container.prepend(div);
 }
-document.addEventListener('click', function (e) {
+document.addEventListener('click', async function (e) {
   if (e.target.classList.contains('reaction')) {
-    const span = e.target.querySelector('span');
-    let count = parseInt(span.textContent);
-    span.textContent = count + 1;
+    const button = e.target;
+    const span = button.querySelector('span');
+    const type = button.dataset.type;
+    const commentId = button.closest('.reactions').dataset.id;
+
+    try {
+      const API_URL = `${import.meta.env.PUBLIC_JOB_BASE_URL}/comments/${commentId}/reaction`;
+      const response = await fetch(API_URL, {
+        method: 'PATCH',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ type })
+      });
+
+      if (!response.ok) throw new Error('Error al actualizar reacción');
+
+      const updatedComment = await response.json();
+
+      // Actualizar contador según el tipo
+      if (type === 'like') span.textContent = updatedComment.likes;
+      if (type === 'heart') span.textContent = updatedComment.hearts;
+      if (type === 'fire') span.textContent = updatedComment.fires;
+    } catch (error) {
+      console.error(error);
+      alert('No se pudo actualizar la reacción front.');
+    }
   }
 });
 
