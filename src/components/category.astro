@@ -1,123 +1,232 @@
 ---
-const {title, tag1, tag2, tag3, tag4, tag5} = Astro.props;
+import image1 from '../assets/image/truckdriver.jpg';
+import image2 from '../assets/image/choferes.jpg';
+import image3 from '../assets/image/real.jpg';
+import image4 from '../assets/image/dispatcher.png';
+import image5 from '../assets/image/otros.jpg';
+const {title1, title, text1, text2, button, buttonB} = Astro.props;
 ---
-
 <section>
-  <h2>{title}</h2>
-  <div class="underline"></div>
-  <div class="section-content"> 
-    <a href="/chofer/" class="content-block">
-      <i class="ph ph-road-horizon"></i>
-      <p>{tag1}</p>
-    </a>
-    <a href="/owneroperator/" class="content-block">
-      <i class="ph ph-truck-trailer"></i>
-      <p>{tag2}</p>
-    </a>
-    <a href="/rentas/" class="content-block">
-      <i class="ph ph-building"></i>
-      <p>{tag3}</p>
-    </a>
-    <a href="/dispatcher/" class="content-block">
-      <i class="ph ph-note"></i>
-      <p>{tag4}</p>
-    </a>
-    <a href="/otros/" class="content-block">
-      <i class="ph ph-bag-simple"></i>
-      <p>{tag5}</p>
-    </a>
+  <div class="center"> 
+    <h2>Que buscas?</h2>
+    <div class="underlineshort"></div>
   </div>
-
+  <div class="flexbox">
+    <div class="card">
+      <div> 
+        <img src={image1.src} alt="Card Image" class="card-image">
+        <div class="card-content">
+          <p class="card-description">Buscas trabajo como chofer? Entra aquí</p>
+          <div class="light-gold gold-button">
+            <a href="/chofer/">Ver más</a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="card">
+      <div> 
+        <img src={image2.src} alt="Card Image" class="card-image">
+        <div class="card-content">
+          <p class="card-description">Eres dueño de un camion? Entra aquí ahora</p>
+          <div class="light-gold gold-button">
+            <a href="/owneroperator/">Ver más</a>
+          </div>
+        </div>
+     </div>
+    </div>  
+    <div class="card">
+      <div> 
+        <img src={image3.src} alt="Card Image" class="card-image">
+        <div class="card-content">
+          <p class="card-description">Rentas de habitaciones disponibles aqui</p>
+          <div class="light-gold gold-button">
+            <a href="/rentas/">Ver más</a>
+          </div>
+        </div>
+     </div>
+    </div>  
+    <div class="card">
+      <div> 
+        <img src={image4.src} alt="Card Image" class="card-image">
+        <div class="card-content">
+          <p class="card-description">Empresas en busca de distpacher, entra aquí</p>
+          <div class="light-gold gold-button">
+            <a href="/dispatcher/">Ver más</a>
+          </div>
+        </div>
+     </div>
+    </div>  
+    <div class="card">
+      <div> 
+        <img src={image5.src} alt="Card Image" class="card-image">
+        <div class="card-content">
+          <p class="card-description">Otros</p>
+          <div class="light-gold gold-button">
+            <a href="/otros/">Ver más</a>
+          </div>
+        </div>
+     </div>
+    </div>    
+  </div>
 </section>
 
 <style lang="scss">
-    @use "../assets/sass/index" as *;
+  @use '../assets/sass/index' as *;
 
- section {
-    text-align: left;
-    padding: 50px 0;
-    background-image: url("../assets//image/oppMovil.png");
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size:cover;
+  a{
+    color: $accent-b-dark;
+    padding: 0rem 1rem;
   }
 
-  .section-content {
+  section {
+    background-color: $primary;
+  }
+  
+  .flexbox {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
     align-items: center;
     gap: 20px;
-    padding-top: 70px;
-    padding-bottom: 70px;
+  }
+
+  .card {
+    position: relative;
+    width: 170px;
+    margin: 0 5%;
+    background-color: $tertiary;
+    border-radius: 8px;
+    overflow: hidden;
+    margin: 30px 0;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .card-image {
+    width: 100%;
+    height: 150px;
+    object-fit: cover;
+  }
+
+  h2 {
+    padding-top: 50px;
+  }
+
+  .underlineshort {
+    width: 120px;
+    height: 2px;
+    background-color: $accent-b-dark;
     margin: 0 5%;
   }
 
-  .content-block {
+  .card-content {
     display: flex;
     flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    font-size: 1.1rem;
-    font-weight: $regular;
-    font-family: $heading;
-    border: 2px solid $accent-b-dark;
-    background-color: $tertiary;
-    border-radius: 8px;
-    width: 180px;
-    height: 180px;
-    box-sizing: border-box;
-    padding: 16px;
-    gap: 10px;
+    height: 10%; 
+    padding-bottom: 20px;
+
+    p{
+      margin: 10px;
+    }
+  }
+
+  .card-description {
+    margin-top: 0;
+    min-height: 60px; 
+    flex: 1; 
+    font-size: 1rem;
     text-align: center;
-    overflow: hidden;
-    box-shadow: 0 4px 16px rgba(0,0,0,0.10); 
-    transition: box-shadow 0.2s, transform 0.2s;
-    text-decoration: none;
-    color: inherit;
   }
 
-  .content-block:hover {
-    box-shadow: 0 0 20px 10px rgba($accent-b-light, 35%); 
-    p:hover{
-      color:$accent-b-light;
+  .light-gold {
+    width: 80%;
+    border-radius: 8px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto;
+    transition: background-color 0.3s, box-shadow 0.3s;
+
+    button, #openModal {
+      color: $accent-b-dark;
+      font-size: 1rem;
+      font-weight: $regular;
+      font-family: $heading;
+      background-color: transparent;
+      padding: 0rem 1.5rem; 
+      cursor: pointer;
     }
   }
 
-  .content-block i {
-    color: $accent-b-light;
-    font-size: 2rem;
+  .light-gold.gold-button {
+    background-color: $tertiary;
+    box-shadow: 0 0 20px 10px rgba($accent-b-dark, 10%);
+    border: 2px solid $accent-b-dark;
   }
 
-    @media (min-width: 1024px) {
-      section {
-        text-align: left;
-        padding: 50px 0;
-        background-image: url("../assets//image/oppDesk.png");
-        background-position: center;
-        background-repeat: no-repeat;
-        background-size: cover;
-      }
+  .gold-button {
+    background-color: $accent-b-light;
+  }
 
-      h2, .underline {
-        text-align: center;
-        margin: 0 auto;
-      } 
+  .gold-button:hover {
+    box-shadow: 0 0 25px 15px rgba($accent-b-light, 20%);
+  }
 
-    .content-block {
-      flex-direction: row;
+  @media (min-width: 1024px) {
+
+    .flexbox {
+      display: flex;
+      justify-content: center;
       align-items: center;
-      justify-content: flex-start;
-      width: 350px;
-      height: 70px;
-      padding: 0 24px;
-      gap: 18px;
-      text-align: left;
+      flex-direction: row;
+      margin: 50px 5%;
     }
 
-    .content-box img {
-      width: 220px;
-      height: 220px;
+    h2 {
+      font-size: 3rem;
+      text-align: center;
+      padding-top: 40px;
+    }
+
+    .center {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding-bottom: 20px;
+    }
+
+    .card {
+      margin: 0 2%;
+      margin-bottom: 30px;
+    }
+
+    .small-image {
+      top: 355px;
+      left: 60%;
+      width: 30%;
+    }
+
+    .underlineshort {
+      width: 10%;
+      height: 2px;
+      background-color: $accent-b-dark;
+      margin: 0 5%;
+    }
+    
+    .light-gold {
+      width: 145px; 
+      height: 40px;
+      border-radius: 8px;
+      padding: 20px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      transition: background-color 0.3s, box-shadow 0.3s;
+    }
+
+    #openModal {
+      padding: 1.5rem 1.5rem; 
     }
   }
 </style>
