@@ -1,0 +1,63 @@
+---
+export const prerender = false;
+
+import MultigalleryForm from "../../components/forms/multimedia-form/MultigalleryForm";
+import MultigalleryList from "../../components/lists/list-items/multimedia-list-form/MultigalleryList";
+import AdminDashboard from "../../layouts/AdminDashboard.astro";
+
+const multigallerys = await fetch(import.meta.env.PUBLIC_API_BASE_URL.concat('multigallerys'), {
+  method: 'GET',
+  headers: {
+    'Accept': 'application/json',
+  },
+}).then((response) => response.json());
+
+const reversedMultigallerys = multigallerys.reverse();
+---
+<AdminDashboard title="audiospodcast">
+  <article>
+    <h1>Subir multimedia</h1>
+    <h2>Nueva publicación</h2>
+     <nav>
+    <ul class="nav-section">
+      <li><a href="/admin/softball2024">Torneo2024</a></li>
+    </ul>
+  </nav>
+  </article>
+  <MultigalleryForm client:load />
+  <h2>Lista de eventos publicados</h2>
+  <ul>
+    {reversedMultigallerys.map((multigallery) => (
+      <MultigalleryList multigallery={multigallery} client:load />
+    ))}
+  </ul>
+</AdminDashboard>
+<script>
+  import "../../scripts/mainMenu.js"
+</script>
+<style lang="scss">
+   @use "../../assets/sass/index" as *;
+  h1, h2 {
+    color: $accent-b-dark;
+  }
+
+  article{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    margin: 50px 0;
+  }
+
+   .nav-section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 2rem;
+    color: red;
+    a{
+      color: white;
+    }
+  }
+</style>

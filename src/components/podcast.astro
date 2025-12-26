@@ -29,21 +29,20 @@ const podcasts = await fetch(import.meta.env.PUBLIC_API_BASE_URL.concat('podcast
       .sort((a, b) => new Date(b.uploaded_at).getTime() - new Date(a.uploaded_at).getTime())
       .map((podcast) => (
         <figure class="search">
-          <div class="section-image">
-            <div class="gradient">
-              <img src={Play.src} alt="logo" />
+            <div class="section-image">
+              <a href={podcast.video_url} target="_blank">
+                <img src={podcast.thumbnail} alt="imagen" class="radio" />
+              </a>
             </div>
-            <a href={podcast.video_url} target="_blank">
-              <img src={podcast.thumbnail} alt="imagen" class="radio" />
-            </a>
-          </div>
-          <div class="content-card">
-            <img src={PlayContent.src} alt="play" />
-            <div class="text-container">
-              <p>{podcast.title}</p>
-              <p class="flush">{new Date(podcast.uploaded_at).toLocaleDateString()}</p>
+            <div class="content-card">
+              <div class="text-container">
+                <div>
+                  <p>{podcast.title}</p>
+                  <img src={Play.src} alt="youtube" />
+                </div>
+                <p class="flush">{new Date(podcast.uploaded_at).toLocaleDateString()}</p>
+              </div>
             </div>
-          </div>
         </figure>
       ))
   ) : (
@@ -133,8 +132,11 @@ const podcasts = await fetch(import.meta.env.PUBLIC_API_BASE_URL.concat('podcast
   figure {
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    align-items: center;
+    background-color: $primary;
+    width: 360px;
+    height: 380px;
+    border-radius: 8px;
+    margin: 70px auto 0;
   }
 
   .content-card {
@@ -143,58 +145,33 @@ const podcasts = await fetch(import.meta.env.PUBLIC_API_BASE_URL.concat('podcast
     display: flex;
     justify-content: space-between;
     flex-direction: row-reverse;
-    background-color: $primary;
+    background-color: transparent;
     border-bottom-left-radius: 8px;
     border-bottom-right-radius: 8px;
-  }
-
-  .content-card img {
-    width: 75px;
-    height: 75px;
-    border-radius: 8px;
-  }
-
-  .section-image {
-    position: relative;
-    background-color: $tertiary;
-    margin-top: 30px;
-    border-top-left-radius: 8px;
-    border-top-right-radius: 8px;
-  }
-
-  .gradient {
-    position: absolute;
-    bottom: 0;
-    top: 200px;
-    left: 0;
-    width: 362px;
-    height: 50px;
-    background: linear-gradient(to left, rgba(32, 35, 39) 0%,
-    rgba(32, 35, 39, 0.6) 50%,
-    rgba(52, 55, 61, 0.5 )100%);
-    display: flex;
-    justify-content: flex-end;
   }
 
   .gradient img {
     width: 50px;
     height: auto;
-    margin-right: 10px;
   }
 
   p {
-    margin: 5px 0 0 10px;
+    margin: 0 0 0 10px;
   }
 
   .text-container {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    width: 100%;
+    div{
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
   }
   
   .flush {
-    color: rgba($secondary, 80%);
+    color: rgba($secondary, 50%);
   }
 
   section {
@@ -255,6 +232,10 @@ const podcasts = await fetch(import.meta.env.PUBLIC_API_BASE_URL.concat('podcast
       flex-wrap: wrap;
       justify-content: center;
       align-items: center;
+    }
+
+    figure{
+      margin: 40px;
     }
 
     .section {
