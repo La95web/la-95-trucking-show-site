@@ -1,79 +1,96 @@
 ---
 import SpanishLayout from "../layouts/SpanishLayout.astro";
 import Footer from "../components/Footer.astro";
+import Video1 from "../assets/image/softballMedia25-01.mp4";
+import img1 from "../assets/image/softball25-01.jpg";
+import img2 from "../assets/image/softball25-02.jpg";
+import img3 from "../assets/image/softball25-03.jpg";
+import img4 from "../assets/image/softball25-04.jpg";
+import img5 from "../assets/image/softball25-05.jpg";
+import img6 from "../assets/image/softball25-06.jpg";
+import img7 from "../assets/image/softball25-07.jpg";
+import img8 from "../assets/image/softball25-08.jpg";
 import Left from "../assets/image/left.png";
 import Right from "../assets/image/right.png";
-
-const multigallerys = await fetch(import.meta.env.PUBLIC_API_BASE_URL.concat('multigallerys'),
-  {
-    method: 'GET',
-    headers: { Accept: 'application/json' },
-  }
-).then((response) => response.json());
-const sorted = multigallerys
-  .slice()
-  .sort((a, b) => new Date(b.uploaded_at).getTime() - new Date(a.uploaded_at).getTime());
+import Gallery1 from "../assets/image/softball25-09.jpg";
+import Gallery2 from "../assets/image/softball25-10.jpg";
+import Gallery3 from "../assets/image/softball25-11.jpg";
+import Gallery4 from "../assets/image/softball25-12.jpg";
+import Gallery5 from "../assets/image/softball25-17.jpg";
+import Gallery6 from "../assets/image/softball25-14.jpg";
+import Gallery7 from "../assets/image/softball25-15.jpg";
+import Gallery8 from "../assets/image/softball25-16.jpg";
+import Gallery9 from "../assets/image/softball25-17.jpg"; 
+import Gallery10 from "../assets/image/softball25-18.jpg";
+import Gallery11 from "../assets/image/softball25-21.jpg";
+import Gallery12 from "../assets/image/campo1.JPG";
+import Gallery13 from "../assets/image/campo2.JPG";
+import Gallery14 from "../assets/image/campo3.JPG";
+import Gallery15 from "../assets/image/campo4.JPG";
+import Gallery16 from "../assets/image/team1.webp";
+import Gallery17 from "../assets/image/team2.webp";
+import Gallery18 from "../assets/image/team3.webp";
+import Gallery19 from "../assets/image/team4.webp";
+import Gallery20 from "../assets/image/team5.webp";
+import Gallery21 from "../assets/image/team6.webp";
+import poster from "../assets/image/softball25-18.jpg";
+const images = [
+  Gallery1, Gallery2, Gallery3, Gallery4, Gallery5, Gallery6, Gallery7,
+  Gallery8, Gallery9, Gallery10, Gallery11, Gallery12, Gallery13, Gallery14, Gallery15,
+  Gallery16, Gallery17, Gallery18, Gallery19, Gallery20, Gallery21
+];
 ---
 
-<SpanishLayout title="Softball 2025">
+<SpanishLayout title="Sotball 2025">
   <section>
+  <div>
     <h2>Videos</h2>
     <div class="underline"></div>
-    <div class="flex-section">
-      {sorted.map((multigallery) =>
-        multigallery.videos?.length > 0 && (
-          <div class="video-gallery">
-            <video controls width="300" preload="none" poster={multigallery.poster}>
-              <source src={multigallery.videos[0]} type="video/mp4" />
-            </video>
-          </div>
-        )
-      )}
+    <div class="video-gallery">
+      <video controls width="300" preload="none" poster={poster.src}>
+        <source src={Video1} type="video/mp4" />
+      </video>
     </div>
-    <h2>Imágenes destacadas</h2>
-    <div class="underline"></div>
-    <div class="carouselimg">
-      <div id="carousel-track">
-        {sorted.map((multigallery) =>
-          multigallery.thumbnails?.length > 0 &&
-            multigallery.thumbnails.map((thumb) => (
-              <img src={thumb} alt="Imagen destacada" />
-            ))
-        )}
+  </div>
+  <h2>Imagenes destacadas</h2>
+  <div class="underline"></div>
+  <div id="carouselimg" class="carouselimg">
+    <div id="carousel-track" class="carousel-track">
+      <img src={img1.src} alt="Imagen" />
+      <img src={img2.src} alt="Imagen" />
+      <img src={img3.src} alt="Imagen" />
+      <img src={img4.src} alt="Imagen" />
+      <img src={img5.src} alt="Imagen" />
+      <img src={img6.src} alt="Imagen" />
+      <img src={img7.src} alt="Imagen" />
+      <img src={img8.src} alt="Imagen" />
+    </div>
+  </div>
+</section>
+  <figure>
+    <div class="arrow left-arrow" id="leftArrow"><img src={Left.src} alt="Left"></div>
+    <div class="arrow right-arrow" id="rightArrow"><img src={Right.src} alt="right"></div>
+    <div class="gallery-container">
+      <h2>Galeria</h2>
+      <div class="underline"></div>
+      <div class="gallery-slider" id="gallerySlider">
+        {images.map((image, index) => (
+          <img src={image.src} alt={`Imagen ${index + 1}`} />
+        ))}
+      </div>
+      <div class="gallery-dots" id="galleryDots">
+        {images.map((_, index) => (
+          <span class="dot" data-index={index}></span>
+        ))}
       </div>
     </div>
-    <figure>
-      <div class="arrow left-arrow" id="leftArrow">
-        <img src={Left.src} alt="Left" />
-      </div>
-      <div class="arrow right-arrow" id="rightArrow">
-        <img src={Right.src} alt="Right" />
-      </div>
-      <div class="gallery-container">
-        <h2>Galería</h2>
-        <div class="underline"></div>
-        <div class="gallery-slider" id="gallerySlider">
-          {sorted.map((multigallery) =>
-            multigallery.gallery?.length > 0 &&
-              multigallery.gallery.map((img, index) => (
-                <img src={img} alt={`Imagen ${index + 1}`} />
-              ))
-          )}
-        </div>
-        <div class="gallery-dots" id="galleryDots">
-          {sorted.map((_, index) => (
-            <span class="dot" data-index={index}></span>
-          ))}
-        </div>
-      </div>
-    </figure>
-  </section>
+  </figure>
   <Footer />
 </SpanishLayout>
-
 <script>
   document.addEventListener('DOMContentLoaded', () => {
     const track = document.getElementById('carousel-track');
+    const carousel = document.getElementById('carouselimg');
 
     // Duplicar contenido para efecto infinito
     track.innerHTML += track.innerHTML;
@@ -98,35 +115,6 @@ const sorted = multigallerys
 
 <style lang="scss">
   @use '../assets/sass/index' as *;
-
-  .flex-section {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    align-items: center;
-  }
-
-    .carouselimg {
-    width: 100%;
-    overflow-x: auto;
-    overflow-y: hidden;
-    padding: 10px 0;
-  }
-
-  #carousel-track {
-    display: flex;
-    gap: 20px;
-  }
-
-  #carousel-track img {
-    width: 400px;
-    height: 500px;
-    object-fit: cover;
-    border-radius: 10px;
-    flex-shrink: 0; 
-    background: #f0f0f0;
-  }
-
 
   //video and image carousel
   section {
