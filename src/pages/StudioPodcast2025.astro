@@ -1,25 +1,31 @@
 ---
 import SpanishLayout from "../layouts/SpanishLayout.astro";
 import Footer from "../components/Footer.astro";
-import Video1 from "../assets/image/videoEstudio1.mp4";
-import img1 from "../assets/image/Gallery20.jpg";
-import img2 from "../assets/image/Gallery20.jpg";
-import img3 from "../assets/image/Gallery20.jpg";
-import img4 from "../assets/image/Gallery20.jpg";
-import img5 from "../assets/image/Gallery20.jpg";
-import img6 from "../assets/image/Gallery20.jpg";
-import img7 from "../assets/image/Gallery20.jpg";
-import img8 from "../assets/image/Gallery20.jpg";
+import Video1 from "../assets/image/videostudio1.mp4";
+import Video2 from "../assets/image/videostudio2.mp4";
+import img1 from "../assets/image/studio10.jpg";
+import img2 from "../assets/image/studio11.jpg";
+import img3 from "../assets/image/studio12.jpg";
+import img4 from "../assets/image/studio13.jpg";
+import img5 from "../assets/image/studio14.jpg";
+import img6 from "../assets/image/studio15.jpg";
+import img7 from "../assets/image/studio16.jpg";
+import img8 from "../assets/image/studio17.jpg";
 import Left from "../assets/image/left.png";
 import Right from "../assets/image/right.png";
-import Gallery1 from "../assets/image/gallery1.webp";
-import Gallery2 from "../assets/image/gallery2.webp";
-import Gallery3 from "../assets/image/gallery3.webp";
-import poster from "../assets/image/Gallery67.jpg";
-import poster2 from "../assets/image/Gallery70.jpg";
-import poster3 from "../assets/image/Gallery73.jpg";
+import Gallery1 from "../assets/image/cena1.jpg";
+import Gallery2 from "../assets/image/cena2.jpg";
+import Gallery3 from "../assets/image/cena3.jpg";
+import Gallery7 from "../assets/image/cena4.jpg";
+import Gallery8 from "../assets/image/cena5.jpg";
+import Gallery9 from "../assets/image/cena6.jpg";
+import Gallery10 from "../assets/image/cena7.jpg";
+import Gallery11 from "../assets/image/cena8.jpg";
+import Gallery12 from "../assets/image/studio18.jpg";
+import Gallery13 from "../assets/image/studio19.jpg";
+import Gallery14 from "../assets/image/studio20.jpg";
 const images = [
-  Gallery1, Gallery2, Gallery3
+  Gallery1, Gallery2, Gallery3, Gallery7, Gallery8, Gallery9, Gallery10, Gallery11, Gallery12, Gallery13, Gallery14
 ];
 ---
 
@@ -29,14 +35,11 @@ const images = [
       <h2>Videos</h2>
       <div class="underline"></div>
       <div class="video-gallery">
-        <video controls width="300" preload="none" poster={poster.src}>
+        <video controls width="300" preload="none" poster={img1.src}>
           <source src={Video1} type="video/mp4" />
         </video>
-        <video controls width="300" preload="none" poster={poster2.src}>
-          <source src={Video1} type="video/mp4" />
-        </video>
-        <video controls width="300" preload="none" poster={poster3.src}>
-          <source src={Video1} type="video/mp4" />
+        <video controls width="300" preload="none" poster={img3.src}>
+          <source src={Video2} type="video/mp4" />
         </video>
       </div>
     </div>
