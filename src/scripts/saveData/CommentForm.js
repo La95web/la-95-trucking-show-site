@@ -75,7 +75,7 @@ function mostrarComentario({
   const div = document.createElement("div");
   div.classList.add("comment");
   div.innerHTML = `
-    <strong>${name}:</strong> <em>${date}</em>
+    <p><strong>${name}:</strong> <em>${date}</em></p>
     <p>${content}</p>
     <div class="reactions" data-id="${id}">
       <button class="reaction" data-type="like">👍 <span>${likes}</span></button>
