@@ -1,34 +1,39 @@
 ---
 export const prerender = false;
 
+import SpanishLayout from "../../layouts/SpanishLayout.astro";
 import Team2 from "../../assets/image/tipDesk.webp";
 import Footer from "../../components/Footer.astro";
-import Allnews from "../../components/Allnews.astro";
+import SafetyTrucker from "../../components/SafetyTrucker.astro";
 import HeaderNews from "../../components/HeaderNews.astro";
 import EnglishLayout from "../../layouts/EnglishLayout.astro";
 ---
 
 <EnglishLayout title="la 95 trucking show">
   <HeaderNews 
-  titleA="tips"
-  titleB="truckers"
+  titleB="safety"
   Team2={Team2}/>
-  <Allnews
+  <SafetyTrucker
   link1="/en/trailerTips/"
   link2="/en/tractorsEn/"
   link3="/en/documentsEn/"
   link4="/en/safetyEn/"
+  link5="/en/news/"
   navTips1="trailers"
   navTips2="tractors"
   navTips3="documents"
   navTips4="safety"
-  title="news"
-  language="en"
-  paragraph="Here you can find the latest news and updates from the world of transportation and logistics. Stay informed about trends, regulations, and important events affecting truckers and the industry as a whole."
+  navTips5="news"
+  title="safety"
+  text1="In"
+  strong="La 95 Trucking Show"
+  text2="We know that safety is the most important factor in the transportation industry"
+  em="Safety"
+  text3=", From accident prevention to regulatory compliance. Schedule your personalized consultation and receive expert guidance for your company or project"
+  paragraph="Here you will find all information about safety for truckers!"
   button="See more" />
   <Footer />
 </EnglishLayout>
 <script>
   import "../../scripts/mainMenu.js";
-  import "../../scripts/SearchNews.js"
 </script>

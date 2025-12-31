@@ -1,6 +1,6 @@
 ---
 import safety from "../assets/image/safety.png";
-const { title, paragraph, button, navTips1, navTips2, navTips3, navTips4, navTips5, link1, link2, link3, link4, link5 } = Astro.props;
+const { text1, text2, strong, em, text3, navTips1, navTips2, navTips3, navTips4, navTips5, link1, link2, link3, link4, link5 } = Astro.props;
 ---
 
 <div class="section">
@@ -17,9 +17,7 @@ const { title, paragraph, button, navTips1, navTips2, navTips3, navTips4, navTip
 <div class="title-content">
   <h2>safety</h2>
   <div class="underline"></div>
-  <p>En <strong>La95 Trucking Show</strong> sabemos que la seguridad es lo más importante en la industria del transporte. 
-    Contamos con especialistas que pueden orientarte en todos los aspectos de <em>Safety</em>, desde la prevención de accidentes 
-    hasta el cumplimiento de regulaciones. Agenda tu consulta personalizada y recibe asesoría experta para tu empresa o proyecto.</p>
+  <p>{text1} <strong>{strong}</strong>{text2} <em>{em}</em>{text3}</p>
 </div>
 <figure> 
   <ul>
