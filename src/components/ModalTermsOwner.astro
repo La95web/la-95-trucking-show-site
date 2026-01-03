@@ -67,7 +67,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
       // 2️⃣ Enviar correo al backend
       try {
-        const response = await fetch('http://localhost:3000/v1/contacts', {
+        const response = await fetch('https://la-95-trucking-show-api-production.up.railway.app/v1/contacts', {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify({ name, email, message: mensaje })
