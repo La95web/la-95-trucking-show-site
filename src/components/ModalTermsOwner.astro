@@ -1,92 +1,118 @@
 ---
-const {titleh2, term1, term2, term3, term4, term5, term6, term7, term8, term9, term10, title1, title2, title3, title4,
-  title5, title6, title7, title8, title9, title10, title11, title12, title13, title14,
-  term11, term12, term13, term14, buttonAnualLink, buttonMensualLink
- } = Astro.props;
+const {} = Astro.props;
 ---
+
 
 <div id="modalA" class="modal">
   <div class="close-menu-container">
-  </div> 
-  <div class="content-block">
-    <h2>{titleh2}</h2>
-    <div class="underline"></div>
-    <section>
-      <ul>
-        <p>{title1}</p>
-        <li>{term1}</li>
-        <p>{title2}</p>
-        <li>{term2}</li>
-        <p>{title3}</p>
-        <li>{term3}</li>
-        <p>{title4}</p>
-        <li>{term4}</li>
-        <p>{title5}</p>
-        <li>{term5}</li>
-        <p>{title6}</p>
-        <li>{term6}</li>
-        <p>{title7}</p>
-        <li>{term7}</li>
-        <p>{title8}</p>
-        <li>{term8}</li>
-        <p>{title9}</p>
-        <li>{term9}</li>
-        <p>{title10}</p>
-        <li>{term10}</li>
-        <p>{title11}</p>
-        <li>{term11}</li>
-        <p>{title12}</p>
-        <li>{term12}</li>
-        <p>{title13}</p>
-        <li>{term13}</li>
-        <p>{title14}</p>
-        <li>{term14}</li>
-      </ul>
-    </section>
-    <a class="btn anual" target="_blank" href="https://checkout.square.site/merchant/MLKWBC3K6D44D/checkout/NWID6ETJYRWTDNGU6FV65W77">{buttonAnualLink}</a>
+    <span class="close"></span>
+    <div class="rombo"><div class="line2"></div></div>
+  </div>
+  <div class="block-title">
+    <p>Llena tus datos y nos pondremos en contacto contigo en breve.</p> 
+    <form id="contact-form-mensual">
+      <div class="row">
+        <label>
+          <input type="text" name="name" placeholder="Nombre" required />
+        </label>
+      </div>
+      <div class="column">
+        <label>
+          <input type="email" name="email" placeholder="Email" required />
+        </label>
+      </div>
+      <button type="submit" class="light-gold gold-button">Enviar</button>
+    </form>
   </div>
 </div>
+
 <div id="modalB" class="modal">
   <div class="close-menu-container">
-  </div> 
-  <div class="content-block">
-    <h2>{titleh2}</h2>
-    <div class="underline"></div>
-  <section>
-   <ul>
-      <p>{title1}</p>
-      <li>{term1}</li>
-      <p>{title2}</p>
-      <li>{term2}</li>
-      <p>{title3}</p>
-      <li>{term3}</li>
-      <p>{title4}</p>
-      <li>{term4}</li>
-      <p>{title5}</p>
-      <li>{term5}</li>
-      <p>{title6}</p>
-      <li>{term6}</li>
-      <p>{title7}</p>
-      <li>{term7}</li>
-      <p>{title8}</p>
-      <li>{term8}</li>
-      <p>{title9}</p>
-      <li>{term9}</li>
-      <p>{title10}</p>
-      <li>{term10}</li>
-      <p>{title11}</p>
-      <li>{term11}</li>
-      <p>{title12}</p>
-      <li>{term12}</li>
-      <p>{title13}</p>
-      <li>{term13}</li>
-      <p>{title14}</p>
-      <li>{term14}</li>
-    </ul>
-  </section>
-    <a class="btn mensual" target="_blank" href="https://checkout.square.site/merchant/MLKWBC3K6D44D/checkout/6GX6D7DCJTXCYAJXPFG7PDZI" >{buttonMensualLink}</a>
+    <span class="close"></span>
+    <div class="rombo"><div class="line2"></div></div>
+  </div>
+  <div class="block-title">
+    <p>Llena tus datos y nos pondremos en contacto contigo en breve.</p> 
+    <form id="contact-form-anual">
+      <div class="row">
+        <label>
+          <input type="text" name="name" placeholder="Nombre" required />
+        </label>
+      </div>
+      <div class="column">
+        <label>
+          <input type="email" name="email" placeholder="Email" required />
+        </label>
+      </div>
+      <button type="submit" class="light-gold gold-button">Enviar</button>
+    </form>
   </div>
 </div>
+
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+  // Función genérica para manejar envío
+  async function handleSubmit(form, tipoSuscripcion) {
+    form.addEventListener('submit', async function (e) {
+      e.preventDefault();
+
+      const name = form.querySelector('[name="name"]').value;
+      const email = form.querySelector('[name="email"]').value;
+
+      const mensaje = `Hola, mi nombre es ${name} escribo desde la web de la 95 trucking show. Estoy interesado en la suscripción ${tipoSuscripcion}.`;
+
+      // 1️⃣ Abrir WhatsApp
+      const url = `https://wa.me/+12015984639?text=${encodeURIComponent(mensaje)}`;
+      window.open(url, '_blank');
+
+      // 2️⃣ Enviar correo al backend
+      try {
+        const response = await fetch('http://localhost:3000/v1/contacts', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ name, email, message: mensaje })
+        });
+
+        const result = await response.json();
+
+        if (response.ok) {
+          const confirmation = document.createElement('div');
+          confirmation.innerHTML = `
+            <div id="confirmation-message" style="
+              background-color: #ffcc4d;
+              color: #202327;
+              padding: 15px;
+              margin-top: 20px;
+              border: 1px solid #dd2e44;
+              border-radius: 8px;
+              font-family: Arial, sans-serif;
+              animation: fadeIn 0.5s ease-in-out;
+            ">
+              ✅ ¡Tu mensaje ha sido enviado con éxito, nos pondremos en contacto contigo!
+            </div>
+          `;
+          form.parentElement.appendChild(confirmation);
+          setTimeout(() => confirmation.remove(), 5000);
+          form.reset();
+        } else {
+          alert('❌ Error al enviar el mensaje: ' + result.message);
+        }
+      } catch (err) {
+        console.error('Error:', err);
+        alert('⚠️ Hubo un problema al enviar el mensaje');
+      }
+    });
+  }
+
+  // Asignar lógica a cada formulario
+  const formMensual = document.getElementById('contact-form-mensual');
+  const formAnual = document.getElementById('contact-form-anual');
+
+  handleSubmit(formMensual, "MENSUAL");
+  handleSubmit(formAnual, "ANUAL");
+});
+</script>
+
 <style lang="scss">
   @use "../assets/sass/index" as *;
 
@@ -103,44 +129,129 @@ const {titleh2, term1, term2, term3, term4, term5, term6, term7, term8, term9, t
     height: 100%;
     overflow: none;
     backdrop-filter: blur(10px);
-    background-color: rgba($tertiary, 0.95);
+    background-color: rgba($tertiary, 0.85);
   }
 
-  h2 {
-    text-align: center;
+  //rombo
+  .close-menu-container {
+    position: fixed;
+    top: 30px;
+    right: 5%;
+    z-index: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
   }
+
+  .close {
+    position: absolute;
+    width: 60px;
+    height: 60px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    z-index: 2;
+  }
+
+  .rombo {
+    width: 35px;
+    height: 35px;
+    background-color: #34373D;
+    transform: rotate(45deg); 
+    box-shadow: 0 0 10px 5px rgba($primary, 70%);
+    border-radius: 4px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .line2 {
+    width: 29px;
+    height: 4px;
+    background-color: #E03F53; 
+    position: relative;
+    box-shadow: 0 0 10px 5px rgba(221, 46, 68, 35%);
+  }
+
+  .line2::before {
+    content: "";
+    position: absolute;
+    width: 29px;
+    height: 4px;
+    background-color: #E03F53;
+    box-shadow: 0 0 10px 5px rgba(221, 46, 68, 35%);
+    transform: rotate(90deg);
+  }
+  //end rombo
 
   .content-block {
+   margin-top: 120px;
+   width: 100%;
+   max-width: 500px;
+   padding: 20px;
+
+   p {
+     margin: 10px 0;
+     font-size: 1.5rem;
+   }
+  }
+
+  form {
+    width: 100%;
+    max-width: 500px;
+    padding: 20px;
+  }
+
+  form .row {
+    display: flex;
+    gap: 16px;
+    margin-bottom: 16px;
+  }
+
+  form .row label {
+    flex: 1;
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    border: 2px solid $accent-b-dark;
-    padding: 20px;
-    border-radius: 8px;
-    width: 90%;
-    background-color: rgba(20, 20, 20, 0.9);
+    font-size: 1rem;
+    gap: 4px;
   }
 
-  section{
-    overflow-y: auto;
-    max-height: 60vh;
+  form .column {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    margin-bottom: 16px;
   }
 
-  li {
-    color: white;
-    margin: 10px 0;
-    line-height: 1.2rem;
-    font-size: .80rem;
+  form .column label {
+    display: flex;
+    flex-direction: column;
+    font-size: 1rem;
+    gap: 4px;
   }
 
-  .btn {
+  form input {
+    padding: 8px;
+    border-radius: 4px;
+    border: 1px solid #ccc;
+    font-size: 0.7rem;
+  }
+  
+  form button {
+    margin-top: 8px;
+    padding: 10px 24px;
+    border-radius: 6px;
+    border: none;
+    background: #2d7be5;
+    color: #fff;
+    font-weight: bold;
+    cursor: pointer;
+    font-size: 1rem;
+  }
+
+  .light-gold {
     width: 70%;
     border-radius: 8px;
-    padding: 10px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
     transition: background-color 0.3s, box-shadow 0.3s;
   }
 
@@ -153,36 +264,43 @@ const {titleh2, term1, term2, term3, term4, term5, term6, term7, term8, term9, t
     cursor: pointer;
   }
 
-  .btn.anual, .mensual {
+  .light-gold.gold-button {
     background-color: $tertiary;
-    box-shadow: 0 0 20px 10px rgba($accent-b-dark, 35%);
+    box-shadow: 0 0 20px 10px rgba($accent-b-dark, 15%);
     border: 2px solid $accent-b-dark;
-    margin: 20px 0 30px;
+    margin: 20px 0 0px;
   }
 
-  .btn:hover {
+  .gold-button {
+    background-color: $accent-b-light;
+  }
+
+  .gold-button:hover {
     box-shadow: 0 0 25px 15px rgba($accent-b-light, 40%);
   }
 
-  @media (min-width: 1024px) {
+  p{
+    font-size: 1.2rem;
+    font-weight: $medium;
+    text-align: left;
+    margin: 10px 5%;
+  }
+
   .modal {
     padding: 0;
     background: rgba(20, 20, 20, 0.5);
     z-index: 99;
   }
 
-  .content-block {
+  .block-title {
     width: 100%;
-    max-width: 1000px;
+    max-width: 400px;
+    background: $tertiary;
+    border-radius: 16px;
+    box-shadow: 0 8px 40px 0 rgba(0,0,0,0.30);
+  }
+
+  .content-block {
     margin-top: 0;
   }
-
-  ol {
-    max-width: 80%;
-  }
-
-  .btn {
-    width: 30%;
-  } 
-}
 </style>
