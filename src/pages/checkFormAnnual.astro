@@ -1,0 +1,114 @@
+---
+import SpanishLayout from '../layouts/SpanishLayout.astro';
+import Footer from '../components/Footer.astro';
+---
+<SpanishLayout title="checkout form">
+  <div class="content-block">
+    <h2>TÉRMINOS Y CONDICIONES (EE. UU.) PARA SERVICIO DE SUSCRIPCIÓN</h2>
+    <div class="underline"></div>
+    <section>
+      <ul>
+        <p>1. Aceptación de los Términos</p>
+        <li>Al registrarse, acceder o pagar por nuestros servicios, usted acepta cumplir con estos Términos y Condiciones, sujetos a las leyes de los Estados Unidos y del estado donde opera la empresa.</li>
+        <p>2. Descripción del Servicio</p>
+        <li>Ofrecemos servicios de suscripción que proporcionan acceso a descuentos exclusivos en servicios relacionados con la industria del transporte.</li>
+        <p>3. Suscripción, Pagos y Facturación</p>
+        <li>El usuario autoriza un cargo recurrente mensual. Los pagos se procesan automáticamente hasta que se cancele la suscripción. No se ofrecen reembolsos salvo requerimiento legal.</li>
+        <p>4. Renovación Automática</p>
+        <li>La suscripción se renueva automáticamente según la FTC Negative Option Rule. El usuario puede cancelar en cualquier momento.</li>
+        <p>5. Cancelacíon</p>
+        <li>La cancelación detiene futuros cargos pero no elimina los ya procesados. El acceso continuará hasta finalizar el periodo pagado.</li>
+        <p>6.Modificaciones</p>
+        <li>La empresa puede modificar precios o contenido del servicio, notificándolo previamente.</li>
+        <p>7. Uso Permitido</p>
+        <li>El usuario no debe compartir acceso ni reproducir contenido sin permiso. Todo el material está protegido por Copyright Act of 1976</li>
+        <p>8. Propiedad Intelectua</p>
+        <li>Los contenidos son propiedad de la empresa y están protegidos por leyes de derechos de autor y marcas registradas de EE. UU.</li>
+        <p>9. Limitación de Responsabilidad</p>
+        <li>No garantizamos disponibilidad continua del servicio ni somos responsables por daños indirectos. La responsabilidad máxima no excederá lo pagado en los últimos 30 días.</li>
+        <p>10. Privacidad y Manejo de Datos</p>
+        <li>La empresa cumple con leyes como CCPA, COPPA y lineamientos de la FTC.</li>
+        <p>11. Ley de Comercio Electrónico</p>
+        <li>Todas las transacciones cumplen con E-SIGN Act, permitiendo contratos electrónicos válidos.</li>
+        <p>12. Terminación del Servicio</p>
+        <li>La empresa puede suspender o cancelar el acceso por fraude, abuso o violaciones de estos términos.</li>
+        <p>13. Ley Aplicable y Disputas</p>
+        <li>Regido por las leyes de EE. UU. y del estado de la empresa. Disputas pueden resolverse mediante arbitraje bajo la Federal Arbitration Act.</li>
+        <p>14. Contacto</p>
+        <li>Correo: La95truckingshow@gmail.com</li>
+      </ul>
+    </section>
+    <a class="btn anual" target="_blank" href="https://checkout.square.site/merchant/MLKWBC3K6D44D/checkout/6GX6D7DCJTXCYAJXPFG7PDZI">Aceptar y continual</a>
+  </div>
+  <Footer />
+</SpanishLayout>
+
+<style lang="scss">
+ @use "../assets/sass/index" as *;
+
+  h2 {
+    text-align: center;
+    margin-bottom: 15px;
+    color: white;
+  }
+
+  .content-block {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    padding-top: 150px;
+    background-color: rgba(20, 20, 20, 0.95);
+  }
+
+  p {
+    text-align: center;
+    color: $accent-b-light;
+    margin: 20px 0 5px;
+    font-size: 1rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+
+  li {
+    color: white;
+    line-height: 1.4rem;
+    font-size: 0.9rem;
+    text-align: center;
+  }
+
+  ul{
+    padding: 30px;
+  }
+
+  .btn {
+    width: 50%;
+    border-radius: 8px;
+    padding: 12px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: background-color 0.3s, box-shadow 0.3s;
+  }
+
+  a {
+    color: $accent-b-dark;
+    font-size: 1.2rem;
+    font-weight: $regular;
+    font-family: $heading;
+    background-color: transparent;
+    cursor: pointer;
+  }
+
+  .btn.anual, .mensual {
+    background-color: $tertiary;
+    box-shadow: 0 0 20px 10px rgba($accent-b-dark, 35%);
+    border: 2px solid $accent-b-dark;
+    margin: 20px 0 30px;
+  }
+
+  .btn:hover {
+    box-shadow: 0 0 25px 15px rgba($accent-b-light, 40%);
+  }
+</style>
