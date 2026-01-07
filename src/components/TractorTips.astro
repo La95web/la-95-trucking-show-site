@@ -49,9 +49,9 @@ const articles = await fetch(import.meta.env.PUBLIC_API_BASE_URL.concat('trailer
           <span>{formatDate(article.uploaded_at, language)}</span>
           <figure>
             <img src={article.thumbnail_url} alt="trailer" />
-            <div>
+            <article>
               <p class="lead-paragraph">{article.content}</p>
-            </div>
+            </article>
           </figure>
         </div>
       ))
@@ -66,66 +66,10 @@ const articles = await fetch(import.meta.env.PUBLIC_API_BASE_URL.concat('trailer
     </div>
   </div>
 </section>
-<!-- <header>
-  <h2>videos de tips</h2>
-  <div class="underline"></div>
-  <div class="flex-content"> 
-    <div class="box-video">
-      <h4>como montar una caja</h4>
-      <video class="poster" controls preload="none" poster="/src/assets/image/tipDesk.webp">
-        <source src={Video1} type="video/mp4" />
-      </video>
-    </div>
-    <div class="box-video">
-      <h4>como reparar un motor</h4>
-      <video class="poster" controls preload="none" poster="/src/assets/image/tipDesk.webp">
-        <source src={Video1} type="video/mp4" />
-      </video>
-    </div>
-     <div class="box-video">
-      <h4>como reparar un motor</h4>
-      <video class="poster" controls preload="none" poster="/src/assets/image/tipDesk.webp">
-        <source src={Video1} type="video/mp4" />
-      </video>
-    </div>
-     <div class="box-video">
-      <h4>como reparar un motor</h4>
-      <video class="poster" controls preload="none" poster="/src/assets/image/tipDesk.webp">
-        <source src={Video1} type="video/mp4" />
-      </video>
-    </div>
-  </div>
-</header> -->
 
 <style lang="scss">
   @use "../assets/sass/index" as *;
   // start new styles
-  header {
-    padding-top: 50px;
-    margin: 0 5%;
-    .underline{
-      margin: 0 0 20px 0;
-    }
-    h2{
-      margin: 0;
-    }
-  }
-
-  .flex-content {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    align-items: center;
-    gap: 40px;
-  }
-
-  .box-video{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: left;
-  }
-
   section{
     display: flex;
     flex-direction: column;
@@ -152,7 +96,7 @@ const articles = await fetch(import.meta.env.PUBLIC_API_BASE_URL.concat('trailer
   figure {
     display: flex;
     flex-direction: column;
-    margin: 0 auto;
+    margin: 0;
     img {
       width: 100%;
       max-width: 620px;
@@ -160,25 +104,7 @@ const articles = await fetch(import.meta.env.PUBLIC_API_BASE_URL.concat('trailer
     }
   }
 
-  video {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    border-radius: 8px;
-    box-shadow: 0 4px 16px rgba(0,0,0,0.12);
-    width: 90%;
-    max-width: 800px;
-  }
-
-  .poster {
-    width: 100%;
-    max-width: 640px;
-    height: 360px;
-    max-height: 90%;
-    object-fit: cover;
-  }
-
-   :global(.read-toggle) {
+  :global(.read-toggle) {
     background: transparent;
     border: none;
     cursor: pointer;
@@ -336,12 +262,15 @@ const articles = await fetch(import.meta.env.PUBLIC_API_BASE_URL.concat('trailer
   }
 
   @media (min-width: 1025px) {
-    // start styles
+
+    article{
+      width: 80%;
+    }
+
     figure {
       flex-direction: row;
       gap: 50px;
     }
-    //end styles
 
     .section {
       flex-direction: row;

@@ -1,0 +1,96 @@
+---
+const { language = 'es' } = Astro.props;
+
+const languageMap = {
+  en: 'english',
+  es: 'spanish',
+};
+const currentLanguage = languageMap[language] ?? 'spanish';
+
+const articles = await fetch(import.meta.env.PUBLIC_API_BASE_URL.concat('trailervideos'), {
+  method: 'GET',
+  headers: {
+    'Accept': 'application/json',
+  },
+}).then((response) => response.json());
+---
+
+<div class="flex-content">
+  {articles.length > 0 &&
+    articles
+      .filter((article) => article.language === currentLanguage)
+      .sort((a, b) => new Date(b.uploaded_at).getTime() - new Date(a.uploaded_at).getTime())
+      .map((article) => (
+        <div class="box-video">
+          <h4>{article.titlevideo}</h4>
+          <div class="underline"></div>
+          <p>{article.description}</p>
+          <video class="poster" controls preload="none" poster={article.poster_url}>
+            <source src={article.video_url} type="video/mp4" />
+          </video>
+        </div>
+      ))
+  }
+</div>
+
+<style lang="scss">
+  @use "../assets/sass/index.scss" as *;
+
+  h4 {
+    padding-top: 50px;
+    font-family: $heading;
+    font-weight: $regular;
+    font-size: 2rem;
+    margin: 0;
+    color: $secondary;
+  }
+
+  h4,p{
+    margin: 0;
+    color: white;
+  }
+
+  header {
+    padding-top: 50px;
+    margin: 0 5%;
+    .underline{
+      margin: 0 0 20px 0;
+    }
+    h2{
+      margin: 0;
+    }
+  }
+
+  .flex-content {
+    display: flex;
+    flex-wrap: wrap;      
+    justify-content: center;
+    align-items: center;
+    gap: 70px;
+    padding: 0 16px;
+  }
+
+  .box-video {
+    flex: 1 1 600px;        
+    max-width: 640px;       
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    text-align: left;
+  }
+
+  video {
+    width: 100%;
+    border-radius: 8px;
+    box-shadow: 0 4px 16px rgba(0,0,0,0.12);
+    margin: 20px 0;
+  }
+
+  .poster {
+    width: 100%;
+    max-width: 640px;
+    height: 360px;
+    max-height: 90%;
+    object-fit: cover;
+  }
+</style>
