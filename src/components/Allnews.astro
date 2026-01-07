@@ -101,32 +101,6 @@ const articles = await fetch(import.meta.env.PUBLIC_API_BASE_URL.concat('news'),
 <style lang="scss">
   @use "../assets/sass/index" as *;
   // start new styles
-  header {
-    padding-top: 50px;
-    margin: 0 5%;
-    .underline{
-      margin: 0 0 20px 0;
-    }
-    h2{
-      margin: 0;
-    }
-  }
-
-  .flex-content {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    align-items: center;
-    gap: 40px;
-  }
-
-  .box-video{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: left;
-  }
-
   section{
     display: flex;
     flex-direction: column;
@@ -153,30 +127,12 @@ const articles = await fetch(import.meta.env.PUBLIC_API_BASE_URL.concat('news'),
   figure {
     display: flex;
     flex-direction: column;
-    margin: 0 auto;
+    margin: 0;
     img {
       width: 100%;
       max-width: 620px;
       object-fit: contain;
     }
-  }
-
-  video {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    border-radius: 8px;
-    box-shadow: 0 4px 16px rgba(0,0,0,0.12);
-    width: 90%;
-    max-width: 800px;
-  }
-
-  .poster {
-    width: 100%;
-    max-width: 640px;
-    height: 360px;
-    max-height: 90%;
-    object-fit: cover;
   }
 
    :global(.read-toggle) {
@@ -342,7 +298,6 @@ const articles = await fetch(import.meta.env.PUBLIC_API_BASE_URL.concat('news'),
       flex-direction: row;
       gap: 50px;
     }
-    //end styles
 
     .section {
       flex-direction: row;
