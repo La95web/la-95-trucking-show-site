@@ -69,7 +69,7 @@ const MultigalleryForm = ({ multigallery = null, onCancel = null }) => {
         Videos:<br />
         <input type='file' name='video' multiple onChange={handleFileChange} /><br />
         Subir poster:
-        <input type="file" name="poster" onChange={handleFileChange} /><br />
+        <input type="file" name="thumbnail" onChange={handleFileChange} /><br />
       </label>
 
       <label>
