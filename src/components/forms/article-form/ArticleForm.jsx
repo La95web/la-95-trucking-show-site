@@ -82,6 +82,9 @@ const ArticleForm = ({ article = null, onCancel = null }) => {
           <option value="Trailer">TipsTractors</option>
           <option value="Doctip">DocTips</option>
           <option value="Trailervideo">Trailervideo</option>
+          <option value="Tractorvideo">Tractorvideo</option>
+          <option value="Documentvideo">Documentvideo</option>
+          <option value="Allnewvideo">Allnewvideo</option>
         </select>
         <br />
       </label>
