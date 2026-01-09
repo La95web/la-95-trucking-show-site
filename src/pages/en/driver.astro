@@ -2,23 +2,19 @@
 import Footer from "../../components/Footer.astro";
 import Drivers from "../../components/Drivers.astro";
 import Modal from "../../components/modaljobs.astro";
-import Job1 from "../../assets/image/truckdriver.webp";
-import Job2 from "../../assets/image/driver2.webp";
 import EnglishLayout from "../../layouts/EnglishLayout.astro";
 ---
 
 <EnglishLayout title="Job for drivers">
   <Drivers
-  title = "Job for drivers" 
-  guest2="Company B"
-  image2={Job2}
-  description2="Join our team at the Newwark ports"
   button="see more"
-
-  guest1="Company A"
-  image1={Job1}
-  description1="We are hiring. One year of experience with a CDL CLASS A commercial driver's license is required"
-  button="see more"
+  modalbutton="Contact employer"
+  title="job for drivers"
+  data1="Location:"
+  data2="Pay per hour:"
+  data3="Minimum experience:"
+  data4="Requirements:"
+  data5="Qualities:"
   />
   <Modal />
   <Footer />
