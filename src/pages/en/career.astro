@@ -3,7 +3,7 @@ import HeaderBanner from "../../components/HeaderBanner.astro";
 import Team1 from "../../assets/image/headerMovil.jpg";
 import Team2 from "../../assets/image/headerDesktop.jpg";
 import Footer from "../../components/Footer.astro";
-import CategoryEn from "../../components/categoryEn.astro";
+import Category from "../../components/category.astro";
 import ModalMarket from "../../components/modalMarket.astro";
 import TruckSale from "../../components/TruckSale.astro";
 import Modaltrucksale from "../../components/modaltrucksale.astro";
@@ -17,8 +17,14 @@ import EnglishLayout from "../../layouts/EnglishLayout.astro";
     Team1={Team1}
     Team2={Team2}
   />
-  <CategoryEn
-    title="Select your area of expertise"
+  <Category
+    title="What are you looking for today?"
+    text1="Looking for a job as a driver? Enter here"
+    text2="Are you a truck owner? Enter here"
+    text3="Rooms for rent available here"
+    text4="Companies looking for dispatchers, enter here"
+    text5="Others"
+    button="See more"
     tag1="Driver"
     tag2="Owner operator"
     tag3="Rooms for rent"
