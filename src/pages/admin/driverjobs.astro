@@ -1,0 +1,49 @@
+---
+export const prerender = false;
+
+import DriverForm from "../../components/forms/driverjobs/DriverjobsForm";
+import DriverListitem from "../../components/lists/list-items/driver-list-item/Driverlist";
+import AdminDashboard from "../../layouts/AdminDashboard.astro";
+
+const truckers = await fetch(import.meta.env.PUBLIC_API_BASE_URL.concat('truckers'), {
+  method: 'GET',
+  headers: {
+    'Accept': 'application/json',
+  },
+}).then((response) => response.json());
+
+const reversedTruckers = truckers.reverse();
+---
+<AdminDashboard title="jobs">
+  <article>
+    <h1>Jobs</h1>
+    <h2>Realiza una nueva publicación aquí</h2>
+  </article>
+  <DriverForm client:load />
+  <h2>Lista de articulos publicados</h2>
+  <ul>
+    {reversedTruckers.map((trucker) => (
+      <DriverListitem trucker={trucker} client:load />
+    ))}
+  </ul>
+</AdminDashboard>
+<script>
+  import "../../scripts/mainMenu.js"
+</script>
+<style lang="scss">
+   @use "../../assets/sass/index" as *;
+  h1, h2 {
+    text-align: center;
+    color: $accent-b-dark;
+  }
+
+  article{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    margin: 50px 0;
+  }
+
+</style>

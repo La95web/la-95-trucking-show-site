@@ -1,4 +1,4 @@
-document.querySelectorAll('#contact-form, #contact-form-b').forEach(form => {
+document.querySelectorAll('form[id^="contact-form-"]').forEach(form => {
   form.addEventListener('submit', (e) => {
     e.preventDefault();
 
@@ -7,7 +7,7 @@ document.querySelectorAll('#contact-form, #contact-form-b').forEach(form => {
       name: formData.get('name'),
       lastName: formData.get('lastName'),
       email: formData.get('email'),
-      phone: formData.get('phone')
+      phone: formData.get('phone'),
     };
 
     const API_URL = `${import.meta.env.PUBLIC_JOB_BASE_URL}/userDrivers`;

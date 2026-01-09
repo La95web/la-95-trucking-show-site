@@ -1,5 +1,4 @@
 ---
-import Video1 from "../assets/image/softballMedia25-01.mp4";
 const { title, language = 'es', paragraph, button, navTips1, navTips2, navTips3, navTips4, navTips5, link1, link2, link3, link4, link5 } = Astro.props;
 import formatDate from "../scripts/formatDate";
 
@@ -67,36 +66,6 @@ const articles = await fetch(import.meta.env.PUBLIC_API_BASE_URL.concat('news'),
     </div>
   </div>
 </section>
-<!-- <header>
-  <h2>videos de tips</h2>
-  <div class="underline"></div>
-  <div class="flex-content"> 
-    <div class="box-video">
-      <h4>como montar una caja</h4>
-      <video class="poster" controls preload="none" poster="/src/assets/image/tipDesk.webp">
-        <source src={Video1} type="video/mp4" />
-      </video>
-    </div>
-    <div class="box-video">
-      <h4>como reparar un motor</h4>
-      <video class="poster" controls preload="none" poster="/src/assets/image/tipDesk.webp">
-        <source src={Video1} type="video/mp4" />
-      </video>
-    </div>
-     <div class="box-video">
-      <h4>como reparar un motor</h4>
-      <video class="poster" controls preload="none" poster="/src/assets/image/tipDesk.webp">
-        <source src={Video1} type="video/mp4" />
-      </video>
-    </div>
-     <div class="box-video">
-      <h4>como reparar un motor</h4>
-      <video class="poster" controls preload="none" poster="/src/assets/image/tipDesk.webp">
-        <source src={Video1} type="video/mp4" />
-      </video>
-    </div>
-  </div>
-</header> -->
 
 <style lang="scss">
   @use "../assets/sass/index" as *;
