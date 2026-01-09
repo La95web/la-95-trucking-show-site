@@ -1,44 +1,114 @@
 ---
-const {guest1, guest2,image1, image2, description1, description2, button, title} = Astro.props
+const { language = 'es', title, button, modalbutton, data1, data2, data3, data4, data5 } = Astro.props
+
+const languageMap = {
+  en: 'english',
+  es: 'spanish',
+};
+const currentLanguage = languageMap[language] ?? 'spanish';
+
+const trucker = await fetch(import.meta.env.PUBLIC_API_BASE_URL.concat('truckers'), {
+  method: 'GET',
+  headers: {
+    'Accept': 'application/json',
+  },
+}).then((response) => response.json());
 ---
-<section> 
-  <div class="center"> 
+<section>
+  <div class="center">
     <h2>{title}</h2>
     <div class="underlineshort"></div>
   </div>
+
   <div class="flexbox">
-    <div class="card">
-      <div> 
-        <img src={image1.src} alt="Card Image" class="card-image">
-        <div class="gradient">
-          <h3 class="card-title">{guest1}</h3>
-        </div>
-        <div class="card-content">
-          <p class="card-description">{description1}</p>
-          <div class="light-gold gold-button">
-            <button class="openModal" data-modal="modalA">{button}</button>
+    {trucker.length > 0 &&
+      trucker
+        .filter((trucker) => trucker.language === currentLanguage)
+        .sort((a, b) => new Date(b.uploaded_at).getTime() - new Date(a.uploaded_at).getTime())
+        .map((trucker) => (
+          <div class="card" key={trucker.id}>
+            <div>
+              <img src={trucker.thumbnail_url} alt="Card Image" class="card-image" />
+              <div class="gradient">
+                <h3 class="card-title">{trucker.company}</h3>
+              </div>
+              <div class="card-content">
+                <p class="card-description">{trucker.description}</p>
+                <div class="light-gold gold-button">
+                  <button class="openModal" data-modal={`modal-${trucker.id}`}>{button}</button>
+                </div>
+                <div class="small-image"></div>
+              </div>
+            </div>
           </div>
-          <div class="small-image"></div>
+        ))}
+  </div>
+</section>
+
+{trucker.length > 0 &&
+ trucker
+ .filter((trucker) => trucker.language === currentLanguage)
+ .sort((a, b) => new Date(b.uploaded_at).getTime() - new Date(a.uploaded_at).getTime())
+ .map((trucker) => (
+  <div id={`modal-${trucker.id}`} class="modal">
+    <div class="block-title">
+      <div class="close-menu-container">
+        <span class="close"></span>
+        <div class="rombo">
+          <div class="line2"></div>
         </div>
       </div>
+      <div class="content-block">
+        <p><strong>{data1}</strong> {trucker.location}</p>
+        <p><strong>{data2}</strong> {trucker.salary}</p>
+        <p><strong>{data3}</strong> {trucker.experience}</p>
+        <p><strong>{data4}</strong> {trucker.requirements}</p>
+        <p><strong>{data5}</strong> {trucker.qualities}</p>
+      </div>
+      <form  id={`contact-form-${trucker.id}`} data-company={trucker.company}>
+        <div class="row">
+          <label>
+            <input type="text" name="name" placeholder="Nombre" required />
+          </label>
+          <label>
+            <input type="text" name="lastName" placeholder="Apellido" required />
+          </label>
+        </div>
+        <div class="column">
+          <label>
+            <input type="email" name="email" placeholder="Email" required title="Please enter a valid email address (example@domain.com)" />
+          </label>
+          <label>
+            <input type="text" name="phone" placeholder="Teléfono" required minlength="10" maxlength="10" />
+          </label>
+        </div>
+        <button type="submit" class="light-gold gold-button">{modalbutton}</button>
+      </form>
     </div>
-    <div class="card">
-      <div> 
-        <img src={image2.src} alt="Card Image" class="card-image">
-        <div class="gradient">
-          <h3 class="card-title">{guest2}</h3>
-        </div>
-        <div class="card-content">
-          <p class="card-description">{description2}</p>
-          <div class="light-gold gold-button">
-            <button class="openModal" data-modal="modalB">{button}</button>
-          </div>
-          <div class="small-image"></div>
-        </div>
-     </div>
-    </div>   
- </div>
-</section>
+  </div>
+))}
+
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+  const forms = document.querySelectorAll('form[id^="contact-form-"]');
+  
+  forms.forEach(form => {
+    form.addEventListener('submit', function (e) {
+      e.preventDefault();
+      if (form.checkValidity()) {
+        const name = form.name.value;
+        const lastName = form.lastName.value;
+        const company = form.dataset.company; 
+        const mensaje = `Hola, mi nombre es ${name} ${lastName}, escribo desde la 95 trucking show. Estoy interesado en la vacante de ${company}.`;
+        const url = `https://wa.me/+12015984639?text=${encodeURIComponent(mensaje)}`;
+        window.open(url, '_blank');
+      } else {
+        form.reportValidity();
+      }
+    });
+  });
+});
+</script>
 
 <style lang="scss">
   @use '../assets/sass/index' as *;
@@ -166,6 +236,176 @@ const {guest1, guest2,image1, image2, description1, description2, button, title}
     box-shadow: 0 0 25px 15px rgba($accent-b-light, 40%);
   }
 
+  // modal
+
+  .modal {
+    display: none;
+    flex-direction: column; 
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    z-index: 99;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: none;
+    backdrop-filter: blur(10px);
+    background-color: rgba($tertiary, 0.85);
+  }
+
+  //rombo
+  .close-menu-container {
+    position: fixed;
+    top: 30px;
+    right: 5%;
+    z-index: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .close {
+    position: absolute;
+    width: 60px;
+    height: 60px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    z-index: 2;
+  }
+
+  .rombo {
+    width: 35px;
+    height: 35px;
+    background-color: #34373D;
+    transform: rotate(45deg); 
+    box-shadow: 0 0 10px 5px rgba($primary, 70%);
+    border-radius: 4px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .line2 {
+    width: 29px;
+    height: 4px;
+    background-color: #E03F53; 
+    position: relative;
+    box-shadow: 0 0 10px 5px rgba(221, 46, 68, 35%);
+  }
+
+  .line2::before {
+    content: "";
+    position: absolute;
+    width: 29px;
+    height: 4px;
+    background-color: #E03F53;
+    box-shadow: 0 0 10px 5px rgba(221, 46, 68, 35%);
+    transform: rotate(90deg);
+  }
+  //end rombo
+
+  .content-block {
+   margin-top: 120px;
+   width: 100%;
+   max-width: 500px;
+   padding: 20px;
+
+   p {
+     margin: 10px 0;
+     font-size: 1.5rem;
+   }
+  }
+
+  form {
+    width: 100%;
+    max-width: 500px;
+    padding: 20px;
+  }
+
+  form .row {
+    display: flex;
+    gap: 16px;
+    margin-bottom: 16px;
+  }
+
+  form .row label {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    font-size: 1rem;
+    gap: 4px;
+  }
+
+  form .column {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    margin-bottom: 16px;
+  }
+
+  form .column label {
+    display: flex;
+    flex-direction: column;
+    font-size: 1rem;
+    gap: 4px;
+  }
+
+  form input {
+    padding: 8px;
+    border-radius: 4px;
+    border: 1px solid #ccc;
+    font-size: 0.7rem;
+  }
+  
+  form button {
+    margin-top: 8px;
+    padding: 10px 24px;
+    border-radius: 6px;
+    border: none;
+    background: #2d7be5;
+    color: #fff;
+    font-weight: bold;
+    cursor: pointer;
+    font-size: 1rem;
+  }
+
+  .light-gold {
+    width: 50%;
+    border-radius: 8px;
+    padding: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: background-color 0.3s, box-shadow 0.3s;
+  }
+
+  a {
+    color: $accent-b-dark;
+    font-size: 1.2rem;
+    font-weight: $regular;
+    font-family: $heading;
+    background-color: transparent;
+    cursor: pointer;
+  }
+
+  .light-gold.gold-button {
+    background-color: $tertiary;
+    box-shadow: 0 0 20px 10px rgba($accent-b-dark, 35%);
+    border: 2px solid $accent-b-dark;
+    margin: 20px 0 30px;
+  }
+
+  .gold-button {
+    background-color: $accent-b-light;
+  }
+
+  .gold-button:hover {
+    box-shadow: 0 0 25px 15px rgba($accent-b-light, 40%);
+  }
+  //en modal
+
   @media (min-width: 1024px) {
 
     .flexbox {
@@ -224,5 +464,25 @@ const {guest1, guest2,image1, image2, description1, description2, button, title}
       align-items: center;
       transition: background-color 0.3s, box-shadow 0.3s;
     }
+
+    //modal
+    .modal {
+    padding: 0;
+    background: rgba(20, 20, 20, 0.5);
+    z-index: 99;
+  }
+
+  .block-title {
+    width: 100%;
+    max-width: 400px;
+    background: $tertiary;
+    border-radius: 16px;
+    box-shadow: 0 8px 40px 0 rgba(0,0,0,0.30);
+  }
+
+  .content-block {
+    margin-top: 0;
+  }
+    //end modal
   }
 </style>

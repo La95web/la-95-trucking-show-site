@@ -4,11 +4,11 @@ import image2 from '../assets/image/choferes.jpg';
 import image3 from '../assets/image/real.jpg';
 import image4 from '../assets/image/dispatcher.png';
 import image5 from '../assets/image/otros.jpg';
-const {title1, title, text1, text2, button, buttonB} = Astro.props;
+const {title, text1, text2, text3, text4, text5, button} = Astro.props;
 ---
 <section>
   <div class="center"> 
-    <h2>Que buscas?</h2>
+    <h2>{title}</h2>
     <div class="underlineshort"></div>
   </div>
   <div class="flexbox">
@@ -16,9 +16,9 @@ const {title1, title, text1, text2, button, buttonB} = Astro.props;
       <div> 
         <img src={image1.src} alt="Card Image" class="card-image">
         <div class="card-content">
-          <p class="card-description">Buscas trabajo como chofer? Entra aquí</p>
+          <p class="card-description">{text1}</p>
           <div class="light-gold gold-button">
-            <a href="/chofer/">Ver más</a>
+            <a href="/chofer/">{button}</a>
           </div>
         </div>
       </div>
@@ -27,9 +27,9 @@ const {title1, title, text1, text2, button, buttonB} = Astro.props;
       <div> 
         <img src={image2.src} alt="Card Image" class="card-image">
         <div class="card-content">
-          <p class="card-description">Eres dueño de un camion? Entra aquí ahora</p>
+          <p class="card-description">{text2}</p>
           <div class="light-gold gold-button">
-            <a href="/owneroperator/">Ver más</a>
+            <a href="/owneroperator/">{button}</a>
           </div>
         </div>
      </div>
@@ -38,9 +38,9 @@ const {title1, title, text1, text2, button, buttonB} = Astro.props;
       <div> 
         <img src={image3.src} alt="Card Image" class="card-image">
         <div class="card-content">
-          <p class="card-description">Rentas de habitaciones disponibles aqui</p>
+          <p class="card-description">{text3}</p>
           <div class="light-gold gold-button">
-            <a href="/rentas/">Ver más</a>
+            <a href="/rentas/">{button}</a>
           </div>
         </div>
      </div>
@@ -49,9 +49,9 @@ const {title1, title, text1, text2, button, buttonB} = Astro.props;
       <div> 
         <img src={image4.src} alt="Card Image" class="card-image">
         <div class="card-content">
-          <p class="card-description">Empresas en busca de distpacher, entra aquí</p>
+          <p class="card-description">{text4}</p>
           <div class="light-gold gold-button">
-            <a href="/dispatcher/">Ver más</a>
+            <a href="/dispatcher/">{button}</a>
           </div>
         </div>
      </div>
@@ -60,9 +60,9 @@ const {title1, title, text1, text2, button, buttonB} = Astro.props;
       <div> 
         <img src={image5.src} alt="Card Image" class="card-image">
         <div class="card-content">
-          <p class="card-description">Otros</p>
+          <p class="card-description">{text5}</p>
           <div class="light-gold gold-button">
-            <a href="/otros/">Ver más</a>
+            <a href="/otros/">{button}</a>
           </div>
         </div>
      </div>
@@ -74,6 +74,7 @@ const {title1, title, text1, text2, button, buttonB} = Astro.props;
   @use '../assets/sass/index' as *;
 
   a{
+    font-size: 1rem;
     color: $accent-b-dark;
     padding: 0rem 1rem;
   }
