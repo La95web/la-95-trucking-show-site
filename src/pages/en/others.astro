@@ -1,0 +1,29 @@
+---
+import Footer from "../../components/Footer.astro";
+import Otherstuff from "../../components/Others.astro";
+import Modal from "../../components/modalothers.astro";
+import Job1 from "../../assets/image/anuncio1.jpg";
+import EnglishLayout from "../../layouts/EnglishLayout.astro";
+---
+
+<EnglishLayout title="Otros anuncios">
+
+  <Otherstuff
+  title = "Otros anuncios" 
+  guest1="Lorem2 ipsum dolor sit amet"
+  image1={Job1}
+  description1="Lorem2 ipsum dolor sit amet"
+  button="ver más"
+
+  guest2="Lorem2 ipsum dolor sit amet"
+  image2={Job1}
+  description2="Lorem2 ipsum dolor sit amet"
+  button="ver más"/>
+  <Modal />
+  <Footer />
+</EnglishLayout>
+<script>
+  import "../../scripts/mainMenu.js"
+  import "../../scripts/modal.js"
+  import "../../scripts/saveData/Others.js"
+</script>
