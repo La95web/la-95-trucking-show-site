@@ -22,17 +22,19 @@ const ArticleForm = ({ article = null, onCancel = null }) => {
     language: 'spanish',
   });
 
+  const [isLoading, setIsLoading] = useState(false);
+
   const handleDataChange = (event) =>
-    setFormState({ ...formState, [event.target.name]: event.target.value });
+  setFormState({ ...formState, [event.target.name]: event.target.value });
 
   const handleFileChange = (event) =>
-    setFormState({ ...formState, [event.target.name]: event.target.files[0] });
+  setFormState({ ...formState, [event.target.name]: event.target.files[0] });
 
   const handleSubmit = (event) => {
     event.preventDefault();
+    setIsLoading(true);
 
     const formData = new FormData();
-
     formData.append('article[title]', formState.title);
     formData.append('article[titlevideo]', formState.titlevideo);
     formData.append('article[description]', formState.description);
@@ -49,11 +51,13 @@ const ArticleForm = ({ article = null, onCancel = null }) => {
     if (article && onCancel) {
       update(`articles/${article.id}/`, formData)
         .then(() => window.location.reload())
-        .catch((error) => alert(error));
+        .catch((error) => alert(error))
+        .finally(() => setIsLoading(false));
     } else {
       create('articles/', formData)
         .then(() => window.location.reload())
-        .catch((error) => alert(error));
+        .catch((error) => alert(error))
+        .finally(() => setIsLoading(false));
     }
   };
 
@@ -84,7 +88,7 @@ const ArticleForm = ({ article = null, onCancel = null }) => {
           <option value="Trailervideo">Trailervideo</option>
           <option value="Tractorvideo">Tractorvideo</option>
           <option value="Documentvideo">Documentvideo</option>
-          <option value="Allnewvideo">Allnewvideo</option>
+          <option value="Allnewvideo">Breakingnewsvideo</option>
         </select>
         <br />
       </label>
@@ -123,6 +127,12 @@ const ArticleForm = ({ article = null, onCancel = null }) => {
         Video:<br />
         <input type="file" name="video" onChange={handleFileChange} /><br />
       </label>
+      {isLoading && (
+        <div className={styles.loading}>
+          <p>Uploading video, please wait...</p>
+          <div className={styles.spinner}></div>
+        </div>
+      )}
 
       <label>
         Poster:<br />
