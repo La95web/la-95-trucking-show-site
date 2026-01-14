@@ -1,0 +1,84 @@
+@use '../../../../assets/sass/' as *;
+
+.list-item {
+  background: $tertiary;
+  border: 1px solid $accent-b-dark;
+  border-radius: 10px;
+  padding: 1.2rem;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-family: 'Arial', sans-serif;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  width: 90%;
+  margin: 0 auto;
+
+  &:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.12);
+  }
+
+  p {
+    color: white;
+    font-size: 0.9rem;
+    margin: 0;
+  }
+
+  button {
+    padding: 0.6rem 1rem;
+    margin: 0.3rem 0;
+    border: none;
+    border-radius: 6px;
+    font-size: 0.9rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background 0.3s ease;
+
+    &:first-of-type {
+      background: #202327;
+      color: #fff;
+
+      &:hover {
+        background: #ffcc4d;
+        color: #202327;
+      }
+    }
+
+    &:last-of-type {
+      background: #dd2e44;
+      color: #fff;
+
+      &:hover {
+        background: #a61d2f;
+      }
+    }
+  }
+}
+
+ul {
+  padding: 0;
+}
+
+li img {
+  max-width: 100px;
+  border-radius: 8px;
+}
+
+@media (min-width: 1024px) {
+  .list-item {
+    flex-direction: row;
+    align-items: center;
+    gap: 1rem;
+    max-width: 50%;
+
+    p {
+      font-size: 0.9rem;
+    }
+
+    button {
+      font-size: 0.9rem;
+      padding: 0.5rem 1rem;
+    }
+  }
+}
