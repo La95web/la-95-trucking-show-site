@@ -1,18 +1,18 @@
 ---
 export const prerender = false;
 
-import DriverForm from "../../components/forms/driverjobs/DriverjobsForm";
-import DriverListitem from "../../components/lists/list-items/driver-list-item/Driverlist";
+import DistpacherForm from "../../components/forms/distpacher-form/DistpacherForm";
+import DistpacherListitem from "../../components/lists/list-items/distpacher-list-item/DistpacherList";
 import AdminDashboard from "../../layouts/AdminDashboard.astro";
 
-const truckers = await fetch(import.meta.env.PUBLIC_API_BASE_URL.concat('truckers'), {
+const distpachers = await fetch(import.meta.env.PUBLIC_API_BASE_URL.concat('distpachers'), {
   method: 'GET',
   headers: {
     'Accept': 'application/json',
   },
 }).then((response) => response.json());
 
-const reversedTruckers = truckers.reverse();
+const reversedDistpachers = distpachers.reverse();
 ---
 <AdminDashboard title="jobs">
   <nav>
@@ -24,14 +24,14 @@ const reversedTruckers = truckers.reverse();
     </ul>
   </nav>
   <article>
-    <h1>DriverJobs</h1>
+    <h1>Distpacher jobs</h1>
     <h2>Realiza una nueva publicación aquí</h2>
   </article>
-  <DriverForm client:load />
+  <DistpacherForm client:load />
   <h2>Lista de articulos publicados</h2>
   <ul>
-    {reversedTruckers.map((trucker) => (
-      <DriverListitem trucker={trucker} client:load />
+    {reversedDistpachers.map((distpacher) => (
+      <DistpacherListitem distpacher={distpacher} client:load />
     ))}
   </ul>
 </AdminDashboard>

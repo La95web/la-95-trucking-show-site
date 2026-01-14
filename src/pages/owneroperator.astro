@@ -3,22 +3,17 @@ import SpanishLayout from "../layouts/SpanishLayout.astro";
 import Footer from "../components/Footer.astro";
 import Operator from "../components/owneroperator.astro";
 import Modal from "../components/modalowner.astro";
-import Job1 from "../assets/image/anuncio1.jpg";
-import Job2 from "../assets/image/anuncio2.jpg";
 ---
 
 <SpanishLayout title="Owner Operator">
   <Operator
-  title = "Owner Operator Empleo" 
-  guest1="JY CARRIERS LLC"
-  image1={Job1}
-  description1="Owner Operator needed"
   button="ver más"
-
-  guest2="TLC EXPRESS"
-  image2={Job2}
-  description2="Owner Operator needed"
-  button="ver más"
+  modalbutton="Contactar compañia"
+  title="empleo para choferes"
+  data1="Ubicación:"
+  data2="Pago por hora:"
+  data3="Experiencia mínima:"
+  data5="Cualidades:"
   />
   <Modal />
   <Footer />

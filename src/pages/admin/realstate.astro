@@ -1,20 +1,20 @@
 ---
 export const prerender = false;
 
-import DriverForm from "../../components/forms/driverjobs/DriverjobsForm";
-import DriverListitem from "../../components/lists/list-items/driver-list-item/Driverlist";
+import RealstateForm from "../../components/forms/realstate-form/RealstateForm";
+import RealstateListitem from "../../components/lists/list-items/realstate-list-item/RealstateList";
 import AdminDashboard from "../../layouts/AdminDashboard.astro";
 
-const truckers = await fetch(import.meta.env.PUBLIC_API_BASE_URL.concat('truckers'), {
+const realstates = await fetch(import.meta.env.PUBLIC_API_BASE_URL.concat('realstates'), {
   method: 'GET',
   headers: {
     'Accept': 'application/json',
   },
 }).then((response) => response.json());
 
-const reversedTruckers = truckers.reverse();
+const reversedRealstates = realstates.reverse();
 ---
-<AdminDashboard title="jobs">
+<AdminDashboard title="realstate">
   <nav>
     <ul>
       <li><a href="/admin/owner">OwnerOperator-jobs</a></li>
@@ -24,14 +24,14 @@ const reversedTruckers = truckers.reverse();
     </ul>
   </nav>
   <article>
-    <h1>DriverJobs</h1>
+    <h1>Rentas</h1>
     <h2>Realiza una nueva publicación aquí</h2>
   </article>
-  <DriverForm client:load />
+  <RealstateForm client:load />
   <h2>Lista de articulos publicados</h2>
   <ul>
-    {reversedTruckers.map((trucker) => (
-      <DriverListitem trucker={trucker} client:load />
+    {reversedRealstates.map((realstate) => (
+      <RealstateListitem realstate={realstate} client:load />
     ))}
   </ul>
 </AdminDashboard>
@@ -40,7 +40,7 @@ const reversedTruckers = truckers.reverse();
 </script>
 <style lang="scss">
   @use "../../assets/sass/index" as *;
-
+  
   nav {
   ul {
     display: flex;
