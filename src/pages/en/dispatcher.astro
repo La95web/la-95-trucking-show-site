@@ -1,25 +1,20 @@
 ---
-import EnglishLayout from "../../layouts/EnglishLayout.astro";
 import Footer from "../../components/Footer.astro";
-import Drivers from "../../components/Drivers.astro";
-import Modal from "../../components/modaldispatcher.astro";
-import Job1 from "../../assets/image/dispatcher.png";
+import Distpacher from "../../components/Distpacher.astro";
+import EnglishLayout from "../../layouts/EnglishLayout.astro";
 ---
 
-<EnglishLayout title="Empleo para Dispatcher">
-  <Drivers
-  title = "Dispatcher" 
-  guest2="Se busca dispatcher en ITR"
-  image2={Job1}
-  description2="Únete a nuestro equipo en empresas de transporte"
-  button="ver más"
-
-  guest1="empresa ITRUCKER"
-  image1={Job1}
-  description1="Únete a nuestro equipo en empresas de transporte"
-  button="ver más"
+<EnglishLayout title="Job for Dispatcher">
+  <Distpacher
+  button="see more"
+  modalbutton="Contact employer"
+  title="job for dispatcher"
+  data1="Location:"
+  data2="Pay per hour:"
+  data3="Minimum experience:"
+  data4="Requirements:"
+  data5="Qualities:"
   />
-  <Modal />
   <Footer />
 </EnglishLayout>
 <script>

@@ -7,7 +7,7 @@ const languageMap = {
 };
 const currentLanguage = languageMap[language] ?? 'spanish';
 
-const trucker = await fetch(import.meta.env.PUBLIC_API_BASE_URL.concat('truckers'), {
+const distpacher = await fetch(import.meta.env.PUBLIC_API_BASE_URL.concat('distpachers'), {
   method: 'GET',
   headers: {
     'Accept': 'application/json',
@@ -22,21 +22,21 @@ const trucker = await fetch(import.meta.env.PUBLIC_API_BASE_URL.concat('truckers
   </div>
 
   <div class="flexbox">
-    {trucker.length > 0 ? (
-      trucker
-        .filter((trucker) => trucker.language === currentLanguage)
+    {distpacher.length > 0 ? (
+      distpacher
+        .filter((distpacher) => distpacher.language === currentLanguage)
         .sort((a, b) => new Date(b.uploaded_at).getTime() - new Date(a.uploaded_at).getTime())
-        .map((trucker) => (
-          <div class="card" key={trucker.id}>
+        .map((distpacher) => (
+          <div class="card" key={distpacher.id}>
             <div>
-              <img src={trucker.thumbnail_url} alt="Card Image" class="card-image" />
+              <img src={distpacher.thumbnail_url} alt="Card Image" class="card-image" />
               <div class="gradient">
-                <h3 class="card-title">{trucker.company}</h3>
+                <h3 class="card-title">{distpacher.company}</h3>
               </div>
               <div class="card-content">
-                <p class="card-description">{trucker.description}</p>
+                <p class="card-description">{distpacher.description}</p>
                 <div class="light-gold gold-button">
-                  <button class="openModal" data-modal={`modal-${trucker.id}`}>{button}</button>
+                  <button class="openModal" data-modal={`modal-${distpacher.id}`}>{button}</button>
                 </div>
                 <div class="small-image"></div>
               </div>
@@ -49,12 +49,12 @@ const trucker = await fetch(import.meta.env.PUBLIC_API_BASE_URL.concat('truckers
   </div>
 </section>
 
-{trucker.length > 0 &&
-  trucker
-    .filter((trucker) => trucker.language === currentLanguage)
+{distpacher.length > 0 &&
+  distpacher
+    .filter((distpacher) => distpacher.language === currentLanguage)
     .sort((a, b) => new Date(b.uploaded_at).getTime() - new Date(a.uploaded_at).getTime())
-    .map((trucker) => (
-      <div id={`modal-${trucker.id}`} class="modal">
+    .map((distpacher) => (
+      <div id={`modal-${distpacher.id}`} class="modal">
         <div class="block-title">
           <div class="close-menu-container">
             <span class="close"></span>
@@ -63,13 +63,13 @@ const trucker = await fetch(import.meta.env.PUBLIC_API_BASE_URL.concat('truckers
             </div>
           </div>
           <div class="content-block">
-            <p><strong>{data1}</strong> {trucker.location}</p>
-            <p><strong>{data2}</strong> {trucker.salary}</p>
-            <p><strong>{data3}</strong> {trucker.experience}</p>
-            <p><strong>{data4}</strong> {trucker.requirements}</p>
-            <p><strong>{data5}</strong> {trucker.qualities}</p>
+            <p><strong>{data1}</strong> {distpacher.location}</p>
+            <p><strong>{data2}</strong> {distpacher.salary}</p>
+            <p><strong>{data3}</strong> {distpacher.experience}</p>
+            <p><strong>{data4}</strong> {distpacher.requirements}</p>
+            <p><strong>{data5}</strong> {distpacher.qualities}</p>
           </div>
-          <form id={`contact-form-${trucker.id}`} data-company={trucker.company}>
+          <form id={`contact-form-${distpacher.id}`} data-company={distpacher.company}>
             <div class="row">
               <label>
                 <input type="text" name="name" placeholder="Nombre" required />
