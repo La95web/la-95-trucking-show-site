@@ -1,29 +1,21 @@
 ---
 import Footer from "../../components/Footer.astro";
-import Owneroperator from "../../components/owneroperator.astro";
-import Modal from "../../components/modalowner.astro";
-import Job1 from "../../assets/image/anuncio1.jpg";
-import Job2 from "../../assets/image/anuncio2.jpg";
+import OperatorEn from "../../components/owneroperator.astro";
 import EnglishLayout from "../../layouts/EnglishLayout.astro";
 ---
 
-<EnglishLayout >
-  <Owneroperator
-  title = "Owner Operator Empleo" 
-  guest1="JY CARRIERS LLC"
-  image1={Job1}
-  description1="Owner Operator needed"
-  button="ver más"
-
-  guest2="TLC EXPRESS"
-  image2={Job2}
-  description2="Owner Operator needed"
-  button="ver más"
+<EnglishLayout title="Owner Operator">
+  <OperatorEn
+  button="see more"
+  modalbutton="Contact employer"
+  title="job for owner operator"
+  data1="Location:"
+  data2="Pay per hour:"
+  data3="Minimum experience:"
+  data5="Qualities:"
   />
-  <Modal />
   <Footer />
 </EnglishLayout>
-
 <script>
   import "../../scripts/mainMenu.js"
   import "../../scripts/modal.js"
