@@ -1,18 +1,18 @@
 ---
 export const prerender = false;
 
-import DriverForm from "../../components/forms/driverjobs/DriverjobsForm";
-import DriverListitem from "../../components/lists/list-items/driver-list-item/Driverlist";
+import OwnerForm from "../../components/forms/owner-form/OwnerForm";
+import OwnerListitem from "../../components/lists/list-items/owner-list-item/OwnerList";
 import AdminDashboard from "../../layouts/AdminDashboard.astro";
 
-const truckers = await fetch(import.meta.env.PUBLIC_API_BASE_URL.concat('truckers'), {
+const owners = await fetch(import.meta.env.PUBLIC_API_BASE_URL.concat('owners'), {
   method: 'GET',
   headers: {
     'Accept': 'application/json',
   },
 }).then((response) => response.json());
 
-const reversedTruckers = truckers.reverse();
+const reversedOwners = owners.reverse();
 ---
 <AdminDashboard title="jobs">
   <nav>
@@ -24,14 +24,14 @@ const reversedTruckers = truckers.reverse();
     </ul>
   </nav>
   <article>
-    <h1>DriverJobs</h1>
+    <h1>Owner operator jobs</h1>
     <h2>Realiza una nueva publicación aquí</h2>
   </article>
-  <DriverForm client:load />
+  <OwnerForm client:load />
   <h2>Lista de articulos publicados</h2>
   <ul>
-    {reversedTruckers.map((trucker) => (
-      <DriverListitem trucker={trucker} client:load />
+    {reversedOwners.map((owner) => (
+      <OwnerListitem owner={owner} client:load />
     ))}
   </ul>
 </AdminDashboard>
@@ -40,7 +40,7 @@ const reversedTruckers = truckers.reverse();
 </script>
 <style lang="scss">
   @use "../../assets/sass/index" as *;
-
+  
   nav {
   ul {
     display: flex;

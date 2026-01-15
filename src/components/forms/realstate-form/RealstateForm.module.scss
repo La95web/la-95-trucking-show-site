@@ -1,31 +1,5 @@
 @use '../../../assets/sass/index' as *;
 
-.loading {
-  margin-top: 1rem;
-  text-align: center;
-  color: #4a90e2;
-  font-weight: bold;
-
-  .spinner {
-    margin: 0.5rem auto;
-    width: 40px;
-    height: 40px;
-    border: 4px solid #ccc;
-    border-top: 4px solid #4a90e2;
-    border-radius: 50%;
-    animation: spin 1s linear infinite;
-  }
-}
-
-@keyframes spin {
-  100% { transform: rotate(360deg); }
-}
-
-
-h2{
-  color: #dd2e44;
-}
-
 .form {
   background: $tertiary;
   padding: 2rem;
