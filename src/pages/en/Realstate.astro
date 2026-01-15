@@ -1,30 +1,19 @@
 ---
 import Footer from "../../components/Footer.astro";
-import Real from "../../components/Realstate.astro";
-import room1 from "../../assets/image/room1.png";
-import room2 from "../../assets/image/bad1.png";
-import ModalRealstate from "../../components/modalRealstate.astro";
+import RealstateEn from "../../components/Realstate.astro";
 import EnglishLayout from "../../layouts/EnglishLayout.astro";
 ---
 
-<EnglishLayout title="ROOMS - La 95 Trucking Show">
-
-  <Real images={[room1.src, room2.src]} 
+<EnglishLayout title="Rooms - La 95 Trucking Show">
+  <RealstateEn
   title="Rooms for rent"
-  paragraph1="$800/mo"
-  paragraph2="1bd 1ba"
-  paragraph3="Wifi"
-  paragraph4="Parking"
-  paragraph5="Furnished"
-  paragraph6="Sunny room in shared apartment Sunny room in shared apartment"
-  paragraph7="San francisco, CA"
-  button="contact us"
+  button="contact"
+  modalbutton="Contact"
   />
-  <ModalRealstate />
   <Footer />
 </EnglishLayout>
 <script>
-  import "../../scripts/mainMenu.js";
-  import "../../scripts/modal.js";
+  import "../../scripts/mainMenu.js"
+  import "../../scripts/modal.js"
   import "../../scripts/saveData/Realstate.js"
 </script>
