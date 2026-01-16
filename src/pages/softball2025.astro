@@ -2,6 +2,8 @@
 import SpanishLayout from "../layouts/SpanishLayout.astro";
 import Footer from "../components/Footer.astro";
 import Video1 from "../assets/image/softballMedia25-01.mp4";
+import video2 from "../assets/image/softballvideo.mp4"; 
+import video3 from "../assets/image/softballvideo2.mp4";   
 import img1 from "../assets/image/softball25-01.jpg";
 import img2 from "../assets/image/softball25-02.jpg";
 import img3 from "../assets/image/softball25-03.jpg";
@@ -23,10 +25,10 @@ import Gallery8 from "../assets/image/softball25-16.jpg";
 import Gallery9 from "../assets/image/softball25-17.jpg"; 
 import Gallery10 from "../assets/image/softball25-18.jpg";
 import Gallery11 from "../assets/image/softball25-21.jpg";
-import Gallery12 from "../assets/image/campo1.JPG";
-import Gallery13 from "../assets/image/campo2.JPG";
-import Gallery14 from "../assets/image/campo3.JPG";
-import Gallery15 from "../assets/image/campo4.JPG";
+import Gallery12 from "../assets/image/campo1.jpg";
+import Gallery13 from "../assets/image/campo2.jpg";
+import Gallery14 from "../assets/image/campo3.jpg";
+import Gallery15 from "../assets/image/campo4.jpg";
 import Gallery16 from "../assets/image/team1.webp";
 import Gallery17 from "../assets/image/team2.webp";
 import Gallery18 from "../assets/image/team3.webp";
@@ -49,6 +51,12 @@ const images = [
     <div class="video-gallery">
       <video controls width="300" preload="none" poster={poster.src}>
         <source src={Video1} type="video/mp4" />
+      </video>
+       <video controls width="300" preload="none" poster={Gallery12.src}>
+        <source src={video2} type="video/mp4" />
+      </video>
+      <video controls width="300" preload="none" poster={Gallery17.src}>
+        <source src={video3} type="video/mp4" />
       </video>
     </div>
   </div>
