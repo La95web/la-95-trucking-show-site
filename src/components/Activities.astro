@@ -1,6 +1,6 @@
 ---
 const {title1, title2, title3, title4, text1, text2, text3, text5, text6, text7, text8, text10,
-image1, image2, image3, image5, image7, image8, image9, image10} = Astro.props
+text11, image1, image2, image3, image5, image7, image8, image9, image10, image11} = Astro.props
 ---
 <div class="top"></div> 
 <section class="backimg"> 
@@ -86,6 +86,14 @@ image1, image2, image3, image5, image7, image8, image9, image10} = Astro.props
   <div class="flexbox">
     <div class="card">
       <div> 
+        <a href="/StudioPodcast2026"><img src={image11.src} alt="Card Image" class="card-image">
+        <div class="gradient">
+          <h3 class="card-title">{text11}</h3></a>
+        </div>
+     </div>
+    </div>    
+    <div class="card">
+      <div> 
         <a href="/StudioPodcast2024"><img src={image7.src} alt="Card Image" class="card-image">
         <div class="gradient">
           <h3 class="card-title">{text7}</h3></a>
@@ -99,7 +107,7 @@ image1, image2, image3, image5, image7, image8, image9, image10} = Astro.props
           <h3 class="card-title">{text8}</h3></a>
         </div>
      </div>
-    </div>   
+    </div> 
  </div>
 </section>
 
