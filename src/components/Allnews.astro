@@ -2,6 +2,16 @@
 const { title, language = 'es', paragraph, button, navTips1, navTips2, navTips3, navTips4, navTips5, link1, link2, link3, link4, link5 } = Astro.props;
 import formatDate from "../scripts/formatDate";
 
+const linkifyText = (text = "") => {
+  const urlRegex = /(https?:\/\/[^\s]+)/g;
+
+  return text.replace(
+    urlRegex,
+    (url) =>
+      `<a href="${url}" target="_blank" rel="noopener noreferrer">${url}</a>`
+  );
+};
+
 const languageMap = {
   en: 'english',
   es: 'spanish',
@@ -50,7 +60,7 @@ const articles = await fetch(import.meta.env.PUBLIC_API_BASE_URL.concat('news'),
           <figure>
             <img src={article.thumbnail_url} alt="news" />
             <div>
-              <p class="lead-paragraph">{article.content}</p>
+              <p class="lead-paragraph" set:html={linkifyText(article.content)}></p>
             </div>
           </figure>
         </div>
