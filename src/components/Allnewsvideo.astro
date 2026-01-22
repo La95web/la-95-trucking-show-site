@@ -1,5 +1,14 @@
 ---
 const { language = 'es' } = Astro.props;
+const linkifyText = (text = "") => {
+  const urlRegex = /(https?:\/\/[^\s]+)/g;
+
+  return text.replace(
+    urlRegex,
+    (url) =>
+      `<a href="${url}" target="_blank" rel="noopener noreferrer">${url}</a>`
+  );
+};
 
 const languageMap = {
   en: 'english',
@@ -24,7 +33,7 @@ const articles = await fetch(import.meta.env.PUBLIC_API_BASE_URL.concat('allnewv
         <div class="box-video">
           <h4>{article.titlevideo}</h4>
           <div class="underline"></div>
-          <p>{article.description}</p>
+          <p class="lead-paragraph" set:html={linkifyText(article.description)}></p>
           <video class="poster" controls preload="none" poster={article.poster_url}>
             <source src={article.video_url} type="video/mp4" />
           </video>
