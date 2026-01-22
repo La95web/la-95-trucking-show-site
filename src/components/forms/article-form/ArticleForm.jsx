@@ -1,7 +1,13 @@
 import { useState } from 'react';
+import Linkify from 'linkify-react';
 import styles from './Articlesform.module.scss';
 import create from '../../../scripts/api/create';
 import update from '../../../scripts/api/update';
+
+const linkifyOptions = {
+  target: '_blank',
+  rel: 'noopener noreferrer',
+};
 
 const ArticleForm = ({ article = null, onCancel = null }) => {
   const [formState, setFormState] = useState(article ? {
@@ -72,6 +78,16 @@ const ArticleForm = ({ article = null, onCancel = null }) => {
         Contenido:<br />
         <textarea name="content" value={formState.content} onChange={handleDataChange} /><br />
       </label>
+       {formState.content && (
+        <div className={styles.preview}>
+          <strong>Preview Contenido:</strong>
+          <div className={styles.previewBox}>
+            <Linkify options={linkifyOptions}>
+              {formState.content}
+            </Linkify>
+          </div>
+        </div>
+      )}
 
       <label>
         Uploaded At:<br />
@@ -122,6 +138,16 @@ const ArticleForm = ({ article = null, onCancel = null }) => {
         Description:<br />
         <textarea name="description" value={formState.description} onChange={handleDataChange} /><br />
       </label>
+      {formState.description && (
+        <div className={styles.preview}>
+          <strong>Preview Description:</strong>
+          <div className={styles.previewBox}>
+            <Linkify options={linkifyOptions}>
+              {formState.description}
+            </Linkify>
+          </div>
+        </div>
+      )}
 
       <label>
         Video:<br />
