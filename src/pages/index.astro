@@ -10,10 +10,12 @@ import truck2 from "../assets/image/Misionteam.webp";
 import truck3 from "../assets/image/truck3.webp";
 import VisionSection from "../components/VisionSection.astro";
 import imageA from '../assets/image/empresa1.png';
-import imageB from '../assets/image/empresa2.png';
+import imageB from '../assets/image/logonj2.png';
+import imageD from '../assets/image/logonj1.png';
 import ModalCompanies from "../components/modalCompanies.astro";
 import Modalterms from "../components/Modalterms.astro";
-import imageC from '../assets/image/addon1.jpg';
+import imageC from "../assets/image/driverschool.png";
+import imageE from "../assets/image/omega.png";
 ---
 
 <SpanishLayout title="la 95 trucking show">
@@ -104,84 +106,70 @@ import imageC from '../assets/image/addon1.jpg';
         <div>  
           <div class="content-box">
             <img src={imageA.src} alt="#">
-            <button class="openModal" data-modal="modalF">Adrian truck sale</button>
+            <a href="https://www.instagram.com/adrians_motors/" target="_blank">adrian motors truck sale</a>
           </div>
           <div class="content-box">
             <img src={imageB.src} alt="#">
-            <a href="">ride tire located in pensilvania</a>
+            <a href="" target="_blank">nj compliance solutions corp</a>
           </div>
         </div>
         <div>  
           <div class="content-box">
-            <img src={imageA.src} alt="#">
-            <a href="">ride tire located in pensilvania</a>
+            <img src={imageD.src} alt="#">
+            <a href="https://www.instagram.com/njtruckers/" target="_blank">nj truckers services corp</a>
           </div>
           <div class="content-box">
-            <img src={imageB.src} alt="#">
-            <a href="">ride tire located in pensilvania</a>
+            <img src={imageC.src} alt="#">
+            <a href="https://www.instagram.com/newyorkcommericaldrivingschool/" target="_blank">NEW YORK commercial driving school</a>
           </div>
         </div>
       </div>
       <div class="background-block">
       <div>  
           <div class="content-box">
-            <img src={imageA.src} alt="#">
-            <a href="">adrians motor in new jersey</a>
+            <img src={imageE.src} alt="#">
+            <a href="https://www.instagram.com/omegainsurance_agency/" target="_blank">omega insurance agency</a>
           </div>
           <div class="content-box">
-            <img src={imageB.src} alt="#">
-            <a href="">ride tire located in pensilvania</a>
+            <!-- <img src={imageB.src} alt="#">
+            <a href="">ride tire located in pensilvania</a> -->
           </div>
         </div>
         <div>  
           <div class="content-box">
-            <img src={imageA.src} alt="#">
-            <a href="">adrians motor in new jersey</a>
+            <!-- <img src={imageA.src} alt="#">
+            <a href="">adrians motor in new jersey</a> -->
           </div>
           <div class="content-box">
-            <img src={imageB.src} alt="#">
-            <a href="">ride tire located in pensilvania</a>
+            <!-- <img src={imageB.src} alt="#">
+            <a href="">ride tire located in pensilvania</a> -->
           </div>
         </div>
       </div>
       <div class="background-block">
         <div>  
           <div class="content-box">
-            <img src={imageA.src} alt="#">
-            <a href="">adrians motor in new jersey</a>
+            <!-- <img src={imageA.src} alt="#">
+            <a href="">adrians motor in new jersey</a> -->
           </div>
           <div class="content-box">
-            <img src={imageB.src} alt="#">
-            <a href="">ride tire located in pensilvania</a>
+            <!-- <img src={imageB.src} alt="#">
+            <a href="">ride tire located in pensilvania</a> -->
           </div>
         </div>
         <div>  
           <div class="content-box">
-            <img src={imageA.src} alt="#">
-            <a href="">adrians motor in new jersey</a>
+            <!-- <img src={imageA.src} alt="#">
+            <a href="">adrians motor in new jersey</a> -->
           </div>
           <div class="content-box">
-            <img src={imageB.src} alt="#">
-            <a href="">ride tire located in pensilvania</a>
+            <!-- <img src={imageB.src} alt="#">
+            <a href="">ride tire located in pensilvania</a> -->
           </div>
         </div>
       </div>
     </div>
   </section>
-  <div id="modalF" class="modal"> 
-    <div class="close-menu-container">
-    <span class="close"></span>
-    <div class="rombo">
-      <div class="line2"></div>
-    </div>
-  </div>
-    <img src={imageC.src} alt="#">
-    <div class="section-center">
-      <div class="light-gold gold-button">
-        <a class="content-link" href="https://www.instagram.com/adrians_motors/" target="_blank">ver más</a>
-      </div>
-    </div>
-  </div>
   <Footer />
 </SpanishLayout>
 <script>
@@ -295,7 +283,13 @@ import imageC from '../assets/image/addon1.jpg';
   .content-box {
     display: flex;
     align-items: center;
-    gap: 10px;
+  }
+
+  .content-box a {
+    display: inline-block;   /* hace que el <a> respete ancho */
+    max-width: 200px;        /* ajusta el ancho según tu diseño */
+    white-space: normal;     /* permite saltos de línea */
+    word-wrap: break-word;   /* fuerza salto si hay palabras largas */
   }
 
   .content-box img {
@@ -433,6 +427,10 @@ import imageC from '../assets/image/addon1.jpg';
 
     .underline {
       margin: 0 auto;
+    }
+
+    .content-box {
+      gap: 10px;
     }
 
     .content-box a {
