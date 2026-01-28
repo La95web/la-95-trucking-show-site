@@ -14,13 +14,23 @@ const { text1, text2, strong, em, text3, navTips1, navTips2, navTips3, navTips4,
     </ul>
   </nav>
 </div>
-<div class="title-content">
-  <h2>safety</h2>
-  <div class="underline"></div>
-  <p>{text1}</p>
-  <p>{text2}</p>
+<div class="content-flex">
+  <div class="title-content">
+    <h2>safety</h2>
+    <div class="underline"></div>
+    <p>{text1}</p>
+    <p>{text2}</p>
+    <img class="logo" src={safety.src} alt="logo">
+  </div>
+  <div class="content-block">
+    <h3>Accede a una asesoria</h3>
+    <div class="underline"></div>
+    <p>Accede al siguiente enlace y obten un descuento de $20 USD por 1 hora de asesoria</p>
+    <p>Asesor: <em>Tab Caticha</em></p>
+    <p><strong>USDOT compliance Specialist</strong></p>
+    <button type="submit" class="light-gold gold-button">dale aquí</button>
+  </div>
 </div>
-<img class="logo" src={safety.src} alt="logo">
 <figure> 
   <section>
     <p>USDOT Compliance service</p>
@@ -35,6 +45,7 @@ const { text1, text2, strong, em, text3, navTips1, navTips2, navTips3, navTips4,
     <p>USDOT Expert Witness</p>
   </section>
 </figure>
+
 <!-- <article>
   <div>
     <p>Tab Caticha</p>
@@ -49,6 +60,16 @@ const { text1, text2, strong, em, text3, navTips1, navTips2, navTips3, navTips4,
 
 <style lang="scss">
   @use "../assets/sass/index" as *;
+
+  .content-block {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    max-width: 600px;
+    margin: 0 auto;
+    text-align: center;
+  }
 
   figure {
     display: flex;
@@ -232,7 +253,31 @@ const { text1, text2, strong, em, text3, navTips1, navTips2, navTips3, navTips4,
     font-size: 1.2rem;
   }
 
-  @media (min-width: 1025px) {
+  .content-flex {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;      /* Centra horizontalmente */
+    align-items: stretch;         /* Hace que ambos hijos tengan el mismo alto */
+    gap: 5rem;                    /* Espacio entre los bloques */
+    padding: 2rem;
+  }
+
+  .content-flex > div {
+    flex: 1;                      /* Ambos ocupan el mismo ancho */
+    background: $primary;             /* Opcional */
+    padding: 2rem;
+    border-radius: 10px;         
+    display: flex;
+    flex-direction: column;       /* Para que el contenido interno fluya vertical */
+    justify-content: center;      /* Centra verticalmente el contenido */
+  }
+  @media (min-width: 1024px) {
+
+    .content-flex {
+      flex-direction: row;
+    }
+
+
      section p {
       flex: 1 1 22%;
       max-width: 22%;
