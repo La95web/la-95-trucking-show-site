@@ -1,5 +1,5 @@
 ---
-import safety from "../assets/image/safety.png";
+import safety from "../assets/image/tec.png";
 const { text1, text2, strong, em, text3, navTips1, navTips2, navTips3, navTips4, navTips5, link1, link2, link3, link4, link5 } = Astro.props;
 ---
 
@@ -17,26 +17,83 @@ const { text1, text2, strong, em, text3, navTips1, navTips2, navTips3, navTips4,
 <div class="title-content">
   <h2>safety</h2>
   <div class="underline"></div>
-  <p>{text1} <strong>{strong}</strong>{text2} <em>{em}</em>{text3}</p>
+  <p>{text1}</p>
+  <p>{text2}</p>
 </div>
+<img class="logo" src={safety.src} alt="logo">
 <figure> 
-  <ul>
-    <li><i class="ph ph-check"></i>Bus Safety – Look Before You Book</li>
-    <li><i class="ph ph-check"></i>Household Goods – Protect Your Move</li>
-    <li><i class="ph ph-check"></i>Driver Safety</li>
-    <li><i class="ph ph-check"></i>Passenger Carrier Safety</li>
-    <li><i class="ph ph-check"></i>Company Safety Data</li>
-    <li><i class="ph ph-check"></i>Highway-Rail Grade Crossing Safety</li>
-    <li><i class="ph ph-check"></i>Commercial Tire Safety Tips</li>
-    <li><i class="ph ph-check"></i>CMV Traffic Safety Facts</li>
-  </ul>
-  <img src={safety.src} alt="">
+  <section>
+    <p>USDOT Compliance service</p>
+    <p>Preventive/Annual CMV Inspection</p>
+    <p>Compliance Review Representations</p>
+    <p>Safety Audit Representations</p>
+    <p>Corrective Action Plans</p>
+    <p>Hours of service/ELD Training</p>
+    <p>HAZMAT Training</p>
+    <p>Court appearance</p>
+    <p>CMV Accident Investigation</p>
+    <p>USDOT Expert Witness</p>
+  </section>
 </figure>
+<!-- <article>
+  <div>
+    <p>Tab Caticha</p>
+    <p>USDOT Compliance Specialist</p>
+    <p>201-772-8515</p>
+    <p>862-367-8180 (fax)</p>
+    <p>857 Julia ST.Elizabeth, NJ 07201</p>
+    <p>tab@tecsafetysolutions.com</p>
+  </div>
+</article> -->
 
 
 <style lang="scss">
   @use "../assets/sass/index" as *;
-   // start new styles
+
+  figure {
+    display: flex;
+    justify-content: center;
+    margin: 1rem 0;
+  }
+
+  img.logo {
+    width: 300px;
+  }
+
+  section {
+    display: flex;
+    flex-wrap: wrap;          /* permite que los cuadros bajen a la siguiente fila */
+    justify-content: center;  /* centra las columnas en la pantalla */
+    gap: 1rem;                /* espacio entre cuadros */
+    margin: 2rem auto;
+  }
+
+  section p {
+    flex: 1 1 45%;            /* en móvil: aprox 2 columnas (45% cada uno) */
+    max-width: 45%;           /* asegura que no se estiren demasiado */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    border: 2px solid $accent-b-dark;
+    color: $accent-b-dark;
+    border-radius: 8px;
+    padding: 1rem;
+    min-height: 80px;
+    font-size: 1rem;
+  }
+
+  /* Tablet: 3 columnas */
+  @media (min-width: 768px) {
+    section p {
+      flex: 1 1 30%;
+      max-width: 30%;
+    }
+  }
+  
+  .underline {
+    margin: 0 auto;
+  }
 
   nav ul{
     display: flex;
@@ -52,20 +109,18 @@ const { text1, text2, strong, em, text3, navTips1, navTips2, navTips3, navTips4,
   }
 
   .title-content {
+   text-align: center;
    padding-top: 50px;
     p{
        margin: 20px 5%;
     }
   }
 
-  figure {
-    display: flex;
-    margin: 20px 5%;
-    border: 2px solid $accent-b-light;
-    border-radius: 8px;
-    img {
-      display: none;
-    }
+  .logo {
+    display: block;
+    margin: 20px auto;
+    width: 450px;
+    object-fit: contain;
   }
 
   a {
@@ -178,15 +233,9 @@ const { text1, text2, strong, em, text3, navTips1, navTips2, navTips3, navTips4,
   }
 
   @media (min-width: 1025px) {
-    figure {
-      justify-content: space-between;
-      width: 50%;
-      img {
-        display: block;
-        width: 300px;
-        min-width: 50px;
-        object-fit: contain;
-      }
+     section p {
+      flex: 1 1 22%;
+      max-width: 22%;
     }
 
     .section {
