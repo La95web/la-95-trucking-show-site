@@ -10,10 +10,13 @@ import truck2 from "../assets/image/Misionteam.webp";
 import truck3 from "../assets/image/truck3.webp";
 import VisionSection from "../components/VisionSection.astro";
 import imageA from '../assets/image/empresa1.png';
-import imageB from '../assets/image/empresa2.png';
+import imageB from '../assets/image/logonj2.png';
+import imageD from '../assets/image/logonj1.png';
 import ModalCompanies from "../components/modalCompanies.astro";
 import Modalterms from "../components/Modalterms.astro";
-import imageC from '../assets/image/addon1.jpg';
+import imageC from "../assets/image/driverschool.png";
+import imageE from "../assets/image/omega.png";
+import imageF from "../assets/image/tag.png";
 ---
 
 <SpanishLayout title="la 95 trucking show">
@@ -23,8 +26,9 @@ import imageC from '../assets/image/addon1.jpg';
     title2="Empresas afiiliadas"
     titleC="Si eres dueño de empresa"
     paragraphC="Elije esta opcion para convertirte en patrocinador y disfruta de los beneficios de la suscripción."
-    text1="Seguros medicos. Descuentos por empresa."
-    text2="Mecanica general. Descuentos por empresa."
+    text1="Agencia de seguros Descuentos por empresa."
+    text2="Venta de camiones Descuentos por empresa."
+    text3="Dale clic abajo Descuentos por empresa."
     titleA="Empresas afiiliadas"
     title="Suscríbete ahora"
     paragraph="Si eres un usuario regular, elige la suscripción que mejor se adapta a ti."
@@ -95,93 +99,38 @@ import imageC from '../assets/image/addon1.jpg';
     textA="Ser el podcast líder en la comunidad camionera, brindando información relevante, entretenimiento y un espacio de expresión para los conductores de camiones. Buscamos dar voz a quienes recorren las carreteras, compartiendo sus experiencias, desafíos y éxitos, mientras fortalecemos el sentido de comunidad y apoyo mutuo."
     textB="Convertirnos en el referente principal para los camioneros de habla hispana, creando un espacio donde se compartan conocimientos, anécdotas y noticias del sector. Aspiramos a influir positivamente en la industria del transporte y mejorar la calidad de vida de los conductores a través de contenido valioso y auténtico."
     textC="Nuestros valores son el respeto por la labor de los camioneros, la autenticidad en las historias, el compromiso con contenido relevante, la unidad para fomentar la solidaridad y la pasión por la industria del transporte."/>
-    <section class="top-companies rows"> 
+  <section class="top-companies">
     <h2>Empresas afiliadas</h2>
     <div class="underline"></div>
-    <p>En las siguientes empresas en donde podras hacer uso de los descuentos</p>
-    <div class="section-content">
-      <div class="background-block">
-        <div>  
-          <div class="content-box">
-            <img src={imageA.src} alt="#">
-            <button class="openModal" data-modal="modalF">Adrian truck sale</button>
-          </div>
-          <div class="content-box">
-            <img src={imageB.src} alt="#">
-            <a href="">ride tire located in pensilvania</a>
-          </div>
-        </div>
-        <div>  
-          <div class="content-box">
-            <img src={imageA.src} alt="#">
-            <a href="">ride tire located in pensilvania</a>
-          </div>
-          <div class="content-box">
-            <img src={imageB.src} alt="#">
-            <a href="">ride tire located in pensilvania</a>
-          </div>
-        </div>
+    <p>En las siguientes empresas en donde podrás hacer uso de los descuentos</p>
+    <div class="companies-grid">
+      <div class="content-box">
+        <img src={imageA.src} alt="adrian motors truck sale">
+        <a href="https://www.instagram.com/adrians_motors/" target="_blank">adrian motors truck sale</a>
       </div>
-      <div class="background-block">
-      <div>  
-          <div class="content-box">
-            <img src={imageA.src} alt="#">
-            <a href="">adrians motor in new jersey</a>
-          </div>
-          <div class="content-box">
-            <img src={imageB.src} alt="#">
-            <a href="">ride tire located in pensilvania</a>
-          </div>
-        </div>
-        <div>  
-          <div class="content-box">
-            <img src={imageA.src} alt="#">
-            <a href="">adrians motor in new jersey</a>
-          </div>
-          <div class="content-box">
-            <img src={imageB.src} alt="#">
-            <a href="">ride tire located in pensilvania</a>
-          </div>
-        </div>
+      <div class="content-box">
+        <img src={imageB.src} alt="nj compliance solutions corp">
+        <a href="" target="_blank">nj compliance solutions corp</a>
       </div>
-      <div class="background-block">
-        <div>  
-          <div class="content-box">
-            <img src={imageA.src} alt="#">
-            <a href="">adrians motor in new jersey</a>
-          </div>
-          <div class="content-box">
-            <img src={imageB.src} alt="#">
-            <a href="">ride tire located in pensilvania</a>
-          </div>
-        </div>
-        <div>  
-          <div class="content-box">
-            <img src={imageA.src} alt="#">
-            <a href="">adrians motor in new jersey</a>
-          </div>
-          <div class="content-box">
-            <img src={imageB.src} alt="#">
-            <a href="">ride tire located in pensilvania</a>
-          </div>
-        </div>
+      <div class="content-box">
+        <img src={imageD.src} alt="nj truckers services corp">
+        <a href="https://www.instagram.com/njtruckers/" target="_blank">nj truckers services corp</a>
       </div>
+      <div class="content-box">
+        <img src={imageC.src} alt="NEW YORK commercial driving school">
+        <a href="https://www.instagram.com/newyorkcommericaldrivingschool/" target="_blank">NEW YORK commercial driving school</a>
+      </div>
+      <div class="content-box">
+        <img src={imageE.src} alt="omega insurance agency">
+        <a href="https://www.instagram.com/omegainsurance_agency/" target="_blank">omega insurance agency</a>
+      </div>
+      <div class="content-box">
+        <img src={imageF.src} alt="tec safety solutions">
+        <a href="https://www.instagram.com/tabcaticha/" target="_blank">tec safety solutions</a>
+      </div>
+      <!-- Agrega más content-box según necesites -->
     </div>
   </section>
-  <div id="modalF" class="modal"> 
-    <div class="close-menu-container">
-    <span class="close"></span>
-    <div class="rombo">
-      <div class="line2"></div>
-    </div>
-  </div>
-    <img src={imageC.src} alt="#">
-    <div class="section-center">
-      <div class="light-gold gold-button">
-        <a class="content-link" href="https://www.instagram.com/adrians_motors/" target="_blank">ver más</a>
-      </div>
-    </div>
-  </div>
   <Footer />
 </SpanishLayout>
 <script>
@@ -194,134 +143,22 @@ import imageC from '../assets/image/addon1.jpg';
 <style lang="scss">
   @use "../assets/sass/index" as *;
 
-  button {
-    cursor: pointer;
-    background-color: transparent;
-    color: #ffd261;
-    text-transform: uppercase;
-    font-size: 1rem;
-    font-weight: $regular;
-    font-family: $heading;
+  .underline {
+    margin: 0 auto;
   }
 
-  .modal {
-    display: none;
-    flex-direction: column; 
-    justify-content: center;
-    align-items: center;
-    position: fixed;
-    z-index: 99;
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    overflow: none;
-    backdrop-filter: blur(10px);
-    background-color: rgba($tertiary, 0.5);
-    img{
-      width: 300px;
-    }
-  }
-
-  //rombo
-  .close-menu-container {
-    position: fixed;
-    top: 30px;
-    right: 5%;
-    z-index: 1;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-
-  .close {
-    position: absolute;
-    width: 60px;
-    height: 60px;
-    background: transparent;
-    border: none;
-    cursor: pointer;
-    z-index: 2;
-  }
-
-  .rombo {
-    width: 35px;
-    height: 35px;
-    background-color: #34373D;
-    transform: rotate(45deg); 
-    box-shadow: 0 0 10px 5px rgba($primary, 70%);
-    border-radius: 4px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-
-  .line2 {
-    width: 29px;
-    height: 4px;
-    background-color: #E03F53; 
-    position: relative;
-    box-shadow: 0 0 10px 5px rgba(221, 46, 68, 35%);
-  }
-
-  .line2::before {
-    content: "";
-    position: absolute;
-    width: 29px;
-    height: 4px;
-    background-color: #E03F53;
-    box-shadow: 0 0 10px 5px rgba(221, 46, 68, 35%);
-    transform: rotate(90deg);
-  }
-  //end rombo
-
-  .section-content {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    align-items: center;
-    gap: 20px;
-    background-color: transparent;
-  }
-
-  h2 {
-    text-align: left;
-  }
-  p{
-    text-align: left;
-    margin: 10px 5%;
-  }
-
-  .content-box {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-  }
-
-  .content-box img {
-    width: 100px;
-    height: 100px;
-    object-fit: cover;
-    display: block;
-    cursor: pointer;
-  }
-
-  .background-block {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-
-  .rows {
-    position: relative;
+ .top-companies {
     background-image: url('../assets/image/truckersMovil.png');
-    width: 100%;
     background-size: cover;
     background-position: center;
+    background-repeat: no-repeat;
+    text-align: center;
+    padding: 2rem;
+    position: relative;
     z-index: 1;
   }
 
-  .rows::before {
+  .top-companies::before {
     content: "";
     position: absolute;
     inset: 0;
@@ -330,130 +167,63 @@ import imageC from '../assets/image/addon1.jpg';
     border-radius: inherit;
   }
 
-  .rows > * {
+  .top-companies > * {
     position: relative;
     z-index: 1;
+    color: #fff;
   }
 
-  a {
-    color: $accent-b-light;
-    font-size: 0.7em;
+  .companies-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); 
+    gap: 1rem;
   }
 
-  a:hover {
-    color: white;
-  }
-
-
-  section {
-    display: block;
-    text-align: center;
-    padding: 30px 20px;
-  }
-
-  .section-center {
+  .content-box {
     display: flex;
     flex-direction: column;
-    justify-content: center;
     align-items: center;
+    padding: 1rem;
+    min-height: 10px;
+    text-align: center;
   }
 
-  .light-gold {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 155px;
-    border-radius: 8px;
-    padding: 0px;
-    transition: background-color 0.3s, box-shadow 0.3s;
+  .content-box img {
+    width: 100px;  
+    height: 80px;
+    object-fit: contain;
+    margin-bottom: 0.5rem;
   }
 
-  .content-link {
-    color: $accent-b-dark;
-    font-weight: $regular;
-    font-family: $heading;
-    cursor: pointer;
-    -webkit-appearance: none;
-    appearance: none;
-    background-color: $tertiary;
-    font-size: 1.5rem;
-    line-height: 1;
-    white-space: nowrap;
-    border: none;
-    padding: 10px 24px;
-    overflow: hidden;
+  .content-box a {
+    font-size: 0.95rem;
+    color: $accent-b-light;
+    text-decoration: none;
   }
 
-  .light-gold.gold-button {
-    background-color: $tertiary;
-    box-shadow: 0 0 20px 10px rgba($accent-b-dark, 35%);
-    border: 2px solid $accent-b-dark;
-    margin: 20px 0 0;
+  .content-box a:hover {
+    text-decoration: underline;
+    color: $secondary;
+    transition: color 0.3s ease;
   }
 
-  .gold-button {
-    background-color: $accent-b-light;
-  }
-
-  .gold-button:hover {
-    box-shadow: 0 0 25px 15px rgba($accent-b-light, 40%);
-  }
-
-  @media (max-width: 768px) {
-  .background-block {
-      width: 50%;
+  @media (min-width: 768px) {
+    .companies-grid {
+      grid-template-columns: repeat(3, 1fr);
     }
   }
 
   @media (min-width: 1024px) {
-
-  button {
-    font-size: 1.5rem;
-  }
-
-    .modal {
-      padding: 0;
-      background: rgba(20, 20, 20, 0.5);
-      z-index: 99;
-      img{
-        width: 300px;
-        background-size: contain;
-      }
-    }
-    .section-content {
-      margin: 70px 0;
-    }
-    section {
-     padding: 30px 0;
+    .companies-grid {
+      grid-template-columns: repeat(4, 1fr);
     }
 
-    h2, p {
-      text-align: center;
+    .content-box img {
+      width: 150px;   
     }
 
-    .underline {
-      margin: 0 auto;
-    }
-
-    .content-box a {
-      font-size: 1.2rem;
-    }
-
-    .background-block {
-      flex-direction: row;
-      flex-wrap: wrap;
-      justify-content: center;
-      align-items: center;
-      width: 30%;
-    }
-
-    .rows {
-      position: relative;
+    .top-companies {
       background-image: url('../assets/image/truckers.png');
-      width: 100%;
-      min-height: 800px;
-      background-size: cover;
-      background-position: center;
     }
   }
 </style>
