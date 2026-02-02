@@ -50,7 +50,14 @@ const articles = await fetch(import.meta.env.PUBLIC_API_BASE_URL.concat('tips'),
     {articles.length > 0 &&
       articles
        .filter((article) => article.language === currentLanguage)
-       .sort((a, b) => new Date(b.uploaded_at).getTime() - new Date(a.uploaded_at).getTime())
+       .sort((a, b) => {
+        const dateDiff =
+          new Date(b.uploaded_at).getTime() - new Date(a.uploaded_at).getTime();
+          if (dateDiff !== 0) {
+          return dateDiff;
+          }
+          return b.id - a.id;
+        })
        .map((article) => (
         <div class="search">
           <h4>{article.title}</h4>
