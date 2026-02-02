@@ -7,9 +7,25 @@ import Footer from "../components/Footer.astro";
 import News from "../components/Allnews.astro";
 import HeaderNews from "../components/HeaderNews.astro";
 import Allnewsvideo from "../components/Allnewsvideo.astro";
+
+const res = await fetch(import.meta.env.PUBLIC_API_BASE_URL + 'news');
+const articles = await res.json();
+
+const lastArticle = articles
+  .filter(a => a.language === 'spanish')
+  .sort(
+    (a, b) =>
+      new Date(b.uploaded_at).getTime() -
+      new Date(a.uploaded_at).getTime()
+  )[0];
 ---
 
-<SpanishLayout title="la 95 trucking show">
+<SpanishLayout 
+  title={lastArticle?.title ?? "La 95 Trucking Show"}
+  ogTitle={lastArticle?.title}
+  ogDescription={lastArticle?.content?.slice(0, 120)}
+  ogImage={lastArticle?.thumbnail_url}
+  ogUrl="https://la95truckingshow.com/noticias">
   <HeaderNews 
   titleB="noticias"
   Team2={Team2}/>
