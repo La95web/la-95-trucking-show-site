@@ -50,9 +50,16 @@ const articles = await fetch(import.meta.env.PUBLIC_API_BASE_URL.concat('news'),
   <div id="content-tips">
     {articles.length > 0 &&
       articles
-       .filter((article) => article.language === currentLanguage)
-       .sort((a, b) => new Date(b.uploaded_at).getTime() - new Date(a.uploaded_at).getTime())
-       .map((article) => (
+      .filter(article => article.language === currentLanguage)
+      .sort((a, b) => {
+      const dateDiff =
+        new Date(b.uploaded_at).getTime() - new Date(a.uploaded_at).getTime();
+        if (dateDiff !== 0) {
+        return dateDiff;
+        }
+        return b.id - a.id;
+      })
+      .map(article => (
         <div class="search">
           <h4>{article.title}</h4>
           <div class="underline"></div>
@@ -60,15 +67,18 @@ const articles = await fetch(import.meta.env.PUBLIC_API_BASE_URL.concat('news'),
           <figure>
             <img src={article.thumbnail_url} alt="news" />
             <div>
-              <p class="lead-paragraph" set:html={linkifyText(article.content)}></p>
+              <p
+                class="lead-paragraph"
+                set:html={linkifyText(article.content)}
+              ></p>
             </div>
           </figure>
         </div>
       ))
     }
-  <div id="result" style="display: none;">
-    <h3>No result found.</h3>
-  </div>
+    <div id="result" style="display: none;">
+      <h3>No result found.</h3>
+    </div>
   </div>
   <div class="section-center">
     <div class="light-gold gold-button">
