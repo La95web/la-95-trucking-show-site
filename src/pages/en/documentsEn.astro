@@ -7,9 +7,26 @@ import DocumentTips from "../../components/DocumentTips.astro";
 import HeaderNews from "../../components/HeaderNews.astro";
 import EnglishLayout from "../../layouts/EnglishLayout.astro";
 import Documentsvideo from "../../components/Documentsvideo.astro";
+const res = await fetch(import.meta.env.PUBLIC_API_BASE_URL + 'doctips');
+const articles = await res.json();
+
+const lastArticle = articles
+  .filter(a => a.language === 'english')
+  .sort((a, b) => {
+  const dateDiff =
+    new Date(b.uploaded_at).getTime() -
+    new Date(a.uploaded_at).getTime();
+  if (dateDiff !== 0) return dateDiff;
+  return b.id - a.id;
+})[0];
 ---
 
-<EnglishLayout title="la 95 trucking show">
+<EnglishLayout
+  title={lastArticle?.title ?? "La 95 Trucking Show"}
+  ogTitle={lastArticle?.title}
+  ogDescription={lastArticle?.content?.slice(0, 120)}
+  ogImage={lastArticle?.thumbnail_url}
+  ogUrl="https://la95truckingshow.com/en/documentsEn">
   <HeaderNews 
   titleB="suggestions"
   Team2={Team2}/>

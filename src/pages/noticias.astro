@@ -13,11 +13,13 @@ const articles = await res.json();
 
 const lastArticle = articles
   .filter(a => a.language === 'spanish')
-  .sort(
-    (a, b) =>
-      new Date(b.uploaded_at).getTime() -
-      new Date(a.uploaded_at).getTime()
-  )[0];
+  .sort((a, b) => {
+  const dateDiff =
+    new Date(b.uploaded_at).getTime() -
+    new Date(a.uploaded_at).getTime();
+  if (dateDiff !== 0) return dateDiff;
+  return b.id - a.id;
+})[0];
 ---
 
 <SpanishLayout 
