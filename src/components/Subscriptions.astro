@@ -4,6 +4,7 @@ import image1 from '../assets/image/seguros.png';
 import image2 from "../assets/image/trucksale.jpg"
 import image3 from "../assets/image/school.jpg";
 import image4 from "../assets/image/dot.jpg";
+import image5 from "../assets/image/repair.png"
 const {title1, title, text1, text2, text3, button, buttonB, titleC, paragraph, 
 paragraphC, yearly, monthly, buttonC, anchor, save} = Astro.props;
 ---
@@ -53,6 +54,17 @@ paragraphC, yearly, monthly, buttonC, anchor, save} = Astro.props;
           <p class="card-description">{text3}</p>
           <div class="light-gold gold-button">
             <button class="openModal" data-modal="modalX">{buttonB}</button>
+          </div>
+        </div>
+      </div>
+    </div> 
+    <div class="card">
+      <div> 
+        <img src={image5.src} alt="Card Image" class="card-image">
+        <div class="card-content">
+          <p class="card-description">{text3}</p>
+          <div class="light-gold gold-button">
+            <button class="openModal" data-modal="modalW">{buttonB}</button>
           </div>
         </div>
       </div>
