@@ -15,12 +15,15 @@ const {
 	<head>
 		<meta charset="utf-8" />
 		<link rel="icon" type="image/svg+xml" href="" />
+    <link rel="canonical" href={ogUrl} />
 		<meta name="viewport" content="width=device-width" />
 		<meta name="generator" content={Astro.generator} />
     <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="La 95 Trucking Show" />
     <meta property="og:title" content={ogTitle || title} />
     <meta property="og:description" content={ogDescription || "La 95 Trucking Show"} />
     <meta property="og:image" content={ogImage} />
+     <meta property="og:image:alt" content="Platform for truck drivers with services, discounts and subscriptions." />
     <meta property="og:url" content={ogUrl} />
 
     <!-- WhatsApp / Facebook -->
