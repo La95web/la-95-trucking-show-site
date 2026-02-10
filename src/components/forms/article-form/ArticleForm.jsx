@@ -78,16 +78,6 @@ const ArticleForm = ({ article = null, onCancel = null }) => {
         Contenido:<br />
         <textarea name="content" value={formState.content} onChange={handleDataChange} /><br />
       </label>
-       {formState.content && (
-        <div className={styles.preview}>
-          <strong>Preview Contenido:</strong>
-          <div className={styles.previewBox}>
-            <Linkify options={linkifyOptions}>
-              {formState.content}
-            </Linkify>
-          </div>
-        </div>
-      )}
 
       <label>
         Uploaded At:<br />

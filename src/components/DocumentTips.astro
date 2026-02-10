@@ -60,16 +60,19 @@ const articles = await fetch(import.meta.env.PUBLIC_API_BASE_URL.concat('doctips
         return b.id - a.id;
       })
       .map((article) => (
-        <div class="search">
+        <div class="search article-wrapper">
           <h4>{article.title}</h4>
           <div class="underline"></div>
           <span>{formatDate(article.uploaded_at, language)}</span>
           <figure>
             <img src={article.thumbnail_url} alt="tip" />
-            <div>
-              <p class="lead-paragraph" set:html={linkifyText(article.content)}></p>
+            <div class="article-content">
+              <p class="lead-paragraph" data-full-content={linkifyText(article.content)}></p>
             </div>
           </figure>
+          <div>
+            <p class="extra-content" style="display:none;"></p>
+          </div>
         </div>
       ))
     }
@@ -90,6 +93,8 @@ const articles = await fetch(import.meta.env.PUBLIC_API_BASE_URL.concat('doctips
   section{
     display: flex;
     flex-direction: column;
+    justify-content: center;
+    align-items: center;
     margin: 0 5%;
     .underline {
       margin: 0;
@@ -119,18 +124,6 @@ const articles = await fetch(import.meta.env.PUBLIC_API_BASE_URL.concat('doctips
       max-width: 620px;
       object-fit: contain;
     }
-  }
-
-   :global(.read-toggle) {
-    background: transparent;
-    border: none;
-    cursor: pointer;
-    font-weight: $regular;
-    font-family: $heading;
-    font-size: 1.1rem;
-    margin-left: 6px;
-    color: $accent-b-light;
-    border-radius: 6px;
   }
   //end styles
   #result {
@@ -231,14 +224,6 @@ const articles = await fetch(import.meta.env.PUBLIC_API_BASE_URL.concat('doctips
     height: auto;
   }
 
-  .section-center {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    padding: 30px;
-  }
-
    .light-gold {
     display: flex;
     justify-content: center;
@@ -278,8 +263,24 @@ const articles = await fetch(import.meta.env.PUBLIC_API_BASE_URL.concat('doctips
     box-shadow: 0 0 25px 15px rgba($accent-b-light, 40%);
   }
 
+  :global(.inline-toggle) {
+    background: transparent;
+    color: #ffcc4d;
+    border: 2px solid #ffd261;
+    border-radius: 8px;
+    cursor: pointer;
+    font-family: inherit;
+    font-size: inherit;
+    padding: 2px 6px;
+    margin-top: 5px;
+  }
+
   @media (min-width: 1025px) {
     // start styles
+    :global(.inline-toggle) {
+      margin-top: 0px;
+    }
+    
     figure {
       flex-direction: row;
       gap: 50px;
