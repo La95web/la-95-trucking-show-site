@@ -105,6 +105,38 @@ const {
   
   .lead-paragraph {
     white-space: pre-line;
+    margin-top: 20px;
+  }
+
+  .extra-content a {
+    color: $accent-b-dark;
+    text-decoration: underline;
+    word-break: break-word;
+  }
+
+  .article-wrapper {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .extra-content {
+    width: 100%;
+    white-space: pre-line;
+    opacity: 0;
+    max-height: 0;
+    overflow: hidden;
+    transition: all 0.4s ease;
+  }
+
+  .extra-content.active {
+    opacity: 1;
+    max-height: 2000px;
+    margin-top: 0;
+  }
+
+  .article-content {
+    position: relative;
+    max-width: 100%;
   }
   
   // inicia boton rojo de accion
@@ -298,6 +330,12 @@ const {
   }
 
   @media (min-width: 1024px) {
+
+    .extra-content.active {
+      opacity: 1;
+      max-height: 2000px;
+      margin-top: 40px;
+    }
 
     .cart-item {
       display: grid;
