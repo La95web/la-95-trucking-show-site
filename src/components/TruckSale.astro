@@ -39,7 +39,7 @@ const marketplace = await fetch(import.meta.env.PUBLIC_API_BASE_URL.concat('mark
           return b.id - a.id;
         })
         .map((m) => (
-          <div class="card-content section-content-tips search">
+          <div class="card-content search">
             <h3>{m.title}</h3>
             <span>{formatDate(m.uploaded_at, language)}</span>
             <p>{m.content}</p>

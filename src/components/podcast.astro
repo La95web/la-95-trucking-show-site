@@ -21,42 +21,114 @@ const podcasts = await fetch(import.meta.env.PUBLIC_API_BASE_URL.concat('podcast
   </div>
 </div>
 <div id="result"> <h3>No se encontraron resultados.</h3> </div>
-
-<section>
-  {podcasts.length > 0 ? (
-    podcasts
-      .filter((podcast) => podcast.language === 'spanish')
-      .sort((a, b) => new Date(b.uploaded_at).getTime() - new Date(a.uploaded_at).getTime())
-      .map((podcast) => (
-        <figure class="search">
-            <div class="section-image">
-              <a href={podcast.video_url} target="_blank">
-                <img src={podcast.thumbnail} alt="imagen" class="radio" />
-              </a>
-            </div>
-            <div class="content-card">
-              <div class="text-container">
-                <div>
-                  <p>{podcast.title}</p>
-                  <img src={Play.src} alt="youtube" />
-                </div>
-                <p class="flush">{new Date(podcast.uploaded_at).toLocaleDateString()}</p>
+<div class="all-content">
+  <section>
+    {podcasts.length > 0 ? (
+      podcasts
+        .filter((podcast) => podcast.language === 'spanish')
+        .sort((a, b) => new Date(b.uploaded_at).getTime() - new Date(a.uploaded_at).getTime())
+        .map((podcast) => (
+          <figure class="search article-wrapper">
+              <div class="section-image">
+                <a href={podcast.video_url} target="_blank">
+                  <img src={podcast.thumbnail} alt="imagen" class="radio" />
+                </a>
               </div>
-            </div>
-        </figure>
-      ))
-  ) : (
-    <div id="result"><h3>No results found.</h3></div>
-  )}
-</section>
-<div class="section-center">
-    <div class="light-gold gold-button">
-      <button id="load-more">mostrar mae</button>
-    </div>
+              <div class="content-card">
+                <div class="text-container">
+                  <div>
+                    <p>{podcast.title}</p>
+                    <img src={Play.src} alt="youtube" />
+                  </div>
+                  <p class="flush">{new Date(podcast.uploaded_at).toLocaleDateString()}</p>
+                </div>
+              </div>
+          </figure>
+        ))
+    ) : (
+      <div id="result"><h3>No results found.</h3></div>
+    )}
+  </section>
+  <div class="section-center">
+      <div class="light-gold gold-button">
+        <button id="load-more">mostrar mas</button>
+      </div>
+  </div>
 </div>
+
+<script>
+  // function search
+  document.addEventListener('DOMContentLoaded', () => {
+    const searchInput = document.getElementById('site-search');
+    const newsItems = document.getElementsByClassName('search');
+    const noData = document.getElementById('result');
+
+    searchInput.addEventListener('input', function() {
+      const query = this.value.toLowerCase();
+      let found = false; 
+      
+      for (let newsItem of newsItems) {
+        const containsQuery = newsItem.textContent.toLowerCase().includes(query);
+        newsItem.style.display = containsQuery ? 'flex' : 'none';
+        if (containsQuery) {
+          found = true;
+        }
+      }
+
+      if (query === '') {
+        for (let newsItem of newsItems) {
+          newsItem.style.display = 'flex';
+        }
+        noData.style.display = 'none';
+      } else {
+        noData.style.display = found ? 'none' : 'flex'
+      }
+    });
+  });
+  //end
+  document.addEventListener('DOMContentLoaded', () => {
+    const itemsPerClick = 9;
+    let itemsToShow = itemsPerClick;
+
+    const loadMoreWrapper = document.querySelector('.section-center');
+    const contentItems = document.querySelectorAll('.article-wrapper');
+
+    function updateItems() {
+      contentItems.forEach((item, index) => {
+        item.style.display = index < itemsToShow ? 'flex' : 'none';
+      });
+
+      // Mostrar botón solo si hay más contenido
+      if (contentItems.length > itemsPerClick && itemsToShow < contentItems.length) {
+        loadMoreWrapper.style.display = 'inline-block';
+      } else {
+        loadMoreWrapper.style.display = 'none';
+      }
+    }
+
+    loadMoreWrapper.addEventListener('click', () => {
+      itemsToShow += itemsPerClick;
+
+      if (itemsToShow >= contentItems.length) {
+        loadMoreWrapper.style.display = 'none';
+      }
+
+      updateItems();
+    });
+
+    updateItems();
+  });
+</script>
 
 <style lang="scss">
   @use "../assets//sass/index" as*;
+
+  .all-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
 
   #result{
     display: flex;
@@ -176,14 +248,6 @@ const podcasts = await fetch(import.meta.env.PUBLIC_API_BASE_URL.concat('podcast
 
   section {
     min-height: 50dvh;
-  }
-
-  .section-center {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    padding: 30px;
   }
 
   .light-gold {

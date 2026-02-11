@@ -29,32 +29,36 @@ document.addEventListener('DOMContentLoaded', () => {
 // button load more
 
 document.addEventListener('DOMContentLoaded', () => {
-  let itemsToShow = 9;
-  const loadMoreButton = document.getElementById('load-more');
-  const contentItems = document.querySelectorAll('.section-content-tips');
+  const itemsPerClick = 4;
+  let itemsToShow = itemsPerClick;
 
-  function showItems(count) {
-    let visibleItems = 0;
+  const loadMoreWrapper = document.querySelector('.section-center');
+  const contentItems = document.querySelectorAll('.article-wrapper');
+
+  function updateItems() {
     contentItems.forEach((item, index) => {
-      if (index < count) {
-        item.style.display = 'flex';
-        visibleItems++;
-      } else {
-        item.style.display = 'none';
-      }
+      item.style.display = index < itemsToShow ? 'flex' : 'none';
     });
-    if (visibleItems >= contentItems.length) {
-      loadMoreButton.innerText = 'No more';
-      loadMoreButton.disable = true; 
+
+    // Mostrar botón solo si hay más contenido
+    if (contentItems.length > itemsPerClick && itemsToShow < contentItems.length) {
+      loadMoreWrapper.style.display = 'inline-block';
+    } else {
+      loadMoreWrapper.style.display = 'none';
     }
   }
 
-  loadMoreButton.addEventListener('click', () => {
-    itemsToShow += 9;
-    showItems(itemsToShow);
+  loadMoreWrapper.addEventListener('click', () => {
+    itemsToShow += itemsPerClick;
+
+    if (itemsToShow >= contentItems.length) {
+      loadMoreWrapper.style.display = 'none';
+    }
+
+    updateItems();
   });
 
-  showItems(itemsToShow);
+  updateItems();
 });
 // see more functionality
     (function () {

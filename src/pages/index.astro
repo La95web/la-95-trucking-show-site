@@ -17,23 +17,29 @@ import Modalterms from "../components/Modalterms.astro";
 import imageC from "../assets/image/driverschool.png";
 import imageE from "../assets/image/omega.png";
 import imageF from "../assets/image/tag.png";
-import imageG from "../assets/image/global.png"
+import imageG from "../assets/image/global.png";
+import imageH from "../assets/image/fastservices.png";
+import imageI from "../assets/image/ride.png";
+import imageJ from "../assets/image/hddah.png"
 ---
 
 <SpanishLayout 
   ogTitle="La 95 trucking show"
   ogDescription="Descubre descuentos, suscripciones y todo lo que un camionero necesita en un solo lugar"
-  ogImage="https://la95truckingshow.com/home.jpg"
+  ogImage="https://la95truckingshow.com/home95.jpg"
   ogUrl="https://la95truckingshow.com/">
   <HomeSlider images={[truck1.src, truck2.src, truck3.src]} />
   <Subscriptions 
-    title1="Suscríbete y disfruta de descuentos exclusivos"
+    title1="Suscríbete y disfruta de Descuentos exclusivos"
     title2="Empresas afiiliadas"
     titleC="Si eres dueño de empresa"
     paragraphC="Elije esta opcion para convertirte en patrocinador y disfruta de los beneficios de la suscripción."
-    text1="Agencia de seguros Descuentos por empresa."
-    text2="Venta de camiones Descuentos por empresa."
-    text3="Dale clic abajo Descuentos por empresa."
+    text1="Agencia de seguros Descuentos por Empresa."
+    text2="Venta de camiones Descuentos por Empresa."
+    text3="Descubre los Descuentos para Escuelas de Manejo"
+    text4="Descuentos Por Empresas de Compliance"
+    text5="Explora Descuentos exclusivos para tu camión"
+    text6="Descubre los Descuentos en grúas y plumas."
     titleA="Empresas afiiliadas"
     title="Suscríbete ahora"
     paragraph="Si eres un usuario regular, elige la suscripción que mejor se adapta a ti."
@@ -50,6 +56,12 @@ import imageG from "../assets/image/global.png"
     button="cerrar"
     cell1="compañias"
     cell2="descuentos"
+    offer1="Consulta gratis"
+    offer2="El paquete con 5% de descuento debe pagarse en su totalidad para que el descuento aplique."
+    offer3="Revisión completa (safety score), Evaluación total de cumplimiento, Revision de la compañia. Todo completamente gratis"
+    offer4="El cliente recibe $50 de descuento en cada cambio de aceite. Así mismo — $50 menos por cada oil change"
+    offer5="¡Suscríbete hoy y obtén 8% de descuento en todos nuestros servicios!."
+    offer6="¡Aprovecha $100 de descuento en todos nuestros servicios!."
   />
   <Modalterms
     titleh2="TÉRMINOS Y CONDICIONES (EE. UU.) PARA SERVICIO DE SUSCRIPCIÓN"
@@ -107,35 +119,47 @@ import imageG from "../assets/image/global.png"
   <section class="top-companies">
     <h2>Empresas afiliadas</h2>
     <div class="underline"></div>
-    <p>En las siguientes empresas en donde podrás hacer uso de los descuentos</p>
+    <p>Empresas donde disfrutas tus Descuentos</p>
     <div class="companies-grid">
       <div class="content-box">
-        <img src={imageA.src} alt="adrian motors truck sale">
+        <img src={imageA.src} alt="logo">
         <a href="https://www.instagram.com/adrians_motors/" target="_blank">adrian motors truck sale</a>
       </div>
-      <div class="content-box">
-        <img src={imageB.src} alt="nj compliance solutions corp">
-        <a href="" target="_blank">nj compliance solutions corp</a>
+       <div class="content-box">
+        <img src={imageH.src} alt="logo">
+        <a href="https://www.instagram.com/fast.servicetruck/" target="_blank">Fast Service Truck</a>
       </div>
       <div class="content-box">
-        <img src={imageD.src} alt="nj truckers services corp">
+        <img src={imageD.src} alt="logo">
         <a href="https://www.instagram.com/njtruckers/" target="_blank">nj truckers services corp</a>
       </div>
       <div class="content-box">
-        <img src={imageC.src} alt="NEW YORK commercial driving school">
+        <img src={imageC.src} alt="logo">
         <a href="https://www.instagram.com/newyorkcommericaldrivingschool/" target="_blank">NEW YORK commercial driving school</a>
       </div>
       <div class="content-box">
-        <img src={imageE.src} alt="omega insurance agency">
+        <img src={imageE.src} alt="logo">
         <a href="https://www.instagram.com/omegainsurance_agency/" target="_blank">omega insurance agency</a>
       </div>
       <div class="content-box">
-        <img src={imageF.src} alt="tec safety solutions">
+        <img src={imageF.src} alt="logo">
         <a href="https://www.instagram.com/tabcaticha/" target="_blank">tec safety solutions</a>
       </div>
       <div class="content-box">
-        <img src={imageG.src} alt="global truck">
+        <img src={imageG.src} alt="logo">
         <a href="https://www.instagram.com/globaltruckrepairllc/" target="_blank">Global Truck Repair LLC</a>
+      </div>
+      <div class="content-box">
+        <img src={imageB.src} alt="logo">
+        <a href="https://www.instagram.com/njcompliance/" target="_blank">nj compliance solutions corp</a>
+      </div>
+        <div class="content-box">
+        <img src={imageI.src} alt="logo">
+        <a href="https://www.instagram.com/ridetire_truck_center/" target="_blank">ride tire truck center</a>
+      </div>
+      <div class="content-box">
+        <img src={imageJ.src} alt="logo">
+        <a href="https://www.instagram.com/ridetire_truck_center/" target="_blank">ride tire truck center</a>
       </div>
       <!-- Agrega más content-box según necesites -->
     </div>

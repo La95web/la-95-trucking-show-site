@@ -1,33 +1,71 @@
 ---
 import EnglishLayout from "../../layouts/EnglishLayout.astro";
-import HeaderShop from "../../components/HeaderShop.astro";
-import ShopA from "../../assets/image/movilshop.png";
-import ShopB from "../../assets/image/headerShopDesk.webp";
 import Footer from "../../components/Footer.astro";
-import ShopItems from "../../components/ShopItems.astro";
-import GalleryCart from "../../components/GalleryCart.astro";
 ---
 
 <EnglishLayout title="la 95 trucking show">
-  <HeaderShop
-  link1="../cart/"
-  titleA="shop"
-  imgA={ShopA}
-  imgB={ShopB}
-  />
-  <GalleryCart
-  title="Featured Articles"
-  paragraph="lorem ipsum dolar sit amet"
-  primarybutton="add to cart"
-  secondarybutton="see more" />
-  <ShopItems
-  title="articles"
-  paragraph="lorem ipsum dolar sit amet"
-  primarybutton="Add to Cart"
-   />
+    <main class="coming-soon">
+    <div class="card">
+      <h1>Coming Soon</h1>
+      <p>This section is under construction. Check back soon.</p>
+      <a class="btn" href="/">Back to Home</a>
+    </div>
+  </main>
   <Footer />
 </EnglishLayout>
 <script>
   import "../../scripts/mainMenu.js";
   import "../../scripts/itemsEnglish.js"
 </script>
+<style lang="scss">
+  .coming-soon {
+    min-height: calc(100vh - 120px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem;
+    background: linear-gradient(180deg, #0f1723 0%, #061023 100%);
+    color: #f7fafc;
+  }
+
+  .card {
+    width: 100%;
+    max-width: 720px;
+    background: rgba(255,255,255,0.03);
+    border: 1px solid rgba(255,255,255,0.06);
+    padding: 2.25rem;
+    border-radius: 14px;
+    text-align: center;
+    box-shadow: 0 8px 30px rgba(2,6,23,0.6);
+  }
+
+  .card h1 {
+    font-size: clamp(2rem, 6vw, 3.5rem);
+    margin: 0 0 0.5rem;
+    letter-spacing: -0.02em;
+  }
+
+  .card p {
+    margin: 0;
+    opacity: 0.85;
+    font-size: 1.05rem;
+  }
+
+  .btn {
+    display: inline-block;
+    margin-top: 1.25rem;
+    padding: 0.6rem 1.1rem;
+    background: #ff5a5f;
+    color: white;
+    border-radius: 10px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: transform 0.12s ease, box-shadow 0.12s ease;
+  }
+
+  .btn:hover { transform: translateY(-2px); box-shadow: 0 8px 20px rgba(255,90,95,0.18); }
+
+  @media (min-width: 1024px) {
+    .card { padding: 3rem; }
+  }
+</style>

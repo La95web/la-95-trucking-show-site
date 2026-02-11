@@ -1,5 +1,5 @@
 ---
-const {h2, button, cell1, cell2} = Astro.props;
+const {h2, button, cell1, cell2, offer1, offer2, offer3, offer4, offer5, offer6} = Astro.props;
 ---
 
 <div id="modalC" class="modal">
@@ -14,7 +14,7 @@ const {h2, button, cell1, cell2} = Astro.props;
       </div>
       <div class="row">
         <div class="cell">Omega Insurance Services</div>
-        <div class="cell">Consulta gratis</div>
+        <div class="cell">{offer1}</div>
       </div>
     </div>
     <div class="section-center">
@@ -60,7 +60,7 @@ const {h2, button, cell1, cell2} = Astro.props;
       </div>
       <div class="row">
         <div class="cell">New York Commercial School</div>
-        <div class="cell">5% off package most be paid in full for discount apply</div>
+        <div class="cell">{offer2}</div>
       </div>
     </div>
     <div class="section-center">
@@ -83,7 +83,7 @@ const {h2, button, cell1, cell2} = Astro.props;
       </div>
       <div class="row">
         <div class="cell">NJ Compliance Solutions Corp</div>
-        <div class="cell">Revisión completa (safety score), Evaluación total de cumplimiento, Revision de la compañia. Todo completamente gratis</div>
+        <div class="cell">{offer3}</div>
       </div>
     </div>
     <div class="section-center">
@@ -106,7 +106,34 @@ const {h2, button, cell1, cell2} = Astro.props;
       </div>
       <div class="row">
         <div class="cell">Global Truck Repair LLC</div>
-        <div class="cell">Customers receive $50 OFF every oil change. Yes — $50 discount on each oil change.</div>
+        <div class="cell">{offer4}</div>
+      </div>
+      <div class="row">
+        <div class="cell">Fast Service Truck</div>
+        <div class="cell">{offer5}</div>
+      </div>
+    </div>
+    <div class="section-center">
+      <div class="light-gold gold-button">
+        <button class="close">{button}</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div id="modalK" class="modal">
+  <div class="close-menu-container"></div> 
+  <div class="content-block">
+    <h2>{h2}</h2>
+    <div class="underline"></div>
+    <div class="discount-table">
+      <div class="row header">
+        <div class="cell">{cell1}</div>
+        <div class="cell">{cell2}</div>
+      </div>
+      <div class="row">
+        <div class="cell">Hddah Trucking Corp.</div>
+        <div class="cell">{offer6}</div>
       </div>
     </div>
     <div class="section-center">
