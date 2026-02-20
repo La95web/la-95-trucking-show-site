@@ -42,7 +42,7 @@ const {
 <style is:global lang="scss">
   @use '../assets/sass/index' as *; 
     
-  html {
+   html {
     scroll-behavior: smooth;
   }
   
@@ -71,7 +71,7 @@ const {
   }
 
   h2 {
-    font-size: 3rem;
+    font-size: 2rem;
     font-weight: $regular;
     font-family: $heading;
     color: $secondary;
@@ -95,7 +95,7 @@ const {
     color: $secondary;
   }
 
-   .lead-paragraph a {
+  .lead-paragraph a {
     color: $accent-b-dark;
     text-decoration: underline;
     word-break: break-word;
@@ -103,6 +103,38 @@ const {
   
   .lead-paragraph {
     white-space: pre-line;
+    margin-top: 20px;
+  }
+
+  .extra-content a {
+    color: $accent-b-dark;
+    text-decoration: underline;
+    word-break: break-word;
+  }
+
+  .article-wrapper {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .extra-content {
+    width: 100%;
+    white-space: pre-line;
+    opacity: 0;
+    max-height: 0;
+    overflow: hidden;
+    transition: all 0.4s ease;
+  }
+
+  .extra-content.active {
+    opacity: 1;
+    max-height: 2000px;
+    margin-top: 0;
+  }
+
+  .article-content {
+    position: relative;
+    max-width: 100%;
   }
   
   // inicia boton rojo de accion
@@ -172,7 +204,6 @@ const {
   .flex-container {
     display: flex;
     position: relative;
-   
     justify-content:space-between;
     cursor: pointer;
     
@@ -191,7 +222,8 @@ const {
   .button-section {
     display: flex;
     align-items: center;
-    gap: 27px; 
+    justify-content: center;
+    gap: 29px;
     border: 2px solid $accent-b-dark;
     border-radius: 15px;
     margin: 20px 2% 0;
@@ -236,7 +268,7 @@ const {
     justify-content: center;
     
     p{
-     margin: 10px 10px 0;
+     margin: 10px 0 0;
     }
   }
 
@@ -245,7 +277,63 @@ const {
     left: 25%;
   }
 
+  //comment form
+
+  .comment {
+
+    &:last-child {
+      border-bottom: none;
+    }
+
+    strong {
+      display: block;
+      font-size: 18px;
+      margin-bottom: 5px;
+      color: white;
+    }
+
+    em {
+      font-size: 14px;
+      color: white;
+      margin-bottom: 10px;
+      display: block;
+    }
+
+    p {
+      font-size: 16px;
+      line-height: 1.5;
+      color: white;
+    }
+  }
+  //reactions
+    .reactions {
+      display: flex;
+      gap: 5px;
+      padding-bottom:20px ;
+      span {
+        color: white;
+      }
+    }
+
+  .reaction {
+    background: none;
+    border: none;
+    font-size: 18px;
+    cursor: pointer;
+    transition: transform 0.2s ease;
+  }
+
+  .reaction:hover {
+    transform: scale(1.2);
+  }
+
   @media (min-width: 1024px) {
+
+    .extra-content.active {
+      opacity: 1;
+      max-height: 2000px;
+      margin-top: 40px;
+    }
 
     .cart-item {
       display: grid;
@@ -258,7 +346,10 @@ const {
       position: absolute;
       left: 150px;
     }
+
+    h2{
+      font-size: 3rem;
+    }
   }
-  
 </style>
 
