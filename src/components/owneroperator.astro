@@ -24,19 +24,19 @@ const owners = await fetch(import.meta.env.PUBLIC_API_BASE_URL.concat('owners'),
   <div class="flexbox">
     {owners.length > 0 ? (
       owners
-        .filter((owner) => owner.language === currentLanguage)
+        .filter((owners) => owners.language === currentLanguage)
         .sort((a, b) => new Date(b.uploaded_at).getTime() - new Date(a.uploaded_at).getTime())
-        .map((owner) => (
-          <div class="card" key={owner.id}>
+        .map((owners) => (
+          <div class="card" key={owners.id}>
             <div>
-              <img src={owner.thumbnail_url} alt="Card Image" class="card-image" />
+              <img src={owners.thumbnail_url} alt="Card Image" class="card-image" />
               <div class="gradient">
-                <h3 class="card-title">{owner.company}</h3>
+                <h3 class="card-title">{owners.company}</h3>
               </div>
               <div class="card-content">
-                <p class="card-description">{owner.description}</p>
+                <p class="card-description">{owners.description}</p>
                 <div class="light-gold gold-button">
-                  <button class="openModal" data-modal={`modal-${owner.id}`}>{button}</button>
+                  <button class="openModal" data-modal={`modal-${owners.id}`}>{button}</button>
                 </div>
                 <div class="small-image"></div>
               </div>
@@ -51,10 +51,10 @@ const owners = await fetch(import.meta.env.PUBLIC_API_BASE_URL.concat('owners'),
 
 {owners.length > 0 &&
   owners
-    .filter((owner) => owner.language === currentLanguage)
+    .filter((owners) => owners.language === currentLanguage)
     .sort((a, b) => new Date(b.uploaded_at).getTime() - new Date(a.uploaded_at).getTime())
-    .map((owner) => (
-      <div id={`modal-${owner.id}`} class="modal">
+    .map((owners) => (
+      <div id={`modal-${owners.id}`} class="modal">
         <div class="block-title">
           <div class="close-menu-container">
             <span class="close"></span>
@@ -63,12 +63,12 @@ const owners = await fetch(import.meta.env.PUBLIC_API_BASE_URL.concat('owners'),
             </div>
           </div>
           <div class="content-block">
-            <p><strong>{data1}</strong> {owner.location}</p>
-            <p><strong>{data2}</strong> {owner.salary}</p>
-            <p><strong>{data3}</strong> {owner.experience}</p>
-            <p><strong>{data5}</strong> {owner.qualities}</p>
+            <p><strong>{data1}</strong> {owners.location}</p>
+            <p><strong>{data2}</strong> {owners.salary}</p>
+            <p><strong>{data3}</strong> {owners.experience}</p>
+            <p><strong>{data5}</strong> {owners.qualities}</p>
           </div>
-          <form id={`contact-form-${owner.id}`} data-company={owner.company}>
+          <form id={`contact-form-${owners.id}`} data-company={owners.company}>
             <div class="row">
               <label>
                 <input type="text" name="name" placeholder="Nombre" required />
