@@ -41,12 +41,9 @@ const articles = await fetch(import.meta.env.PUBLIC_API_BASE_URL.concat('news'),
     <input type="search" id="site-search" name="search" class="search-input" placeholder="Search...">
   </div>
 </div>
+<h2>{title}</h2>
+<div class="underline"></div>
 <section>
-  <div>
-    <h2>{title}</h2>
-    <div class="underline"></div>
-    <p>{paragraph}</p>
-  </div>
   <div id="content-tips">
     {articles.length > 0 &&
       articles
@@ -100,10 +97,10 @@ const articles = await fetch(import.meta.env.PUBLIC_API_BASE_URL.concat('news'),
     .underline {
       margin: 0;
     }
-    h2{
-      margin: 0;
-      padding-top: 50px;
-    }
+  }
+  
+  h2{
+    padding-top: 50px;
   }
   
   .search {
