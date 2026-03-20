@@ -7,7 +7,8 @@ import image4 from "../assets/image/dot.jpg";
 import image5 from "../assets/image/repair.png"
 import image6 from "../assets/image/gruas.png"
 import image7 from "../assets/image/tiretruckservices.png"
-const {title1, title, text1, text2, text3, text4, text5, text6, text7, button, buttonB, titleC, paragraph, 
+import image8 from "../assets/image/law2.jpg"
+const {title1, title, text1, text2, text3, text4, text5, text6, text7, text8, button, buttonB, titleC, paragraph, 
 paragraphC, yearly, monthly, buttonC, anchor, save} = Astro.props;
 ---
 <section>
@@ -89,6 +90,17 @@ paragraphC, yearly, monthly, buttonC, anchor, save} = Astro.props;
           <p class="card-description">{text7}</p>
           <div class="light-gold gold-button">
             <button class="openModal" data-modal="modalV">{buttonB}</button>
+          </div>
+        </div>
+      </div>
+    </div>
+       <div class="card">
+      <div> 
+        <img src={image8.src} alt="Card Image" class="card-image">
+        <div class="card-content">
+          <p class="card-description">{text8}</p>
+          <div class="light-gold gold-button">
+            <button class="openModal" data-modal="modalN">{buttonB}</button>
           </div>
         </div>
       </div>
