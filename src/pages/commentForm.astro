@@ -9,14 +9,19 @@ import Footer from "../components/Footer.astro";
   ogImage="https://la95truckingshow.com/forum.jpg"
   ogUrl="https://la95truckingshow.com/commentForm">
   <section> 
+    <div id="login-section">
+      <a href="http://localhost:3001/auth/google" class="login-btn">
+        Iniciar sesión con Google
+      </a>
+    </div>
+
     <h2>Escribe una opinion, sugerencias, información</h2>
     <div class="underline"></div>
-    <form id="comment-form">
-      <input type="text" name="name" placeholder="Tu nombre" required />
-      <input type="email" name="email" placeholder="Tu correo" required />
+    <form id="comment-form" style="display:none;">
       <textarea name="comment" placeholder="Escribe tu comentario..." required></textarea>
       <button type="submit">Enviar</button>
     </form>
+    <div id="user-info" style="display:none;"></div>
     <div id="comments-container">
       <!-- Aquí se mostrarán los comentarios en tiempo real -->
     </div>
