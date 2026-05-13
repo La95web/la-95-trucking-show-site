@@ -7,6 +7,10 @@ const socket = io(import.meta.env.PUBLIC_JOB_BASE_URL, {
   transports: ["websocket"],
 });
 
+socket.on("commentDeleted", (id) => {
+  document.querySelector(`[data-comment="${id}"]`)?.remove();
+});
+
 socket.on("newComment", (comment) => {
   mostrarComentario(comment);
 });
@@ -28,6 +32,8 @@ socket.on("updateComment", (comment) => {
 // =======================
 // 2. AUTENTICACIÓN
 // =======================
+let currentUser = null;
+
 async function checkAuth() {
   try {
     const res = await fetch(
@@ -37,31 +43,40 @@ async function checkAuth() {
 
     if (!res.ok) {
       // Usuario NO autenticado
-      document.querySelector("#login-section").style.display = "block";
+      currentUser = null;
+      document.querySelector("#login-section").style.display = "flex";
       document.querySelector("#comment-form").style.display = "none";
       document.querySelector("#user-info").style.display = "none";
       return null;
     }
 
-    const user = await res.json();
-
     // Usuario autenticado
+    const user = await res.json();
+    currentUser = user; 
+
     document.querySelector("#login-section").style.display = "none";
     document.querySelector("#comment-form").style.display = "block";
 
-    document.querySelector("#user-info").innerHTML = `
-      <p>Conectado como <strong>${user.name}</strong></p>
-      <button id="logout-btn">Cerrar sesión</button>
+      document.querySelector("#user-info").innerHTML = `
+      <div class="user-info-box">
+        <p>Conectado como <strong>${user.name}</strong></p>
+        <button id="logout-btn" class="logout-btn">Cerrar sesión</button>
+      </div>
     `;
+
     document.querySelector("#user-info").style.display = "block";
 
     return user;
+
   } catch (err) {
     console.error("Error verificando autenticación", err);
   }
 }
 
-checkAuth();
+(async () => {
+  await checkAuth();
+})();
+
 
 // =======================
 // 3. FORMULARIO DE COMENTARIOS
@@ -113,6 +128,7 @@ function mostrarComentario({
 
   const div = document.createElement("div");
   div.classList.add("comment");
+  div.dataset.comment = id;
 
   div.innerHTML = `
     <p><strong>${user?.name ?? "Usuario"}</strong> <em>${date}</em></p>
@@ -122,6 +138,11 @@ function mostrarComentario({
       <button class="reaction" data-type="heart">❤️ <span>${hearts}</span></button>
       <button class="reaction" data-type="fire">🔥 <span>${fires}</span></button>
     </div>
+
+    ${currentUser && user && currentUser.id === user.id ? `
+    <button class="delete-comment" data-id="${id}">🗑 Eliminar</button>
+  ` : ""}
+
   `;
 
   container.prepend(div);
@@ -179,5 +200,23 @@ document.addEventListener("DOMContentLoaded", async function () {
     comments.forEach(mostrarComentario);
   } catch (error) {
     console.error(error);
+  }
+});
+
+document.addEventListener("click", async (e) => {
+  if (e.target.classList.contains("delete-comment")) {
+    const id = e.target.dataset.id;
+
+    const confirmDelete = confirm("¿Seguro que deseas eliminar este comentario?");
+    if (!confirmDelete) return;
+
+    const res = await fetch(`la-95-jobs-api-production.up.railway.app/comments/${id}`, {
+      method: "DELETE",
+      credentials: "include"
+    });
+
+    if (res.ok) {
+      document.querySelector(`[data-comment="${id}"]`)?.remove();
+    }
   }
 });
