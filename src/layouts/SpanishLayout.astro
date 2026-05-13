@@ -325,8 +325,83 @@ const {
     transition: transform 0.2s ease;
   }
 
+  // boton autentication
+  .user-info-box {
+    margin: 20px auto;        /* centrado automático */
+    padding: 12px 18px;
+    background: #f7f7f7;
+    border-radius: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 15px;
+    border: 1px solid #e0e0e0;
+    max-width: 600px;         /* 👈 controla el ancho máximo */
+    width: 90%; 
+  }
+
+  /* Texto */
+  .user-info-box p {
+    margin: 0;
+    font-size: 1rem;
+    color: #333;
+  }
+
+  /* Botón profesional */
+  .logout-btn {
+    background: linear-gradient(135deg, #ff4d4d, #d93636);
+    border: none;
+    padding: 10px 18px;
+    border-radius: 8px;
+    color: white;
+    font-weight: 600;
+    cursor: pointer;
+    transition: 0.2s ease-in-out;
+    box-shadow: 0 3px 6px rgba(0,0,0,0.15);
+  }
+
+  /* Hover */
+  .logout-btn:hover {
+    background: linear-gradient(135deg, #ff6666, #e64545);
+    transform: translateY(-2px);
+  }
+
+  /* Active */
+  .logout-btn:active {
+    transform: scale(0.97);
+}
+
   .reaction:hover {
     transform: scale(1.2);
+  }
+
+  // botón de eliminar comentario
+  .delete-comment {
+    background: transparent;
+    color: #a94442;
+    border: 1px solid #f5c6cb;
+    padding: 6px 12px;
+    border-radius: 6px;
+    font-size: 0.85rem;
+    cursor: pointer;
+    margin-top: 10px;
+    transition: all 0.2s ease-in-out;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+  }
+
+  /* Hover */
+  .delete-comment:hover {
+    background: #f5c6cb;
+    color: #8a1f1f;
+    transform: translateY(-2px);
+    box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+  }
+
+  /* Active */
+  .delete-comment:active {
+    transform: scale(0.97);
   }
 
   @media (min-width: 1024px) {

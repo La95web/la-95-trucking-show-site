@@ -11,12 +11,19 @@ import Footer from "../components/Footer.astro";
   <section> 
     <h2>Escribe una opinion, sugerencias, información</h2>
     <div class="underline"></div>
-    <form id="comment-form">
-      <input type="text" name="name" placeholder="Tu nombre" required />
-      <input type="email" name="email" placeholder="Tu correo" required />
+    <p>Autentícate para poder escribir tu opinión y participar en el foro.</p>
+    <div id="login-section" class="center-button">
+      <a href={`${import.meta.env.PUBLIC_JOB_BASE_URL}/auth/google`} class="login-btn">
+        <img src="https://www.gstatic.com/firebasejs/ui/2.0.0/images/auth/google.svg" 
+            alt="Google" width="20" height="20">
+        Iniciar sesión con Google
+      </a>
+    </div>
+    <form id="comment-form" style="display:none;">
       <textarea name="comment" placeholder="Escribe tu comentario..." required></textarea>
       <button type="submit">Enviar</button>
     </form>
+    <div id="user-info" style="display:none;"></div>
     <div id="comments-container">
       <!-- Aquí se mostrarán los comentarios en tiempo real -->
     </div>
@@ -31,6 +38,40 @@ import Footer from "../components/Footer.astro";
 <style lang="scss">
   @use "../assets/sass/index" as *;
 
+  .center-button {
+    display: flex;
+    justify-content: center;
+    margin: 20px auto;
+    width: 100%;
+  }
+
+  .login-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    background: #ffffff;
+    color: #444;
+    border: 1px solid #dadce0;
+    padding: 10px 18px;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: 500;
+    cursor: pointer;
+    text-decoration: none;
+    transition: 0.2s ease-in-out;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+  }
+
+  .login-btn:hover {
+    background: #f7f7f7;
+    transform: translateY(-2px);
+    box-shadow: 0 3px 8px rgba(0,0,0,0.15);
+  }
+
+  .login-btn:active {
+    transform: scale(0.97);
+  }
+
   section {
     position: relative;
     padding-top: 150px;
@@ -40,6 +81,13 @@ import Footer from "../components/Footer.astro";
       url("../assets/image/Pentagonos.png");
     background-repeat: no-repeat, repeat; 
     background-attachment: fixed, fixed;
+
+    a{
+      margin: 30px 0;
+    }
+    p {
+      text-align: center;
+    }
   }
   h2 {
     text-align: center;
