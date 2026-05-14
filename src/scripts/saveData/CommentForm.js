@@ -210,9 +210,9 @@ document.addEventListener("click", async (e) => {
     const confirmDelete = confirm("¿Seguro que deseas eliminar este comentario?");
     if (!confirmDelete) return;
 
-    const res = await fetch(`la-95-jobs-api-production.up.railway.app/comments/${id}`, {
+    const res = await fetch(`${import.meta.env.PUBLIC_JOB_BASE_URL}/comments/${id}`, {
       method: "DELETE",
-      credentials: "include"
+      credentials: "include",
     });
 
     if (res.ok) {
