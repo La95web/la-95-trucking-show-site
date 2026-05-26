@@ -6,7 +6,10 @@ const {title, text, name, email, textarea, send, formMessage } = Astro.props;
     <h2>{title}</h2>
     <div class="underline-content"></div>
     <p>{text}</p>
+
     <form id="contact-form" data-form-message={formMessage}>
+      <input type="hidden" id="recaptcha_token" name="recaptcha_token">
+
       <div class="row"> 
         <div class="column">
           <label for="name">{name}</label>
@@ -17,8 +20,10 @@ const {title, text, name, email, textarea, send, formMessage } = Astro.props;
           <input type="email" id="email" name="email" placeholder="name@gmail.com" required>
         </div>
       </div>
+
       <label for="message">{textarea}</label>
       <textarea id="message" name="message" placeholder="Write your message..."></textarea>
+
       <div class="button-container"> 
         <button class="light-button red-button" type="submit">{send}</button>
       </div>
@@ -26,26 +31,32 @@ const {title, text, name, email, textarea, send, formMessage } = Astro.props;
   </div>
 </section>
 
+<!-- reCAPTCHA v3 -->
+<script src="https://www.google.com/recaptcha/api.js?render=6Ld3KPQsAAAAANCDNoShvUGIJfLAD5tTcFp_vJQq"></script>
+
 <script>
   const form = document.getElementById('contact-form');
 
   form.addEventListener('submit', async (e) => {
     e.preventDefault();
 
-    // Capturamos los valores del formulario
-    const name = form.name.value;
-    const email = form.email.value;
-    const message = form.message.value;
+    // 1. Obtener token de reCAPTCHA
+    const token = await grecaptcha.execute('6Ld3KPQsAAAAANCDNoShvUGIJfLAD5tTcFp_vJQq', { action: 'contact' });
+    document.getElementById('recaptcha_token').value = token;
+
+    // 2. Enviar datos al backend
+    const payload = {
+      name: form.name.value,
+      email: form.email.value,
+      message: form.message.value,
+      recaptcha_token: token
+    };
 
     try {
       const response = await fetch('https://la-95-trucking-show-api-production.up.railway.app/v1/contacts', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-          name: name,
-          email: email,
-          message: message
-        })
+        body: JSON.stringify(payload)
       });
 
       const result = await response.json();
@@ -67,9 +78,7 @@ const {title, text, name, email, textarea, send, formMessage } = Astro.props;
         </div>
         `;
         form.parentElement.appendChild(confirmation);
-        setTimeout(() => {
-          confirmation.remove();
-        }, 5000);
+        setTimeout(() => confirmation.remove(), 5000);
         form.reset();
       } else {
         alert('❌ Error al enviar el mensaje: ' + result.message);
