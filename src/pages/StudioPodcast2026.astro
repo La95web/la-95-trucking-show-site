@@ -44,12 +44,19 @@ import Gallery32 from "../assets/image/pod20.jpg";
 import Gallery33 from "../assets/image/pod22.jpg";
 import Gallery34 from "../assets/image/pod23.jpg";
 import Gallery35 from "../assets/image/pod23.jpg";
+import Gallery36 from "../assets/image/chica1.webp";
+import Gallery37 from "../assets/image/chica2.webp";
+import Gallery38 from "../assets/image/chica3.webp";
+import Gallery39 from "../assets/image/chica4.webp";
+import Gallery40 from "../assets/image/chica5.webp";
+import Gallery41 from "../assets/image/chica6.webp";
 
 const images = [
   Gallery1, Gallery2, Gallery3, Gallery7, Gallery8, Gallery9, Gallery10, Gallery11, Gallery12, 
   Gallery13, Gallery14, Gallery15, Gallery16, Gallery17, Gallery18, Gallery19, Gallery20,
   Gallery21, Gallery22, Gallery23, Gallery24, Gallery25, Gallery126, Gallery27, Gallery28,
-  Gallery29, Gallery30, Gallery31, Gallery32, Gallery33, Gallery34, Gallery35
+  Gallery29, Gallery30, Gallery31, Gallery32, Gallery33, Gallery34, Gallery35, Gallery36, Gallery37,
+  Gallery38, Gallery39, Gallery40, Gallery41
 ];
 ---
 
@@ -74,8 +81,12 @@ const images = [
         <img src={img4.src} alt="Imagen" />
         <img src={img5.src} alt="Imagen" />
         <img src={img6.src} alt="Imagen" />
-        <img src={img7.src} alt="Imagen" />
-        <img src={img8.src} alt="Imagen" />
+        <img src={Gallery36.src} alt="Imagen" />
+        <img src={Gallery41.src} alt="Imagen" />
+        <img src={Gallery37.src} alt="Imagen" />
+        <img src={Gallery38.src} alt="Imagen" />
+        <img src={Gallery39.src} alt="Imagen" />
+        <img src={Gallery40.src} alt="Imagen" />
       </div>
     </div>
   </section>
@@ -108,7 +119,7 @@ const images = [
     track.innerHTML += track.innerHTML;
 
     let position = 0;
-    const speed = 1.4; // Ajusta la velocidad
+    const speed = 1.1; // Ajusta la velocidad
 
     function moverCarrusel() {
       position -= speed;
