@@ -1,34 +1,38 @@
 ---
 import SpanishLayout from "../layouts/SpanishLayout.astro";
 import Footer from "../components/Footer.astro";
-import Video1 from "../assets/image/videpodcast.mp4";
+import Video1 from "../assets/image/video2026.mp4";
+import Video2 from "../assets/image/video002.mp4";
+import Video3 from "../assets/image/video003.mp4";
 import Left from "../assets/image/left.png";
 import Right from "../assets/image/right.png";
 const imageModules = import.meta.glob('../assets/image/*.{jpg,webp}', { eager: true, as: 'url' }) as Record<string, string>;
-const posterImg = imageModules['../assets/image/studio4.jpg'] as string;
+const posterImg = imageModules['../assets/image/foto50.webp'] as string;
+const posterImg2 = imageModules['../assets/image/foto39.webp'] as string;
+const posterImg3 = imageModules['../assets/image/foto34.webp'] as string;
 const carouselImages = [
-  imageModules['../assets/image/podcast1.jpg'] as string,
-  imageModules['../assets/image/pod1.jpg'] as string,
-  imageModules['../assets/image/pod6.jpg'] as string,
-  imageModules['../assets/image/podcast4.jpg'] as string,
-  imageModules['../assets/image/podcast5.jpg'] as string,
-  imageModules['../assets/image/pod18.jpg'] as string,
-  imageModules['../assets/image/chica1.webp'] as string,
-  imageModules['../assets/image/chica6.webp'] as string,
-  imageModules['../assets/image/chica2.webp'] as string,
-  imageModules['../assets/image/chica3.webp'] as string,
-  imageModules['../assets/image/chica4.webp'] as string,
-  imageModules['../assets/image/chica5.webp'] as string,
+  imageModules['../assets/image/foto1.webp'] as string,
+  imageModules['../assets/image/foto2.webp'] as string,
+  imageModules['../assets/image/foto3.webp'] as string,
+  imageModules['../assets/image/foto4.webp'] as string,
+  imageModules['../assets/image/foto5.webp'] as string,
+  imageModules['../assets/image/foto6.webp'] as string,
+  imageModules['../assets/image/foto7.webp'] as string,
+  imageModules['../assets/image/foto8.webp'] as string,
+  imageModules['../assets/image/foto9.webp'] as string,
+  imageModules['../assets/image/foto10.webp'] as string,
+  imageModules['../assets/image/foto11.webp'] as string,
+  imageModules['../assets/image/foto12.webp'] as string,
 ];
 const imageFiles = [
-  'podcast9.jpg', 'podcast10.jpg', 'podcast11.jpg', 'podcast12.jpg', 'podcast13.jpg',
-  'studio1.jpg', 'studio2.jpg', 'studio3.jpg',
-  'pod1.jpg', 'pod2.jpg', 'pod3.jpg', 'pod4.jpg', 'pod5.jpg',
-  'pod6.jpg', 'pod7.jpg', 'pod8.jpg', 'pod9.jpg', 'pod10.jpg',
-  'pod11.jpg', 'pod12.jpg', 'pod13.jpg', 'pod14.jpg', 'pod15.jpg',
-  'pod16.jpg', 'pod17.jpg', 'pod18.jpg', 'pod19.jpg', 'pod20.jpg',
-  'pod22.jpg', 'pod23.jpg',
-  'chica1.webp', 'chica2.webp', 'chica3.webp', 'chica4.webp', 'chica5.webp', 'chica6.webp'
+  'foto13.webp', 'foto14.webp', 'foto15.webp', 'foto16.webp', 'foto17.webp',
+  'foto18.webp', 'foto19.webp', 'foto20.webp', 'foto21.webp', 'foto22.webp',
+  'foto23.webp', 'foto24.webp', 'foto25.webp', 'foto26.webp', 'foto27.webp',
+  'foto28.webp', 'foto29.webp', 'foto30.webp', 'foto31.webp', 'foto32.webp',
+  'foto33.webp', 'foto34.webp', 'foto35.webp', 'foto36.webp', 'foto37.webp',
+  'foto38.webp', 'foto39.webp', 'foto40.webp', 'foto41.webp', 'foto42.webp',
+  'foto43.webp', 'foto44.webp', 'foto45.webp', 'foto46.webp', 'foto47.webp',
+  'foto48.webp', 'foto49.webp', 'foto50.webp', 'foto51.webp'
 ];
 const images = imageFiles.map((name) => imageModules[`../assets/image/${name}`] as string);
 ---
@@ -41,6 +45,12 @@ const images = imageFiles.map((name) => imageModules[`../assets/image/${name}`] 
       <div class="video-gallery">
         <video controls width="300" preload="none" poster={posterImg}>
           <source src={Video1} type="video/mp4" />
+        </video>
+        <video controls width="300" preload="none" poster={posterImg2}>
+          <source src={Video2} type="video/mp4" />
+        </video>
+        <video controls width="300" preload="none" poster={posterImg3}>
+          <source src={Video3} type="video/mp4" />
         </video>
       </div>
     </div>
