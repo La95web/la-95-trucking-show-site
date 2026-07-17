@@ -1,63 +1,36 @@
 ---
 import SpanishLayout from "../layouts/SpanishLayout.astro";
 import Footer from "../components/Footer.astro";
-import img1 from "../assets/image/podcast1.jpg";
-import img2 from "../assets/image/pod1.jpg";
-import img3 from "../assets/image/pod6.jpg";
-import img4 from "../assets/image/podcast4.jpg";
-import img5 from "../assets/image/podcast5.jpg";
-import img6 from "../assets/image/pod18.jpg";
-import img7 from "../assets/image/podcast7.jpg";
-import img8 from "../assets/image/podcast8.jpg";
 import Video1 from "../assets/image/videpodcast.mp4";
 import Left from "../assets/image/left.png";
 import Right from "../assets/image/right.png";
-import Gallery1 from "../assets/image/podcast9.jpg";
-import Gallery2 from "../assets/image/podcast10.jpg";
-import Gallery3 from "../assets/image/podcast11.jpg";
-import Gallery7 from "../assets/image/podcast12.jpg";
-import Gallery8 from "../assets/image/podcast13.jpg";
-import Gallery9 from "../assets/image/studio1.jpg";
-import Gallery10 from "../assets/image/studio2.jpg";
-import Gallery11 from "../assets/image/studio3.jpg";
-import Gallery12 from "../assets/image/studio4.jpg";
-import Gallery13 from "../assets/image/pod1.jpg";
-import Gallery14 from "../assets/image/pod2.jpg";
-import Gallery15 from "../assets/image/pod3.jpg";
-import Gallery16 from "../assets/image/pod4.jpg";
-import Gallery17 from "../assets/image/pod5.jpg";
-import Gallery18 from "../assets/image/pod6.jpg";
-import Gallery19 from "../assets/image/pod7.jpg";
-import Gallery20 from "../assets/image/pod8.jpg";
-import Gallery21 from "../assets/image/pod9.jpg";
-import Gallery22 from "../assets/image/pod10.jpg";
-import Gallery23 from "../assets/image/pod11.jpg";
-import Gallery24 from "../assets/image/pod12.jpg";
-import Gallery25 from "../assets/image/pod13.jpg";
-import Gallery126 from "../assets/image/pod14.jpg";
-import Gallery27 from "../assets/image/pod15.jpg";
-import Gallery28 from "../assets/image/pod16.jpg";
-import Gallery29 from "../assets/image/pod17.jpg";
-import Gallery30 from "../assets/image/pod18.jpg";
-import Gallery31 from "../assets/image/pod19.jpg";
-import Gallery32 from "../assets/image/pod20.jpg";
-import Gallery33 from "../assets/image/pod22.jpg";
-import Gallery34 from "../assets/image/pod23.jpg";
-import Gallery35 from "../assets/image/pod23.jpg";
-import Gallery36 from "../assets/image/chica1.webp";
-import Gallery37 from "../assets/image/chica2.webp";
-import Gallery38 from "../assets/image/chica3.webp";
-import Gallery39 from "../assets/image/chica4.webp";
-import Gallery40 from "../assets/image/chica5.webp";
-import Gallery41 from "../assets/image/chica6.webp";
-
-const images = [
-  Gallery1, Gallery2, Gallery3, Gallery7, Gallery8, Gallery9, Gallery10, Gallery11, Gallery12, 
-  Gallery13, Gallery14, Gallery15, Gallery16, Gallery17, Gallery18, Gallery19, Gallery20,
-  Gallery21, Gallery22, Gallery23, Gallery24, Gallery25, Gallery126, Gallery27, Gallery28,
-  Gallery29, Gallery30, Gallery31, Gallery32, Gallery33, Gallery34, Gallery35, Gallery36, Gallery37,
-  Gallery38, Gallery39, Gallery40, Gallery41
+const imageModules = import.meta.glob('../assets/image/*.{jpg,webp}', { eager: true, as: 'url' }) as Record<string, string>;
+const posterImg = imageModules['../assets/image/studio4.jpg'] as string;
+const carouselImages = [
+  imageModules['../assets/image/podcast1.jpg'] as string,
+  imageModules['../assets/image/pod1.jpg'] as string,
+  imageModules['../assets/image/pod6.jpg'] as string,
+  imageModules['../assets/image/podcast4.jpg'] as string,
+  imageModules['../assets/image/podcast5.jpg'] as string,
+  imageModules['../assets/image/pod18.jpg'] as string,
+  imageModules['../assets/image/chica1.webp'] as string,
+  imageModules['../assets/image/chica6.webp'] as string,
+  imageModules['../assets/image/chica2.webp'] as string,
+  imageModules['../assets/image/chica3.webp'] as string,
+  imageModules['../assets/image/chica4.webp'] as string,
+  imageModules['../assets/image/chica5.webp'] as string,
 ];
+const imageFiles = [
+  'podcast9.jpg', 'podcast10.jpg', 'podcast11.jpg', 'podcast12.jpg', 'podcast13.jpg',
+  'studio1.jpg', 'studio2.jpg', 'studio3.jpg',
+  'pod1.jpg', 'pod2.jpg', 'pod3.jpg', 'pod4.jpg', 'pod5.jpg',
+  'pod6.jpg', 'pod7.jpg', 'pod8.jpg', 'pod9.jpg', 'pod10.jpg',
+  'pod11.jpg', 'pod12.jpg', 'pod13.jpg', 'pod14.jpg', 'pod15.jpg',
+  'pod16.jpg', 'pod17.jpg', 'pod18.jpg', 'pod19.jpg', 'pod20.jpg',
+  'pod22.jpg', 'pod23.jpg',
+  'chica1.webp', 'chica2.webp', 'chica3.webp', 'chica4.webp', 'chica5.webp', 'chica6.webp'
+];
+const images = imageFiles.map((name) => imageModules[`../assets/image/${name}`] as string);
 ---
 
 <SpanishLayout title="Studio Podcast 2025">
@@ -66,7 +39,7 @@ const images = [
       <h2>Videos</h2>
       <div class="underline"></div>
       <div class="video-gallery">
-        <video controls width="300" preload="none" poster={Gallery12.src}>
+        <video controls width="300" preload="none" poster={posterImg}>
           <source src={Video1} type="video/mp4" />
         </video>
       </div>
@@ -75,18 +48,9 @@ const images = [
     <div class="underline"></div>
     <div id="carouselimg" class="carouselimg">
       <div id="carousel-track" class="carousel-track">
-        <img src={img1.src} alt="Imagen" />
-        <img src={img2.src} alt="Imagen" />
-        <img src={img3.src} alt="Imagen" />
-        <img src={img4.src} alt="Imagen" />
-        <img src={img5.src} alt="Imagen" />
-        <img src={img6.src} alt="Imagen" />
-        <img src={Gallery36.src} alt="Imagen" />
-        <img src={Gallery41.src} alt="Imagen" />
-        <img src={Gallery37.src} alt="Imagen" />
-        <img src={Gallery38.src} alt="Imagen" />
-        <img src={Gallery39.src} alt="Imagen" />
-        <img src={Gallery40.src} alt="Imagen" />
+        {carouselImages.map((src, index) => (
+          <img key={index} src={src} alt="Imagen" loading="lazy" decoding="async" width="400" height="500" />
+        ))}
       </div>
     </div>
   </section>
@@ -98,7 +62,7 @@ const images = [
       <div class="underline"></div>
       <div class="gallery-slider" id="gallerySlider">
         {images.map((image, index) => (
-          <img src={image.src} alt={`Imagen ${index + 1}`} />
+          <img src={image} alt={`Imagen ${index + 1}`} loading="lazy" decoding="async" width="600" height="550" />
         ))}
       </div>
       <div class="gallery-dots" id="galleryDots">
