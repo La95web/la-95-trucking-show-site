@@ -1,7 +1,14 @@
 ---
-const {titleA, titleB, Team2} = Astro.props;
+export const prerender = false;
+
+import SpanishLayout from "../layouts/SpanishLayout.astro";
+import Team2 from "../assets/image/headerla95.webp";
+import Footer from "../components/Footer.astro";
+import Academy from "../components/AcademyEnglish.astro";
+const {titleA, titleB} = Astro.props;
 ---
 
+<SpanishLayout title="academia de inglés">
 <header>
   <div class="content-header">
     <img src={Team2.src} alt="desktop image" class="desktop-image">
@@ -11,6 +18,22 @@ const {titleA, titleB, Team2} = Astro.props;
     </h1>
   </div>
 </header>
+  <Academy
+  link1="/trailers/"
+  link2="/tractors/"
+  link3="/documents/"
+  link4="/safety/"
+  link5="/noticias/"
+  navTips1="trailers"
+  navTips2="tractors"
+  navTips3="documentos"
+  navTips4="safety"
+  navTips5="noticias" />
+  <Footer />
+</SpanishLayout>
+<script>
+  import "../scripts/mainMenu.js";
+</script>
 
 <style lang="scss">
   @use '../assets/sass/index' as *;
@@ -38,7 +61,7 @@ const {titleA, titleB, Team2} = Astro.props;
     align-items: end;
     width: 100%;
     height: 100%;
-    background: linear-gradient(to bottom, rgba($primary, 30%), rgba($primary, 50%), rgba($primary, 100%));
+    background: none;
     margin: 0;
     font-family: $heading;
     font-weight: $regular;
