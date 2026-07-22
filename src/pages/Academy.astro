@@ -7,8 +7,6 @@ import Footer from "../components/Footer.astro";
 import Academy from "../components/AcademyEnglish.astro";
 
 const { titleA, titleB } = Astro.props;
-
-// Construimos la URL absoluta de la imagen para que WhatsApp la encuentre sin problemas
 const siteUrl = Astro.site ? Astro.site.origin : "https://la95truckingshow.com";
 const imageUrl = new URL(Team2.src, siteUrl).href;
 ---
@@ -16,8 +14,7 @@ const imageUrl = new URL(Team2.src, siteUrl).href;
 <SpanishLayout 
   ogTitle="Academia de Inglés - LA 95 Trucking Show" 
   ogDescription="Aprende inglés enfocado en la industria del transporte y trucking con la Academia de LA 95."
-  ogImage={imageUrl}
->
+  ogImage={imageUrl} >
   <header>
     <div class="content-header">
       <img src={Team2.src} alt="desktop image" class="desktop-image" />
@@ -27,7 +24,6 @@ const imageUrl = new URL(Team2.src, siteUrl).href;
       </h1>
     </div>
   </header>
-
   <Academy
     link1="/trailers/"
     link2="/tractors/"
@@ -40,10 +36,8 @@ const imageUrl = new URL(Team2.src, siteUrl).href;
     navTips4="safety"
     navTips5="noticias" 
   />
-
   <Footer />
 </SpanishLayout>
-
 <script>
   import "../scripts/mainMenu.js";
 </script>
