@@ -1,6 +1,6 @@
 ---
 export const prerender = false;
-import Team2 from "../../assets/image/tipDesk.webp";
+import Team2 from "../../assets/image/eltrailer.webp";
 import Footer from "../../components/Footer.astro";
 import TrailerTipsEn from "../../components/TrailerTips.astro";
 import HeaderNews from "../../components/HeaderNews.astro";
@@ -27,8 +27,7 @@ const lastArticle = articles
   ogImage={lastArticle?.thumbnail_url}
   ogUrl="https://la95truckingshow.com/en/trailerTips">
   <HeaderNews 
-  titleA="tips"
-  titleB="truckers"
+  titleB="trailers"
   Team2={Team2}/>
   <TrailerTipsEn
   language="en"
@@ -36,13 +35,13 @@ const lastArticle = articles
   link3="/en/documentsEn/"
   link4="/en/safetyEn/"
   link5="/en/news/"
-  navTips1="trailers"
+  link6="/Academy/"
   navTips2="tractors"
   navTips3="documents"
   navTips4="safety"
   navTips5="news"
+  navTips6="Academy"
   title="trailers"
-  paragraph="Here you will find suggestions for maintaining your trailer’s mechanics and essential tips for the road. Discover how to optimize your journey and keep your vehicle in perfect condition!"
   button="See more" />
   <Trailervideos language="en" />
   <Footer />
