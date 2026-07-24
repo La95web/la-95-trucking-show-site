@@ -1,5 +1,5 @@
 ---
-const { title, language = 'es', paragraph, button, navTips1, navTips2, navTips3, navTips4, navTips5, link1, link2, link3, link4, link5 } = Astro.props;
+const { title, language = 'es', paragraph, button, navTips1, navTips2, navTips3, navTips4, navTips5, navTips6, link1, link2, link3, link4, link5, link6 } = Astro.props;
 import formatDate from "../scripts/formatDate";
 
 const linkifyText = (text = "") => {
@@ -34,6 +34,7 @@ const articles = await fetch(import.meta.env.PUBLIC_API_BASE_URL.concat('trailer
       <li><a href={link3}>{navTips3}</a></li>
       <li><a href={link4}>{navTips4}</a></li>
       <li><a href={link5}>{navTips5}</a></li>
+      <li><a href={link6}>{navTips6}</a></li>
     </ul>
   </nav>
   <div class="section-input">
@@ -93,7 +94,7 @@ const articles = await fetch(import.meta.env.PUBLIC_API_BASE_URL.concat('trailer
     display: flex;
     flex-direction: column;
     justify-content: center;
-    align-items: center;
+    align-items: left;
     margin: 0 5%;
     .underline {
       margin: 0;

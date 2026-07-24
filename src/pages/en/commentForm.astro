@@ -3,16 +3,27 @@ import EnglishLayout from "../../layouts/EnglishLayout.astro";
 import Footer from "../../components/Footer.astro";
 ---
 
-<EnglishLayout title="Comentarios">
+<EnglishLayout
+  ogTitle="La 95 Trucking Show Forum"
+  ogDescription="You have ideas for new episodes, tips for life on the road, or questions you want to share with other truckers"
+  ogImage="https://la95truckingshow.com/forum.jpg"
+  ogUrl="https://la95truckingshow.com/commentForm">
   <section> 
-    <h2>Write an opinion, suggestions, information</h2>
+    <h2>Write a comment, suggestions, or information</h2>
     <div class="underline"></div>
-    <form id="comment-form">
-      <input type="text" name="name" placeholder="Your name" required />
-      <input type="email" name="email" placeholder="Your email" required />
+    <p>Log in to be able to write your opinion and participate in the forum.</p>
+    <div id="login-section" class="center-button">
+      <a href="https://la-95-jobs-api-production.up.railway.app/auth/google" class="login-btn">
+        <img src="https://www.gstatic.com/firebasejs/ui/2.0.0/images/auth/google.svg" 
+            alt="Google" width="20" height="20">
+        Log in with Google
+      </a>
+    </div>
+    <form id="comment-form" style="display:none;">
       <textarea name="comment" placeholder="Write your comment..." required></textarea>
-      <button type="submit">Send</button>
+      <button type="submit">Submit</button>
     </form>
+    <div id="user-info" style="display:none;"></div>
     <div id="comments-container">
       <!-- Aquí se mostrarán los comentarios en tiempo real -->
     </div>
@@ -21,11 +32,45 @@ import Footer from "../../components/Footer.astro";
 </EnglishLayout>
 <script>
   import "../../scripts/mainMenu.js";
-  import "../../scripts/saveData/CommentForm"
+  import "../../scripts/saveData/CommentForm.js"
 </script>
 
 <style lang="scss">
   @use "../../assets/sass/index" as *;
+
+  .center-button {
+    display: flex;
+    justify-content: center;
+    margin: 20px auto;
+    width: 100%;
+  }
+
+  .login-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    background: #ffffff;
+    color: #444;
+    border: 1px solid #dadce0;
+    padding: 10px 18px;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: 500;
+    cursor: pointer;
+    text-decoration: none;
+    transition: 0.2s ease-in-out;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+  }
+
+  .login-btn:hover {
+    background: #f7f7f7;
+    transform: translateY(-2px);
+    box-shadow: 0 3px 8px rgba(0,0,0,0.15);
+  }
+
+  .login-btn:active {
+    transform: scale(0.97);
+  }
 
   section {
     position: relative;
@@ -36,6 +81,13 @@ import Footer from "../../components/Footer.astro";
       url("../../assets/image/Pentagonos.png");
     background-repeat: no-repeat, repeat; 
     background-attachment: fixed, fixed;
+
+    a{
+      margin: 30px 0;
+    }
+    p {
+      text-align: center;
+    }
   }
   h2 {
     text-align: center;
@@ -92,4 +144,5 @@ import Footer from "../../components/Footer.astro";
       background-size: 90%, auto, auto; 
     }
    }
+
 </style>

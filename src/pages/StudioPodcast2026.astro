@@ -1,52 +1,56 @@
 ---
 import SpanishLayout from "../layouts/SpanishLayout.astro";
 import Footer from "../components/Footer.astro";
-import img1 from "../assets/image/podcast1.jpg";
-import img2 from "../assets/image/podcast2.jpg";
-import img3 from "../assets/image/podcast3.jpg";
-import img4 from "../assets/image/podcast4.jpg";
-import img5 from "../assets/image/podcast5.jpg";
-import img6 from "../assets/image/podcast6.jpg";
-import img7 from "../assets/image/podcast7.jpg";
-import img8 from "../assets/image/podcast8.jpg";
+import Video1 from "../assets/image/videpodcast.mp4";
 import Left from "../assets/image/left.png";
 import Right from "../assets/image/right.png";
-import Gallery1 from "../assets/image/podcast9.jpg";
-import Gallery2 from "../assets/image/podcast10.jpg";
-import Gallery3 from "../assets/image/podcast11.jpg";
-import Gallery7 from "../assets/image/podcast12.jpg";
-import Gallery8 from "../assets/image/podcast13.jpg";
-const images = [
-  Gallery1, Gallery2, Gallery3, Gallery7, Gallery8
+const imageModules = import.meta.glob('../assets/image/*.{jpg,webp}', { eager: true, as: 'url' }) as Record<string, string>;
+const posterImg = imageModules['../assets/image/studio4.jpg'] as string;
+const carouselImages = [
+  imageModules['../assets/image/podcast1.jpg'] as string,
+  imageModules['../assets/image/pod1.jpg'] as string,
+  imageModules['../assets/image/pod6.jpg'] as string,
+  imageModules['../assets/image/podcast4.jpg'] as string,
+  imageModules['../assets/image/podcast5.jpg'] as string,
+  imageModules['../assets/image/pod18.jpg'] as string,
+  imageModules['../assets/image/chica1.webp'] as string,
+  imageModules['../assets/image/chica6.webp'] as string,
+  imageModules['../assets/image/chica2.webp'] as string,
+  imageModules['../assets/image/chica3.webp'] as string,
+  imageModules['../assets/image/chica4.webp'] as string,
+  imageModules['../assets/image/chica5.webp'] as string,
 ];
+const imageFiles = [
+  'podcast9.jpg', 'podcast10.jpg', 'podcast11.jpg', 'podcast12.jpg', 'podcast13.jpg',
+  'studio1.jpg', 'studio2.jpg', 'studio3.jpg',
+  'pod1.jpg', 'pod2.jpg', 'pod3.jpg', 'pod4.jpg', 'pod5.jpg',
+  'pod6.jpg', 'pod7.jpg', 'pod8.jpg', 'pod9.jpg', 'pod10.jpg',
+  'pod11.jpg', 'pod12.jpg', 'pod13.jpg', 'pod14.jpg', 'pod15.jpg',
+  'pod16.jpg', 'pod17.jpg', 'pod18.jpg', 'pod19.jpg', 'pod20.jpg',
+  'pod22.jpg', 'pod23.jpg',
+  'chica1.webp', 'chica2.webp', 'chica3.webp', 'chica4.webp', 'chica5.webp', 'chica6.webp'
+];
+const images = imageFiles.map((name) => imageModules[`../assets/image/${name}`] as string);
 ---
 
 <SpanishLayout title="Studio Podcast 2025">
  <section>
-    <!-- <div>
+    <div>
       <h2>Videos</h2>
       <div class="underline"></div>
       <div class="video-gallery">
-        <video controls width="300" preload="none" poster={img1.src}>
+        <video controls width="300" preload="none" poster={posterImg}>
           <source src={Video1} type="video/mp4" />
         </video>
-        <video controls width="300" preload="none" poster={img3.src}>
-          <source src={Video2} type="video/mp4" />
-        </video>
       </div>
-    </div> -->
+    </div>
     <h2>Imagenes destacadas</h2>
     <div class="underline"></div>
     <div id="carouselimg" class="carouselimg">
       <div id="carousel-track" class="carousel-track">
-        <img src={img1.src} alt="Imagen" />
-        <img src={img2.src} alt="Imagen" />
-        <img src={img3.src} alt="Imagen" />
-        <img src={img4.src} alt="Imagen" />
-        <img src={img5.src} alt="Imagen" />
-        <img src={img6.src} alt="Imagen" />
-        <img src={img7.src} alt="Imagen" />
-        <img src={img8.src} alt="Imagen" />
+        {carouselImages.map((src, index) => (
+          <img key={index} src={src} alt="Imagen" loading="lazy" decoding="async" width="400" height="500" />
+        ))}
       </div>
     </div>
   </section>
@@ -58,7 +62,7 @@ const images = [
       <div class="underline"></div>
       <div class="gallery-slider" id="gallerySlider">
         {images.map((image, index) => (
-          <img src={image.src} alt={`Imagen ${index + 1}`} />
+          <img src={image} alt={`Imagen ${index + 1}`} loading="lazy" decoding="async" width="600" height="550" />
         ))}
       </div>
       <div class="gallery-dots" id="galleryDots">
@@ -79,7 +83,7 @@ const images = [
     track.innerHTML += track.innerHTML;
 
     let position = 0;
-    const speed = 1.4; // Ajusta la velocidad
+    const speed = 1.1; // Ajusta la velocidad
 
     function moverCarrusel() {
       position -= speed;

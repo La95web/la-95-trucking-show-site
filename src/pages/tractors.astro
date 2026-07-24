@@ -2,7 +2,7 @@
 export const prerender = false;
 
 import SpanishLayout from "../layouts/SpanishLayout.astro";
-import Team2 from "../assets/image/tipDesk.webp";
+import Team2 from "../assets/image/peterbilt.webp";
 import Footer from "../components/Footer.astro";
 import TractorTips from "../components/TractorTips.astro";
 import HeaderNews from "../components/HeaderNews.astro";
@@ -28,7 +28,7 @@ const lastArticle = articles
   ogImage={lastArticle?.thumbnail_url}
   ogUrl="https://la95truckingshow.com/tractors">
   <HeaderNews 
-  titleB="recomendaciones"
+  titleB="tractor"
   Team2={Team2}/>
   <TractorTips
   link1="/trailers/"
@@ -36,14 +36,15 @@ const lastArticle = articles
   link3="/documents/"
   link4="/safety/"
   link5="/noticias/"
+  link6="/Academy/"
   navTips5="/noticias/"
   navTips1="trailers"
-  navTips2="tractors"
+  navTips2=""
   navTips3="documentos"
   navTips4="safety"
   navTips5="noticias"
+  navTips6="Academia"
   title="tractors"
-  paragraph="Aqui ira todo acerca de los tractors!"
   button="ver más" />
   <Tractorvideo language="es" />
   <Footer />

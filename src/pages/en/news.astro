@@ -1,7 +1,7 @@
 ---
 export const prerender = false;
 
-import Team2 from "../../assets/image/tipDesk.webp";
+import Team2 from "../../assets/image/lanoticia.webp";
 import Footer from "../../components/Footer.astro";
 import Allnews from "../../components/Allnews.astro";
 import HeaderNews from "../../components/HeaderNews.astro";
@@ -28,21 +28,21 @@ const lastArticle = articles
   ogImage={lastArticle?.thumbnail_url}
   ogUrl="https://la95truckingshow.com/en/news">
   <HeaderNews 
-  titleA="tips"
-  titleB="truckers"
+  titleB="breaking news"
   Team2={Team2}/>
   <Allnews
   link1="/en/trailerTips/"
   link2="/en/tractorsEn/"
   link3="/en/documentsEn/"
   link4="/en/safetyEn/"
+  link6="/Academy/"
   navTips1="trailers"
   navTips2="tractors"
   navTips3="documents"
   navTips4="safety"
+  navTips6="Academy"
   title="news"
   language="en"
-  paragraph="Here you can find the latest news and updates from the world of transportation and logistics. Stay informed about trends, regulations, and important events affecting truckers and the industry as a whole."
   button="See more" />
   <Allnewsvideo language="en" />
   <Footer />
@@ -50,5 +50,5 @@ const lastArticle = articles
 <script>
   import "../../scripts/mainMenu.js";
   import "../../scripts/SearchNews.js"
-  import "../../scripts/toggleReadMore.js";
+  import "../../scripts/toggleReadMoreEnglish.js";
 </script>
