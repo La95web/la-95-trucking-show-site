@@ -129,34 +129,34 @@ const { navTips1, navTips2, navTips3, navTips4, navTips5, link1, link2, link3, l
 		box-sizing: border-box;
   }
 
-body {
-  min-height: 100vh;
-  position: relative;
-  /* Evitamos desbordamientos no deseados */
-  overflow-x: hidden;
-}
+	body {
+		min-height: 100vh;
+		position: relative;
+		/* Evitamos desbordamientos no deseados */
+		overflow-x: hidden;
+	}
 
-/* Fondo fijo simulado con alto de viewport estable */
-body::before {
-  content: "";
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100vw;
-  height: 100vh;
-  /* Usamos height: 100dvh para navegadores modernos o 100vh estable */
-  height: 100dvh; 
-  z-index: -1;
+	/* Fondo fijo simulado con alto de viewport estable */
+	body::before {
+		content: "";
+		position: fixed;
+		top: 0;
+		left: 0;
+		width: 100vw;
+		height: 100vh;
+		/* Usamos height: 100dvh para navegadores modernos o 100vh estable */
+		height: 100dvh; 
+		z-index: -1;
 
-  background-image: url("../assets/image/carretera.webp");
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
+		background-image: url("../assets/image/carretera.webp");
+		background-size: cover;
+		background-position: center;
+		background-repeat: no-repeat;
 
-  /* IMPORTANTE: Evita recalcular o distorsionar al hacer scroll */
-  will-change: transform;
-  pointer-events: none;
-}
+		/* IMPORTANTE: Evita recalcular o distorsionar al hacer scroll */
+		will-change: transform;
+		pointer-events: none;
+	}
 
   nav ul{
     display: flex;
