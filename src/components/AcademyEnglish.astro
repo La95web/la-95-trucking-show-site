@@ -116,14 +116,11 @@ const { navTips1, navTips2, navTips3, navTips4, navTips5, link1, link2, link3, l
   const submitBtn = document.getElementById('submitBtn');
   const redirectUrl = '/Academypayments';
 
-  // NOTA: Asegúrate de cambiar esta URL por el endpoint real de tu API en Rails
-  // Por ejemplo: 'https://la-95-trucking-show-api-production.up.railway.app/v1/academy_registrations'
   const API_URL = 'https://la-95-trucking-show-api-production.up.railway.app/v1/academy_registrations';
 
   form.addEventListener('submit', async (event) => {
       event.preventDefault();
 
-      // Guardar el texto original del botón para restaurarlo si hay un error
       const originalBtnText = submitBtn.innerHTML;
       
       // Estado de carga
@@ -193,7 +190,6 @@ const { navTips1, navTips2, navTips3, navTips4, navTips5, link1, link2, link3, l
 		overflow-x: hidden;
 	}
 
-	/* Fondo fijo simulado con alto de viewport estable */
 	body::before {
 		content: "";
 		position: fixed;
@@ -201,7 +197,6 @@ const { navTips1, navTips2, navTips3, navTips4, navTips5, link1, link2, link3, l
 		left: 0;
 		width: 100vw;
 		height: 100vh;
-		/* Usamos height: 100dvh para navegadores modernos o 100vh estable */
 		height: 100dvh; 
 		z-index: -1;
 
@@ -209,8 +204,6 @@ const { navTips1, navTips2, navTips3, navTips4, navTips5, link1, link2, link3, l
 		background-size: cover;
 		background-position: center;
 		background-repeat: no-repeat;
-
-		/* IMPORTANTE: Evita recalcular o distorsionar al hacer scroll */
 		will-change: transform;
 		pointer-events: none;
 	}
@@ -320,8 +313,6 @@ const { navTips1, navTips2, navTips3, navTips4, navTips5, link1, link2, link3, l
 
   .title-part-1 { color: var(--white); font-style: italic; }
   .title-part-2 { color: var(--gold); font-style: italic; }
-
-  /* Cuadrícula de Iconos (GRID para 2x2 en móvil, 4x1 en escritorio) */
   .icon-grid {
 		display: grid;
 		grid-template-columns: repeat(2, 1fr);
@@ -360,11 +351,9 @@ const { navTips1, navTips2, navTips3, navTips4, navTips5, link1, link2, link3, l
 		font-weight: bold;
   }
 
-  .icon-box:first-child .icon-svg { fill: var(--gold); } /* Escudo dorado */
-  .icon-box:not(:first-child) .icon-svg { fill: var(--white); } /* El resto blancos */
-  .icon-box:first-child .icon-box-title { color: var(--gold); } /* Título dorado en el primero */
-
-  /* Barra Inferior (FLEX para los tres elementos) */
+  .icon-box:first-child .icon-svg { fill: var(--gold); } 
+  .icon-box:not(:first-child) .icon-svg { fill: var(--white); } 
+  .icon-box:first-child .icon-box-title { color: var(--gold); } 
   .bottom-banner {
 		display: flex;
 		flex-direction: column;
