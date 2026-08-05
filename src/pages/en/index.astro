@@ -24,6 +24,7 @@ import imageJ from "../../assets/image/hddah.png";
 import imageK from "../../assets/image/loyalty.png";
 import imageL from "../../assets/image/onhand.png";
 import imageM from "../../assets/image/law.png";
+import headerPromo from "../../assets/image/headerla95.webp";
 ---
 
 <EnglishLayout
@@ -186,13 +187,24 @@ import imageM from "../../assets/image/law.png";
       <!-- Agrega más content-box según necesites -->
     </div>
   </section>
+    <!-- Modal de promoción -->
+  <div id="promoModal" class="promo-modal">
+  <div class="promo-modal__backdrop"></div>
+  <div class="promo-modal__content">
+    <button class="promo-modal__close" type="button" aria-label="Cerrar modal">×</button>
+    <img src={headerPromo.src} alt="Promoción La 95" class="promo-modal__image" />
+    <p class="promo-modal__text">Tú ingles comienza aquí</p>
+    <a href="/Academy" class="promo-modal__button">comenzar aquí</a>
+  </div>
+</div>
   <Footer />
 </EnglishLayout>
 <script>
 	import "../../scripts/mainMenu.js";
   import "../../scripts/modal.js";
   import "../../scripts/saveData/Drivers.js";
-  import "../../scripts/saveData/TruckBuyer.js"
+  import "../../scripts/saveData/TruckBuyer.js";
+  import "../../scripts/modalpromotion.js";
 </script>
 
 <style lang="scss">
@@ -261,6 +273,67 @@ import imageM from "../../assets/image/law.png";
     color: $secondary;
     transition: color 0.3s ease;
   }
+
+  // modal promotion
+  .promo-modal {
+    display: none;
+    position: fixed;
+    inset: 0;
+    justify-content: center;
+    align-items: center;
+    z-index: 999;
+    background: rgba(0, 0, 0, 0.7);
+    padding: 1rem;
+  }
+
+  .promo-modal--open {
+    display: flex;
+  }
+
+  .promo-modal__content {
+    position: relative;
+    width: min(560px, 100%);
+    background: #111;
+    border-radius: 1rem;
+    overflow: hidden;
+    text-align: center;
+  }
+
+  .promo-modal__close {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    font-size: 2rem;
+    color: #fff;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+  }
+
+  .promo-modal__image {
+    width: 100%;
+    display: block;
+    object-fit: cover;
+  }
+
+  .promo-modal__text {
+    margin: 1rem 0 0.5rem;
+    color: #fff;
+    font-size: 1.1rem;
+  }
+
+  .promo-modal__button {
+    display: inline-block;
+    margin: 0 0 1.5rem;
+    padding: 0.9rem 1.8rem;
+    background: #f0c000;
+    color: #000;
+    border-radius: 999px;
+    text-decoration: none;
+    font-weight: 700;
+  }
+
+  //end modal styles
 
   @media (min-width: 768px) {
     .companies-grid {
