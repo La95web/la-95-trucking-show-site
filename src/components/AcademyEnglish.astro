@@ -56,6 +56,9 @@ const { navTips1, navTips2, navTips3, navTips4, navTips5, link1, link2, link3, l
   </div>
 
   <form class="form-column" id="registrationForm">
+    <!-- Campo oculto para almacenar el token de reCAPTCHA -->
+    <input type="hidden" id="recaptcha_token" name="recaptcha_token">
+
     <div class="form-header">
         <svg class="header-icon" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 3c1.66 0 3 1.34 3 3s-1.34 3-3 3-3-1.34-3-3 1.34-3 3-3zm0 14.2c-2.5 0-4.71-1.28-6-3.22.03-1.99 4-3.08 6-3.08 1.99 0 5.97 1.09 6 3.08-1.29 1.94-3.5 3.22-6 3.22z"/></svg>
         <div class="header-text">
@@ -111,12 +114,16 @@ const { navTips1, navTips2, navTips3, navTips4, navTips5, link1, link2, link3, l
   </form>
 </div>
 
+<!-- reCAPTCHA v3 script (misma Site Key que en contacto) -->
+<script src="https://www.google.com/recaptcha/api.js?render=6Ld3KPQsAAAAANCDNoShvUGIJfLAD5tTcFp_vJQq"></script>
+
 <script>
   const form = document.getElementById('registrationForm');
   const submitBtn = document.getElementById('submitBtn');
   const redirectUrl = '/Academypayments';
 
   const API_URL = 'https://la-95-trucking-show-api-production.up.railway.app/v1/academy_registrations';
+  const RECAPTCHA_SITE_KEY = '6Ld3KPQsAAAAANCDNoShvUGIJfLAD5tTcFp_vJQq';
 
   form.addEventListener('submit', async (event) => {
       event.preventDefault();
@@ -127,15 +134,19 @@ const { navTips1, navTips2, navTips3, navTips4, navTips5, link1, link2, link3, l
       submitBtn.innerHTML = 'Procesando...';
       submitBtn.disabled = true;
 
-      const payload = {
-          full_name: form.fullname.value,
-          email: form.email.value,
-          phone: form.phone.value,
-          has_cdl: form.hascdl.value,
-          driving_experience: form.drivingexperience.value
-      };
-
       try {
+          // 1. Generar token de reCAPTCHA especificando la acción 'academy_registration'
+          const token = await grecaptcha.execute(RECAPTCHA_SITE_KEY, { action: 'academy_registration' });
+
+          const payload = {
+              full_name: form.fullname.value,
+              email: form.email.value,
+              phone: form.phone.value,
+              has_cdl: form.hascdl.value,
+              driving_experience: form.drivingexperience.value,
+              recaptcha_token: token
+          };
+
           const response = await fetch(API_URL, {
               method: 'POST',
               headers: { 'Content-Type': 'application/json' },
@@ -143,22 +154,18 @@ const { navTips1, navTips2, navTips3, navTips4, navTips5, link1, link2, link3, l
           });
 
           if (response.ok) {
-              // Si la petición es exitosa, redirigir a la página de pagos
               window.location.href = redirectUrl;
           } else {
-              // Si el servidor responde con error (ej. 400 o 500)
               const result = await response.json();
               alert('❌ Error al procesar tu registro: ' + (result.message || 'Intenta de nuevo.'));
               
-              // Restaurar botón
               submitBtn.innerHTML = originalBtnText;
               submitBtn.disabled = false;
           }
       } catch (err) {
-          console.error('Error de red:', err);
+          console.error('Error de red/reCAPTCHA:', err);
           alert('⚠️ Hubo un problema de conexión. Por favor revisa tu internet e intenta de nuevo.');
           
-          // Restaurar botón
           submitBtn.innerHTML = originalBtnText;
           submitBtn.disabled = false;
       }
