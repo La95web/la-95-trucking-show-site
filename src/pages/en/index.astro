@@ -24,6 +24,7 @@ import imageJ from "../../assets/image/hddah.png";
 import imageK from "../../assets/image/loyalty.png";
 import imageL from "../../assets/image/onhand.png";
 import imageM from "../../assets/image/law.png";
+import headerPromo from "../../assets/image/headerla95.webp";
 ---
 
 <EnglishLayout
@@ -40,7 +41,7 @@ import imageM from "../../assets/image/law.png";
     title1="Subscribe and enjoy exclusive Discounts"
     text1="Insurance Agency Corporate Discounts"
     text2="Truck Sales – Discounts by Company"
-    text3="Find Exclusive Discounts for Driving Schools"
+    text3="Discover Discounts from viva wellness life"
     text4="Discounts from Compliance Companies"
     text5="Discover exclusive Discounts for your truck"
     text6="Explore special Discounts on tow and boom truck services"
@@ -63,7 +64,7 @@ import imageM from "../../assets/image/law.png";
     cell1="companies"
     cell2="discounts"
     offer1="Get a Free Consultation"
-    offer2="5% off package most be paid in full for discount apply"
+    offer2="Get $100 off your first appointment."
     offer3="Comprehensive Review (Safety Score), Compliance Evaluation, Company Assessment. All completely free."
     offer4="Customers receive $50 OFF every oil change. Yes — $50 discount on each oil change."
     offer5="Subscribe today and unlock 8% off all services!"
@@ -144,10 +145,6 @@ import imageM from "../../assets/image/law.png";
         <a href="https://www.instagram.com/njtruckers/" target="_blank">nj truckers services corp</a>
       </div>
       <div class="content-box">
-        <img src={imageC.src} alt="logo">
-        <a href="https://www.instagram.com/newyorkcommericaldrivingschool/" target="_blank">NEW YORK commercial driving school</a>
-      </div>
-      <div class="content-box">
         <img src={imageE.src} alt="logo">
         <a href="https://www.instagram.com/omegainsurance_agency/" target="_blank">omega insurance agency</a>
       </div>
@@ -176,23 +173,34 @@ import imageM from "../../assets/image/law.png";
         <a href="https://www.instagram.com/loyaltytransportcorp/" target="_blank">loyalty transport corp newark, nj</a>
       </div>
       <div class="content-box">
-        <img src={imageL.src} alt="logo">
-        <a href="https://www.ohdistribution.com/" target="_blank">on hand distribution</a>
-      </div>
-      <div class="content-box">
         <img src={imageM.src} alt="logo">
         <a href="https://wa.me/+12016869538" target="_blank">hackensack criminal lawyer</a>
+      </div>
+      <div class="content-box">
+        <img src={imageL.src} alt="logo">
+        <a href="https://vivawellnesslife.com" target="_blank">viva wellness life</a>
       </div>
       <!-- Agrega más content-box según necesites -->
     </div>
   </section>
+    <!-- Modal de promoción -->
+  <div id="promoModal" class="promo-modal">
+  <div class="promo-modal__backdrop"></div>
+  <div class="promo-modal__content">
+    <button class="promo-modal__close" type="button" aria-label="Cerrar modal">×</button>
+    <img src={headerPromo.src} alt="Promoción La 95" class="promo-modal__image" />
+    <p class="promo-modal__text">Tú ingles comienza aquí</p>
+    <a href="/Academy" class="promo-modal__button">comenzar aquí</a>
+  </div>
+</div>
   <Footer />
 </EnglishLayout>
 <script>
 	import "../../scripts/mainMenu.js";
   import "../../scripts/modal.js";
   import "../../scripts/saveData/Drivers.js";
-  import "../../scripts/saveData/TruckBuyer.js"
+  import "../../scripts/saveData/TruckBuyer.js";
+  import "../../scripts/modalpromotion.js";
 </script>
 
 <style lang="scss">
@@ -261,6 +269,67 @@ import imageM from "../../assets/image/law.png";
     color: $secondary;
     transition: color 0.3s ease;
   }
+
+  // modal promotion
+  .promo-modal {
+    display: none;
+    position: fixed;
+    inset: 0;
+    justify-content: center;
+    align-items: center;
+    z-index: 999;
+    background: rgba(0, 0, 0, 0.7);
+    padding: 1rem;
+  }
+
+  .promo-modal--open {
+    display: flex;
+  }
+
+  .promo-modal__content {
+    position: relative;
+    width: min(560px, 100%);
+    background: #111;
+    border-radius: 1rem;
+    overflow: hidden;
+    text-align: center;
+  }
+
+  .promo-modal__close {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    font-size: 2rem;
+    color: #fff;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+  }
+
+  .promo-modal__image {
+    width: 100%;
+    display: block;
+    object-fit: cover;
+  }
+
+  .promo-modal__text {
+    margin: 1rem 0 0.5rem;
+    color: #fff;
+    font-size: 1.1rem;
+  }
+
+  .promo-modal__button {
+    display: inline-block;
+    margin: 0 0 1.5rem;
+    padding: 0.9rem 1.8rem;
+    background: #f0c000;
+    color: #000;
+    border-radius: 999px;
+    text-decoration: none;
+    font-weight: 700;
+  }
+
+  //end modal styles
 
   @media (min-width: 768px) {
     .companies-grid {
