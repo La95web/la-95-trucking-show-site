@@ -2,10 +2,14 @@
 import SpanishLayout from "../layouts/SpanishLayout.astro";
 import Footer from "../components/Footer.astro";
 import Video1 from "../assets/image/videpodcast.mp4";
+import Video2 from "../assets/image/vi1.mp4";
+import Video3 from "../assets/image/vi2.mp4";
 import Left from "../assets/image/left.png";
 import Right from "../assets/image/right.png";
 const imageModules = import.meta.glob('../assets/image/*.{jpg,webp}', { eager: true, as: 'url' }) as Record<string, string>;
 const posterImg = imageModules['../assets/image/studio4.jpg'] as string;
+const posterImg2 = imageModules['../assets/image/cabina22.jpg'] as string;
+const posterImg3 = imageModules['../assets/image/cabina11.jpg'] as string;
 const carouselImages = [
   imageModules['../assets/image/podcast1.jpg'] as string,
   imageModules['../assets/image/pod1.jpg'] as string,
@@ -28,12 +32,15 @@ const imageFiles = [
   'pod11.jpg', 'pod12.jpg', 'pod13.jpg', 'pod14.jpg', 'pod15.jpg',
   'pod16.jpg', 'pod17.jpg', 'pod18.jpg', 'pod19.jpg', 'pod20.jpg',
   'pod22.jpg', 'pod23.jpg',
-  'chica1.webp', 'chica2.webp', 'chica3.webp', 'chica4.webp', 'chica5.webp', 'chica6.webp'
+  'chica1.webp', 'chica2.webp', 'chica3.webp', 'chica4.webp', 'chica5.webp', 'chica6.webp', 'cabina1.jpg', 'cabina2.jpg',
+  'cabina3.jpg', 'cabina4.jpg', 'cabina5.jpg', 'cabina6.jpg', 'cabina7.jpg', 'cabina8.jpg', 'cabina9.jpg',
+  'cabina10.jpg', 'cabina11.jpg', 'cabina12.jpg', 'cabina13.jpg', 'cabina14.jpg', 'cabina15.jpg',
+  'cabina16.jpg', 'cabina17.jpg', 'cabina18.jpg', 'cabina19.jpg', 'cabina20.jpg', 'cabina21.jpg'
 ];
 const images = imageFiles.map((name) => imageModules[`../assets/image/${name}`] as string);
 ---
 
-<SpanishLayout title="Studio Podcast 2025">
+<SpanishLayout title="Studio Podcast 2026">
  <section>
     <div>
       <h2>Videos</h2>
@@ -41,6 +48,12 @@ const images = imageFiles.map((name) => imageModules[`../assets/image/${name}`] 
       <div class="video-gallery">
         <video controls width="300" preload="none" poster={posterImg}>
           <source src={Video1} type="video/mp4" />
+        </video>
+              <video controls width="300" preload="none" poster={posterImg3}>
+          <source src={Video2} type="video/mp4" />
+        </video>
+        <video controls width="300" preload="none" poster={posterImg2}>
+          <source src={Video3} type="video/mp4" />
         </video>
       </div>
     </div>
