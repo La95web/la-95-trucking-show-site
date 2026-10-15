@@ -64,10 +64,10 @@ const distpacher = await fetch(import.meta.env.PUBLIC_API_BASE_URL.concat('distp
           </div>
           <div class="content-block">
             <p><strong>{data1}</strong> {distpacher.location}</p>
-            <p><strong>{data2}</strong> {distpacher.salary}</p>
+            {/* <p><strong>{data2}</strong> {distpacher.salary}</p>
             <p><strong>{data3}</strong> {distpacher.experience}</p>
             <p><strong>{data4}</strong> {distpacher.requirements}</p>
-            <p><strong>{data5}</strong> {distpacher.qualities}</p>
+            <p><strong>{data5}</strong> {distpacher.qualities}</p> */}
           </div>
           <form id={`contact-form-${distpacher.id}`} data-company={distpacher.company}>
             <div class="row">
@@ -103,8 +103,8 @@ document.addEventListener('DOMContentLoaded', function () {
         const name = form.name.value;
         const lastName = form.lastName.value;
         const company = form.dataset.company; 
-        const mensaje = `Hola, mi nombre es ${name} ${lastName}, escribo desde la 95 trucking show. Estoy interesado en la vacante de ${company}.`;
-        const url = `https://wa.me/+12015984639?text=${encodeURIComponent(mensaje)}`;
+        const mensaje = `Hola, mi nombre es ${name} ${lastName}, escribo desde la 95 trucking show. Estoy interesado en el curso de ${company}.`;
+        const url = `https://wa.me/+14076809356?text=${encodeURIComponent(mensaje)}`;
         window.open(url, '_blank');
       } else {
         form.reportValidity();
